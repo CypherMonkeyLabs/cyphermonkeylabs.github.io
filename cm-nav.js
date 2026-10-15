@@ -94,7 +94,7 @@ const LABS = [
 ];
 const DEFAULTS = {
   "home": "https://cyphermonkeylabs.com/",
-  "contact": "mailto:research@cyphermonkeylabs.com"
+  "contact": "https://github.com/CypherMonkeyLabs/cyphermonkeylabs.github.io/issues/new"
 };
 
 const THEMES = {

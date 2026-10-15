@@ -46,6 +46,37 @@ export function mountFallback(container, labs, layout, theme) {
     orbit.style.animationDuration = `${60 + index * 30}s`;
   });
 
+  const starfield = el('g', { class: 'cml-starfield', opacity: '0.9' }, svg);
+  let seed = 17;
+  for (let i = 0; i < 96; i += 1) {
+    seed = (seed * 16807) % 2147483647;
+    const x = seed % 1200;
+    seed = (seed * 16807) % 2147483647;
+    const y = seed % 800;
+    seed = (seed * 16807) % 2147483647;
+    const radius = ((seed % 3) * 0.45 + 0.55).toFixed(2);
+    el('circle', {
+      cx: String(x),
+      cy: String(y),
+      r: radius,
+      fill: theme.stars[i % theme.stars.length],
+    }, starfield);
+  }
+
+  const belt = el('g', { class: 'cml-gem-belt' }, svg);
+  for (let i = 0; i < 16; i += 1) {
+    const angle = (i / 16) * Math.PI * 2;
+    const x = 600 + Math.cos(angle) * 250;
+    const y = 430 + Math.sin(angle) * 92;
+    el('polygon', {
+      points: `${x.toFixed(1)},${(y - 7).toFixed(1)} ${(x + 5).toFixed(1)},${y.toFixed(1)} ${x.toFixed(1)},${(y + 7).toFixed(1)} ${(x - 5).toFixed(1)},${y.toFixed(1)}`,
+      fill: theme.nebula[i % theme.nebula.length],
+      stroke: theme.stars[0],
+      'stroke-width': '0.6',
+      opacity: '0.95',
+    }, belt);
+  }
+
   el('circle', { cx: '600', cy: '430', r: '46', fill: 'url(#cml-star)' }, svg);
   el('circle', { cx: '600', cy: '430', r: '16', fill: theme.starEmissive }, svg);
 

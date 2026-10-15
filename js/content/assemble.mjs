@@ -28,7 +28,7 @@ function applySettings(settings) {
   if (!settings || typeof settings !== "object") return;
   const html = document.documentElement;
   const media = (query) => window.matchMedia(query).matches;
-  let theme = settings.theme || html.dataset.theme || "dawn";
+  let theme = settings.theme || html.dataset.theme || "starlight";
   if (theme === "system") theme = media("(prefers-color-scheme: dark)") ? "starlight" : "dawn";
   let motion = settings.motion || html.dataset.motion || "system";
   if (motion === "system") motion = media("(prefers-reduced-motion: reduce)") ? "reduce" : "full";
@@ -296,7 +296,7 @@ async function mountOptional(packs) {
     }
   }
   if (typeof trust?.mountContact === "function") {
-    const contactRoot = document.querySelector("#contact-panel");
+    const contactRoot = document.querySelector("#contact-root") || document.querySelector("#contact-panel");
     if (contactRoot) {
       const snapshot = contactRoot.innerHTML;
       try {
@@ -319,11 +319,13 @@ async function mountOptional(packs) {
       }
     }
   }
+  let universeApi = null;
   if (typeof universe?.mountUniverse === "function") {
     const canvas = document.querySelector("#universe-canvas");
     try {
-      universe.mountUniverse(canvas, labs, {
+      universeApi = universe.mountUniverse(canvas, labs, {
         reducedMotion: document.documentElement.dataset.motion === "reduce",
+        theme: document.documentElement.dataset.theme || "starlight",
       });
       document.querySelector(".orbit-fallback")?.setAttribute("hidden", "");
       canvas?.removeAttribute("hidden");
@@ -333,10 +335,20 @@ async function mountOptional(packs) {
   }
   window.addEventListener("universe:select", (event) => {
     const id = event.detail?.id;
+    document.querySelectorAll("[data-lab].is-picked").forEach((node) => node.classList.remove("is-picked"));
     const card = id ? document.querySelector(`[data-lab="${CSS.escape(id)}"]`) : null;
     if (!card) return;
     card.classList.add("is-picked");
-    card.scrollIntoView({ block: "nearest", behavior: document.documentElement.dataset.motion === "reduce" ? "auto" : "smooth" });
+    if (event.target && event.target.id === "universe-canvas") {
+      card.scrollIntoView({ block: "nearest", behavior: document.documentElement.dataset.motion === "reduce" ? "auto" : "smooth" });
+    }
+  });
+  document.addEventListener("click", (event) => {
+    const card = event.target.closest?.("[data-lab]");
+    if (!card?.dataset.lab || event.target.closest?.("a")) return;
+    document.querySelectorAll("[data-lab].is-picked").forEach((node) => node.classList.remove("is-picked"));
+    card.classList.add("is-picked");
+    universeApi?.focusLab?.(card.dataset.lab);
   });
 }
 

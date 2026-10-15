@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dawn">
+<html lang="en" data-theme="starlight">
 <head>
   <meta charset="utf-8">
-  <script src="/js/content/prepaint.js"></script>
+  <script src="/js/settings/boot.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>CypherMonkey Labs | Free voice and AI labs</title>
   <meta name="description" content="Free labs for curious minds. Explore contact centers, voice, SIP, and AI. Open a lab, follow the missions, and check every source.">
   <link rel="canonical" href="https://cyphermonkeylabs.com/">
-  <meta name="theme-color" content="#FBF7FF">
+  <meta name="theme-color" content="#0F1030">
+  <meta name="cml-contact-mode" content="fallback">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta property="og:type" content="website">
   <meta property="og:title" content="CypherMonkey Labs | Free voice and AI labs">
@@ -814,6 +815,7 @@
         </div>
       </section>
 
+      <div id="contact-root">
       <section class="chapter" id="contact" aria-labelledby="contact-title">
         <div class="wrap notebook">
           <p class="kicker">Chapter 7 · Mission Control</p>
@@ -846,8 +848,9 @@
           </div>
         </div>
       </section>
+      </div>
     </main>
-    <footer class="footer" id="footer-root">
+    <div id="footer-root">
       <div class="wrap">
         <section class="ground-rules" id="disclaimer" aria-labelledby="disclaimer-title">
           <h2 id="disclaimer-title">Independent, free, and cited</h2>
@@ -888,7 +891,7 @@
         </div>
         <p>© 2026 CypherMonkey Labs</p>
       </div>
-    </footer>
+    </div>
   </div>
   <script type="module" src="/js/content/assemble.mjs"></script>
 </body>

@@ -132,7 +132,7 @@ function withDefaults(picked, env) {
   }
   return {
     v: 1,
-    theme: picked.theme || "dawn",
+    theme: picked.theme || "starlight",
     lang,
     motion: picked.motion || "system",
     sound: picked.sound || "off",

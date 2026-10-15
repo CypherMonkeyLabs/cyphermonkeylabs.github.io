@@ -8,7 +8,7 @@ const ICONS = ['headset', 'handset', 'cloud-phone', 'waveform', 'nodes', 'chat',
 const ACCENTS = ['peach', 'sky', 'mint', 'lavender', 'butter', 'pink'];
 const LEVELS = ['starter', 'explorer', 'navigator', 'pilot'];
 const ID_PATTERN = /^[a-z0-9]+(-[a-z0-9]+)*$/;
-const LAB_URL = /^https:\/\/cipher0x9\.github\.io\/[A-Za-z0-9._-]+\/$/;
+const LAB_URL = /^https:\/\/cipher0x9\.github\.io\/[A-Za-z0-9._-]+(?:\/[A-Za-z0-9._~%-]*)*$/;
 const REPO_URL = /^https:\/\/github\.com\/cipher0x9\/[A-Za-z0-9._-]+$/;
 const ALLOWED = new Set([
   'schemaVersion', 'id', 'kind', 'title', 'shortTitle', 'tagline', 'summary', 'category',
@@ -42,8 +42,12 @@ function ageDays(stamp, today) {
   return Math.round(delta / 86_400_000);
 }
 
-function segment(url) {
-  return new URL(url).pathname.split('/').filter(Boolean).pop() || '';
+function repoName(url) {
+  return (new URL(url).pathname.split('/').filter(Boolean).pop() || '').toLowerCase();
+}
+
+function pagesRepo(url) {
+  return (new URL(url).pathname.split('/').filter(Boolean)[0] || '').toLowerCase();
 }
 
 function push(list, level, message) {
@@ -84,7 +88,7 @@ function checkPack3(rows) {
     if (typeof lab.url !== 'string' || !LAB_URL.test(lab.url)) push(findings, 'error', `${where}.url must be a cipher0x9.github.io lab URL`);
     if (typeof lab.repo !== 'string' || !REPO_URL.test(lab.repo)) push(findings, 'error', `${where}.repo must be a cipher0x9 GitHub repo`);
     if (typeof lab.url === 'string' && typeof lab.repo === 'string' && LAB_URL.test(lab.url) && REPO_URL.test(lab.repo)) {
-      if (segment(lab.url).toLowerCase() !== segment(lab.repo).toLowerCase()) push(findings, 'error', `${where} url slug and repo name differ`);
+      if (pagesRepo(lab.url) !== repoName(lab.repo)) push(findings, 'error', `${where} url slug and repo name differ`);
     }
     if (!ICONS.includes(lab.icon)) push(findings, 'error', `${where}.icon is invalid`);
     const launched = dateStamp(lab.launchedAt);

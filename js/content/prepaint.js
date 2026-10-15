@@ -6,7 +6,7 @@
     var stored = JSON.parse(raw);
     var root = document.documentElement;
     var media = function (query) { return matchMedia(query).matches; };
-    var theme = params.get("theme") || stored.theme || "dawn";
+    var theme = params.get("theme") || stored.theme || "starlight";
     if (theme === "system") theme = media("(prefers-color-scheme: dark)") ? "starlight" : "dawn";
     if (media("(prefers-contrast: more)") && !stored.theme && !params.get("theme")) theme = "contrast";
     var motion = params.get("motion") || stored.motion || "system";
@@ -17,7 +17,7 @@
     root.dataset.quality = params.get("quality") || stored.quality || "auto";
     if (stored.textScale) root.style.setProperty("--text-scale", String(stored.textScale));
   } catch (error) {
-    document.documentElement.dataset.theme = "dawn";
+    document.documentElement.dataset.theme = "starlight";
     document.documentElement.dataset.motion = "full";
   }
 })();

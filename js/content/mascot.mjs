@@ -308,6 +308,11 @@ export function mountMascot(root, config) {
 
   document.addEventListener("cm:celebrate", () => setEvent("party", 4000));
   document.addEventListener("cm:oops", () => setEvent("oops", 2500));
+  document.addEventListener("cm:mascot", (event) => {
+    const state = event.detail?.state;
+    if (state === "celebrate" || state === "party") setEvent("party", 4000);
+    else if (state === "oops") setEvent("oops", 2500);
+  });
 
   document.addEventListener("focusin", () => {
     const active = document.activeElement;

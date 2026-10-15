@@ -129,6 +129,13 @@ export function mountUniverse(canvas, labsInput, opts = {}) {
   labels.dataset.theme = themeName;
   parent.appendChild(labels);
 
+  const radial = document.createElement('nav');
+  radial.className = 'cml-radial-list';
+  radial.setAttribute('aria-label', 'Labs');
+  radial.hidden = true;
+  parent.appendChild(radial);
+  let radialKey = '';
+
   const controls = document.createElement('div');
   controls.className = 'cml-explore-controls';
   controls.innerHTML = [
@@ -231,6 +238,7 @@ export function mountUniverse(canvas, labsInput, opts = {}) {
     canvas.classList.remove('is-ready');
     fallback.classList.remove('is-hidden');
     labels.hidden = true;
+    paintRadial(labItems());
     if (composer) {
       composer.dispose();
       composer = null;
@@ -395,6 +403,54 @@ export function mountUniverse(canvas, labsInput, opts = {}) {
     };
   }
 
+  function narrowScreen(width) {
+    return width < 520;
+  }
+
+  function labItems() {
+    return labs.map((lab) => ({ id: lab.id, title: lab.shortTitle || lab.title, kind: 'lab' }));
+  }
+
+  function heroVisible() {
+    const hero = document.getElementById('launchpad');
+    if (!hero) return true;
+    const rect = hero.getBoundingClientRect();
+    return rect.bottom > 120 && rect.top < window.innerHeight * 0.72;
+  }
+
+  function paintRadial(items) {
+    const width = window.innerWidth;
+    const show = narrowScreen(width) && heroVisible() && items.length > 0;
+    radial.hidden = !show;
+    labels.classList.toggle('is-tap', narrowScreen(width) && !staticMode);
+    if (!show) return;
+    const key = items.map((item) => item.id).join(',');
+    if (key !== radialKey) {
+      radialKey = key;
+      radial.replaceChildren();
+      items.forEach((item) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'cml-radial-list__item';
+        button.dataset.id = item.id;
+        button.textContent = item.title;
+        button.addEventListener('click', () => {
+          highlight = item.id;
+          if (world && item.kind === 'lab') world.setHighlight(item.id);
+          select(item.id);
+          poke();
+          if (!staticMode) layoutLabels();
+          else paintRadial(items);
+        });
+        radial.appendChild(button);
+      });
+    }
+    radial.querySelectorAll('.cml-radial-list__item').forEach((button) => {
+      const on = button.dataset.id === highlight;
+      button.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+
   function layoutLabels() {
     if (!world || staticMode) return;
     const width = canvas.clientWidth || window.innerWidth;
@@ -404,6 +460,9 @@ export function mountUniverse(canvas, labsInput, opts = {}) {
     const placed = [];
     const cx = width / 2;
     const cy = height / 2;
+    const narrow = narrowScreen(width);
+    const onHero = explore || heroVisible();
+    paintRadial(anchors.filter((anchor) => anchor.kind === 'lab'));
     anchors.forEach((anchor) => {
       seen.add(anchor.id);
       let node = labels.querySelector(`[data-id="${anchor.id}"]`);
@@ -457,7 +516,8 @@ export function mountUniverse(canvas, labsInput, opts = {}) {
         }
       }
       const onScreen = point.visible && point.x > -48 && point.x < width + 48 && point.y > -48 && point.y < height + 48;
-      const show = onScreen && (fits || anchors.length <= 12);
+      const revealed = highlight === anchor.id;
+      const show = onHero && onScreen && (narrow ? revealed : (fits || anchors.length <= 12));
       node.hidden = !show;
       node.style.visibility = show ? 'visible' : 'hidden';
       node.tabIndex = show ? 0 : -1;
@@ -759,6 +819,7 @@ export function mountUniverse(canvas, labsInput, opts = {}) {
     if (renderer) renderer.dispose();
     fallback.remove();
     labels.remove();
+    radial.remove();
     controls.remove();
     toast.remove();
     still.remove();
@@ -784,10 +845,12 @@ export function mountUniverse(canvas, labsInput, opts = {}) {
     resizeTimer = window.setTimeout(() => {
       relayoutMode();
       resizeNow();
+      if (staticMode) paintRadial(labItems());
     }, 100);
   });
   on(window, 'scroll', () => {
     lastInput = performance.now();
+    if (staticMode) paintRadial(labItems());
     if (fly && Math.abs(window.scrollY - (fly.scrollY ?? window.scrollY)) > 24) fly = null;
     if (reduce) {
       const nodes = currentWaypoints();
@@ -1015,6 +1078,8 @@ export function mountUniverse(canvas, labsInput, opts = {}) {
       }
     };
     bootWhenIdle();
+  } else {
+    paintRadial(labItems());
   }
 
   return api;

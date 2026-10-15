@@ -1,5 +1,5 @@
 /* Pre-paint settings. Keep the rules in sync with js/settings/store.js.
-   Load this classic script in <head> before CSS. Storage failures leave Dawn. */
+   Load this classic script in <head> before CSS. Storage failures leave Starlight. */
 (() => {
   try {
     var params = new URLSearchParams(location.search);
@@ -26,7 +26,7 @@
     var qTheme = params.get("theme");
     var qMotion = params.get("motion");
     var qQuality = params.get("quality");
-    var themePref = themes[qTheme] ? qTheme : (themes[raw.theme] ? raw.theme : "dawn");
+    var themePref = themes[qTheme] ? qTheme : (themes[raw.theme] ? raw.theme : "starlight");
     var t = themePref === "system" ? (m("(prefers-color-scheme: dark)") ? "starlight" : "dawn") : themePref;
     if (m("(prefers-contrast: more)") && !raw.theme && !themes[qTheme]) t = "contrast";
     var motionPref = motions[qMotion] ? qMotion : (motions[raw.motion] ? raw.motion : "system");
@@ -59,6 +59,6 @@
     }
     d.style.setProperty("--cm-rail", w);
   } catch (err) {
-    /* Private-mode storage can throw. Dawn, set in CSS, stays. */
+    /* Private-mode storage can throw. Starlight, set on the document, stays. */
   }
 })();

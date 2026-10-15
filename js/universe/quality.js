@@ -77,8 +77,12 @@ export function initialTier(pref) {
   const cores = n.hardwareConcurrency ?? 4;
   const coarse = window.matchMedia('(pointer: coarse)').matches;
   const maxTex = gl.getParameter(gl.MAX_TEXTURE_SIZE);
+  const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+  const rendererName = debugInfo ? String(gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || '') : '';
+  const software = /swiftshader|llvmpipe|softpipe|software|basic render/i.test(rendererName);
   const lose = gl.getExtension('WEBGL_lose_context');
   if (lose) lose.loseContext();
+  if (software) return 'static';
   if (coarse) {
     if (mem >= 6 && cores >= 8) return 'medium';
     if (mem >= 4) return 'low';

@@ -27,8 +27,14 @@
   width: 100vw;
   height: 100dvh;
   overflow: auto;
-  background: linear-gradient(180deg, var(--cml-sky-top, #ede7ff), var(--cml-sky-mid, #ffe9f0) 52%, var(--cml-sky-bot, #e6f6ff));
-  color: var(--cml-ink, #1e1b3a);
+  background-image:
+    radial-gradient(circle, rgb(255 255 255 / 85%) 1px, transparent 1.2px),
+    radial-gradient(circle, rgb(255 232 163 / 80%) 1.1px, transparent 1.3px),
+    radial-gradient(circle, rgb(207 230 255 / 75%) 1px, transparent 1.2px),
+    linear-gradient(180deg, var(--cml-sky-top, #0f1030), var(--cml-sky-mid, #1b1450) 52%, var(--cml-sky-bot, #12234a));
+  background-size: 140px 160px, 90px 110px, 210px 180px, auto;
+  background-position: 0 0, 40px 70px, 18px 30px, 0 0;
+  color: var(--cml-ink, #f4f1ff);
   transition: opacity 800ms cubic-bezier(.2, 0, 0, 1);
 }
 
@@ -112,6 +118,71 @@
 .cml-lab-label:focus-visible {
   outline: 3px solid var(--cml-focus, #5b4bd6);
   outline-offset: 3px;
+}
+
+.cml-universe-labels.is-tap .cml-lab-label {
+  display: none;
+}
+
+.cml-universe-labels.is-tap .cml-lab-label[data-hot="true"] {
+  display: inline-block;
+}
+
+.cml-radial-list {
+  position: fixed;
+  z-index: 3;
+  left: 12px;
+  right: 12px;
+  bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 8px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  pointer-events: auto;
+  border-radius: 999px;
+  background: color-mix(in srgb, #12132f 72%, transparent);
+  border: 1px solid rgb(185 174 255 / 28%);
+  box-shadow: 0 10px 28px rgb(0 0 0 / 28%);
+}
+
+.cml-radial-list[hidden] { display: none; }
+
+.cml-radial-list__item {
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, #2a2c66 88%, transparent);
+  color: #f4f1ff;
+  font: 700 14px/1 system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.cml-radial-list__item[aria-pressed="true"] {
+  background: #b9aeff;
+  color: #14123a;
+}
+
+.cml-gem-belt {
+  transform-origin: 600px 430px;
+  transform-box: view-box;
+  animation: cml-spin 80s linear infinite;
+}
+
+@media (max-width: 519px) {
+  .cml-universe-fallback {
+    overflow: hidden;
+  }
+  .cml-universe-fallback text,
+  .cml-fallback-list { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cml-orbit,
+  .cml-gem-belt { animation: none; }
 }
 
 .cml-explore-controls {
