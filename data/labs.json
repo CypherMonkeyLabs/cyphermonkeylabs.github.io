@@ -323,6 +323,37 @@
         }
       ],
       "scene": { "size": 0.9, "moons": 0, "ringHint": 5 }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "webex-canon",
+      "kind": "lab",
+      "title": "CypherWebex Canon",
+      "shortTitle": "Webex Canon",
+      "tagline": "Deep study rooms for Webex Calling, Control Hub, and contact center.",
+      "summary": "A dense, offline-friendly study site of self-contained rooms covering Webex Calling, Control Hub, Webex Contact Center, Dedicated Instance, and migrations. Claims cite official Cisco pages or are marked to verify.",
+      "category": "unified-comms",
+      "tags": ["webex", "calling", "contact-center", "control-hub"],
+      "status": "beta",
+      "featured": false,
+      "order": 40,
+      "level": "pilot",
+      "url": "https://cypherwebex-canon-test.vercel.app/",
+      "icon": "video",
+      "accent": "lavender",
+      "vendorsReferenced": ["Cisco", "Webex by Cisco"],
+      "launchedAt": "2026-10-15",
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-15",
+      "sources": [
+        {
+          "title": "Webex Help Center",
+          "url": "https://help.webex.com/",
+          "publisher": "Cisco",
+          "accessed": "2026-10-15"
+        }
+      ],
+      "scene": { "size": 1.1, "moons": 1, "ringHint": 2 }
     }
   ]
 }
