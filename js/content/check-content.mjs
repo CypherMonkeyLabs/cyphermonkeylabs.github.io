@@ -15,8 +15,8 @@ const ids = new Set();
 for (const lab of labs) {
   assert.equal(ids.has(lab.id), false, lab.id);
   ids.add(lab.id);
-  assert.match(lab.url, /^https:\/\/cipher0x9\.github\.io\/[A-Za-z0-9._-]+/);
-  assert.match(lab.repo, /^https:\/\/github\.com\/cipher0x9\/[A-Za-z0-9._-]+$/);
+  assert.match(lab.url, /^https:\/\/(?:cyphermonkeylabs\.com\/[A-Za-z0-9._-]+|cipher0x9\.github\.io\/gemini-gems-free-gallery)(?:\/|$)/);
+  assert.match(lab.repo, /^https:\/\/github\.com\/(?:CypherMonkeyLabs\/[A-Za-z0-9._-]+|cipher0x9\/gemini-gems-free-gallery)$/);
   const repoName = lab.repo.split("/").pop();
   const pagesName = new URL(lab.url).pathname.split("/").filter(Boolean)[0];
   assert.equal(pagesName.toLowerCase(), repoName.toLowerCase());
