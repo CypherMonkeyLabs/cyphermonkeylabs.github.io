@@ -144,13 +144,22 @@ function addPlanetLink(svg, place, labs, theme) {
   }
   link.setAttribute('data-id', place.id);
   el('title', {}, link).textContent = lab?.title || place.id;
+  const radius = 14 + (place.size || 1) * 6;
   el('circle', {
+    class: 'cml-planet',
     cx: x.toFixed(1),
     cy: y.toFixed(1),
-    r: String(14 + (place.size || 1) * 6),
+    r: String(radius),
     fill: color,
     stroke: theme.ink,
     'stroke-width': '2',
+  }, link);
+  el('circle', {
+    cx: (x - radius * 0.28).toFixed(1),
+    cy: (y - radius * 0.32).toFixed(1),
+    r: (radius * 0.28).toFixed(1),
+    fill: '#fff',
+    opacity: '0.62',
   }, link);
   const label = el('text', {
     x: x.toFixed(1),

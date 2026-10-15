@@ -4,7 +4,7 @@ import { categoryMeta, groupByCategory, labText } from "./catalog.js";
 import { isCurrent, PATHS } from "./routes.js";
 import { SOCIAL } from "./social.js";
 import { playCue, primeFromGesture } from "../settings/sound.js";
-import { isReduced } from "./focus.js";
+import { bindDialog, closeDialog, isReduced, openDialog } from "./focus.js";
 
 function tick() {
   primeFromGesture();
@@ -95,14 +95,14 @@ export function mountChrome(ctx) {
   }, [icon("gear")]);
 
   const tools = el("div", { class: "cm-tools" }, [searchBtn, contact, settingsBtn]);
-  const row = el("div", { class: "cm-bar__row" }, [logo, primary, menuBtn, tools]);
+  const rail = buildRail(ctx);
+  const row = el("div", { class: "cm-bar__row" }, [rail.launch, logo, primary, menuBtn, tools]);
   const bar = el("header", { class: "cm-bar cm-glass" }, [row]);
 
-  const rail = buildRail(ctx);
   const dock = buildDock(ctx);
   const banner = buildBanner(ctx);
 
-  root.append(skipMain, skipLabs, bar, rail.element, dock.element, banner.element);
+  root.append(skipMain, skipLabs, bar, rail.drawer, rail.slot, dock.element, banner.element);
 
   function closeMega(returnFocus) {
     mega.hidden = true;
@@ -253,6 +253,8 @@ export function mountChrome(ctx) {
   };
 }
 
+const RAIL_WIDE = 1500;
+
 function buildRail(ctx) {
   const toggle = el("button", {
     type: "button",
@@ -296,11 +298,44 @@ function buildRail(ctx) {
     note,
     fine,
   ]);
+  const launch = el("button", {
+    type: "button",
+    class: "cm-rail-launch",
+    hidden: true,
+    "aria-expanded": "false",
+    "aria-controls": "cm-rail-drawer",
+    "data-i18n-attr": "aria-label:rail.label",
+  }, [el("span", { class: "cm-avatar cm-avatar--launch" }, brandMark())]);
+  const drawer = el("dialog", {
+    id: "cm-rail-drawer",
+    class: "cm-rail-drawer cm-dialog",
+    "aria-labelledby": "cm-rail-name",
+  });
+  name.id = "cm-rail-name";
+  const slot = el("div", { class: "cm-rail-slot" });
+  slot.append(element);
+  bindDialog(drawer, { backdrop: true });
+
+  function place(mode) {
+    if (mode === "button") {
+      if (element.parentElement !== drawer) drawer.append(element);
+      return;
+    }
+    if (drawer.open) closeDialog(drawer);
+    if (element.parentElement !== slot) slot.append(element);
+  }
 
   function applyMode(mode) {
-    if (mode === "off") {
-      element.hidden = true;
+    document.documentElement.dataset.rail = mode === "button" ? "button" : "panel";
+    launch.hidden = mode !== "button";
+    place(mode);
+    if (mode === "button") {
+      element.hidden = false;
+      element.dataset.mode = "drawer";
       document.documentElement.style.setProperty("--cm-rail", "0px");
+      toggle.setAttribute("aria-expanded", drawer.open ? "true" : "false");
+      toggle.setAttribute("aria-label", ctx.t("rail.collapse"));
+      toggle.replaceChildren(icon("close"));
       return;
     }
     element.hidden = false;
@@ -309,7 +344,6 @@ function buildRail(ctx) {
     document.documentElement.style.setProperty("--cm-rail", expanded ? "300px" : "72px");
     toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
     const labelKey = expanded ? "rail.collapse" : "rail.expand";
-    toggle.dataset.i18nAttr = `aria-label:${labelKey}`;
     toggle.setAttribute("aria-label", ctx.t(labelKey));
     toggle.replaceChildren(icon(expanded ? "chevronLeft" : "chevron"));
   }
@@ -317,21 +351,40 @@ function buildRail(ctx) {
   function sync(state) {
     const pref = state?.authorRail || "auto";
     const width = window.innerWidth;
-    let mode = "off";
-    if (width >= 1024) {
-      if (pref === "expanded" || pref === "collapsed") mode = pref;
-      else mode = width >= 1280 ? "expanded" : "collapsed";
+    if (width < RAIL_WIDE) {
+      applyMode("button");
+      return;
     }
-    applyMode(mode);
+    if (pref === "collapsed") applyMode("collapsed");
+    else applyMode("expanded");
   }
 
+  launch.addEventListener("click", () => {
+    if (drawer.open) {
+      closeDialog(drawer);
+      launch.setAttribute("aria-expanded", "false");
+      return;
+    }
+    openDialog(drawer, { trigger: launch, focus: name });
+    launch.setAttribute("aria-expanded", "true");
+    tick();
+  });
+  drawer.addEventListener("close", () => {
+    launch.setAttribute("aria-expanded", "false");
+  });
+
   toggle.addEventListener("click", () => {
+    if (document.documentElement.dataset.rail === "button") {
+      closeDialog(drawer);
+      launch.focus();
+      return;
+    }
     const expanded = element.dataset.mode === "expanded";
     ctx.updateSettings({ authorRail: expanded ? "collapsed" : "expanded" });
     tick();
   });
 
-  return { element, sync };
+  return { element, launch, drawer, slot, sync };
 }
 
 function buildDock(ctx) {

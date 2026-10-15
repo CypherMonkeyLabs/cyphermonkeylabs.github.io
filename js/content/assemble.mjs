@@ -262,6 +262,48 @@ function wireLabClicks() {
   });
 }
 
+function wireDepth() {
+  const root = document.documentElement;
+  const reduced = () => root.dataset.motion === "reduce";
+  let frame = 0;
+  let px = 0;
+  let py = 0;
+  window.addEventListener("pointermove", (event) => {
+    if (reduced()) return;
+    px = (event.clientX / window.innerWidth - 0.5) * 36;
+    py = (event.clientY / window.innerHeight - 0.5) * 28;
+    if (frame) return;
+    frame = window.requestAnimationFrame(() => {
+      frame = 0;
+      root.style.setProperty("--star-x", `${px.toFixed(1)}px`);
+      root.style.setProperty("--star-y", `${py.toFixed(1)}px`);
+    });
+  });
+  const cards = ".lab-card, .gem-card, .tile";
+  document.addEventListener("pointermove", (event) => {
+    const card = event.target.closest?.(cards);
+    if (!card || reduced()) return;
+    const rect = card.getBoundingClientRect();
+    const rx = ((event.clientY - rect.top) / rect.height - 0.5) * -8;
+    const ry = ((event.clientX - rect.left) / rect.width - 0.5) * 10;
+    card.style.transform = `rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateZ(10px)`;
+  });
+  document.addEventListener("pointerout", (event) => {
+    const card = event.target.closest?.(cards);
+    if (!card || card.contains(event.relatedTarget)) return;
+    card.style.transform = "";
+  });
+  document.addEventListener("cm:tilt", (event) => {
+    if (reduced()) return;
+    const x = Number(event.detail?.x) || 0;
+    const y = Number(event.detail?.y) || 0;
+    document.querySelectorAll(cards).forEach((card) => {
+      if (card.matches(":hover")) return;
+      card.style.transform = `rotateX(${(y * 16).toFixed(2)}deg) rotateY(${(x * 16).toFixed(2)}deg)`;
+    });
+  });
+}
+
 function focusFromHash() {
   if (location.hash !== "#contact") return;
   const heading = document.querySelector("#contact-title");
@@ -371,6 +413,7 @@ async function main() {
   wireFilters();
   wireTimeline();
   wireContact(labs, site);
+  wireDepth();
   wireLabClicks();
   focusFromHash();
   window.addEventListener("hashchange", focusFromHash);
