@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dawn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Knowledge Universe — CypherMonkey Labs</title>
+  <meta name="description" content="Standalone demo of the CypherMonkey Labs Knowledge Universe. Ten labs orbit a Mind Star.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/css/universe.css">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1e1b3a;
+      --paper: rgb(255 255 255 / 72%);
+    }
+    html[data-theme="starlight"] {
+      color-scheme: dark;
+      --ink: #f4f1ff;
+      --paper: rgb(18 16 48 / 62%);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
+      color: var(--ink);
+      background: #ede7ff;
+    }
+    .skip {
+      position: absolute;
+      left: 12px;
+      top: -40px;
+      z-index: 8;
+      background: #fff;
+      color: #1e1b3a;
+      padding: 8px 12px;
+    }
+    .skip:focus { top: 12px; }
+    main { position: relative; z-index: 1; }
+    .chapter {
+      min-height: 100dvh;
+      position: relative;
+      pointer-events: none;
+    }
+    .note, .caption, .tools, .tools button { pointer-events: auto; }
+    .note {
+      position: absolute;
+      top: max(20px, env(safe-area-inset-top));
+      left: max(20px, env(safe-area-inset-left));
+      width: min(420px, calc(100vw - 40px));
+      margin: 0;
+      padding: 18px 20px 16px;
+      border-radius: 22px;
+      background: var(--paper);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 16px 40px rgb(30 27 58 / 10%);
+    }
+    .eyebrow {
+      margin: 0 0 6px;
+      font: 700 12px/1.2 system-ui, sans-serif;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-weight: 600;
+      font-size: clamp(32px, 5vw, 52px);
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+    }
+    .lede {
+      margin: 10px 0 0;
+      max-width: 36ch;
+      font: 500 16px/1.45 system-ui, sans-serif;
+    }
+    .caption {
+      position: absolute;
+      left: max(20px, env(safe-area-inset-left));
+      bottom: max(24px, env(safe-area-inset-bottom));
+      margin: 0;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--paper);
+      font: 700 13px/1.2 system-ui, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .tools {
+      position: fixed;
+      z-index: 5;
+      top: max(16px, env(safe-area-inset-top));
+      right: max(16px, env(safe-area-inset-right));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+      max-width: min(420px, calc(100vw - 32px));
+    }
+    .tools button {
+      min-height: 40px;
+      padding: 0 12px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--ink);
+      font: 700 13px/1 system-ui, sans-serif;
+      box-shadow: 0 8px 20px rgb(30 27 58 / 12%);
+    }
+    .tools button[aria-pressed="true"] {
+      background: #5b4bd6;
+      color: #fff;
+    }
+    .tools button:focus-visible {
+      outline: 3px solid #5b4bd6;
+      outline-offset: 3px;
+    }
+    #status {
+      position: fixed;
+      left: 16px;
+      bottom: 16px;
+      z-index: 5;
+      margin: 0;
+      font: 600 12px/1.3 ui-monospace, monospace;
+      opacity: 0;
+    }
+    @media (max-width: 720px) {
+      .tools { top: auto; bottom: 84px; right: 12px; }
+      .note { padding: 14px 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .note { backdrop-filter: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#labs">Skip to the labs</a>
+  <canvas id="universe"></canvas>
+  <main>
+    <section class="chapter" id="launchpad">
+      <header class="note">
+        <p class="eyebrow">CypherMonkey Labs</p>
+        <h1>Knowledge Universe</h1>
+        <p class="lede">A telescope for the labs. Scroll the notebook and the sky follows. Press F to explore.</p>
+      </header>
+    </section>
+    <section class="chapter" id="labs"><p class="caption">Labs</p></section>
+    <section class="chapter" id="timeline"><p class="caption">Timeline</p></section>
+    <section class="chapter" id="gems"><p class="caption">Gems</p></section>
+    <section class="chapter" id="about"><p class="caption">About</p></section>
+    <section class="chapter" id="contact"><p class="caption">Contact</p></section>
+  </main>
+  <div class="tools" id="tools">
+    <button type="button" data-theme="dawn" aria-pressed="true">Dawn</button>
+    <button type="button" data-theme="starlight" aria-pressed="false">Starlight</button>
+    <button type="button" data-quality="high" aria-pressed="false">High</button>
+    <button type="button" data-quality="low" aria-pressed="false">Low</button>
+    <button type="button" data-quality="static" aria-pressed="false">2D</button>
+  </div>
+  <p id="status" aria-live="polite"></p>
+  <script type="module">
+    import { mountUniverse } from '/js/universe/index.js';
+
+    const STUB = [
+      { id: 'uc', title: 'UC Lab', shortTitle: 'UC Lab', category: 'unified-comms', accent: 'sky', icon: 'handset', tags: ['calling', 'voice', 'meetings'], url: 'https://cipher0x9.github.io/uc-lab-free-university-mesmerizing/', repo: 'https://github.com/cipher0x9/uc-lab-free-university-mesmerizing', launchedAt: '2026-07-31', scene: { size: 1.05, moons: 1 } },
+      { id: 'amazon-connect', title: 'Amazon Connect', shortTitle: 'Connect', category: 'contact-center', accent: 'peach', icon: 'cloud-phone', tags: ['contact-center', 'cloud', 'routing'], url: 'https://cipher0x9.github.io/amazon-connect-lab-free-university-mesmerizing/', repo: 'https://github.com/cipher0x9/amazon-connect-lab-free-university-mesmerizing', launchedAt: '2026-10-14', scene: { size: 1.1, moons: 1 } },
+      { id: 'microsoft-voice', title: 'Microsoft Voice', shortTitle: 'Voice', category: 'unified-comms', accent: 'sky', icon: 'headset', tags: ['voice', 'teams', 'calling'], url: 'https://cipher0x9.github.io/microsoft-voice-cc-lab-free-university-mesmerizing/', repo: 'https://github.com/cipher0x9/microsoft-voice-cc-lab-free-university-mesmerizing', launchedAt: '2026-10-14', scene: { size: 1, moons: 0 } },
+      { id: 'webex', title: 'Webex Canon', shortTitle: 'Webex', category: 'unified-comms', accent: 'sky', icon: 'video', tags: ['meetings', 'video', 'rooms'], url: 'https://cypherwebex-canon-test.vercel.app', scene: { size: 1.35, moons: 2 } },
+      { id: 'five9', title: 'Five9', shortTitle: 'Five9', category: 'contact-center', accent: 'peach', icon: 'headset', tags: ['contact-center', 'cloud'], url: 'https://cipher0x9.github.io/five9-lab-free-university-mesmerizing/', repo: 'https://github.com/cipher0x9/five9-lab-free-university-mesmerizing', launchedAt: '2026-10-15', scene: { size: 0.95, moons: 0 } },
+      { id: 'genesys', title: 'Genesys', shortTitle: 'Genesys', category: 'contact-center', accent: 'peach', icon: 'route', tags: ['contact-center', 'routing'], url: 'https://cipher0x9.github.io/genesys-cloud-lab-free-university-mesmerizing/', repo: 'https://github.com/cipher0x9/genesys-cloud-lab-free-university-mesmerizing', launchedAt: '2026-10-15', scene: { size: 1, moons: 1 } },
+      { id: 'nice', title: 'NICE CXone', shortTitle: 'NICE', category: 'contact-center', accent: 'peach', icon: 'chat', tags: ['contact-center', 'chat'], url: 'https://cipher0x9.github.io/nice-cxone-lab-free-university-mesmerizing/', repo: 'https://github.com/cipher0x9/nice-cxone-lab-free-university-mesmerizing', launchedAt: '2026-10-15', scene: { size: 0.9, moons: 0 } },
+      { id: 'sip', title: 'SIP Universe', shortTitle: 'SIP', category: 'protocols', accent: 'mint', icon: 'nodes', tags: ['sip', 'routing', 'voice'], url: 'https://cipher0x9.github.io/sip-universe-lab-free-university-mesmerizing/', repo: 'https://github.com/cipher0x9/sip-universe-lab-free-university-mesmerizing', launchedAt: '2026-10-15', scene: { size: 1.05, moons: 1 } },
+      { id: 'ai', title: 'AI Lab', shortTitle: 'AI Lab', category: 'ai', accent: 'lavender', icon: 'spark', tags: ['ai', 'prompts', 'models'], url: 'https://cipher0x9.github.io/ai-lab-free-university-mesmerizing/', repo: 'https://github.com/cipher0x9/ai-lab-free-university-mesmerizing', launchedAt: '2026-07-31', scene: { size: 1.15, moons: 2 } },
+      { id: 'gems', title: 'Gemini Gems', shortTitle: 'Gems', category: 'tools', accent: 'butter', icon: 'gem', kind: 'gallery', tags: ['gems', 'tools'], url: 'https://cipher0x9.github.io/gemini-gems-free-gallery/', repo: 'https://github.com/cipher0x9/gemini-gems-free-gallery', launchedAt: '2026-10-14', scene: { size: 1.2, moons: 0 } },
+    ];
+
+    const CATS = ['contact-center', 'unified-comms', 'protocols', 'ai', 'tools'];
+    const ACCENTS = ['peach', 'sky', 'mint', 'lavender', 'butter'];
+    const ICONS = ['headset', 'handset', 'cloud-phone', 'nodes', 'spark', 'gem', 'chat', 'route', 'video', 'waveform'];
+
+    function hundred() {
+      const labs = [];
+      for (let i = 0; i < 100; i += 1) {
+        const category = CATS[i % CATS.length];
+        labs.push({
+          id: `lab-${i + 1}`,
+          title: `Lab ${i + 1}`,
+          shortTitle: `L${i + 1}`,
+          category,
+          accent: ACCENTS[i % ACCENTS.length],
+          icon: ICONS[i % ICONS.length],
+          tags: [category, i % 6 === 0 ? 'shared' : `ring-${i % 4}`],
+          url: `https://cipher0x9.github.io/lab-${i + 1}/`,
+          launchedAt: i % 11 === 0 ? '2026-10-14' : '2026-01-15',
+          scene: { size: 0.7 + (i % 5) * 0.18, moons: i % 5 === 0 ? 1 : 0 },
+        });
+      }
+      return labs;
+    }
+
+    const params = new URLSearchParams(location.search);
+    const canvas = document.getElementById('universe');
+    const status = document.getElementById('status');
+
+    let labs = STUB;
+    if (params.get('labs') === '100') labs = hundred();
+    else if (!params.has('stub')) {
+      try {
+        const response = await fetch('/data/labs.json');
+        if (response.ok) {
+          const json = await response.json();
+          const list = Array.isArray(json) ? json : json.labs;
+          if (Array.isArray(list) && list.length) labs = json;
+        }
+      } catch (error) {
+        labs = STUB;
+      }
+    }
+
+    const universe = mountUniverse(canvas, labs, {
+      theme: params.get('theme') || undefined,
+      quality: params.get('quality') || undefined,
+      motion: params.get('motion') || undefined,
+    });
+
+    canvas.addEventListener('universe:select', (event) => {
+      status.textContent = `selected ${event.detail.id}`;
+    });
+
+    const tools = document.getElementById('tools');
+    tools.addEventListener('click', (event) => {
+      const button = event.target.closest('button');
+      if (!button) return;
+      if (button.dataset.theme) {
+        universe.setTheme(button.dataset.theme);
+        document.documentElement.dataset.theme = button.dataset.theme;
+        tools.querySelectorAll('[data-theme]').forEach((node) => {
+          node.setAttribute('aria-pressed', node === button ? 'true' : 'false');
+        });
+      }
+      if (button.dataset.quality) {
+        universe.setQuality(button.dataset.quality);
+        tools.querySelectorAll('[data-quality]').forEach((node) => {
+          node.setAttribute('aria-pressed', node === button ? 'true' : 'false');
+        });
+      }
+    });
+
+    const section = params.get('section');
+    if (section) {
+      const node = document.getElementById(section);
+      if (node) node.scrollIntoView();
+    }
+    if (params.get('chrome') === '0') {
+      document.querySelector('.note')?.remove();
+      document.querySelectorAll('.caption').forEach((node) => { node.hidden = true; });
+      tools.hidden = true;
+    }
+  </script>
+</body>
+</html>
