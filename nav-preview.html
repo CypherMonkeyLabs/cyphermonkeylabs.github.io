@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" data-theme="canopy">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="/theme-boot.js"></script>
+    <script src="/cm-nav.js" defer></script>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; worker-src 'self'; form-action 'self' mailto:; frame-src 'none'; manifest-src 'self'; upgrade-insecure-requests" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Preview of the embeddable Cypher Monkey lab bar." />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Lab bar preview · Cypher Monkey Labs</title>
+    <script type="module" crossorigin src="/assets/fonts-IiRS2V_q.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/fonts-TC25heUc.css">
+    <link rel="stylesheet" crossorigin href="/assets/latin-700-BZ3ADBdi.css">
+    <link rel="stylesheet" crossorigin href="/assets/styles-B6hQBYxM.css">
+  </head>
+  <body>
+    <main id="main" class="page-narrow">
+      <p class="kicker">Drop-in bar for other labs</p>
+      <h1>Lab bar</h1>
+      <p>This is the shared <code>&lt;cm-nav&gt;</code> bar, shown in two themes. It is not the studio header. Other lab sites can embed the same file.</p>
+      <div class="preview-grid">
+        <section class="preview-panel surface-canopy">
+          <h2>Canopy</h2>
+          <cm-nav
+            theme="canopy"
+            lab="uc"
+            home="https://cyphermonkeylabs.com/"
+            source="https://github.com/cipher0x9/uc-lab-free-university-mesmerizing"
+            download=""
+            contact="mailto:research@cyphermonkeylabs.com"
+          ></cm-nav>
+        </section>
+        <section class="preview-panel surface-paper">
+          <h2>Paper day</h2>
+          <cm-nav
+            theme="paper"
+            lab="uc"
+            home="https://cyphermonkeylabs.com/"
+            source="https://github.com/cipher0x9/uc-lab-free-university-mesmerizing"
+            download=""
+            contact="mailto:research@cyphermonkeylabs.com"
+          ></cm-nav>
+        </section>
+      </div>
+      <p><a href="/">Back to the studio</a></p>
+    </main>
+  </body>
+</html>
