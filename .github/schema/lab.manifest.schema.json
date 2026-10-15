@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cyphermonkeylabs.com/schemas/lab.manifest.schema.json",
+  "title": "CypherMonkey Lab manifest (lab.manifest.json in a lab repo root)",
+  "description": "Fields a lab author owns. The site owns order, featured, accent, scene, i18n, repo, updatedAt and lastVerified (stamped by the sync job). Enforced by .github/scripts/lab-manifest.mjs, which reuses validate-labs.mjs; this file is documentation and editor support. validate-labs.mjs stays authoritative for data/labs.json.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "kind", "title", "tagline", "summary", "category", "status", "url", "icon", "launchedAt", "sources"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "maxLength": 40 },
+    "kind": { "enum": ["lab", "gallery"] },
+    "title": { "type": "string", "minLength": 3, "maxLength": 48 },
+    "shortTitle": { "type": "string", "maxLength": 16 },
+    "tagline": { "type": "string", "minLength": 10, "maxLength": 90 },
+    "summary": { "type": "string", "minLength": 80, "maxLength": 320 },
+    "category": { "enum": ["contact-center", "unified-comms", "protocols", "ai", "tools"] },
+    "secondaryCategories": { "type": "array", "maxItems": 2, "uniqueItems": true, "items": { "enum": ["contact-center", "unified-comms", "protocols", "ai", "tools"] } },
+    "tags": { "type": "array", "maxItems": 8, "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
+    "status": { "enum": ["live", "beta", "coming-soon", "archived"] },
+    "level": { "enum": ["starter", "explorer", "navigator", "pilot"] },
+    "estHours": { "type": "number" },
+    "modules": {},
+    "url": { "type": "string", "pattern": "^https://((cipher0x9|cyphermonkeylabs)\\.github\\.io|cyphermonkeylabs\\.com)/[A-Za-z0-9._-]+(/[A-Za-z0-9._~%-]*)*$", "description": "Pages URL. The path after the repo slug may point at a landing page (for example /campus/). Externally hosted labs are added by hand in the site repo, not by a manifest." },
+    "icon": { "enum": ["headset", "handset", "cloud-phone", "waveform", "nodes", "chat", "spark", "gem", "video", "route", "book", "shield"] },
+    "vendorsReferenced": { "type": "array", "items": { "type": "string", "maxLength": 60 } },
+    "launchedAt": { "type": "string", "format": "date" },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "url"],
+        "properties": { "title": { "type": "string", "maxLength": 140 }, "url": { "type": "string", "pattern": "^https://" }, "publisher": { "type": "string" }, "accessed": { "type": "string", "format": "date" } }
+      }
+    }
+  }
+}
