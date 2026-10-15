@@ -1,73 +1,133 @@
 <!doctype html>
-<html lang="en" data-theme="paper">
+<html lang="en" data-trust-page data-theme="dawn" data-motion="full">
   <head>
-    <meta charset="UTF-8" />
-    <script src="/theme-boot.js"></script>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; worker-src 'self'; form-action 'self' mailto:; frame-src 'none'; manifest-src 'self'; upgrade-insecure-requests" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Privacy notes for the Cypher Monkey Labs website." />
-    <meta name="theme-color" id="theme-color" content="#fff4fb" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <title>Privacy · Cypher Monkey Labs</title>
-    <script type="module" crossorigin src="/assets/fonts-IiRS2V_q.js"></script>
-    <script type="module" crossorigin src="/assets/theme-CtymmBfo.js"></script>
-    <script type="module" crossorigin src="/assets/subpage-BWFmp1xS.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/fonts-TC25heUc.css">
-    <link rel="stylesheet" crossorigin href="/assets/latin-700-BZ3ADBdi.css">
-    <link rel="stylesheet" crossorigin href="/assets/latin-500-D8u7M1Cc.css">
-    <link rel="stylesheet" crossorigin href="/assets/styles-B6hQBYxM.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Privacy · CypherMonkey Labs</title>
+    <meta name="description" content="Privacy notice for the CypherMonkey Labs site: no ads, no tracking cookies, and no published email address.">
+    <link rel="canonical" href="https://cyphermonkeylabs.com/privacy.html">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="theme-color" id="theme-color" content="#FBF7FF">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://contact.cyphermonkeylabs.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action https://contact.cyphermonkeylabs.com">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/css/trust.css">
+    <script src="/js/trust/theme-boot.js"></script>
   </head>
-  <body>
-    <a class="skip" href="#main">Skip to content</a>
-    <header class="float-nav" id="site-header">
-      <div class="bar">
-        <a class="brand" href="/">
-          <span class="brand-full">Cypher Monkey Labs</span>
-          <span class="brand-short" aria-hidden="true">CML</span>
-        </a>
-        <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
-        <nav class="primary" id="primary-nav" aria-label="Privacy">
-          <a href="/#labs">Labs</a>
-          <a href="/privacy.html" aria-current="page">Privacy</a>
-          <div class="tool-row">
-            <div class="themes" data-theme-group role="radiogroup" aria-label="Color theme">
-              <p class="theme-name" id="theme-name">Gallery</p>
-              <button type="button" role="radio" data-theme-id="paper" data-theme-name="Gallery" data-theme-color="#fff4fb" aria-checked="true" aria-label="Gallery"></button>
-              <button type="button" role="radio" data-theme-id="canopy" data-theme-name="Night canopy" data-theme-color="#07110e" aria-checked="false" tabindex="-1" aria-label="Night canopy"></button>
-              <button type="button" role="radio" data-theme-id="market" data-theme-name="Night market" data-theme-color="#120814" aria-checked="false" tabindex="-1" aria-label="Night market"></button>
-              <button type="button" role="radio" data-theme-id="ice" data-theme-name="Signal ice" data-theme-color="#061018" aria-checked="false" tabindex="-1" aria-label="Signal ice"></button>
-              <button type="button" role="radio" data-theme-id="amber" data-theme-name="Amber lab" data-theme-color="#14100a" aria-checked="false" tabindex="-1" aria-label="Amber lab"></button>
-            </div>
-          </div>
-        </nav>
-      </div>
+  <body data-trust-boot="footer">
+    <a class="skip" href="#main">Skip to main content</a>
+    <header class="trust-top">
+      <a class="wordmark" href="/">CypherMonkey Labs</a>
+      <a href="/#labs">Labs</a>
+      <a href="/privacy.html" aria-current="page">Privacy</a>
+      <a href="/#contact">Contact</a>
     </header>
-    <main id="main" class="page-narrow">
+    <main id="main" class="page-main prose" tabindex="-1">
+      <p class="hero-badge"><a href="#disclaimer">Independent · Free · Cited</a></p>
       <h1>Privacy</h1>
-      <p>This page describes the studio website only. Each lab you open has its own pages and its own practices.</p>
-      <article class="prose">
-        <h2>What this site is</h2>
-        <p>Cypher Monkey Labs is a set of static files. This website does not run an account system, and it does not add analytics, ads, or tracking pixels.</p>
-        <h2>What we don't collect here</h2>
-        <p>There are no cookies and no sign-in. The site does not sell personal information. Quiz totals and other unpublished counts are left off the page until a lab publishes them.</p>
-        <h2>What stays on your device</h2>
-        <p>If you change the color theme, sound, motion, map view, or greeting language, that choice is saved in this browser's local storage. It stays on your device. Clearing site data for this address removes it.</p>
-        <h2>Sound</h2>
-        <p>Sound is off until you turn it on. If you turn it on, your browser speaks the greeting. Some browsers do this on the device. Some may use an online voice that the browser chooses. This site does not receive that audio and does not send the greeting to a server of ours.</p>
-        <h2>Hosting logs</h2>
-        <p>Whoever hosts these files can see ordinary request logs, such as an IP address, the way any web host does. This project does not add its own logging on top.</p>
-        <h2>Links you choose</h2>
-        <p>Opening a lab, a GitHub page, a social page if one is added later, or email leaves this site. Those places have their own privacy practices. This site does not embed their trackers.</p>
-        <h2>Email</h2>
-        <p>The contact form opens your email app to <a href="mailto:research@cyphermonkeylabs.com">research@cyphermonkeylabs.com</a> unless a form address is set in the site data. When that address is set, your browser sends the name, email, topic, and message there. This website does not keep a copy. A takedown note uses the same form with the topic set to a concern.</p>
-      </article>
+      <p>This notice covers the CypherMonkey Labs website only. Each lab you open is its own site and has its own practices.</p>
+
+      <section id="plain" aria-labelledby="plain-title">
+        <h2 id="plain-title">Plain version</h2>
+        <ul>
+          <li>No ads, no affiliate links, and no tracking cookies set by this site.</li>
+          <li>No analytics script is loaded.</li>
+          <li>Settings stay in this browser under the key <code>cm.settings</code>. They are not sent to a server.</li>
+          <li>The site does not publish an email address. Mission Control is a form, and the private mailbox is a Cloudflare secret when that Worker is turned on.</li>
+        </ul>
+      </section>
+
+      <section id="storage" aria-labelledby="storage-title">
+        <h2 id="storage-title">What stays on your device</h2>
+        <p>The site scripts do not set cookies. Theme, motion, language, and sound preferences can be stored in <code>localStorage</code> under <code>cm.settings</code>. That is how the pages avoid a theme flash and remember a choice. Clearing site data for cyphermonkeylabs.com removes it. URL overrides such as <code>?theme=starlight&amp;motion=reduce</code> apply to that view only and are not written to storage.</p>
+      </section>
+
+      <section id="contact-privacy" aria-labelledby="contact-privacy-title">
+        <h2 id="contact-privacy-title">Contact</h2>
+        <p>The contact form asks for your name, your email, a topic, an optional lab, and a message, plus consent. Your email exists so a person can reply. It is not printed on the page and it is not put in a public GitHub issue.</p>
+        <p>Until the Worker is deployed, Send opens a public GitHub issue with the topic and the message, and leaves your email in the form on this device. If the message itself contains an email address, the form stops and asks you to remove it, because a public issue would show it.</p>
+        <p>When the Worker at <code>contact.cyphermonkeylabs.com</code> is enabled, the browser posts the form there. The Worker checks a Turnstile token, a honeypot, a short timing trap, and a rate limit, then emails a destination that lives only in a Cloudflare secret. The Worker is written so it does not store the message and does not send the destination address back to the browser. Setup steps are in <code>/worker/README.md</code> in the repository. Nothing in this repository is the studio inbox.</p>
+      </section>
+
+      <section id="turnstile" aria-labelledby="turnstile-title">
+        <h2 id="turnstile-title">Spam check</h2>
+        <p>If Turnstile is switched on, Cloudflare may set its own anti-abuse signals in your browser. That is Cloudflare’s processing, not a cookie this site uses for ads or analytics. Their privacy notice is <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener noreferrer">Cloudflare’s privacy policy</a>.</p>
+      </section>
+
+      <section id="analytics" aria-labelledby="analytics-title">
+        <h2 id="analytics-title">Analytics</h2>
+        <p>None by default. If a cookieless measurement tool is added later, this page will say so before it ships.</p>
+      </section>
+
+      <section id="hosting" aria-labelledby="hosting-title">
+        <h2 id="hosting-title">Hosting</h2>
+        <p>The site is static files on GitHub Pages, with HTTPS on the custom domain. GitHub Pages cannot set custom response headers, so the content security policy is a meta tag. <code>frame-ancestors</code> does not work in a meta tag. That is a known limit, not a hidden setting. The policy also leaves out <code>upgrade-insecure-requests</code> because Pages already redirects to HTTPS, and that directive blocks the scripts during a local HTTP preview.</p>
+      </section>
+
+      <section id="how-we-verify" aria-labelledby="verify-title">
+        <h2 id="verify-title">How we verify</h2>
+        <ol>
+          <li>Primary sources come first: official documentation, RFCs, and standards bodies.</li>
+          <li>Numbers that are not in a cited source do not get published as facts.</li>
+          <li>Illustrative timeline or sample data stays labeled EXAMPLE, or it is removed.</li>
+          <li>A live lab should show at least one source and a last-verified date. The checker treats a live lab unverified for more than 365 days as an error, and more than 180 days as a warning.</li>
+          <li>Vendor names are text. Logos are not used.</li>
+        </ol>
+      </section>
+
+      <section id="changelog" aria-labelledby="changelog-title">
+        <h2 id="changelog-title">Changelog</h2>
+        <p>No public corrections are logged here yet. When a correction is accepted, it will be listed with the date. The target is to fix a confirmed mistake within 14 days.</p>
+      </section>
+
+      <section id="accessibility" aria-labelledby="a11y-title">
+        <h2 id="a11y-title">Accessibility</h2>
+        <p>These trust pages aim for WCAG 2.2 AA: visible focus, 48 pixel targets, text that can reflow, a skip link, and motion that stops when the system asks for reduced motion or when <code>cm.settings</code> says so. High contrast is a theme, and forced colors keep borders.</p>
+        <p>Known limits: the contact form needs JavaScript to open the GitHub fallback or to run Turnstile. Without JavaScript, the page shows a direct link to open a public issue. The full screen-reader pass on VoiceOver, TalkBack, and NVDA is still a manual check. To report a barrier, use <a href="/?topic=accessibility#contact">Contact</a> and choose Accessibility issue.</p>
+      </section>
+
+      <section id="licenses" aria-labelledby="licenses-title">
+        <h2 id="licenses-title">Licenses</h2>
+        <p><strong>Code</strong> in <code>/js/trust</code>, <code>/css/trust.css</code>, <code>/worker</code>, and <code>/.github</code> is under the MIT License. Copyright © 2026 CypherMonkey Labs.</p>
+        <pre>MIT License
+
+Copyright (c) 2026 CypherMonkey Labs
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</pre>
+        <p><strong>Content</strong> (the words on these pages, diagrams, and timeline copy) is under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener noreferrer">CC BY-NC-SA 4.0</a>. That includes disclaimer text even when a script prints it. You can share and adapt it for non-commercial use if you credit CypherMonkey Labs, link the license, and share adaptations under the same terms.</p>
+        <p><strong>Brand</strong> (the name CypherMonkey Labs, the logo, and the mascot) is excluded from that content license. All rights reserved. The copyright line uses the project name until a person confirms a different legal name. That brand exclusion is the working position and can be confirmed or changed by the maintainer.</p>
+      </section>
+
+      <section id="trademarks" aria-labelledby="trademarks-title">
+        <h2 id="trademarks-title">Trademarks</h2>
+        <p>Amazon Web Services, Amazon Connect, Microsoft, Cisco, Webex, Five9, Genesys, Genesys Cloud, NICE, NICE CXone, Google, and Gemini belong to their owners. They are used here only to say what a lab teaches. CypherMonkey Labs is not affiliated with, sponsored by, or endorsed by those companies. The fuller list is also in the Ground Rules panel.</p>
+      </section>
     </main>
-    <footer class="footer">
-      <div class="wrap legal">
-        <p><a href="/">Back to the studio</a></p>
-        <p>Cypher Monkey Labs is an independent learning project. It is not affiliated with, endorsed by, or sponsored by any company named in the labs. Product names are used only so you can tell the labs apart, and those names belong to their owners.</p>
-      </div>
-    </footer>
+    <div id="footer-root">
+      <noscript>
+        <section id="disclaimer" class="noscript-panel">
+          <h2>Ground Rules</h2>
+          <p><strong>Independent &amp; educational.</strong> CypherMonkey Labs is a free, independent learning project. It is <strong>not affiliated with, sponsored by, or endorsed by</strong> Amazon Web Services, Microsoft, Cisco (Webex), Five9, Genesys, NICE, Google, or any other company named on this site. Product names and trademarks belong to their owners and are used only to describe what each lab teaches. We work to keep every lesson truthful and cite our sources, but technology changes, so always check official documentation before using anything in production. Spotted a mistake? <a href="/?topic=correction#contact">Tell Mission Control</a>.</p>
+          <p><strong>Not just fun, also good work.</strong></p>
+          <p><a href="https://github.com/CypherMonkeyLabs/cyphermonkeylabs.github.io" rel="noopener noreferrer">Repo</a> · <a href="https://github.com/cipher0x9" rel="noopener noreferrer">Rate</a> · <a href="https://github.com/CypherMonkeyLabs/cyphermonkeylabs.github.io/issues" rel="noopener noreferrer">Comment</a> · <a href="/#contact">Help</a></p>
+        </section>
+      </noscript>
+    </div>
+    <script type="module" src="/js/trust/boot.js"></script>
   </body>
 </html>

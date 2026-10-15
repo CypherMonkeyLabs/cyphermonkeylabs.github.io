@@ -1,0 +1,30 @@
+name: ci
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: trust-ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Unit tests
+        run: node --test .github/scripts/trust.test.mjs
+      - name: Validate labs manifest and lab URLs
+        run: node .github/scripts/validate-labs.mjs --ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check trust-page links
+        run: node .github/scripts/check-links.mjs
+      - name: No public email address
+        run: node .github/scripts/check-no-email.mjs
+      - name: Performance budgets
+        run: node .github/scripts/check-budgets.mjs

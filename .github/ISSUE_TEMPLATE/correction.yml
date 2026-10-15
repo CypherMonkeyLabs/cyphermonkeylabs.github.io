@@ -1,0 +1,19 @@
+name: Correction
+description: Report a mistake in a lesson or on the site
+title: "[Correction] "
+labels: []
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page or lab
+      description: Where is the mistake?
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: What should change?
+      description: Include the source you checked. Do not include a private email address. Issues are public.
+    validations:
+      required: true

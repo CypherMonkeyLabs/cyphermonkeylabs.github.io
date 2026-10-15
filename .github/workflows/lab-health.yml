@@ -1,0 +1,23 @@
+name: lab-health
+on:
+  schedule:
+    # 13:17 UTC is 06:17 in Arizona (MST, no daylight time).
+    - cron: '17 13 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check lab URLs and repos
+        run: node .github/scripts/lab-health.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          CREATE_ISSUE: '1'

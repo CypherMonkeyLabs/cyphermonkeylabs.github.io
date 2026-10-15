@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" data-trust-page data-theme="dawn" data-motion="full">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Trust demo · CypherMonkey Labs</title>
+    <meta name="description" content="Ground Rules, the Mission Control contact form, and the footer for CypherMonkey Labs. No studio email address is shown.">
+    <meta name="robots" content="noindex">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="theme-color" id="theme-color" content="#FBF7FF">
+    <meta name="cml-contact-mode" content="fallback">
+    <meta name="cml-contact-endpoint" content="https://contact.cyphermonkeylabs.com">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://contact.cyphermonkeylabs.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action https://contact.cyphermonkeylabs.com">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/css/trust.css">
+    <script src="/js/trust/theme-boot.js"></script>
+  </head>
+  <body data-trust-boot="demo contact footer">
+    <a class="skip" href="#main">Skip to main content</a>
+    <header class="trust-top">
+      <a class="wordmark" href="/">CypherMonkey Labs</a>
+      <a href="/#labs">Labs</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="#contact">Contact</a>
+    </header>
+    <main id="main" tabindex="-1">
+      <div class="trust-hero">
+        <p class="hero-badge"><a href="#disclaimer">Independent · Free · Cited</a></p>
+        <h1>Ground rules and a private mailbox</h1>
+        <p class="lede">Not just fun, also good work. This standalone page is the trust layer: a full-width disclaimer, a contact form that never publishes an email address, and the footer. The home page can mount the same modules.</p>
+        <div class="theme-preview" role="group" aria-label="Preview theme, motion, and language">
+          <button type="button" data-set-theme="dawn">Pastel Dawn</button>
+          <button type="button" data-set-theme="starlight">Starlight</button>
+          <button type="button" data-set-theme="contrast">High contrast</button>
+          <button type="button" data-set-motion="reduce">Reduced motion</button>
+          <button type="button" data-set-motion="full">Full motion</button>
+          <button type="button" data-set-lang="en">English</button>
+          <button type="button" data-set-lang="es">Español</button>
+        </div>
+        <p id="mascot-status" role="status"></p>
+      </div>
+      <div class="contact-layout" id="contact-root">
+        <noscript>
+          <section id="contact" class="noscript-panel">
+            <h2>Send a message to Mission Control</h2>
+            <p>Please enable JavaScript to send a message. You can also open a public GitHub issue. Do not put an email address in a public issue.</p>
+            <p><a href="https://github.com/CypherMonkeyLabs/cyphermonkeylabs.github.io/issues/new" rel="noopener noreferrer">Open a GitHub issue</a></p>
+          </section>
+        </noscript>
+      </div>
+    </main>
+    <div id="footer-root">
+      <noscript>
+        <section id="disclaimer" class="noscript-panel">
+          <h2>Ground Rules</h2>
+          <p><strong>Independent &amp; educational.</strong> CypherMonkey Labs is a free, independent learning project. It is <strong>not affiliated with, sponsored by, or endorsed by</strong> Amazon Web Services, Microsoft, Cisco (Webex), Five9, Genesys, NICE, Google, or any other company named on this site. Product names and trademarks belong to their owners and are used only to describe what each lab teaches. We work to keep every lesson truthful and cite our sources, but technology changes, so always check official documentation before using anything in production. Spotted a mistake? <a href="/?topic=correction#contact">Tell Mission Control</a>.</p>
+          <p><strong>Not just fun, also good work.</strong> These labs are free practice with a real lesson under them: careful, cited, and meant to be useful.</p>
+          <p><strong>Code:</strong> <a href="/privacy.html#licenses">MIT License</a> · <strong>Content</strong> (text, diagrams, timeline): <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener noreferrer">CC BY-NC-SA 4.0</a> · <strong>Brand</strong> (name, logo, mascot): all rights reserved.</p>
+          <ul>
+            <li><a href="https://github.com/CypherMonkeyLabs/cyphermonkeylabs.github.io" rel="noopener noreferrer">Repo</a></li>
+            <li><a href="https://github.com/cipher0x9" rel="noopener noreferrer">Rate</a></li>
+            <li><a href="https://github.com/CypherMonkeyLabs/cyphermonkeylabs.github.io/issues" rel="noopener noreferrer">Comment</a></li>
+            <li><a href="/#contact">Help</a></li>
+          </ul>
+        </section>
+      </noscript>
+    </div>
+    <script type="module" src="/js/trust/boot.js"></script>
+  </body>
+</html>
