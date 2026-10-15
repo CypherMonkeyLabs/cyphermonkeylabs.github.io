@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dawn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FBF7FF">
+  <meta name="robots" content="noindex">
+  <title>Navigation demo · CypherMonkey Labs</title>
+  <script src="/js/settings/boot.js"></script>
+  <link rel="preload" href="/css/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/nav.css">
+  <style>
+    body { margin: 0; }
+    .sky {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(900px 520px at 8% -10%, #C9B8FF 0%, transparent 62%),
+        radial-gradient(720px 420px at 100% 0%, #A7D8FF 0%, transparent 58%),
+        radial-gradient(640px 380px at 80% 110%, #FFC6E0 0%, transparent 52%),
+        var(--bg);
+    }
+    main, .demo-foot {
+      margin-inline-start: var(--cm-rail, 0px);
+      padding-inline: 20px;
+      max-width: 920px;
+    }
+    main {
+      padding-top: calc(var(--cm-header-h) + 28px);
+      padding-bottom: 32px;
+    }
+    .demo-kicker {
+      margin: 0 0 8px;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: var(--fs-100);
+    }
+    h1, h2 {
+      font-family: var(--font-display);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+    h1 { margin: 0 0 12px; font-size: var(--fs-700); }
+    h2 { margin: 0 0 8px; font-size: var(--fs-400); }
+    .demo-lede, section p { font-size: var(--fs-300); max-width: 42rem; }
+    section { margin-top: 56px; }
+    .demo-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
+    .demo-btn, .demo-foot a, #labs-list a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 48px;
+      min-height: 48px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 2px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      font: inherit;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .demo-btn--primary {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: transparent;
+    }
+    #labs-list {
+      list-style: none;
+      margin: 16px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+    #labs-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 48px;
+      padding: 8px 12px;
+      border-radius: 16px;
+      background: color-mix(in oklab, var(--surface) 88%, transparent);
+    }
+    .demo-soon { color: var(--ink-muted); font-weight: 700; }
+    .demo-foot {
+      padding-top: 12px;
+      padding-bottom: calc(112px + env(safe-area-inset-bottom, 0px));
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="sky" aria-hidden="true"></div>
+  <div id="cm-nav" data-demo="true"></div>
+  <main id="main">
+    <p class="demo-kicker" data-i18n="demo.kicker">Standalone demo</p>
+    <h1 data-i18n="demo.title">CypherMonkey Labs</h1>
+    <p class="demo-lede" data-i18n="demo.lede">Free labs for curious minds. This page shows the header, the author panel, the menu, and settings.</p>
+    <div class="demo-actions">
+      <button type="button" class="demo-btn demo-btn--primary" id="demo-scale" data-i18n="demo.scale">Load 100 sample labs</button>
+      <button type="button" class="demo-btn" id="demo-real" data-i18n="demo.real">Show the starter labs</button>
+    </div>
+    <p data-i18n="demo.scaleNote">The long list is sample data so the menu can be tried at full size.</p>
+    <section id="launchpad" aria-labelledby="launchpad-title">
+      <h2 id="launchpad-title" data-i18n="dock.play">Play</h2>
+      <p data-i18n="dock.play.long">Play in the universe</p>
+    </section>
+    <section id="labs" aria-labelledby="labs-title">
+      <h2 id="labs-title" data-i18n="demo.labs">Labs</h2>
+      <ul id="labs-list"></ul>
+    </section>
+    <section id="guide" aria-labelledby="guide-title">
+      <h2 id="guide-title" data-i18n="demo.guide">Field guide</h2>
+      <p data-i18n="demo.guideBody">Pick a lab, follow the missions, and check the sources.</p>
+    </section>
+    <section id="timeline" aria-labelledby="timeline-title">
+      <h2 id="timeline-title" data-i18n="demo.timeline">Timeline</h2>
+      <p data-i18n="demo.timelineBody">The full timeline lives on its own page. This is where the link lands.</p>
+    </section>
+    <section id="gems" aria-labelledby="gems-title">
+      <h2 id="gems-title" data-i18n="demo.gems">Gems</h2>
+      <p data-i18n="demo.gemsBody">Handy AI helpers built as Gemini Gems. The gallery page is separate.</p>
+    </section>
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title" data-i18n="demo.about">About</h2>
+      <p data-i18n="demo.aboutBody">CypherMonkey shares free labs. The longer story lives on the about page.</p>
+    </section>
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title" tabindex="-1" data-i18n="demo.contact">Mission Control</h2>
+      <p data-i18n="demo.contactBody">The contact form is assembled separately. This demo only moves focus here.</p>
+    </section>
+    <section id="legal" aria-labelledby="legal-title">
+      <h2 id="legal-title" data-i18n="demo.legal">Legal</h2>
+      <p data-i18n="demo.legalBody">Licenses and the independent-work notice will live on the legal page.</p>
+    </section>
+    <section id="privacy" aria-labelledby="privacy-title">
+      <h2 id="privacy-title" data-i18n="demo.privacy">Privacy</h2>
+      <p data-i18n="demo.privacyBody">The privacy notice will live on its own page. This demo does not collect messages.</p>
+    </section>
+    <section id="accessibility" aria-labelledby="a11y-title">
+      <h2 id="a11y-title" data-i18n="demo.a11y">Accessibility</h2>
+      <p data-i18n="demo.a11yBody">How to report a barrier will live on the accessibility page.</p>
+    </section>
+  </main>
+  <footer class="demo-foot">
+    <p data-i18n="demo.footer">Stand-in footer for this demo. The site footer is assembled separately.</p>
+    <a href="#contact" data-contact="true" data-i18n="nav.contact">Contact</a>
+  </footer>
+  <script type="module">
+    import { demoCatalog, makeScaleLabs } from "/js/nav/demo-data.js";
+    import { mountNav } from "/js/nav/index.js";
+    import { mountSettings } from "/js/settings/index.js";
+
+    const root = document.querySelector("#cm-nav");
+    const nav = await mountNav(root, demoCatalog);
+    mountSettings();
+
+    const list = document.querySelector("#labs-list");
+    function paintLabs(catalog) {
+      list.replaceChildren();
+      for (const lab of catalog.labs) {
+        const item = document.createElement("li");
+        const title = document.createElement("span");
+        title.textContent = lab.title;
+        item.append(title);
+        if (lab.url) {
+          const link = document.createElement("a");
+          link.href = lab.url;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.dataset.lab = lab.id;
+          link.textContent = "Open";
+          item.append(link);
+        } else {
+          const soon = document.createElement("span");
+          soon.className = "demo-soon";
+          soon.textContent = "Not open yet";
+          item.append(soon);
+        }
+        list.append(item);
+      }
+    }
+    paintLabs(demoCatalog);
+    document.querySelector("#demo-scale").addEventListener("click", () => {
+      const scaled = makeScaleLabs(100);
+      nav.setLabs(scaled);
+      paintLabs(scaled);
+    });
+    document.querySelector("#demo-real").addEventListener("click", () => {
+      nav.setLabs(demoCatalog);
+      paintLabs(demoCatalog);
+    });
+
+    const open = new URLSearchParams(location.search).get("open");
+    if (open === "menu") nav.openMenu(document.querySelector(".cm-menu-btn, .cm-dock__item"));
+    else if (open === "palette") nav.openPalette(document.querySelector(".cm-search"));
+    else if (open === "settings") nav.openSettings(document.querySelector("[data-cm-settings]"));
+    document.documentElement.dataset.cmReady = "true";
+  </script>
+</body>
+</html>
