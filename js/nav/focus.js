@@ -60,6 +60,12 @@ export function closeDialog(dialog, { then } = {}) {
 }
 
 export function bindDialog(dialog, { backdrop = false } = {}) {
+  dialog.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    event.preventDefault();
+    event.stopPropagation();
+    closeDialog(dialog);
+  }, true);
   dialog.addEventListener("cancel", (event) => {
     event.preventDefault();
     closeDialog(dialog);

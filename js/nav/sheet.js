@@ -363,5 +363,3 @@ function bindSwipe(dialog, head) {
   head.addEventListener("pointerup", end);
   head.addEventListener("pointercancel", end);
 }
-
-void announce;

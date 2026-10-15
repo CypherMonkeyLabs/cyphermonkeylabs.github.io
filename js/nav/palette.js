@@ -51,8 +51,8 @@ export function mountPalette(ctx) {
   const closeBtn = el("button", {
     type: "button",
     class: "cm-close",
-    "data-i18n-attr": "aria-label:menu.close",
-  }, [icon("close"), el("span", { "data-i18n": "settings.close" })]);
+    "data-i18n-attr": "aria-label:palette.close",
+  }, [icon("close"), el("span", { "data-i18n": "palette.close" })]);
   dialog.append(title, closeBtn, form);
   document.body.append(dialog);
   ctx.nodes.push(dialog);

@@ -88,6 +88,10 @@ test("search ignores accents and ranks a SIP prefix", () => {
   assert.ok(scoreItem("linea", timeline) >= 84);
   const found = queryIndex(index, "linea");
   assert.ok(found.items.some((item) => item.id.endsWith(":timeline")));
+  const english = buildIndex(catalog, { lang: "en", t: (key) => t("en", key) });
+  const sipOnly = queryIndex(english, "sip");
+  assert.equal(sipOnly.items[0].labId, "sip");
+  assert.equal(sipOnly.items.some((item) => item.labId === "canon"), false);
 });
 
 test("one hundred sample labs group without dropping any", () => {

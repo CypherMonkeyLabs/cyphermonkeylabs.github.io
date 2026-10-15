@@ -238,9 +238,9 @@ export function scoreItem(query, item) {
   if (tags.some((tag) => tag === q || tag.startsWith(q))) return 76;
   if (category.startsWith(q)) return 68;
   if (title.includes(q)) return 58;
-  if (tags.some((tag) => tag.includes(q)) || category.includes(q)) return 48;
-  if (summary.includes(q)) return 36;
-  if (fuzzy(q, title) || fuzzy(q, tags.join(" "))) return 28;
+  if (q.length >= 4 && (tags.some((tag) => tag.includes(q)) || category.includes(q))) return 48;
+  if (summary.includes(q) && (q.length >= 4 || summary.split(" ").some((word) => word.startsWith(q)))) return 36;
+  if (q.length >= 4 && (fuzzy(q, title) || fuzzy(q, tags.join(" ")))) return 28;
   return 0;
 }
 

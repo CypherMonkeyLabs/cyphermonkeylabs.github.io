@@ -561,6 +561,8 @@ html:has(dialog[open]) .cm-dock {
 .cm-sheet__head h2 {
   margin: 0;
   font-size: var(--fs-400);
+  width: fit-content;
+  align-self: center;
 }
 
 .cm-sheet__lead { grid-column: 1 / -1; }
