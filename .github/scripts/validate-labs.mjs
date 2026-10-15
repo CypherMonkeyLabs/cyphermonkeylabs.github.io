@@ -8,8 +8,8 @@ const ICONS = ['headset', 'handset', 'cloud-phone', 'waveform', 'nodes', 'chat',
 const ACCENTS = ['peach', 'sky', 'mint', 'lavender', 'butter', 'pink'];
 const LEVELS = ['starter', 'explorer', 'navigator', 'pilot'];
 const ID_PATTERN = /^[a-z0-9]+(-[a-z0-9]+)*$/;
-const LAB_URL = /^https:\/\/cipher0x9\.github\.io\/[A-Za-z0-9._-]+(?:\/[A-Za-z0-9._~%-]*)*$/;
-const REPO_URL = /^https:\/\/github\.com\/cipher0x9\/[A-Za-z0-9._-]+$/;
+const LAB_URL = /^https:\/\/(?:cyphermonkeylabs\.com\/[A-Za-z0-9._-]+|cipher0x9\.github\.io\/gemini-gems-free-gallery)(?:\/[A-Za-z0-9._~%-]*)*$/;
+const REPO_URL = /^https:\/\/github\.com\/(?:CypherMonkeyLabs\/[A-Za-z0-9._-]+|cipher0x9\/gemini-gems-free-gallery)$/;
 const ALLOWED = new Set([
   'schemaVersion', 'id', 'kind', 'title', 'shortTitle', 'tagline', 'summary', 'category',
   'secondaryCategories', 'tags', 'status', 'featured', 'order', 'level', 'estHours', 'modules',
@@ -85,8 +85,8 @@ function checkPack3(rows) {
       }
     }
     if (!STATUSES.includes(lab.status)) push(findings, 'error', `${where}.status is invalid`);
-    if (typeof lab.url !== 'string' || !LAB_URL.test(lab.url)) push(findings, 'error', `${where}.url must be a cipher0x9.github.io lab URL`);
-    if (typeof lab.repo !== 'string' || !REPO_URL.test(lab.repo)) push(findings, 'error', `${where}.repo must be a cipher0x9 GitHub repo`);
+    if (typeof lab.url !== 'string' || !LAB_URL.test(lab.url)) push(findings, 'error', `${where}.url must be a cyphermonkeylabs.com lab URL`);
+    if (typeof lab.repo !== 'string' || !REPO_URL.test(lab.repo)) push(findings, 'error', `${where}.repo must be a CypherMonkeyLabs GitHub repo`);
     if (typeof lab.url === 'string' && typeof lab.repo === 'string' && LAB_URL.test(lab.url) && REPO_URL.test(lab.repo)) {
       if (pagesRepo(lab.url) !== repoName(lab.repo)) push(findings, 'error', `${where} url slug and repo name differ`);
     }
@@ -158,10 +158,10 @@ function checkLegacy(rows) {
     const open = status === 'live' || status === 'beta';
     if (open && !url.startsWith('https://')) push(findings, 'error', `${where} live lab needs an https URL`);
     else if (url && !url.startsWith('https://')) push(findings, 'error', `${where}.url must be https when set`);
-    if (repo && !REPO_URL.test(repo)) push(findings, 'error', `${where} repo must be https://github.com/cipher0x9/<name>`);
+    if (repo && !REPO_URL.test(repo)) push(findings, 'error', `${where} repo must be https://github.com/CypherMonkeyLabs/<name>`);
     if (open && !repo) push(findings, 'warning', `${where} (${lab.id}) has no repo URL`);
     if (open && url.startsWith('https://') && !LAB_URL.test(url.endsWith('/') ? url : `${url}/`)) {
-      push(findings, 'warning', `${where} (${lab.id}) is not a cipher0x9.github.io URL`);
+      push(findings, 'warning', `${where} (${lab.id}) is not a cyphermonkeylabs.com URL`);
     }
   });
   return findings;

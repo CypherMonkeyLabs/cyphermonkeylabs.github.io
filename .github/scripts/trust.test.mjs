@@ -129,9 +129,9 @@ test('pack3 fixture passes and the invalid fixture fails', async () => {
 });
 
 test('legacy labs normalize', () => {
-  const labs = normalizeLabs({ labs: [{ id: 'sip', name: 'SIP Universe', url: 'https://example.com/sip/', source: 'https://github.com/cipher0x9/sip', status: 'live' }] });
+  const labs = normalizeLabs({ labs: [{ id: 'sip', name: 'SIP Universe', url: 'https://example.com/sip/', source: 'https://github.com/CypherMonkeyLabs/sip', status: 'live' }] });
   assert.equal(labs[0].title, 'SIP Universe');
-  assert.equal(labs[0].repo, 'https://github.com/cipher0x9/sip');
+  assert.equal(labs[0].repo, 'https://github.com/CypherMonkeyLabs/sip');
 });
 
 test('worker rejects the closed cases and sends a good note', async () => {
