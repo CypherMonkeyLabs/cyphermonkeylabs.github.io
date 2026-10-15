@@ -1,0 +1,32 @@
+name: New lab
+description: Propose a lab for the manifest
+title: "[Lab] "
+body:
+  - type: input
+    id: id
+    attributes:
+      label: Lab id
+      description: Lowercase words separated by hyphens.
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Lab URL
+      description: https://cipher0x9.github.io/<repo>/
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: Repository
+      description: https://github.com/cipher0x9/<repo>
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Primary sources
+      description: Official docs, RFCs, or standards. No vendor logos.
+    validations:
+      required: true

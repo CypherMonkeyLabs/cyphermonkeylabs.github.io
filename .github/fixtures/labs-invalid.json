@@ -1,0 +1,22 @@
+{
+  "labs": [
+    {
+      "schemaVersion": 1,
+      "id": "Bad Id",
+      "kind": "poster",
+      "title": "X",
+      "tagline": "too tiny",
+      "summary": "too short",
+      "category": "spaceships",
+      "status": "live",
+      "url": "http://example.com/nope",
+      "repo": "https://github.com/someone-else/nope",
+      "icon": "logo",
+      "launchedAt": "2027-01-01",
+      "lastVerified": "2020-01-01",
+      "sources": [],
+      "order": 1,
+      "unexpected": true
+    }
+  ]
+}

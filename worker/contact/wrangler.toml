@@ -1,0 +1,25 @@
+# Cloudflare Worker hook for Mission Control.
+# Do not deploy from this repository until a person chooses to.
+# Do not put secret values in this file.
+# Set secrets with: wrangler secret put TURNSTILE_SECRET
+#                   wrangler secret put TO_ADDR
+#                   wrangler secret put FROM_ADDR
+#                   wrangler secret put SALT
+# Optional plain var: LAB_IDS = "sip-universe,amazon-connect" (known lab ids)
+
+name = "cml-contact"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = false
+
+[[send_email]]
+name = "SEND_EMAIL"
+
+# Rate limit binding. If this binding is not on the account plan, create a KV
+# namespace and bind it as RATE_KV instead. The handler fails closed when
+# neither binding is present, so mail cannot send without a limiter.
+[[unsafe.bindings]]
+name = "RATE_LIMITER"
+type = "ratelimit"
+namespace_id = "1001"
+simple = { limit = 5, period = 3600 }
