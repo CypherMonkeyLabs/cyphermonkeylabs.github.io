@@ -1,0 +1,282 @@
+{
+  "name": "Cypher Monkey Labs",
+  "tagline": "A free studio universe of hands-on learning labs.",
+  "lede": "CypherMonkey dances in the middle of the map, ready to teach, learn, and speak with you. Each planet is a lab.",
+  "description": "Cypher Monkey Labs is a free community studio. Interactive labs cover contact centers, AI, calling, languages, and coding.",
+  "origin": "https://cyphermonkeylabs.com",
+  "contactEmail": "research@cyphermonkeylabs.com",
+  "socialUrl": "",
+  "githubUrl": "https://github.com/cipher0x9",
+  "formEndpoint": "",
+  "mission": "Free learning apps for schools, nonprofits and rural communities, in any language, built with content you approve",
+  "work": {
+    "title": "Work with us",
+    "body": "Schools, nonprofits, and rural programs can use these labs for free. Tell us the language you need and the content you want learners to see. This page does not store the message."
+  },
+  "year": 2026,
+  "licenseLine": "Site code is released under the MIT license. Learning content is shared under CC BY-NC-SA 4.0 unless a lab page says otherwise.",
+  "trademark": "Cypher Monkey Labs is an independent learning project. It is not affiliated with, endorsed by, or sponsored by any company named in the labs. Product names are used only so you can tell the labs apart, and those names belong to their owners.",
+  "about": {
+    "title": "Learning in public",
+    "body": "Cypher Monkey Labs is a free community studio for learning in public. The work comes from a background in voice, video, and contact centers, and it now reaches into AI agents and coding. Labs are practice rooms for learners. They are not official training, and they do not speak for any company."
+  },
+  "path": [
+    { "label": "Voice", "icon": "phone" },
+    { "label": "Video", "icon": "video" },
+    { "label": "Contact center", "icon": "headset" },
+    { "label": "AI agents", "icon": "spark" },
+    { "label": "Coding", "icon": "code" }
+  ],
+  "themes": [
+    { "id": "canopy", "name": "Night canopy", "color": "#07110e" },
+    { "id": "market", "name": "Night market", "color": "#120814" },
+    { "id": "ice", "name": "Signal ice", "color": "#061018" },
+    { "id": "amber", "name": "Amber lab", "color": "#14100a" },
+    { "id": "paper", "name": "Gallery", "color": "#fff4fb" }
+  ],
+  "categories": [
+    {
+      "id": "contact-center",
+      "name": "Contact Center",
+      "blurb": "Calling, contact centers, and the systems behind them.",
+      "shape": "circle",
+      "symbol": "☎️"
+    },
+    {
+      "id": "ai",
+      "name": "AI",
+      "blurb": "Models, prompts, and working with AI tools.",
+      "shape": "dashed",
+      "symbol": "✨"
+    },
+    {
+      "id": "languages",
+      "name": "Languages",
+      "blurb": "Practice with human languages.",
+      "shape": "ring",
+      "symbol": "🌐"
+    },
+    {
+      "id": "coding",
+      "name": "Coding",
+      "blurb": "Programming and how software is built and run.",
+      "shape": "square",
+      "symbol": "💻"
+    }
+  ],
+  "greetings": [
+    {
+      "id": "en",
+      "lang": "en",
+      "dir": "ltr",
+      "label": "English",
+      "hello": "Hello",
+      "gloss": "Ready to teach, learn, and speak with you.",
+      "speech": "en-US",
+      "speechText": "Hello. Ready to teach, learn, and speak with you."
+    },
+    {
+      "id": "es",
+      "lang": "es",
+      "dir": "ltr",
+      "label": "Spanish",
+      "hello": "Hola",
+      "gloss": "Hello",
+      "speech": "es-ES",
+      "speechText": "Hola"
+    },
+    {
+      "id": "fr",
+      "lang": "fr",
+      "dir": "ltr",
+      "label": "French",
+      "hello": "Bonjour",
+      "gloss": "Hello",
+      "speech": "fr-FR",
+      "speechText": "Bonjour"
+    },
+    {
+      "id": "de",
+      "lang": "de",
+      "dir": "ltr",
+      "label": "German",
+      "hello": "Hallo",
+      "gloss": "Hello",
+      "speech": "de-DE",
+      "speechText": "Hallo"
+    },
+    {
+      "id": "pt",
+      "lang": "pt",
+      "dir": "ltr",
+      "label": "Portuguese",
+      "hello": "Olá",
+      "gloss": "Hello",
+      "speech": "pt-BR",
+      "speechText": "Olá"
+    },
+    {
+      "id": "zh",
+      "lang": "zh-Hans",
+      "dir": "ltr",
+      "label": "Chinese",
+      "hello": "你好",
+      "gloss": "Hello",
+      "speech": "zh-CN",
+      "speechText": "你好"
+    },
+    {
+      "id": "ja",
+      "lang": "ja",
+      "dir": "ltr",
+      "label": "Japanese",
+      "hello": "こんにちは",
+      "gloss": "Hello",
+      "speech": "ja-JP",
+      "speechText": "こんにちは"
+    },
+    {
+      "id": "ko",
+      "lang": "ko",
+      "dir": "ltr",
+      "label": "Korean",
+      "hello": "안녕하세요",
+      "gloss": "Hello",
+      "speech": "ko-KR",
+      "speechText": "안녕하세요"
+    },
+    {
+      "id": "hi",
+      "lang": "hi",
+      "dir": "ltr",
+      "label": "Hindi",
+      "hello": "नमस्ते",
+      "gloss": "Hello",
+      "speech": "hi-IN",
+      "speechText": "नमस्ते"
+    },
+    {
+      "id": "ar",
+      "lang": "ar",
+      "dir": "rtl",
+      "label": "Arabic",
+      "hello": "مرحبًا",
+      "gloss": "Hello",
+      "speech": "ar",
+      "speechText": "مرحبًا"
+    },
+    {
+      "id": "te",
+      "lang": "te",
+      "dir": "ltr",
+      "label": "Telugu",
+      "hello": "నమస్కారం",
+      "gloss": "Hello",
+      "speech": "te-IN",
+      "speechText": "నమస్కారం"
+    },
+    {
+      "id": "sa",
+      "lang": "sa",
+      "dir": "ltr",
+      "label": "Sanskrit",
+      "hello": "नमस्कारः",
+      "gloss": "Hello",
+      "speech": "sa",
+      "speechText": "नमस्कारः"
+    },
+    {
+      "id": "sw",
+      "lang": "sw",
+      "dir": "ltr",
+      "label": "Swahili",
+      "hello": "Habari",
+      "gloss": "Hello",
+      "speech": "sw",
+      "speechText": "Habari"
+    },
+    {
+      "id": "tr",
+      "lang": "tr",
+      "dir": "ltr",
+      "label": "Turkish",
+      "hello": "Merhaba",
+      "gloss": "Hello",
+      "speech": "tr-TR",
+      "speechText": "Merhaba"
+    }
+  ],
+  "steps": [
+    {
+      "title": "Pick a lab",
+      "text": "Choose a planet on the map, or switch to the grid or the list.",
+      "icon": "planet"
+    },
+    {
+      "title": "Learn in rooms",
+      "text": "Open the lab and move through its rooms at your own pace.",
+      "icon": "rooms"
+    },
+    {
+      "title": "Practice the quiz",
+      "text": "Answer the lab's questions when it has a quiz.",
+      "icon": "quiz"
+    },
+    {
+      "title": "Download offline",
+      "text": "Save a lab's offline pack when that lab offers one.",
+      "icon": "download"
+    }
+  ],
+  "community": [
+    {
+      "id": "rate",
+      "title": "Rate",
+      "text": "Star a lab on GitHub if it helped you.",
+      "href": "https://github.com/cipher0x9",
+      "label": "Rate on GitHub",
+      "icon": "star"
+    },
+    {
+      "id": "comment",
+      "title": "Comment",
+      "text": "Open an issue on a lab with a correction or a question.",
+      "href": "https://github.com/cipher0x9",
+      "label": "Comment on GitHub",
+      "icon": "glyphs"
+    },
+    {
+      "id": "contribute",
+      "title": "Contribute",
+      "text": "Send a change to a lab's public code.",
+      "href": "https://github.com/cipher0x9",
+      "label": "Contribute on GitHub",
+      "icon": "code"
+    }
+  ],
+  "author": {
+    "title": "About the author",
+    "body": "CypherMonkey is the public name and the mascot for this studio. The labs are a learning-in-public project from a background in voice, video, and contact centers, now stretching into AI agents and coding. They are practice rooms. They are not official training, and they do not speak for any company.",
+    "links": [
+      { "name": "X", "url": "" },
+      { "name": "Linktree", "url": "" },
+      { "name": "dev.to", "url": "https://dev.to/cyphermonkey" },
+      { "name": "GitHub", "url": "https://github.com/cipher0x9" }
+    ]
+  },
+  "profiles": [
+    { "id": "x", "name": "X", "url": "" },
+    { "id": "telegram", "name": "Telegram", "url": "" },
+    { "id": "instagram", "name": "Instagram", "url": "" },
+    { "id": "facebook", "name": "Facebook", "url": "" },
+    { "id": "bluesky", "name": "Bluesky", "url": "" },
+    { "id": "tiktok", "name": "TikTok", "url": "" },
+    { "id": "threads", "name": "Threads", "url": "" },
+    { "id": "substack", "name": "Substack", "url": "" },
+    { "id": "whatsapp", "name": "WhatsApp Channel", "url": "" },
+    { "id": "youtube", "name": "YouTube", "url": "" },
+    { "id": "spotify", "name": "Spotify", "url": "" },
+    { "id": "github", "name": "GitHub", "url": "" },
+    { "id": "devto", "name": "dev.to", "url": "https://dev.to/cyphermonkey" }
+  ]
+}

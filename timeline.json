@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "id": "labs-2026-10",
+      "date": "2026-10",
+      "status": "live",
+      "title": "Nine labs are open",
+      "summary": "UC, AI, Amazon Connect, Microsoft Voice, Five9, Genesys Cloud, NICE CXone, SIP Universe, and the Gemini Gems gallery are public.",
+      "labIds": ["uc", "ai", "amazon-connect", "microsoft-voice", "five9", "genesys", "nice", "sip", "gems"]
+    },
+    {
+      "id": "canon-2026-10",
+      "date": "2026-10",
+      "status": "live",
+      "title": "CypherWebex Canon",
+      "summary": "The flagship lab is open with 63 rooms, navigation, and live flows. Its public address will move to GitHub Pages.",
+      "labIds": ["canon"]
+    },
+    {
+      "id": "gcp-coming",
+      "date": null,
+      "status": "coming",
+      "title": "Google Cloud Contact Center lab",
+      "summary": "A lab for Google Cloud contact-center ideas is planned.",
+      "labIds": ["gcp-cc"]
+    },
+    {
+      "id": "languages-coming",
+      "date": null,
+      "status": "coming",
+      "title": "Languages lab",
+      "summary": "Coming practice for Sanskrit, Telugu, Arabic, and English.",
+      "labIds": ["languages"]
+    },
+    {
+      "id": "coding-coming",
+      "date": null,
+      "status": "coming",
+      "title": "Coding lab",
+      "summary": "Coming practice for CS50 ideas, Python, and DevOps.",
+      "labIds": ["coding"]
+    }
+  ]
+}
