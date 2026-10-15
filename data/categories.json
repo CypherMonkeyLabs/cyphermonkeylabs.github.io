@@ -1,0 +1,37 @@
+[
+  {
+    "id": "contact-center",
+    "label": "Contact Center Planets",
+    "accent": "peach",
+    "glyph": "headset",
+    "order": 1
+  },
+  {
+    "id": "unified-comms",
+    "label": "Voice & Collaboration",
+    "accent": "sky",
+    "glyph": "handset",
+    "order": 2
+  },
+  {
+    "id": "protocols",
+    "label": "Protocols & Networks",
+    "accent": "mint",
+    "glyph": "nodes",
+    "order": 3
+  },
+  {
+    "id": "ai",
+    "label": "AI Frontier",
+    "accent": "lavender",
+    "glyph": "spark",
+    "order": 4
+  },
+  {
+    "id": "tools",
+    "label": "Tools & Gadgets",
+    "accent": "butter",
+    "glyph": "gem",
+    "order": 5
+  }
+]

@@ -1,0 +1,328 @@
+{
+  "schemaVersion": 1,
+  "verifiedOn": "2026-10-15",
+  "notes": "Open URLs were checked with HTTP GET on 2026-10-15 and returned 200. Repo URLs were checked with the GitHub API and returned 200. Webex publishes its study console at the site root; /campus/ on that host returned 404, so the open link is the root. Other labs open on the campus path their own page points to.",
+  "labs": [
+    {
+      "schemaVersion": 1,
+      "id": "uc",
+      "kind": "lab",
+      "title": "Unified Communications Lab",
+      "shortTitle": "UC",
+      "tagline": "See how phones, meetings, and teams share one campus.",
+      "summary": "This free campus walks through calling, meetings, and contact-center ideas. You follow the missions at your own pace. Each big idea can be checked against a source. It is practice, not official training.",
+      "category": "unified-comms",
+      "tags": ["calling", "meetings", "collaboration"],
+      "status": "live",
+      "featured": true,
+      "order": 10,
+      "level": "navigator",
+      "url": "https://cipher0x9.github.io/uc-lab-free-university-mesmerizing/campus/uc-lab-free-university.html",
+      "repo": "https://github.com/cipher0x9/uc-lab-free-university-mesmerizing",
+      "icon": "handset",
+      "accent": "sky",
+      "vendorsReferenced": ["Cisco"],
+      "launchedAt": "2026-07-31",
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-15",
+      "sources": [
+        {
+          "title": "SIP: Session Initiation Protocol (RFC 3261)",
+          "url": "https://www.rfc-editor.org/rfc/rfc3261",
+          "publisher": "IETF",
+          "accessed": "2026-10-15"
+        }
+      ],
+      "scene": { "size": 1.15, "moons": 1, "ringHint": 1 }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "amazon-connect",
+      "kind": "lab",
+      "title": "Amazon Connect Lab",
+      "shortTitle": "Connect",
+      "tagline": "Build a cloud contact center, one friendly mission at a time.",
+      "summary": "Explore contact flows, queues, routing, and the agent desk in Amazon Connect. The missions use plain language. Key facts link to the official administrator guide so you can check them yourself.",
+      "category": "contact-center",
+      "tags": ["cloud", "routing", "ivr", "aws"],
+      "status": "live",
+      "featured": true,
+      "order": 10,
+      "level": "explorer",
+      "url": "https://cipher0x9.github.io/amazon-connect-lab-free-university-mesmerizing/campus/",
+      "repo": "https://github.com/cipher0x9/amazon-connect-lab-free-university-mesmerizing",
+      "icon": "cloud-phone",
+      "accent": "peach",
+      "vendorsReferenced": ["Amazon Web Services", "Amazon Connect"],
+      "launchedAt": "2026-10-14",
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-15",
+      "sources": [
+        {
+          "title": "Amazon Connect Administrator Guide",
+          "url": "https://docs.aws.amazon.com/connect/",
+          "publisher": "AWS",
+          "accessed": "2026-10-15"
+        }
+      ],
+      "scene": { "size": 1.25, "moons": 1, "ringHint": 0 }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "microsoft-voice-cc",
+      "kind": "lab",
+      "title": "Microsoft Voice & Contact Center Lab",
+      "shortTitle": "Microsoft Voice",
+      "tagline": "Follow voice and contact-center ideas across Microsoft tools.",
+      "summary": "Practice how Microsoft voice and contact-center pieces fit together. The campus is free and static. When a lesson names a product behavior, you can open the Microsoft Learn page and read it there.",
+      "category": "unified-comms",
+      "secondaryCategories": ["contact-center"],
+      "tags": ["microsoft", "voice", "contact-center"],
+      "status": "live",
+      "featured": true,
+      "order": 20,
+      "level": "explorer",
+      "url": "https://cipher0x9.github.io/microsoft-voice-cc-lab-free-university-mesmerizing/campus/",
+      "repo": "https://github.com/cipher0x9/microsoft-voice-cc-lab-free-university-mesmerizing",
+      "icon": "headset",
+      "accent": "sky",
+      "vendorsReferenced": ["Microsoft"],
+      "launchedAt": "2026-10-14",
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-15",
+      "sources": [
+        {
+          "title": "Set up Microsoft Teams Phone",
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/setting-up-your-phone-system",
+          "publisher": "Microsoft",
+          "accessed": "2026-10-15"
+        }
+      ],
+      "scene": { "size": 1.1, "moons": 0, "ringHint": 2 }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "webex",
+      "kind": "lab",
+      "title": "Webex Lab",
+      "shortTitle": "Webex",
+      "tagline": "Walk Control Hub, calling, and contact center in Webex.",
+      "summary": "A free study console for Webex by Cisco. You can explore Control Hub, calling, contact center, devices, and APIs. When you want the official wording, open Webex Help and read it beside the lesson.",
+      "category": "unified-comms",
+      "tags": ["webex", "calling", "contact-center"],
+      "status": "live",
+      "featured": true,
+      "order": 30,
+      "level": "navigator",
+      "url": "https://cipher0x9.github.io/webex-lab-free-university-mesmerizing/",
+      "repo": "https://github.com/cipher0x9/webex-lab-free-university-mesmerizing",
+      "icon": "video",
+      "accent": "sky",
+      "vendorsReferenced": ["Cisco", "Webex by Cisco"],
+      "launchedAt": "2026-10-15",
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-15",
+      "sources": [
+        {
+          "title": "Webex Help Center",
+          "url": "https://help.webex.com/",
+          "publisher": "Cisco",
+          "accessed": "2026-10-15"
+        }
+      ],
+      "scene": { "size": 1.3, "moons": 2, "ringHint": 3 }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "five9",
+      "kind": "lab",
+      "title": "Five9 Lab",
+      "shortTitle": "Five9",
+      "tagline": "See how a Five9 contact center fits together.",
+      "summary": "Explore Five9 ideas such as admin, phone menus, skills, routing, and the agent desktop. The campus is free. Official Five9 documentation is linked so you can check a fact before you trust it.",
+      "category": "contact-center",
+      "tags": ["five9", "routing", "ivr"],
+      "status": "live",
+      "featured": false,
+      "order": 20,
+      "level": "explorer",
+      "url": "https://cipher0x9.github.io/five9-lab-free-university-mesmerizing/campus/",
+      "repo": "https://github.com/cipher0x9/five9-lab-free-university-mesmerizing",
+      "icon": "headset",
+      "accent": "peach",
+      "vendorsReferenced": ["Five9"],
+      "launchedAt": "2026-10-15",
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-15",
+      "sources": [
+        {
+          "title": "Five9 documentation",
+          "url": "https://documentation.five9.com/",
+          "publisher": "Five9",
+          "accessed": "2026-10-15"
+        }
+      ],
+      "scene": { "size": 1.0, "moons": 0, "ringHint": 1 }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "genesys-cloud",
+      "kind": "lab",
+      "title": "Genesys Cloud Lab",
+      "shortTitle": "Genesys Cloud",
+      "tagline": "Trace flows, queues, and routing in Genesys Cloud.",
+      "summary": "A free campus for Genesys Cloud CX. You study flows, queues, and routing in plain language. The official help center is one click away when you want the source behind a lesson.",
+      "category": "contact-center",
+      "tags": ["genesys", "routing", "cloud"],
+      "status": "live",
+      "featured": false,
+      "order": 30,
+      "level": "explorer",
+      "url": "https://cipher0x9.github.io/genesys-cloud-lab-free-university-mesmerizing/campus/",
+      "repo": "https://github.com/cipher0x9/genesys-cloud-lab-free-university-mesmerizing",
+      "icon": "route",
+      "accent": "peach",
+      "vendorsReferenced": ["Genesys"],
+      "launchedAt": "2026-10-15",
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-15",
+      "sources": [
+        {
+          "title": "Genesys Cloud Resource Center",
+          "url": "https://help.mypurecloud.com/",
+          "publisher": "Genesys",
+          "accessed": "2026-10-15"
+        }
+      ],
+      "scene": { "size": 1.05, "moons": 1, "ringHint": 2 }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "nice-cxone",
+      "kind": "lab",
+      "title": "NICE CXone Lab",
+      "shortTitle": "NICE CXone",
+      "tagline": "Explore routing, phone menus, and digital paths in CXone.",
+      "summary": "This free campus introduces NICE CXone ideas such as routing, Studio, phone menus, and digital channels. It is independent study. Check the NICE help center before you use a step at work.",
+      "category": "contact-center",
+      "tags": ["nice", "cxone", "routing"],
+      "status": "live",
+      "featured": false,
+      "order": 40,
+      "level": "explorer",
+      "url": "https://cipher0x9.github.io/nice-cxone-lab-free-university-mesmerizing/campus/",
+      "repo": "https://github.com/cipher0x9/nice-cxone-lab-free-university-mesmerizing",
+      "icon": "chat",
+      "accent": "peach",
+      "vendorsReferenced": ["NICE", "NICE CXone"],
+      "launchedAt": "2026-10-15",
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-15",
+      "sources": [
+        {
+          "title": "NICE CXone Help",
+          "url": "https://help.nicecxone.com/",
+          "publisher": "NICE",
+          "accessed": "2026-10-15"
+        }
+      ],
+      "scene": { "size": 1.0, "moons": 0, "ringHint": 3 }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "sip-universe",
+      "kind": "lab",
+      "title": "SIP Universe",
+      "shortTitle": "SIP Universe",
+      "tagline": "Watch a phone call start its trip across the internet.",
+      "summary": "SIP Universe shows how the Session Initiation Protocol starts and steers internet calls. You read the ideas in plain language, then open RFC 3261 when you want the standard itself.",
+      "category": "protocols",
+      "tags": ["sip", "calling", "protocol"],
+      "status": "live",
+      "featured": true,
+      "order": 10,
+      "level": "starter",
+      "url": "https://cipher0x9.github.io/sip-universe-lab-free-university-mesmerizing/campus/",
+      "repo": "https://github.com/cipher0x9/sip-universe-lab-free-university-mesmerizing",
+      "icon": "nodes",
+      "accent": "mint",
+      "vendorsReferenced": [],
+      "launchedAt": "2026-10-15",
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-15",
+      "sources": [
+        {
+          "title": "SIP: Session Initiation Protocol (RFC 3261)",
+          "url": "https://www.rfc-editor.org/rfc/rfc3261",
+          "publisher": "IETF",
+          "accessed": "2026-10-15"
+        }
+      ],
+      "scene": { "size": 1.2, "moons": 2, "ringHint": 0 }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "ai-lab",
+      "kind": "lab",
+      "title": "AI Lab",
+      "shortTitle": "AI Lab",
+      "tagline": "Try prompts, agents, and tools with the sources in view.",
+      "summary": "A free campus about prompts, models, agents, and how AI tools behave. Lessons stay curious and careful. When a lesson names a standard, such as the Model Context Protocol, the source is linked.",
+      "category": "ai",
+      "tags": ["ai", "prompts", "agents"],
+      "status": "live",
+      "featured": true,
+      "order": 10,
+      "level": "explorer",
+      "url": "https://cipher0x9.github.io/ai-lab-free-university-mesmerizing/campus/ai-lab-university.html",
+      "repo": "https://github.com/cipher0x9/ai-lab-free-university-mesmerizing",
+      "icon": "spark",
+      "accent": "lavender",
+      "vendorsReferenced": [],
+      "launchedAt": "2026-07-31",
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-15",
+      "sources": [
+        {
+          "title": "Model Context Protocol introduction",
+          "url": "https://modelcontextprotocol.io/docs/getting-started/intro",
+          "publisher": "Model Context Protocol",
+          "accessed": "2026-10-15"
+        }
+      ],
+      "scene": { "size": 1.2, "moons": 1, "ringHint": 4 }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "gemini-gems",
+      "kind": "gallery",
+      "title": "Gemini Gems Gallery",
+      "shortTitle": "Gemini Gems",
+      "tagline": "Handy AI helpers you can copy into Gemini Gems.",
+      "summary": "A free gallery of copy-ready Gemini Gem instructions. Open a desk, copy the steps, and paste them into Gemini. You need a Google account. The gallery does not publish a private Gem share link for each desk.",
+      "category": "tools",
+      "tags": ["gemini", "gems", "gallery"],
+      "status": "live",
+      "featured": false,
+      "order": 10,
+      "level": "starter",
+      "url": "https://cipher0x9.github.io/gemini-gems-free-gallery/",
+      "repo": "https://github.com/cipher0x9/gemini-gems-free-gallery",
+      "icon": "gem",
+      "accent": "butter",
+      "vendorsReferenced": ["Google"],
+      "launchedAt": "2026-10-14",
+      "updatedAt": "2026-10-14",
+      "lastVerified": "2026-10-15",
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ],
+      "scene": { "size": 0.9, "moons": 0, "ringHint": 5 }
+    }
+  ]
+}

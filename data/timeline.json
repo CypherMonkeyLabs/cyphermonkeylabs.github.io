@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "verifiedOn": "2026-10-15",
+  "events": [
+    {
+      "id": "bell-patent-174465",
+      "date": "1876-03-07",
+      "datePrecision": "day",
+      "track": "history",
+      "era": "wires",
+      "title": "Bell receives U.S. patent 174,465",
+      "summary": "The U.S. patent office granted Alexander Graham Bell patent 174,465, Improvement in Telegraphy, on March 7, 1876. The patent text describes sending vocal sounds as electrical waves. A scan of the patent is dated March 7, 1876.",
+      "relatedLabs": ["uc", "sip-universe"],
+      "sources": [
+        {
+          "title": "U.S. Patent 174,465 scan (Patented March 7, 1876)",
+          "url": "https://edison.rutgers.edu/images/archive/pdf-files/174465.pdf",
+          "publisher": "Thomas A. Edison Papers, Rutgers University",
+          "accessed": "2026-10-15"
+        },
+        {
+          "title": "US Patent 174,465 record: granted March 7, 1876",
+          "url": "https://www.datamp.org/patents/displayPatent.php?id=37313&pn=174465",
+          "publisher": "DATAMP",
+          "accessed": "2026-10-15"
+        }
+      ],
+      "review": "verified"
+    },
+    {
+      "id": "touch-tone-1963",
+      "date": "1963-11-18",
+      "datePrecision": "day",
+      "track": "history",
+      "era": "switches",
+      "title": "Touch-Tone service opens in two towns",
+      "summary": "On November 18, 1963, the Bell System began commercial Touch-Tone service in Carnegie and Greensburg, Pennsylvania. Early sets had ten buttons. A Bell System report dates the commercial debut to November 1963.",
+      "relatedLabs": ["uc", "sip-universe"],
+      "sources": [
+        {
+          "title": "Hagley Vault: first commercial Touch-Tone service, November 18, 1963",
+          "url": "https://www.hagley.org/research/news/hagley-vault/date-november-18-1963-bell-telephone-began-offering-worlds-first",
+          "publisher": "Hagley Museum and Library",
+          "accessed": "2026-10-15"
+        }
+      ],
+      "review": "verified"
+    },
+    {
+      "id": "rfc-2543",
+      "date": "1999-03-01",
+      "datePrecision": "day",
+      "track": "history",
+      "era": "internet-voice",
+      "title": "SIP is published as RFC 2543",
+      "summary": "The first SIP standard, RFC 2543, was published on March 1, 1999. The RFC header dates the document March 1999. SIP is the Session Initiation Protocol, a way to start calls and other sessions on the internet.",
+      "relatedLabs": ["sip-universe", "uc"],
+      "sources": [
+        {
+          "title": "RFC 2543 publication history",
+          "url": "https://datatracker.ietf.org/doc/rfc2543/history/",
+          "publisher": "IETF",
+          "accessed": "2026-10-15"
+        },
+        {
+          "title": "RFC 2543: SIP: Session Initiation Protocol",
+          "url": "https://www.rfc-editor.org/rfc/rfc2543",
+          "publisher": "RFC Editor",
+          "accessed": "2026-10-15"
+        }
+      ],
+      "review": "verified"
+    },
+    {
+      "id": "rfc-3261",
+      "date": "2002-07-03",
+      "datePrecision": "day",
+      "track": "history",
+      "era": "internet-voice",
+      "title": "SIP 2.0 is published as RFC 3261",
+      "summary": "The IETF datatracker records RFC 3261 as published on July 3, 2002. The RFC header itself says June 2002. RFC 3261 replaced RFC 2543 and is still the core SIP standard.",
+      "relatedLabs": ["sip-universe"],
+      "sources": [
+        {
+          "title": "RFC 3261 publication history",
+          "url": "https://datatracker.ietf.org/doc/rfc3261/history/",
+          "publisher": "IETF",
+          "accessed": "2026-10-15"
+        },
+        {
+          "title": "RFC 3261: SIP: Session Initiation Protocol",
+          "url": "https://www.rfc-editor.org/rfc/rfc3261",
+          "publisher": "RFC Editor",
+          "accessed": "2026-10-15"
+        }
+      ],
+      "review": "verified"
+    },
+    {
+      "id": "webrtc-1",
+      "date": "2021-01-26",
+      "datePrecision": "day",
+      "track": "history",
+      "era": "cloud-cx",
+      "title": "WebRTC 1.0 becomes a W3C Recommendation",
+      "summary": "On January 26, 2021, the W3C published WebRTC 1.0 as a Recommendation. It is the browser API for real-time audio, video, and data. Many cloud calling tools build on it.",
+      "relatedLabs": ["webex", "uc", "ai-lab"],
+      "sources": [
+        {
+          "title": "WebRTC 1.0 W3C Recommendation, 26 January 2021",
+          "url": "https://www.w3.org/TR/2021/REC-webrtc-20210126/",
+          "publisher": "W3C",
+          "accessed": "2026-10-15"
+        }
+      ],
+      "review": "verified"
+    }
+  ]
+}
