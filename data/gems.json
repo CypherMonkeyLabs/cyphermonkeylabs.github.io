@@ -1,0 +1,734 @@
+{
+  "schemaVersion": 1,
+  "verifiedOn": "2026-10-15",
+  "gallery": "https://cipher0x9.github.io/gemini-gems-free-gallery/",
+  "note": "Individual Gem share links were not published on the gallery as of 2026-10-15. Each card links to the checked desk page and to https://gemini.google.com/.",
+  "gems": [
+    {
+      "id": "sales-call-prep",
+      "name": "Sales Call Prep Desk",
+      "purpose": "A cited call brief, discovery questions, and one next step. It does not write to a CRM.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/01-sales-call-prep-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "workday"
+      ],
+      "featured": true,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "meeting-recap",
+      "name": "Meeting Recap Desk",
+      "purpose": "Decisions, action items, and owners from notes. Nothing is sent until you say so.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/02-meeting-recap-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "workday"
+      ],
+      "featured": true,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "resume-tailor",
+      "name": "Resume Tailor Desk",
+      "purpose": "Match, stretch, and gap against one posting, then a draft. It does not invent a job title.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/03-resume-tailor-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "career"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "bedtime-story",
+      "name": "Bedtime Story Desk",
+      "purpose": "A calm story from a first name and interests, with length and reading-level controls.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/04-bedtime-story-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "home"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "weekly-planning",
+      "name": "Weekly Planning Desk",
+      "purpose": "Must, should, and could lanes, plus focus blocks sized to the hours you really have.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/05-weekly-planning-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "workday"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "inbox-triage",
+      "name": "Inbox Triage Desk",
+      "purpose": "Sort notes into reply, delegate, schedule, and FYI. Nothing is sent for you.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/06-inbox-triage-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "workday"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "homework-coach",
+      "name": "Homework Coach Desk",
+      "purpose": "Hints and a check-your-work step. It does not hand over the final answer.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/07-homework-coach-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "home"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "budget-tracker",
+      "name": "Budget Tracker Desk",
+      "purpose": "A budget-versus-actual report with the math shown and repeating charges flagged.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/08-budget-tracker-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "workday"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "interview-prep",
+      "name": "Interview Prep Desk",
+      "purpose": "A question bank for one role, mapped to your own true stories, plus a mock drill.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/09-interview-prep-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "career"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "study-plan",
+      "name": "Study Plan Desk",
+      "purpose": "A weekly study plan sized to the hours you have, marked fits, tight, or over.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/10-study-plan-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "career"
+      ],
+      "featured": true,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "support-reply",
+      "name": "Support Reply Desk",
+      "purpose": "A kind, on-policy reply draft plus an internal note. It does not issue refunds.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/11-support-reply-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "workday"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "sop-writer",
+      "name": "SOP Writer Desk",
+      "purpose": "A numbered procedure with roles, inputs, and checks. Gaps are flagged for an expert.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/12-sop-writer-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "workday"
+      ],
+      "featured": true,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "onboarding-guide",
+      "name": "Onboarding Guide Desk",
+      "purpose": "A first day, first week, and 30/60/90 guide with an access checklist.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/13-onboarding-guide-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "workday"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "signal-brief",
+      "name": "Signal Brief Desk",
+      "purpose": "A ranked weekly brief with citations. Nothing is published unless you ask.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/14-signal-brief-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "career"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "social-post",
+      "name": "Social Post Desk",
+      "purpose": "Three post variants with hooks and alt text. It does not post or schedule them.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/15-social-post-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "career"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "newsletter",
+      "name": "Newsletter Desk",
+      "purpose": "A cited issue with subject lines, sections, and one call to action. It does not send it.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/16-newsletter-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "career"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "pr-review",
+      "name": "PR Review Desk",
+      "purpose": "Review notes ranked blocker, major, minor, and nit. It does not merge code.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/17-pr-review-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "engineering"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "bug-triage",
+      "name": "Bug Triage Desk",
+      "purpose": "Severity, repro status, and missing-info questions. It does not assign the bug.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/18-bug-triage-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "engineering"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "incident-postmortem",
+      "name": "Incident Postmortem Desk",
+      "purpose": "A cited timeline, a blameless analysis, and proposed actions. It does not page anyone.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/19-incident-postmortem-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "engineering"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "runbook",
+      "name": "Runbook Desk",
+      "purpose": "Steps with verify checks before risky actions. Unverified commands stay marked.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/20-runbook-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "engineering"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "api-docs",
+      "name": "API Docs Desk",
+      "purpose": "A sourced endpoint reference with safe examples. It does not call live APIs.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/21-api-docs-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "engineering"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "architecture-diagram",
+      "name": "Architecture Diagram Desk",
+      "purpose": "A component list and a Mermaid diagram. Guessed links are marked as guesses.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/22-architecture-diagram-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "engineering"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "claim-check",
+      "name": "Claim Check Desk",
+      "purpose": "Pass, partial, or fail grades in one sourced packet. Nothing is published for you.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/23-claim-check-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "career"
+      ],
+      "featured": true,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "competitive-landscape",
+      "name": "Competitive Landscape Desk",
+      "purpose": "A sourced comparison table, clear options, and a recommendation.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/24-competitive-landscape-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "career"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "certification-coach",
+      "name": "Certification Coach Desk",
+      "purpose": "A read of published objectives and original practice questions. No exam dumps.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/25-certification-coach-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "career"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "money",
+      "name": "Money Desk",
+      "purpose": "Budgets, receipts, and a paper-trading lab. No real trades and no money movement.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/26-money-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "workday"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "language-drill",
+      "name": "Language Drill Desk",
+      "purpose": "Short vocabulary, grammar, and dialogue drills with correct, close, or miss feedback.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/27-language-drill-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "career"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "lesson-plan",
+      "name": "Lesson Plan Desk",
+      "purpose": "Objectives, timed activities, an exit quiz, and an answer key.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/28-lesson-plan-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "career"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "curious-kids-science",
+      "name": "Curious Kids Science Desk",
+      "purpose": "An answer at a child's level, a fact check, and one safe experiment.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/29-curious-kids-science-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "home"
+      ],
+      "featured": true,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "family-chore-chart",
+      "name": "Family Chore Chart Desk",
+      "purpose": "A fair chore rotation, a points chart, and a weekly reset. First names only.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/30-family-chore-chart-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "home"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "receipt-and-expense",
+      "name": "Receipt and Expense Desk",
+      "purpose": "A categorized expense report with policy flags and totals. Card numbers are masked.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/31-receipt-and-expense-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "workday"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "travel-itinerary",
+      "name": "Travel Itinerary Desk",
+      "purpose": "A day-by-day plan with sourced times, transfer buffers, and a pre-trip checklist.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/32-travel-itinerary-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "home"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "event-planner",
+      "name": "Event Planner Desk",
+      "purpose": "Vendor options, a run-of-show, a budget table, and guest-message drafts. Nothing is sent.",
+      "howToUse": "Open this desk and copy the instructions. Then open Gemini, start a Gem, and paste them in. You need a Google account. The desk page was checked on 2026-10-15. This gallery does not publish a private Gem share link.",
+      "link": "https://gemini.google.com/",
+      "desk": "https://cipher0x9.github.io/gemini-gems-free-gallery/gems/33-event-planner-desk.html",
+      "requires": "Google account",
+      "lastTested": "2026-10-15",
+      "tags": [
+        "workday"
+      ],
+      "featured": false,
+      "sources": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/",
+          "publisher": "Google",
+          "accessed": "2026-10-15"
+        }
+      ]
+    }
+  ]
+}

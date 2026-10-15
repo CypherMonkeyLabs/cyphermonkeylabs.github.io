@@ -1,0 +1,39 @@
+{
+  "dwellMs": 150000,
+  "idleMs": 90000,
+  "core": [
+    "stargazer",
+    "astronaut",
+    "headset-helper",
+    "signal-surfer",
+    "robo-buddy",
+    "bookworm",
+    "gem-collector",
+    "inventor"
+  ],
+  "special": ["dreamer", "party"],
+  "context": {
+    "section:launchpad": "stargazer",
+    "section:labs": "astronaut",
+    "section:timeline": "bookworm",
+    "section:gems": "gem-collector",
+    "section:contact": "inventor",
+    "category:contact-center": "headset-helper",
+    "category:protocols": "signal-surfer",
+    "category:ai": "robo-buddy"
+  },
+  "tips": {
+    "en": {
+      "stargazer": ["Tip: use the search box to find a lab by name."],
+      "astronaut": ["Each planet is a free lab. Open it when you are ready."],
+      "headset-helper": ["Contact-center labs are practice. They are not official training."],
+      "signal-surfer": ["SIP is the set of rules that starts many internet calls."],
+      "robo-buddy": ["AI labs work best when you check the source beside the claim."],
+      "bookworm": ["Every date on the timeline links to a source."],
+      "gem-collector": ["Gems need a Google account. Copy the desk, then paste it into Gemini."],
+      "inventor": ["Mission Control opens a GitHub issue. No email address is shown."],
+      "dreamer": ["Still here? The labs will wait."],
+      "party": ["You opened a lab. Nice."]
+    }
+  }
+}

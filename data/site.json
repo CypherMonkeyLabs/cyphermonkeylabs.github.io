@@ -1,0 +1,19 @@
+{
+  "name": "CypherMonkey Labs",
+  "origin": "https://cyphermonkeylabs.com",
+  "locale": "en",
+  "title": "CypherMonkey Labs | Free voice and AI labs",
+  "description": "Free labs for curious minds. Explore contact centers, voice, SIP, and AI. Open a lab, follow the missions, and check every source.",
+  "contact": {
+    "endpoint": "",
+    "issuesUrl": "https://github.com/CypherMonkeyLabs/cyphermonkeylabs.github.io/issues/new",
+    "hook": "When the Cloudflare Worker is live, set contact.endpoint to its URL (for example https://contact.cyphermonkeylabs.com). mountContact from /js/trust/index.js replaces the fallback form. Until then the form opens a GitHub issue and never shows an email address."
+  },
+  "settingsKey": "cm.settings",
+  "modules": {
+    "universe": "/js/universe/index.js",
+    "nav": "/js/nav/index.js",
+    "settings": "/js/settings/index.js",
+    "trust": "/js/trust/index.js"
+  }
+}
