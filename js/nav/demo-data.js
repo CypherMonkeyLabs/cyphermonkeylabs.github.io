@@ -14,8 +14,8 @@ const starter = [
     tags: ["uc", "calling", "meetings", "collaboration"],
     status: "live",
     order: 2,
-    url: "https://cipher0x9.github.io/uc-lab-free-university-mesmerizing/",
-    repo: "https://github.com/cipher0x9/uc-lab-free-university-mesmerizing",
+    url: "https://cyphermonkeylabs.com/uc-lab-free-university-mesmerizing/",
+    repo: "https://github.com/CypherMonkeyLabs/uc-lab-free-university-mesmerizing",
   },
   {
     id: "ai",
@@ -26,8 +26,8 @@ const starter = [
     tags: ["ai", "prompts", "models"],
     status: "live",
     order: 1,
-    url: "https://cipher0x9.github.io/ai-lab-free-university-mesmerizing/",
-    repo: "https://github.com/cipher0x9/ai-lab-free-university-mesmerizing",
+    url: "https://cyphermonkeylabs.com/ai-lab-free-university-mesmerizing/",
+    repo: "https://github.com/CypherMonkeyLabs/ai-lab-free-university-mesmerizing",
   },
   {
     id: "amazon-connect",
@@ -38,8 +38,8 @@ const starter = [
     tags: ["amazon connect", "contact center", "cloud"],
     status: "live",
     order: 2,
-    url: "https://cipher0x9.github.io/amazon-connect-lab-free-university-mesmerizing/",
-    repo: "https://github.com/cipher0x9/amazon-connect-lab-free-university-mesmerizing",
+    url: "https://cyphermonkeylabs.com/amazon-connect-lab-free-university-mesmerizing/",
+    repo: "https://github.com/CypherMonkeyLabs/amazon-connect-lab-free-university-mesmerizing",
   },
   {
     id: "microsoft-voice",
@@ -50,8 +50,8 @@ const starter = [
     tags: ["microsoft", "voice", "contact center"],
     status: "live",
     order: 3,
-    url: "https://cipher0x9.github.io/microsoft-voice-cc-lab-free-university-mesmerizing/",
-    repo: "https://github.com/cipher0x9/microsoft-voice-cc-lab-free-university-mesmerizing",
+    url: "https://cyphermonkeylabs.com/microsoft-voice-cc-lab-free-university-mesmerizing/",
+    repo: "https://github.com/CypherMonkeyLabs/microsoft-voice-cc-lab-free-university-mesmerizing",
   },
   {
     id: "five9",
@@ -62,8 +62,8 @@ const starter = [
     tags: ["five9", "contact center"],
     status: "live",
     order: 3,
-    url: "https://cipher0x9.github.io/five9-lab-free-university-mesmerizing/",
-    repo: "https://github.com/cipher0x9/five9-lab-free-university-mesmerizing",
+    url: "https://cyphermonkeylabs.com/five9-lab-free-university-mesmerizing/",
+    repo: "https://github.com/CypherMonkeyLabs/five9-lab-free-university-mesmerizing",
   },
   {
     id: "genesys",
@@ -74,8 +74,8 @@ const starter = [
     tags: ["genesys", "cloud", "contact center"],
     status: "live",
     order: 4,
-    url: "https://cipher0x9.github.io/genesys-cloud-lab-free-university-mesmerizing/",
-    repo: "https://github.com/cipher0x9/genesys-cloud-lab-free-university-mesmerizing",
+    url: "https://cyphermonkeylabs.com/genesys-cloud-lab-free-university-mesmerizing/",
+    repo: "https://github.com/CypherMonkeyLabs/genesys-cloud-lab-free-university-mesmerizing",
   },
   {
     id: "nice",
@@ -86,8 +86,8 @@ const starter = [
     tags: ["nice", "cxone", "contact center"],
     status: "live",
     order: 5,
-    url: "https://cipher0x9.github.io/nice-cxone-lab-free-university-mesmerizing/",
-    repo: "https://github.com/cipher0x9/nice-cxone-lab-free-university-mesmerizing",
+    url: "https://cyphermonkeylabs.com/nice-cxone-lab-free-university-mesmerizing/",
+    repo: "https://github.com/CypherMonkeyLabs/nice-cxone-lab-free-university-mesmerizing",
   },
   {
     id: "sip",
@@ -98,8 +98,8 @@ const starter = [
     tags: ["sip", "calling", "protocol"],
     status: "live",
     order: 1,
-    url: "https://cipher0x9.github.io/sip-universe-lab-free-university-mesmerizing/",
-    repo: "https://github.com/cipher0x9/sip-universe-lab-free-university-mesmerizing",
+    url: "https://cyphermonkeylabs.com/sip-universe-lab-free-university-mesmerizing/",
+    repo: "https://github.com/CypherMonkeyLabs/sip-universe-lab-free-university-mesmerizing",
     i18n: {
       es: {
         title: "Universo SIP",
@@ -193,8 +193,8 @@ export function makeScaleLabs(count = 100) {
       status: soon ? "coming-soon" : "live",
       order: i,
       featured: false,
-      url: soon ? "" : `https://cipher0x9.github.io/sample-lab-${n}/`,
-      repo: soon ? "" : `https://github.com/cipher0x9/sample-lab-${n}`,
+      url: soon ? "" : `https://cyphermonkeylabs.com/sample-lab-${n}/`,
+      repo: soon ? "" : `https://github.com/CypherMonkeyLabs/sample-lab-${n}`,
     });
   }
   return { labs };

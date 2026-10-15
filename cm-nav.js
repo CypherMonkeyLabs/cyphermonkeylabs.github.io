@@ -3,57 +3,57 @@ const LABS = [
   {
     "id": "uc",
     "name": "UC Lab",
-    "url": "https://cipher0x9.github.io/uc-lab-free-university-mesmerizing/",
-    "source": "https://github.com/cipher0x9/uc-lab-free-university-mesmerizing",
+    "url": "https://cyphermonkeylabs.com/uc-lab-free-university-mesmerizing/",
+    "source": "https://github.com/CypherMonkeyLabs/uc-lab-free-university-mesmerizing",
     "status": "live"
   },
   {
     "id": "ai",
     "name": "AI Lab",
-    "url": "https://cipher0x9.github.io/ai-lab-free-university-mesmerizing/",
-    "source": "https://github.com/cipher0x9/ai-lab-free-university-mesmerizing",
+    "url": "https://cyphermonkeylabs.com/ai-lab-free-university-mesmerizing/",
+    "source": "https://github.com/CypherMonkeyLabs/ai-lab-free-university-mesmerizing",
     "status": "live"
   },
   {
     "id": "amazon-connect",
     "name": "Amazon Connect Lab",
-    "url": "https://cipher0x9.github.io/amazon-connect-lab-free-university-mesmerizing/",
-    "source": "https://github.com/cipher0x9/amazon-connect-lab-free-university-mesmerizing",
+    "url": "https://cyphermonkeylabs.com/amazon-connect-lab-free-university-mesmerizing/",
+    "source": "https://github.com/CypherMonkeyLabs/amazon-connect-lab-free-university-mesmerizing",
     "status": "live"
   },
   {
     "id": "microsoft-voice",
     "name": "Microsoft Voice & Contact Center Lab",
-    "url": "https://cipher0x9.github.io/microsoft-voice-cc-lab-free-university-mesmerizing/",
-    "source": "https://github.com/cipher0x9/microsoft-voice-cc-lab-free-university-mesmerizing",
+    "url": "https://cyphermonkeylabs.com/microsoft-voice-cc-lab-free-university-mesmerizing/",
+    "source": "https://github.com/CypherMonkeyLabs/microsoft-voice-cc-lab-free-university-mesmerizing",
     "status": "live"
   },
   {
     "id": "five9",
     "name": "Five9 Lab",
-    "url": "https://cipher0x9.github.io/five9-lab-free-university-mesmerizing/",
-    "source": "https://github.com/cipher0x9/five9-lab-free-university-mesmerizing",
+    "url": "https://cyphermonkeylabs.com/five9-lab-free-university-mesmerizing/",
+    "source": "https://github.com/CypherMonkeyLabs/five9-lab-free-university-mesmerizing",
     "status": "live"
   },
   {
     "id": "genesys",
     "name": "Genesys Cloud Lab",
-    "url": "https://cipher0x9.github.io/genesys-cloud-lab-free-university-mesmerizing/",
-    "source": "https://github.com/cipher0x9/genesys-cloud-lab-free-university-mesmerizing",
+    "url": "https://cyphermonkeylabs.com/genesys-cloud-lab-free-university-mesmerizing/",
+    "source": "https://github.com/CypherMonkeyLabs/genesys-cloud-lab-free-university-mesmerizing",
     "status": "live"
   },
   {
     "id": "nice",
     "name": "NICE CXone Lab",
-    "url": "https://cipher0x9.github.io/nice-cxone-lab-free-university-mesmerizing/",
-    "source": "https://github.com/cipher0x9/nice-cxone-lab-free-university-mesmerizing",
+    "url": "https://cyphermonkeylabs.com/nice-cxone-lab-free-university-mesmerizing/",
+    "source": "https://github.com/CypherMonkeyLabs/nice-cxone-lab-free-university-mesmerizing",
     "status": "live"
   },
   {
     "id": "sip",
     "name": "SIP Universe",
-    "url": "https://cipher0x9.github.io/sip-universe-lab-free-university-mesmerizing/",
-    "source": "https://github.com/cipher0x9/sip-universe-lab-free-university-mesmerizing",
+    "url": "https://cyphermonkeylabs.com/sip-universe-lab-free-university-mesmerizing/",
+    "source": "https://github.com/CypherMonkeyLabs/sip-universe-lab-free-university-mesmerizing",
     "status": "live"
   },
   {
