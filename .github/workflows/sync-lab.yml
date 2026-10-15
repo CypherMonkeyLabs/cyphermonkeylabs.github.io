@@ -1,0 +1,100 @@
+name: sync-lab
+# Opens a PR that updates data/labs.json from a lab repo's lab.manifest.json.
+#  - repository_dispatch (event_type lab-updated): sent by each lab's notify-site.yml
+#  - schedule: nightly reconcile of every repo with topic `cml-lab` (backstop for missed dispatches)
+#  - workflow_dispatch: manual run for one repo or a full reconcile
+# The PR is created with a GitHub App token. A PR created with GITHUB_TOKEN does NOT trigger
+# the `ci` workflow, so the required check would never run. See docs/LAB-HOOKS.md.
+on:
+  repository_dispatch:
+    types: [lab-updated]
+  schedule:
+    # 11:41 UTC is 04:41 in Arizona. Off the top of the hour on purpose (scheduled runs can be delayed or dropped).
+    - cron: '41 11 * * *'
+  workflow_dispatch:
+    inputs:
+      repo:
+        description: 'OWNER/NAME of one lab repo. Leave empty to reconcile every repo with topic cml-lab.'
+        required: false
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: lab-sync-${{ github.event.client_payload.repo || inputs.repo || 'reconcile' }}
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    # Fail closed with a clear message if the App secrets were never created.
+    env:
+      HAS_APP: ${{ secrets.LAB_SYNC_APP_ID != '' && secrets.LAB_SYNC_APP_PRIVATE_KEY != '' }}
+    steps:
+      - name: Require GitHub App secrets
+        if: env.HAS_APP != 'true'
+        run: |
+          echo "::error::LAB_SYNC_APP_ID / LAB_SYNC_APP_PRIVATE_KEY are not set. See docs/LAB-HOOKS.md (one-time setup)."
+          exit 1
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+      - name: Mint GitHub App token (scoped to this repo)
+        id: app
+        uses: actions/create-github-app-token@d72941d797fd3113feb6b93fd0dec494b13a2547 # v1
+        with:
+          app-id: ${{ secrets.LAB_SYNC_APP_ID }}
+          private-key: ${{ secrets.LAB_SYNC_APP_PRIVATE_KEY }}
+          repositories: ${{ github.event.repository.name }}
+      - name: Update data/labs.json
+        id: sync
+        env:
+          # Payload values go through env, never straight into the script text.
+          PAYLOAD_REPO: ${{ github.event.client_payload.repo }}
+          PAYLOAD_SHA: ${{ github.event.client_payload.sha }}
+          INPUT_REPO: ${{ inputs.repo }}
+          EVENT: ${{ github.event_name }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT" = "repository_dispatch" ]; then
+            node .github/scripts/lab-manifest.mjs --repo "$PAYLOAD_REPO" --sha "$PAYLOAD_SHA"
+          elif [ -n "$INPUT_REPO" ]; then
+            node .github/scripts/lab-manifest.mjs --repo "$INPUT_REPO"
+          else
+            node .github/scripts/lab-manifest.mjs --reconcile
+          fi
+      - name: Validate resulting labs.json (same checks as CI)
+        if: steps.sync.outputs.changed == 'true'
+        run: node .github/scripts/validate-labs.mjs data/labs.json
+      - name: Read summary
+        id: summary
+        if: always()
+        run: |
+          {
+            echo 'body<<EOF'
+            echo 'Automated lab sync. Review the diff of `data/labs.json`; only that file should change.'
+            echo
+            cat lab-sync-summary.md 2>/dev/null || true
+            echo EOF
+          } >> "$GITHUB_OUTPUT"
+      - name: Open or update PR
+        id: pr
+        if: steps.sync.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7
+        with:
+          token: ${{ steps.app.outputs.token }}
+          branch: ${{ steps.sync.outputs.branch }}
+          add-paths: data/labs.json
+          commit-message: 'chore(labs): sync ${{ steps.sync.outputs.ids }}'
+          title: 'chore(labs): sync ${{ steps.sync.outputs.ids }}'
+          body: ${{ steps.summary.outputs.body }}
+          labels: lab-sync
+          delete-branch: true
+      - name: Auto-merge when checks pass (opt-in)
+        # Enable by creating the repository variable LAB_SYNC_AUTOMERGE=true AND turning on
+        # "Allow auto-merge" in repo settings. Off by default.
+        if: steps.pr.outputs.pull-request-number != '' && vars.LAB_SYNC_AUTOMERGE == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+          PR: ${{ steps.pr.outputs.pull-request-number }}
+        run: gh pr merge "$PR" --auto --squash --repo "$GITHUB_REPOSITORY"

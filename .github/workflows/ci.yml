@@ -28,3 +28,5 @@ jobs:
         run: node .github/scripts/check-no-email.mjs
       - name: Performance budgets
         run: node .github/scripts/check-budgets.mjs
+      - name: Lab manifest tests
+        run: node --test .github/scripts/lab-manifest.test.mjs
