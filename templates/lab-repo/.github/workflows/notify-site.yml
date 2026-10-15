@@ -1,0 +1,39 @@
+name: notify-site
+# Tells the CypherMonkeyLabs site that this lab changed, so a PR updates data/labs.json.
+# Copy this file to .github/workflows/ on the DEFAULT branch of the lab repo
+# (repository_dispatch only runs workflow files that exist on the target repo's default branch;
+# here the *target* is the site repo, but keep this file on main too so it runs on pushes to main).
+# One-time setup (Lucky): see docs/LAB-HOOKS.md. Needs repo secrets SITE_APP_ID and SITE_APP_PRIVATE_KEY
+# (a GitHub App installed on the site repo with Contents: read & write). No secrets are created by this file.
+on:
+  push:
+    branches: [main]
+    paths:
+      - lab.manifest.json
+      - 'campus/**'
+      - index.html
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mint token for the site repo
+        id: app
+        uses: actions/create-github-app-token@d72941d797fd3113feb6b93fd0dec494b13a2547 # v1
+        with:
+          app-id: ${{ secrets.SITE_APP_ID }}
+          private-key: ${{ secrets.SITE_APP_PRIVATE_KEY }}
+          owner: CypherMonkeyLabs
+          repositories: cyphermonkeylabs.github.io
+      - name: Send repository_dispatch (lab-updated)
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.sha }}
+        run: |
+          gh api repos/CypherMonkeyLabs/cyphermonkeylabs.github.io/dispatches \
+            -f event_type=lab-updated \
+            -f "client_payload[repo]=$REPO" \
+            -f "client_payload[sha]=$SHA"

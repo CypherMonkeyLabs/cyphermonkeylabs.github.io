@@ -1,0 +1,21 @@
+{
+  "$schema": "https://cyphermonkeylabs.com/schemas/lab.manifest.schema.json",
+  "schemaVersion": 1,
+  "id": "example-lab",
+  "kind": "lab",
+  "title": "Example Lab",
+  "shortTitle": "Example",
+  "tagline": "One friendly sentence about what a learner can do here.",
+  "summary": "Two or three plain sentences about the lab. Say what it covers and where the facts come from, so a learner can check them. Between 80 and 320 characters.",
+  "category": "tools",
+  "tags": ["example"],
+  "status": "coming-soon",
+  "level": "starter",
+  "url": "https://cipher0x9.github.io/example-lab/",
+  "icon": "book",
+  "vendorsReferenced": [],
+  "launchedAt": "2026-10-15",
+  "sources": [
+    { "title": "Official documentation title", "url": "https://example.com/docs", "publisher": "Publisher", "accessed": "2026-10-15" }
+  ]
+}
