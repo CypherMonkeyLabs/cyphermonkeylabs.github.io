@@ -357,7 +357,7 @@ const html = `<!DOCTYPE html>
             </ul>
           </div>
         </div>
-        <p>© 2026 CypherMonkey Labs</p>
+        <p>© 2026 CypherMonkeyLabs 🐒</p>
       </div>
     </div>
   </div>
