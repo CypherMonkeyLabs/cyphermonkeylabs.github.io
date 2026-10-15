@@ -328,8 +328,34 @@ export function mountMascot(root, config) {
     const visible = entries.some((entry) => entry.isIntersecting && entry.intersectionRatio >= 0.4);
     root.classList.toggle("is-buddy", !visible);
     if (hideBtn) hideBtn.hidden = visible;
+    parkBuddy();
   }, { threshold: [0.4] });
   if (launchpad) buddyWatch.observe(launchpad);
+
+  const footer = document.querySelector("#footer-root") || document.querySelector("#disclaimer");
+  const dockWatch = new IntersectionObserver((entries) => {
+    root.classList.toggle("is-docked", entries.some((entry) => entry.isIntersecting));
+  }, { rootMargin: "120px 0px 0px 0px", threshold: 0 });
+  if (footer) dockWatch.observe(footer);
+
+  function parkBuddy() {
+    if (!root.classList.contains("is-buddy") || root.classList.contains("is-docked")) {
+      root.classList.remove("is-parked");
+      return;
+    }
+    const dock = root.getBoundingClientRect();
+    if (dock.width < 1) return;
+    const hit = [...document.querySelectorAll("h1, h2, h3, h4, .footer-links a, .lab-card, .event article, .gem-card, .contact-form, .ground-rules")].some((node) => {
+      if (root.contains(node)) return false;
+      const rect = node.getBoundingClientRect();
+      if (rect.width < 8 || rect.height < 8) return false;
+      if (rect.bottom < 0 || rect.top > window.innerHeight) return false;
+      return rect.left < dock.right - 4 && rect.right > dock.left + 4 && rect.top < dock.bottom - 4 && rect.bottom > dock.top + 4;
+    });
+    root.classList.toggle("is-parked", hit);
+  }
+  window.addEventListener("scroll", parkBuddy, { passive: true });
+  window.addEventListener("resize", parkBuddy);
 
   if (stage.querySelector("svg")) {
     current = stage.dataset.variant || "stargazer";
@@ -348,6 +374,9 @@ export function mountMascot(root, config) {
       stopped = true;
       observer.disconnect();
       buddyWatch.disconnect();
+      dockWatch.disconnect();
+      window.removeEventListener("scroll", parkBuddy);
+      window.removeEventListener("resize", parkBuddy);
       window.clearInterval(interval);
       window.clearTimeout(blinkTimer);
       window.clearTimeout(tipTimer);

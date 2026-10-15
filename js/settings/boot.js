@@ -49,14 +49,12 @@
     var colors = { dawn: "#FBF7FF", starlight: "#0F1030", contrast: "#FFFFFF" };
     var meta = document.querySelector('meta[name="theme-color"]');
     if (meta && colors[t]) meta.setAttribute("content", colors[t]);
-    var desk = m("(min-width: 1024px)");
-    var wide = m("(min-width: 1280px)");
+    var wide = m("(min-width: 1500px)");
     var w = "0px";
-    if (desk) {
-      if (raw.authorRail === "collapsed") w = "72px";
-      else if (raw.authorRail === "expanded") w = "300px";
-      else w = wide ? "300px" : "72px";
+    if (wide) {
+      w = raw.authorRail === "collapsed" ? "72px" : "300px";
     }
+    d.dataset.rail = wide ? "panel" : "button";
     d.style.setProperty("--cm-rail", w);
   } catch (err) {
     /* Private-mode storage can throw. Starlight, set on the document, stays. */
