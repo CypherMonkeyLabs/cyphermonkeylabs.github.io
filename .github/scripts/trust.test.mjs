@@ -7,6 +7,7 @@ import { MOTTO, NON_AFFILIATION, strings } from '../../js/trust/copy.js';
 import { buildPublicIssueUrl } from '../../js/trust/issue-url.js';
 import { normalizeLabs } from '../../js/trust/labs.js';
 import { hashKey, timingError, validateFields } from '../../js/trust/message-rules.js';
+import { classifyProbe } from './check-links.mjs';
 import { validateManifest } from './validate-labs.mjs';
 
 function addr(local, host) {
@@ -180,6 +181,16 @@ test('worker rejects the closed cases and sends a good note', async () => {
   assert.equal(sent.payload.subject.includes('\n'), false);
   assert.equal(sent.payload.replyTo, addr('ada', 'example.com'));
   assert.equal(sent.payload.toAddr, secretTo);
+});
+
+test('x.com bot wall warns and a missing profile still fails', () => {
+  assert.equal(classifyProbe({ host: 'x.com', status: 403, error: null }), 'bot-wall');
+  assert.equal(classifyProbe({ host: 'x.com', status: 0, error: 'network' }), 'bot-wall');
+  assert.equal(classifyProbe({ host: 'www.twitter.com', status: 429, error: null }), 'bot-wall');
+  assert.equal(classifyProbe({ host: 'x.com', status: 404, error: null }), 'fail');
+  assert.equal(classifyProbe({ host: 'x.com', status: 410, error: null }), 'fail');
+  assert.equal(classifyProbe({ host: 'github.com', status: 403, error: null }), 'fail');
+  assert.equal(classifyProbe({ host: 'github.com', status: 200, error: null }), 'ok');
 });
 
 test('mime subject cannot break the header', () => {

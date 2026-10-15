@@ -8,6 +8,7 @@ This slice automates the rows marked **auto**. Rows that need the assembled home
 |---|---|---|
 | T-LINK-01 | Live lab URLs and repos return a success status. Open and repo links render when the manifest has them. | **auto** for URLs in CI. Card rendering is covered on `/404.html` for the legacy manifest. |
 | T-LINK-02 | No empty hash links, no empty href, and no mail links on trust pages. | **auto** |
+| T-LINK-03 | Social and license links resolve. x.com may refuse the Actions runner. | **auto**. A 404 or 410 on x.com fails. A bot wall (401, 403, 429, or a connection failure) warns and leaves the profile URL in place. |
 | T-NAV-01…06 | Header, menu, palette, skip links for the full site. | **blocked** on the nav slice. Trust pages have a skip link and a small top bar. |
 | T-A11Y-01…05 | axe, 48 px targets, focus, 320 px reflow, forced colors. | **manual**. CSS includes forced-colors borders, visible focus, and 48 px targets. axe is not run here because the full route set is not assembled. |
 | T-SET-01…04 | Settings persistence and URL overrides. | Trust pages read `cm.settings` and `?theme=` / `?motion=` without writing them. Persistence belongs to the settings slice. |

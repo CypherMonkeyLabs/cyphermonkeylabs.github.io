@@ -6,4 +6,5 @@
 - A Pages artifact deploy in this workflow would change how the current site ships. The trust workflow only verifies.
 - The contact Worker is intentionally not deployed. A secret inbox cannot be proven from the repository.
 - `upgrade-insecure-requests` is left out of the meta policy. GitHub Pages already redirects to HTTPS, and the directive blocks module scripts on a local HTTP preview.
+- Hosted Actions runners are often refused by x.com. A 401, 403, 429, or connection failure on that host is a warning. A 404 or 410 still fails the job. Lab URLs are never given that exception.
 - An older copy of the site, outside this slice, still contains a public mailbox. These pages do not read it and do not print it.
