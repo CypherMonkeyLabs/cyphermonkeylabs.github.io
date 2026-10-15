@@ -1,0 +1,5 @@
+three.js 0.186.1
+MIT — see LICENSE
+Tree-shaken ESM bundle (WebGLRenderer, materials, geometries, lights, Line2).
+Official r172+ builds split three.core.js; copying both exceeds the 230KB gzip scene budget without a bundler.
+This file is the deploy artifact. GitHub Pages does not run npm.
