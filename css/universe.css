@@ -1,0 +1,319 @@
+/* Knowledge Universe. The host page keeps content at z-index 1. */
+
+.cml-universe-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100dvh;
+  display: block;
+  opacity: 0;
+  touch-action: pan-y;
+  transition: opacity 800ms cubic-bezier(.2, 0, 0, 1);
+}
+
+.cml-universe-canvas.is-ready {
+  opacity: 1;
+}
+
+.cml-universe-canvas.is-explore {
+  touch-action: none;
+}
+
+.cml-universe-fallback {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100dvh;
+  overflow: auto;
+  background-image:
+    radial-gradient(circle, rgb(255 255 255 / 85%) 1px, transparent 1.2px),
+    radial-gradient(circle, rgb(255 232 163 / 80%) 1.1px, transparent 1.3px),
+    radial-gradient(circle, rgb(207 230 255 / 75%) 1px, transparent 1.2px),
+    linear-gradient(180deg, var(--cml-sky-top, #0f1030), var(--cml-sky-mid, #1b1450) 52%, var(--cml-sky-bot, #12234a));
+  background-size: 140px 160px, 90px 110px, 210px 180px, auto;
+  background-position: 0 0, 40px 70px, 18px 30px, 0 0;
+  color: var(--cml-ink, #f4f1ff);
+  transition: opacity 800ms cubic-bezier(.2, 0, 0, 1);
+}
+
+.cml-universe-fallback.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.cml-universe-fallback svg {
+  width: min(100%, 1100px);
+  height: auto;
+  display: block;
+  margin: 8vh auto 0;
+}
+
+.cml-orbit {
+  transform-origin: 600px 430px;
+  transform-box: view-box;
+  animation: cml-spin 90s linear infinite;
+}
+
+.cml-fallback-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 8px;
+  width: min(1100px, calc(100% - 32px));
+  margin: 16px auto 48px;
+  padding: 0;
+  list-style: none;
+}
+
+.cml-fallback-list a {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, white 72%, transparent);
+  color: inherit;
+  text-decoration: none;
+  font: 600 15px/1.3 system-ui, sans-serif;
+}
+
+.cml-universe-labels {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.cml-lab-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-height: 36px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, white 78%, transparent);
+  color: #1e1b3a;
+  text-decoration: none;
+  font: 600 14px/1.2 system-ui, sans-serif;
+  letter-spacing: 0.01em;
+  pointer-events: auto;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgb(30 27 58 / 12%);
+  border: 1px solid rgb(255 255 255 / 50%);
+}
+
+.cml-universe-labels[data-theme="starlight"] .cml-lab-label {
+  background: color-mix(in srgb, #1a1b45 78%, transparent);
+  color: #f4f1ff;
+  border-color: rgb(185 174 255 / 28%);
+}
+
+.cml-lab-label[data-hot="true"] {
+  box-shadow: 0 0 0 2px var(--hot, #5b4bd6), 0 10px 28px rgb(30 27 58 / 18%);
+}
+
+.cml-lab-label:focus-visible {
+  outline: 3px solid var(--cml-focus, #5b4bd6);
+  outline-offset: 3px;
+}
+
+.cml-universe-labels.is-tap .cml-lab-label {
+  display: none;
+}
+
+.cml-universe-labels.is-tap .cml-lab-label[data-hot="true"] {
+  display: inline-block;
+}
+
+.cml-radial-list {
+  position: fixed;
+  z-index: 3;
+  left: 12px;
+  right: 12px;
+  bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 8px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  pointer-events: auto;
+  border-radius: 999px;
+  background: color-mix(in srgb, #12132f 72%, transparent);
+  border: 1px solid rgb(185 174 255 / 28%);
+  box-shadow: 0 10px 28px rgb(0 0 0 / 28%);
+}
+
+.cml-radial-list[hidden] { display: none; }
+
+.cml-radial-list__item {
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, #2a2c66 88%, transparent);
+  color: #f4f1ff;
+  font: 700 14px/1 system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.cml-radial-list__item[aria-pressed="true"] {
+  background: #b9aeff;
+  color: #14123a;
+}
+
+.cml-gem-belt {
+  transform-origin: 600px 430px;
+  transform-box: view-box;
+  animation: cml-spin 80s linear infinite;
+}
+
+@media (max-width: 519px) {
+  .cml-universe-fallback {
+    overflow: hidden;
+  }
+  .cml-universe-fallback text,
+  .cml-fallback-list { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cml-orbit,
+  .cml-gem-belt { animation: none; }
+}
+
+.cml-explore-controls {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 4;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  max-width: calc(100vw - 24px);
+}
+
+.cml-explore-controls button {
+  min-width: 48px;
+  min-height: 48px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, white 82%, transparent);
+  color: #1e1b3a;
+  font: 700 16px/1 system-ui, sans-serif;
+  box-shadow: 0 8px 24px rgb(30 27 58 / 16%);
+}
+
+.cml-explore-controls button[aria-pressed="true"] {
+  background: #5b4bd6;
+  color: white;
+}
+
+.cml-explore-controls button:focus-visible {
+  outline: 3px solid #5b4bd6;
+  outline-offset: 3px;
+}
+
+.cml-telescope-ring {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px;
+  border: 2px solid color-mix(in srgb, #5b4bd6 50%, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 6;
+  opacity: 0;
+  transition: opacity 140ms linear;
+}
+
+.cml-telescope-ring.is-on {
+  opacity: 1;
+}
+
+.cml-universe-toast {
+  position: fixed;
+  left: 50%;
+  bottom: max(88px, calc(env(safe-area-inset-bottom) + 80px));
+  transform: translateX(-50%);
+  z-index: 5;
+  max-width: min(420px, calc(100vw - 32px));
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: #1e1b3a;
+  color: #f4f1ff;
+  font: 600 15px/1.4 system-ui, sans-serif;
+}
+
+.cml-universe-hud {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 7;
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgb(15 16 48 / 78%);
+  color: #f4f1ff;
+  font: 12px/1.45 ui-monospace, monospace;
+  pointer-events: none;
+}
+
+.cml-still-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100dvh;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 200ms linear;
+}
+
+@media (pointer: coarse) {
+  .cml-telescope-ring { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cml-orbit { animation: none; }
+  .cml-universe-canvas,
+  .cml-universe-fallback { transition-duration: 200ms; }
+}
+
+html[data-motion="reduce"] .cml-orbit { animation: none; }
+
+html[data-motion="reduce"] .cml-universe-canvas.fade-ok,
+html[data-motion="reduce"] .cml-universe-fallback.fade-ok {
+  transition: opacity 200ms linear !important;
+}
+
+@media (forced-colors: active) {
+  .cml-universe-canvas,
+  .cml-telescope-ring,
+  .cml-universe-hud { display: none !important; }
+  .cml-universe-fallback {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: Canvas;
+    color: CanvasText;
+  }
+  .cml-lab-label,
+  .cml-explore-controls button,
+  .cml-fallback-list a {
+    background: Canvas;
+    color: LinkText;
+    border: 1px solid CanvasText;
+  }
+}
+
+@keyframes cml-spin {
+  to { transform: rotate(360deg); }
+}

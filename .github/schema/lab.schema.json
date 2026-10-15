@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cyphermonkeylabs.com/schemas/lab.schema.json",
+  "title": "CypherMonkey Lab",
+  "description": "Documented shape for /data/labs.json. CI enforces this with .github/scripts/validate-labs.mjs and does not install AJV.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "kind", "title", "tagline", "summary", "category", "status", "url", "repo", "icon", "launchedAt", "lastVerified", "sources"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "maxLength": 40 },
+    "kind": { "enum": ["lab", "gallery"] },
+    "title": { "type": "string", "minLength": 3, "maxLength": 48 },
+    "tagline": { "type": "string", "minLength": 10, "maxLength": 90 },
+    "summary": { "type": "string", "minLength": 80, "maxLength": 320 },
+    "category": { "enum": ["contact-center", "unified-comms", "protocols", "ai", "tools"] },
+    "status": { "enum": ["live", "beta", "coming-soon", "archived"] },
+    "url": { "type": "string", "pattern": "^https://cipher0x9\\.github\\.io/[A-Za-z0-9._-]+/$" },
+    "repo": { "type": "string", "pattern": "^https://github\\.com/cipher0x9/[A-Za-z0-9._-]+$" },
+    "icon": { "enum": ["headset", "handset", "cloud-phone", "waveform", "nodes", "chat", "spark", "gem", "video", "route", "book", "shield"] },
+    "launchedAt": { "type": "string", "format": "date" },
+    "lastVerified": { "type": "string", "format": "date" },
+    "sources": { "type": "array", "items": { "type": "object", "required": ["title", "url"] } }
+  }
+}

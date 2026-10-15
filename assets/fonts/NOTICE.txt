@@ -1,0 +1,5 @@
+Space Grotesk and Atkinson Hyperlegible are used under the SIL Open Font License.
+The license text is in OFL.txt in this folder.
+Space Grotesk: Copyright 2020 The Space Grotesk Project Authors.
+Atkinson Hyperlegible: Copyright 2020 Braille Institute of America, Inc.
+Source files were subset Latin woff2 builds from Fontsource (fontsource.org).
