@@ -20,6 +20,22 @@
   touch-action: none;
 }
 
+html:not(.is-past-hero) .cml-universe-canvas,
+html:not(.is-past-hero) .cml-universe-fallback,
+html:not(.is-past-hero) .cml-universe-labels,
+html:not(.is-past-hero) .sky,
+html:not(.is-past-hero) .stars,
+html:not(.is-past-hero) #universe-canvas {
+  bottom: var(--hero-band, 0px);
+  height: auto;
+}
+
+html:not(.is-past-hero) .cml-universe-fallback svg {
+  width: min(92%, 920px);
+  height: min(100%, calc(100dvh - var(--hero-band, 0px) - 8px));
+  max-height: 100%;
+}
+
 .cml-universe-fallback {
   position: fixed;
   inset: 0;

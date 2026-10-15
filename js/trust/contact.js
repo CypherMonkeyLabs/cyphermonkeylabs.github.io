@@ -169,7 +169,7 @@ export function mountContact(rootEl, opts = {}) {
     const box = h('input', { id: FIELD_IDS.consent, name: 'consent', type: 'checkbox', value: 'yes', required: 'required' });
     box.checked = formState.consent;
     const label = h('label', { for: FIELD_IDS.consent });
-    label.append(copy.consent, ' ', h('a', { href: LINKS.privacy, text: copy.privacyLink }), '.');
+    label.append(copy.consent, ' ', h('a', { href: LINKS.privacy, text: copy.privacyLink }));
     wrap.append(box, label);
     return wrap;
   }

@@ -262,6 +262,35 @@ function wireLabClicks() {
   });
 }
 
+function syncHeroBand() {
+  const card = document.querySelector("#launchpad .hero-copy");
+  if (!card) return;
+  const top = card.getBoundingClientRect().top;
+  const band = Math.max(0, Math.min(window.innerHeight, Math.ceil(window.innerHeight - top)));
+  const next = `${band}px`;
+  if (document.documentElement.style.getPropertyValue("--hero-band") === next) return;
+  document.documentElement.style.setProperty("--hero-band", next);
+}
+
+function watchHeroBand() {
+  syncHeroBand();
+  const card = document.querySelector("#launchpad .hero-copy");
+  const hero = card?.closest(".hero");
+  if (card && "ResizeObserver" in window) {
+    const observer = new ResizeObserver(() => syncHeroBand());
+    observer.observe(card);
+    if (hero) observer.observe(hero);
+    const nav = document.querySelector("#nav-root");
+    if (nav) observer.observe(nav);
+    const launchpad = document.querySelector("#launchpad");
+    if (launchpad) observer.observe(launchpad);
+  }
+  window.addEventListener("resize", syncHeroBand);
+  window.addEventListener("scroll", syncHeroBand, { passive: true });
+  document.querySelector(".page")?.addEventListener("scroll", syncHeroBand, { passive: true });
+  document.fonts?.ready?.then(syncHeroBand);
+}
+
 function wireDepth() {
   const root = document.documentElement;
   const reduced = () => root.dataset.motion === "reduce";
@@ -392,6 +421,7 @@ async function mountOptional(packs) {
     card.classList.add("is-picked");
     universeApi?.focusLab?.(card.dataset.lab);
   });
+  syncHeroBand();
 }
 
 async function main() {
@@ -414,12 +444,14 @@ async function main() {
   wireTimeline();
   wireContact(labs, site);
   wireDepth();
+  watchHeroBand();
   wireLabClicks();
   focusFromHash();
   window.addEventListener("hashchange", focusFromHash);
   const mascotRoot = document.querySelector("#mascot-root");
   if (mascotRoot && document.documentElement.dataset.mascot !== "hidden") {
     mountMascot(mascotRoot, mascot);
+    syncHeroBand();
   }
   document.documentElement.classList.add("is-ready");
   await mountOptional({ labs: labsDoc });
