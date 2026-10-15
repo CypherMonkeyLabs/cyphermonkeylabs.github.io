@@ -15,7 +15,7 @@ This slice automates the rows marked **auto**. Rows that need the assembled home
 | T-SCN-01…08 | Scene quality, WebGL loss, reduced motion. | **blocked** on the scene slice. The footer aurora does stop for reduced motion. |
 | T-MAN-01…05 | Manifest schema, legacy file, invalid fixture. | **auto** for schema. A 100-lab scene fixture is not this slice. |
 | T-MAS-01…04 | Mascot schedule. | **blocked**. The form dispatches `cm:mascot` with `celebrate` or `oops`. |
-| T-CON-01 | Happy path delivered within 60 s. | **blocked** until the Worker is deployed to a staging inbox. Handler unit test covers the send call. |
+| T-CON-01 | Happy path delivered within 60 s. | **manual**. The Worker is live at `contact.cyphermonkeylabs.com`. A person sends one note. Handler unit test covers the send call. |
 | T-CON-02 | Honeypot returns success and does not send. | **auto** (handler) and the form pretends success without opening GitHub. |
 | T-CON-03 | Under 3 seconds returns 400 `too_fast`. | **auto** |
 | T-CON-04 | Bad Turnstile token returns 400. | **auto** |
@@ -28,10 +28,14 @@ This slice automates the rows marked **auto**. Rows that need the assembled home
 | T-TRUST-03 | No vendor logo files. | **manual** file list. This slice adds no images. |
 | T-PERF-01…04 | LHCI and size limits. | Size limits for this slice are **auto**. LHCI waits for the assembled site. There is no `dist/` build. |
 
-## Contact checks before the Worker is public
+## Contact checks with the Worker live
 
-1. Submit on `/trust-demo.html` before 3 seconds and confirm the wait message. The text stays.
-2. Submit a valid note and confirm the GitHub URL has the topic and message and not the email field.
-3. Put an address inside the message and confirm the form stops.
-4. Fill the off-screen company field and confirm no issue opens.
-5. With JavaScript off, confirm the Ground Rules text and the issue link are visible.
+The form on `/` (`#contact`) and `/trust-demo.html` posts to the Worker. Do not put a destination address in git, and do not automate a real send.
+
+1. The Turnstile widget is visible. The console has no CSP errors for `https://challenges.cloudflare.com`.
+2. Submit with no token and confirm the spam-check message (`captcha`).
+3. Submit before 3 seconds and confirm the wait message (`too_fast`). The text stays.
+4. A rate limit shows the hourly message (`rate`, HTTP 429). A missing secret or limiter shows the unconfigured message (`unconfigured`, HTTP 503).
+5. `?contact=fallback` still opens a public GitHub issue. That URL has the topic and message and not the email field. An address inside the message stops that path.
+6. Fill the off-screen company field and confirm the form pretends success and does not send.
+7. With JavaScript off, confirm the Ground Rules text and the public issue link are visible.

@@ -16,8 +16,50 @@ const FIELD_IDS = {
   stamp: 'contact-stamp',
 };
 
+const TURNSTILE_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+
+let turnstileLoader;
+
 function meta(name) {
   return document.querySelector(`meta[name="${name}"]`)?.getAttribute('content')?.trim() || '';
+}
+
+export function contactFailureCode(status, payload) {
+  const code = payload && typeof payload.code === 'string' ? payload.code.trim() : '';
+  if (code) return code;
+  switch (status) {
+    case 429: return 'rate';
+    case 503: return 'unconfigured';
+    case 400: return 'captcha';
+    default: return 'invalid';
+  }
+}
+
+function loadTurnstileApi() {
+  if (window.turnstile) return Promise.resolve(window.turnstile);
+  if (turnstileLoader) return turnstileLoader;
+  turnstileLoader = new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = TURNSTILE_SRC;
+    script.async = true;
+    script.defer = true;
+    script.dataset.cmlTurnstile = '1';
+    script.addEventListener('load', () => resolve(window.turnstile), { once: true });
+    script.addEventListener('error', () => {
+      turnstileLoader = null;
+      reject(new Error('captcha'));
+    }, { once: true });
+    document.head.append(script);
+  });
+  return turnstileLoader;
+}
+
+function turnstileTheme() {
+  return document.documentElement.dataset.theme === 'starlight' ? 'dark' : 'light';
+}
+
+function turnstileSize() {
+  return window.matchMedia('(max-width: 479px)').matches ? 'compact' : 'normal';
 }
 
 function pageConfig() {
@@ -62,6 +104,8 @@ export function mountContact(rootEl, opts = {}) {
   let lang = document.documentElement.lang || 'en';
   let labs = [];
   let startedAt = 0;
+  let widgetId = null;
+  let renderGeneration = 0;
   let formState = {
     name: '',
     email: '',
@@ -85,6 +129,7 @@ export function mountContact(rootEl, opts = {}) {
   }
 
   function paint() {
+    dropWidget();
     const copy = strings(lang);
     const section = h('section', { id: 'contact', class: 'contact-section', 'aria-labelledby': 'contact-title' });
     const intro = h('div', { class: 'contact-intro' });
@@ -174,14 +219,66 @@ export function mountContact(rootEl, opts = {}) {
     return wrap;
   }
 
+  function widgetOptions(sitekey, note) {
+    return {
+      sitekey,
+      appearance: 'always',
+      theme: turnstileTheme(),
+      size: turnstileSize(),
+      'response-field': true,
+      'response-field-name': 'cf-turnstile-response',
+      'error-callback'() {
+        note.hidden = false;
+        note.textContent = strings(lang).errorCaptcha;
+      },
+      'expired-callback'() {
+        if (widgetId != null && window.turnstile) window.turnstile.reset(widgetId);
+      },
+    };
+  }
+
+  function dropWidget() {
+    if (widgetId == null || !window.turnstile) {
+      widgetId = null;
+      return;
+    }
+    try {
+      window.turnstile.remove(widgetId);
+    } catch {
+      /* The node is already gone after a repaint. */
+    }
+    widgetId = null;
+  }
+
+  function renderWidget(host, sitekey, note) {
+    const generation = ++renderGeneration;
+    loadTurnstileApi().then((api) => {
+      if (generation !== renderGeneration || !host.isConnected || !api) return;
+      dropWidget();
+      widgetId = api.render(host, widgetOptions(sitekey, note));
+    }).catch(() => {
+      if (generation !== renderGeneration) return;
+      note.hidden = false;
+      note.textContent = strings(lang).errorCaptcha;
+    });
+  }
+
   function turnstile(sitekey) {
-    const widget = h('div', { class: 'cf-turnstile', 'data-sitekey': sitekey, 'data-appearance': 'interaction-only' });
-    const script = document.createElement('script');
-    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
-    script.async = true;
-    script.defer = true;
-    document.head.append(script);
-    return widget;
+    const slot = h('div', { class: 'turnstile-slot' });
+    const label = h('p', { class: 'turnstile-label', text: strings(lang).spamCheck });
+    const host = h('div', { class: 'turnstile-host' });
+    const note = h('p', { class: 'hint turnstile-note', hidden: 'hidden' });
+    slot.append(label, host, note);
+    renderWidget(host, sitekey, note);
+    return slot;
+  }
+
+  function refreshTurnstile() {
+    const host = rootEl.querySelector('.turnstile-host');
+    const note = rootEl.querySelector('.turnstile-note');
+    if (!host || !note || config.mode !== 'worker' || !config.sitekey) return;
+    note.hidden = true;
+    renderWidget(host, config.sitekey, note);
   }
 
   function watchStamp(form) {
@@ -241,6 +338,7 @@ export function mountContact(rootEl, opts = {}) {
       showSuccess(success, form, { kind: popup ? 'fallback' : 'blocked', url });
       dispatchMascot('celebrate');
     } catch (error) {
+      if (widgetId != null && window.turnstile) window.turnstile.reset(widgetId);
       const code = error && error.code ? error.code : 'network';
       showErrors(form, [{ field: 'message', code }]);
       dispatchMascot('oops');
@@ -255,11 +353,25 @@ export function mountContact(rootEl, opts = {}) {
       error.code = 'captcha';
       throw error;
     }
-    const response = await fetch(config.endpoint, { method: 'POST', body: new FormData(form), headers: { accept: 'application/json' } });
+    const token = form.querySelector('[name="cf-turnstile-response"]');
+    if (token && !String(token.value || '').trim()) {
+      const error = new Error('captcha');
+      error.code = 'captcha';
+      throw error;
+    }
+    let response;
+    try {
+      response = await fetch(config.endpoint, { method: 'POST', body: new FormData(form), headers: { accept: 'application/json' } });
+    } catch {
+      const error = new Error('network');
+      error.code = 'network';
+      throw error;
+    }
     const payload = await response.json().catch(() => ({}));
     if (!response.ok || !payload.ok) {
-      const error = new Error(payload.code || 'invalid');
-      error.code = payload.code || 'invalid';
+      const code = contactFailureCode(response.status, payload);
+      const error = new Error(code);
+      error.code = code;
       throw error;
     }
   }
@@ -288,6 +400,8 @@ export function mountContact(rootEl, opts = {}) {
     const box = form.querySelector('#contact-errors');
     box.hidden = true;
     box.replaceChildren();
+    const note = form.querySelector('.turnstile-note');
+    if (note) note.hidden = true;
     for (const control of form.querySelectorAll('[aria-invalid="true"]')) control.removeAttribute('aria-invalid');
   }
 
@@ -335,12 +449,15 @@ export function mountContact(rootEl, opts = {}) {
 
   function onSettings(event) {
     snapshot();
+    const previousTheme = document.documentElement.dataset.theme;
     applySettingsDetail(event.detail);
     const next = document.documentElement.lang || lang;
     if (next !== lang) {
       lang = next;
       paint();
+      return;
     }
+    if (document.documentElement.dataset.theme !== previousTheme) refreshTurnstile();
   }
 
   function onHash() {
@@ -375,6 +492,7 @@ export function mountContact(rootEl, opts = {}) {
     destroy() {
       window.removeEventListener('cm:settings', onSettings);
       window.removeEventListener('hashchange', onHash);
+      dropWidget();
       rootEl.replaceChildren();
     },
     ready: pending,

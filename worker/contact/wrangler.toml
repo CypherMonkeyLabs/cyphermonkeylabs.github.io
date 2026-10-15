@@ -1,6 +1,8 @@
-# Cloudflare Worker hook for Mission Control.
-# Do not deploy from this repository until a person chooses to.
+# Cloudflare Worker for Mission Control.
+# Deployed as cml-contact at https://contact.cyphermonkeylabs.com.
+# The routes entry keeps that custom domain on later deploys.
 # Do not put secret values in this file.
+# FROM_ADDR is a mailbox on the Email Routing subdomain notify.cyphermonkeylabs.com.
 # Set secrets with: wrangler secret put TURNSTILE_SECRET
 #                   wrangler secret put TO_ADDR
 #                   wrangler secret put FROM_ADDR
@@ -11,6 +13,7 @@ name = "cml-contact"
 main = "src/index.js"
 compatibility_date = "2026-10-01"
 workers_dev = false
+routes = [{ pattern = "contact.cyphermonkeylabs.com", custom_domain = true }]
 
 [[send_email]]
 name = "SEND_EMAIL"

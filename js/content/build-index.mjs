@@ -95,7 +95,8 @@ const html = `<!DOCTYPE html>
   <meta name="description" content="${site.description}">
   <link rel="canonical" href="https://cyphermonkeylabs.com/">
   <meta name="theme-color" content="#0F1030">
-  <meta name="cml-contact-mode" content="fallback">
+  <meta name="cml-contact-mode" content="worker">
+  <meta name="cml-turnstile-sitekey" content="0x4AAAAAAFX-0D95hXYzwVx-">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta property="og:type" content="website">
   <meta property="og:title" content="${site.title}">
@@ -109,7 +110,7 @@ const html = `<!DOCTYPE html>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preload" href="/assets/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://contact.cyphermonkeylabs.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action https://github.com https://contact.cyphermonkeylabs.com; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://contact.cyphermonkeylabs.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action https://github.com https://contact.cyphermonkeylabs.com; upgrade-insecure-requests">
   <link rel="stylesheet" href="/css/content.css">
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/nav.css">
