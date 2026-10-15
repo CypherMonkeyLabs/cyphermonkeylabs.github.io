@@ -1,0 +1,1 @@
+import"./fonts-IiRS2V_q.js";/* empty css                  *//* empty css               */import{t as e}from"./monkey-art-B9Xow-mg.js";var t=document.getElementById(`og-monkey`);if(t){let n=e();n.setAttribute(`aria-hidden`,`true`),n.removeAttribute(`role`),n.removeAttribute(`aria-label`),t.append(n)}
