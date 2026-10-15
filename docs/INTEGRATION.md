@@ -23,6 +23,6 @@ frame-src https://challenges.cloudflare.com;
 form-action https://contact.cyphermonkeylabs.com;
 ```
 
-Leave `cml-contact-mode` at `fallback` until the Worker in `/worker` is deployed. Settings events use `cm:settings` with `theme`, `lang`, `sound`, and `motion`. The form dispatches `cm:mascot` with `celebrate` or `oops` so the mascot controller can react. This slice does not play sound; the settings owner can listen for the mascot event.
+The home page and `/trust-demo.html` ship `cml-contact-mode` as `worker` plus the public `cml-turnstile-sitekey`. The endpoint defaults to `https://contact.cyphermonkeylabs.com`. `?contact=fallback` still opens the public GitHub issue path for one view. Settings events use `cm:settings` with `theme`, `lang`, `sound`, and `motion`. The form dispatches `cm:mascot` with `celebrate` or `oops` so the mascot controller can react. This slice does not play sound; the settings owner can listen for the mascot event.
 
 Link targets the footer expects on the home page: `#labs`, `#timeline`, `#gems`, `#about`, `#contact`. `#gems` is not in the current home page yet.

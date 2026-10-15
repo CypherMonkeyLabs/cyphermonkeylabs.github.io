@@ -6,6 +6,7 @@
 - Mission Control form, `mountContact`, GitHub issue fallback, Worker handler and tests.
 - `privacy.html`, `404.html`, `trust-demo.html`, `robots.txt`, `sitemap.xml`.
 - CI for the manifest, lab URLs, links, email exposure, and trust-slice byte budgets.
+- Contact form on `/` and `/trust-demo.html` uses the live `cml-contact` Worker at `https://contact.cyphermonkeylabs.com`.
 - Nightly lab-health workflow that can open or update an issue.
 - QA matrix, performance budgets, and rollback notes.
 
@@ -17,6 +18,5 @@
 ## Next
 
 - Maintainer confirms the copyright legal name and the brand exclusion.
-- A person deploys the Worker and flips `cml-contact-mode` to `worker` after the staging inbox test.
 - Run axe and a screen reader pass on the assembled pages.
 - Rehearse rollback from a `pre-redesign` tag on a staging fork.

@@ -44,13 +44,13 @@
       <section id="contact-privacy" aria-labelledby="contact-privacy-title">
         <h2 id="contact-privacy-title">Contact</h2>
         <p>The contact form asks for your name, your email, a topic, an optional lab, and a message, plus consent. Your email exists so a person can reply. It is not printed on the page and it is not put in a public GitHub issue.</p>
-        <p>Until the Worker is deployed, Send opens a public GitHub issue with the topic and the message, and leaves your email in the form on this device. If the message itself contains an email address, the form stops and asks you to remove it, because a public issue would show it.</p>
-        <p>When the Worker at <code>contact.cyphermonkeylabs.com</code> is enabled, the browser posts the form there. The Worker checks a Turnstile token, a honeypot, a short timing trap, and a rate limit, then emails a destination that lives only in a Cloudflare secret. The Worker is written so it does not store the message and does not send the destination address back to the browser. Setup steps are in <code>/worker/README.md</code> in the repository. Nothing in this repository is the studio inbox.</p>
+        <p>Send posts the form to the Worker at <code>contact.cyphermonkeylabs.com</code>. The Worker checks a Turnstile token, a honeypot, a short timing trap, and a rate limit, then emails a destination that lives only in a Cloudflare secret. The Worker does not store the message and does not send the destination address back to the browser. Nothing in this repository is the studio inbox.</p>
+        <p>If JavaScript is off, or you open the page with <code>?contact=fallback</code>, the public path is a GitHub issue. That issue does not include your email. On that path only, a message that itself contains an email address is refused, because a public issue would show it.</p>
       </section>
 
       <section id="turnstile" aria-labelledby="turnstile-title">
         <h2 id="turnstile-title">Spam check</h2>
-        <p>If Turnstile is switched on, Cloudflare may set its own anti-abuse signals in your browser. That is Cloudflare’s processing, not a cookie this site uses for ads or analytics. Their privacy notice is <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener noreferrer">Cloudflare’s privacy policy</a>.</p>
+        <p>The contact form loads Cloudflare Turnstile. Cloudflare may set its own anti-abuse signals in your browser. That is Cloudflare’s processing, not a cookie this site uses for ads or analytics. Their privacy notice is <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener noreferrer">Cloudflare’s privacy policy</a>.</p>
       </section>
 
       <section id="analytics" aria-labelledby="analytics-title">
@@ -82,7 +82,7 @@
       <section id="accessibility" aria-labelledby="a11y-title">
         <h2 id="a11y-title">Accessibility</h2>
         <p>These trust pages aim for WCAG 2.2 AA: visible focus, 48 pixel targets, text that can reflow, a skip link, and motion that stops when the system asks for reduced motion or when <code>cm.settings</code> says so. High contrast is a theme, and forced colors keep borders.</p>
-        <p>Known limits: the contact form needs JavaScript to open the GitHub fallback or to run Turnstile. Without JavaScript, the page shows a direct link to open a public issue. The full screen-reader pass on VoiceOver, TalkBack, and NVDA is still a manual check. To report a barrier, use <a href="/?topic=accessibility#contact">Contact</a> and choose Accessibility issue.</p>
+        <p>Known limits: the contact form needs JavaScript to run Turnstile and send the private note. Without JavaScript, the page shows a direct link to open a public issue. The full screen-reader pass on VoiceOver, TalkBack, and NVDA is still a manual check. To report a barrier, use <a href="/?topic=accessibility#contact">Contact</a> and choose Accessibility issue.</p>
       </section>
 
       <section id="licenses" aria-labelledby="licenses-title">

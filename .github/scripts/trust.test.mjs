@@ -3,7 +3,8 @@ import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import { buildPlainMessage } from '../../worker/contact/src/mime.js';
 import { handleContact } from '../../worker/contact/src/handler.js';
-import { MOTTO, NON_AFFILIATION, strings } from '../../js/trust/copy.js';
+import { contactFailureCode } from '../../js/trust/contact.js';
+import { MOTTO, NON_AFFILIATION, ENDPOINT, strings } from '../../js/trust/copy.js';
 import { buildPublicIssueUrl } from '../../js/trust/issue-url.js';
 import { normalizeLabs } from '../../js/trust/labs.js';
 import { hashKey, timingError, validateFields } from '../../js/trust/message-rules.js';
@@ -191,6 +192,33 @@ test('x.com bot wall warns and a missing profile still fails', () => {
   assert.equal(classifyProbe({ host: 'x.com', status: 410, error: null }), 'fail');
   assert.equal(classifyProbe({ host: 'github.com', status: 403, error: null }), 'fail');
   assert.equal(classifyProbe({ host: 'github.com', status: 200, error: null }), 'ok');
+});
+
+test('worker mode pages allow Turnstile and keep the endpoint private', async () => {
+  assert.equal(ENDPOINT, 'https://contact.cyphermonkeylabs.com');
+  const sitekey = '0x4AAAAAAFX-0D95hXYzwVx-';
+  for (const file of ['index.html', 'trust-demo.html']) {
+    const html = await readFile(file, 'utf8');
+    assert.match(html, /name="cml-contact-mode" content="worker"/);
+    assert.match(html, new RegExp(`name="cml-turnstile-sitekey" content="${sitekey}"`));
+    assert.match(html, /script-src 'self' https:\/\/challenges\.cloudflare\.com/);
+    assert.match(html, /connect-src 'self' https:\/\/contact\.cyphermonkeylabs\.com https:\/\/challenges\.cloudflare\.com/);
+    assert.match(html, /frame-src https:\/\/challenges\.cloudflare\.com/);
+    assert.match(html, /form-action [^"]*https:\/\/contact\.cyphermonkeylabs\.com/);
+  }
+  const contact = await readFile('js/trust/contact.js', 'utf8');
+  assert.match(contact, /response-field-name': 'cf-turnstile-response'/);
+  assert.match(contact, /appearance: 'always'/);
+  assert.doesNotMatch(contact, /interaction-only/);
+  const wrangler = await readFile('worker/contact/wrangler.toml', 'utf8');
+  const routesAt = wrangler.indexOf('routes = [{ pattern = "contact.cyphermonkeylabs.com", custom_domain = true }]');
+  const tableAt = wrangler.indexOf('[[send_email]]');
+  assert.ok(routesAt > -1 && routesAt < tableAt);
+  assert.equal(contactFailureCode(429, {}), 'rate');
+  assert.equal(contactFailureCode(503, {}), 'unconfigured');
+  assert.equal(contactFailureCode(400, { code: 'too_fast' }), 'too_fast');
+  assert.equal(contactFailureCode(400, { code: 'captcha' }), 'captcha');
+  assert.equal(contactFailureCode(422, { code: 'invalid' }), 'invalid');
 });
 
 test('mime subject cannot break the header', () => {

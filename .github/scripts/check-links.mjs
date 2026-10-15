@@ -75,6 +75,29 @@ async function probeWithRetry(url) {
   return probe(url, browserAgent);
 }
 
+async function probeContact(url) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 20_000);
+  try {
+    const response = await fetch(url, {
+      method: 'OPTIONS',
+      redirect: 'follow',
+      headers: {
+        origin: 'https://cyphermonkeylabs.com',
+        'access-control-request-method': 'POST',
+        accept: 'application/json',
+      },
+      signal: controller.signal,
+    });
+    return { status: response.status, error: null };
+  } catch (error) {
+    const name = error && error.name === 'AbortError' ? 'timeout' : 'network';
+    return { status: 0, error: name };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function main() {
   const files = [];
   for (const root of roots) await filesIn(root, files);
@@ -122,7 +145,7 @@ async function main() {
       const url = uniqueExternal[cursor];
       cursor += 1;
       const host = new URL(url).host;
-      const probed = await probeWithRetry(url);
+      const probed = host === 'contact.cyphermonkeylabs.com' ? await probeContact(url) : await probeWithRetry(url);
       results.push({ url, host, ...probed });
     }
   }
@@ -134,7 +157,7 @@ async function main() {
       continue;
     }
     if (optionalHosts.has(result.host)) {
-      console.log(`::warning::optional host not live yet ${result.url}`);
+      console.log(`::warning::contact worker did not answer OPTIONS from the site origin ${result.url}`);
       continue;
     }
     if (kind === 'bot-wall') {
