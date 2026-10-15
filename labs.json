@@ -1,0 +1,458 @@
+{
+  "labs": [
+    {
+      "id": "uc",
+      "name": "UC Lab",
+      "short": "UC Lab",
+      "description": "Practice rooms for calling, meetings, and collaboration.",
+      "url": "https://cipher0x9.github.io/uc-lab-free-university-mesmerizing/",
+      "source": "https://github.com/cipher0x9/uc-lab-free-university-mesmerizing",
+      "download": "",
+      "status": "live",
+      "category": "contact-center",
+      "color": "#2ee6c7",
+      "icon": "phone",
+      "tags": [
+        "uc",
+        "calling",
+        "meetings",
+        "collaboration"
+      ],
+      "orbit": {
+        "angle": 0.35,
+        "radius": 3.7,
+        "size": 1
+      },
+      "stats": {
+        "rooms": null,
+        "quizQuestions": null,
+        "flashcards": null
+      },
+      "featured": false,
+      "highlights": [],
+      "flow": [],
+      "sketchPath": []
+    },
+    {
+      "id": "ai",
+      "name": "AI Lab",
+      "short": "AI Lab",
+      "description": "Practice rooms for prompts, models, and how AI tools behave.",
+      "url": "https://cipher0x9.github.io/ai-lab-free-university-mesmerizing/",
+      "source": "https://github.com/cipher0x9/ai-lab-free-university-mesmerizing",
+      "download": "",
+      "status": "live",
+      "category": "ai",
+      "color": "#d6ff4a",
+      "icon": "spark",
+      "tags": [
+        "ai",
+        "prompts",
+        "models"
+      ],
+      "orbit": {
+        "angle": 0.978,
+        "radius": 4.15,
+        "size": 1
+      },
+      "stats": {
+        "rooms": null,
+        "quizQuestions": null,
+        "flashcards": null
+      },
+      "featured": false,
+      "highlights": [],
+      "flow": [],
+      "sketchPath": []
+    },
+    {
+      "id": "amazon-connect",
+      "name": "Amazon Connect Lab",
+      "short": "Amazon Connect",
+      "description": "A walkthrough lab for the Amazon Connect contact center.",
+      "url": "https://cipher0x9.github.io/amazon-connect-lab-free-university-mesmerizing/",
+      "source": "https://github.com/cipher0x9/amazon-connect-lab-free-university-mesmerizing",
+      "download": "",
+      "status": "live",
+      "category": "contact-center",
+      "color": "#ff9f43",
+      "icon": "headset",
+      "tags": [
+        "amazon connect",
+        "contact center",
+        "cloud"
+      ],
+      "orbit": {
+        "angle": 1.607,
+        "radius": 3.7,
+        "size": 1
+      },
+      "stats": {
+        "rooms": null,
+        "quizQuestions": null,
+        "flashcards": null
+      },
+      "featured": false,
+      "highlights": [],
+      "flow": [],
+      "sketchPath": []
+    },
+    {
+      "id": "microsoft-voice",
+      "name": "Microsoft Voice & Contact Center Lab",
+      "short": "Microsoft Voice",
+      "description": "Practice rooms for Microsoft voice and contact-center ideas.",
+      "url": "https://cipher0x9.github.io/microsoft-voice-cc-lab-free-university-mesmerizing/",
+      "source": "https://github.com/cipher0x9/microsoft-voice-cc-lab-free-university-mesmerizing",
+      "download": "",
+      "status": "live",
+      "category": "contact-center",
+      "color": "#7aa2ff",
+      "icon": "wave",
+      "tags": [
+        "microsoft",
+        "voice",
+        "contact center"
+      ],
+      "orbit": {
+        "angle": 2.235,
+        "radius": 4.15,
+        "size": 1
+      },
+      "stats": {
+        "rooms": null,
+        "quizQuestions": null,
+        "flashcards": null
+      },
+      "featured": false,
+      "highlights": [],
+      "flow": [],
+      "sketchPath": []
+    },
+    {
+      "id": "five9",
+      "name": "Five9 Lab",
+      "short": "Five9",
+      "description": "A lab for exploring how a Five9 contact center fits together.",
+      "url": "https://cipher0x9.github.io/five9-lab-free-university-mesmerizing/",
+      "source": "https://github.com/cipher0x9/five9-lab-free-university-mesmerizing",
+      "download": "",
+      "status": "live",
+      "category": "contact-center",
+      "color": "#ff5d8f",
+      "icon": "nodes",
+      "tags": [
+        "five9",
+        "contact center"
+      ],
+      "orbit": {
+        "angle": 2.863,
+        "radius": 3.7,
+        "size": 1
+      },
+      "stats": {
+        "rooms": null,
+        "quizQuestions": null,
+        "flashcards": null
+      },
+      "featured": false,
+      "highlights": [],
+      "flow": [],
+      "sketchPath": []
+    },
+    {
+      "id": "genesys",
+      "name": "Genesys Cloud Lab",
+      "short": "Genesys Cloud",
+      "description": "A lab for exploring Genesys Cloud contact-center ideas.",
+      "url": "https://cipher0x9.github.io/genesys-cloud-lab-free-university-mesmerizing/",
+      "source": "https://github.com/cipher0x9/genesys-cloud-lab-free-university-mesmerizing",
+      "download": "",
+      "status": "live",
+      "category": "contact-center",
+      "color": "#c084fc",
+      "icon": "orbit",
+      "tags": [
+        "genesys",
+        "cloud",
+        "contact center"
+      ],
+      "orbit": {
+        "angle": 3.492,
+        "radius": 4.15,
+        "size": 1
+      },
+      "stats": {
+        "rooms": null,
+        "quizQuestions": null,
+        "flashcards": null
+      },
+      "featured": false,
+      "highlights": [],
+      "flow": [],
+      "sketchPath": []
+    },
+    {
+      "id": "nice",
+      "name": "NICE CXone Lab",
+      "short": "NICE CXone",
+      "description": "A lab for exploring NICE CXone contact-center ideas.",
+      "url": "https://cipher0x9.github.io/nice-cxone-lab-free-university-mesmerizing/",
+      "source": "https://github.com/cipher0x9/nice-cxone-lab-free-university-mesmerizing",
+      "download": "",
+      "status": "live",
+      "category": "contact-center",
+      "color": "#ffd166",
+      "icon": "bloom",
+      "tags": [
+        "nice",
+        "cxone",
+        "contact center"
+      ],
+      "orbit": {
+        "angle": 4.12,
+        "radius": 3.7,
+        "size": 1
+      },
+      "stats": {
+        "rooms": null,
+        "quizQuestions": null,
+        "flashcards": null
+      },
+      "featured": false,
+      "highlights": [],
+      "flow": [],
+      "sketchPath": []
+    },
+    {
+      "id": "sip",
+      "name": "SIP Universe",
+      "short": "SIP Universe",
+      "description": "See how phone calls move across the internet with SIP.",
+      "url": "https://cipher0x9.github.io/sip-universe-lab-free-university-mesmerizing/",
+      "source": "https://github.com/cipher0x9/sip-universe-lab-free-university-mesmerizing",
+      "download": "",
+      "status": "live",
+      "category": "contact-center",
+      "color": "#5eead4",
+      "icon": "signal",
+      "tags": [
+        "sip",
+        "calling",
+        "protocol"
+      ],
+      "orbit": {
+        "angle": 4.748,
+        "radius": 4.15,
+        "size": 1
+      },
+      "stats": {
+        "rooms": null,
+        "quizQuestions": null,
+        "flashcards": null
+      },
+      "featured": false,
+      "highlights": [],
+      "flow": [],
+      "sketchPath": []
+    },
+    {
+      "id": "gems",
+      "name": "Gemini Gems gallery",
+      "short": "Gemini Gems",
+      "description": "A gallery of Gemini Gem examples you can open and study.",
+      "url": "https://cipher0x9.github.io/gemini-gems-free-gallery/",
+      "source": "https://github.com/cipher0x9/gemini-gems-free-gallery",
+      "download": "",
+      "status": "live",
+      "category": "ai",
+      "color": "#67e8f9",
+      "icon": "gem",
+      "tags": [
+        "gemini",
+        "gems",
+        "ai",
+        "gallery"
+      ],
+      "orbit": {
+        "angle": 5.377,
+        "radius": 3.7,
+        "size": 1
+      },
+      "stats": {
+        "rooms": null,
+        "quizQuestions": null,
+        "flashcards": null
+      },
+      "featured": false,
+      "highlights": [],
+      "flow": [],
+      "sketchPath": []
+    },
+    {
+      "id": "canon",
+      "name": "CypherWebex Canon",
+      "short": "Canon",
+      "description": "Flagship Webex lab with 63 rooms, navigation, and live flows.",
+      "url": "https://cypherwebex-canon-test.vercel.app",
+      "source": "",
+      "download": "",
+      "status": "live",
+      "category": "contact-center",
+      "color": "#f4e4a6",
+      "icon": "rooms",
+      "tags": [
+        "webex",
+        "canon",
+        "flagship",
+        "rooms",
+        "flows"
+      ],
+      "orbit": {
+        "angle": 6.005,
+        "radius": 4.15,
+        "size": 1.35
+      },
+      "stats": {
+        "rooms": 63,
+        "quizQuestions": null,
+        "flashcards": null
+      },
+      "featured": true,
+      "highlights": [
+        "63 rooms",
+        "Navigation",
+        "Live flows"
+      ],
+      "flow": [
+        {
+          "title": "Open the canon",
+          "text": "Start in the flagship lab."
+        },
+        {
+          "title": "Pick a room",
+          "text": "There are 63 rooms to walk through."
+        },
+        {
+          "title": "Use the navigation",
+          "text": "Move from room to room without getting lost."
+        },
+        {
+          "title": "Watch a live flow",
+          "text": "See a calling flow run in the lab."
+        }
+      ],
+      "sketchPath": [
+        0,
+        1,
+        2,
+        8,
+        14,
+        15,
+        16,
+        22,
+        28,
+        29
+      ]
+    },
+    {
+      "id": "gcp-cc",
+      "name": "Google Cloud Contact Center",
+      "short": "Google Cloud",
+      "description": "A lab for Google Cloud contact-center ideas. Not open yet.",
+      "url": "",
+      "source": "",
+      "download": "",
+      "status": "coming",
+      "category": "contact-center",
+      "color": "#9bb0c7",
+      "icon": "cloud",
+      "tags": [
+        "google",
+        "cloud",
+        "contact center"
+      ],
+      "orbit": {
+        "angle": 0.9,
+        "radius": 4.7,
+        "size": 0.9
+      },
+      "stats": {
+        "rooms": null,
+        "quizQuestions": null,
+        "flashcards": null
+      },
+      "featured": false,
+      "highlights": [],
+      "flow": [],
+      "sketchPath": []
+    },
+    {
+      "id": "languages",
+      "name": "Languages",
+      "short": "Languages",
+      "description": "Practice rooms for Sanskrit, Telugu, Arabic, and English. Not open yet.",
+      "url": "",
+      "source": "",
+      "download": "",
+      "status": "coming",
+      "category": "languages",
+      "color": "#f0abfc",
+      "icon": "glyphs",
+      "tags": [
+        "languages",
+        "sanskrit",
+        "telugu",
+        "arabic",
+        "english"
+      ],
+      "orbit": {
+        "angle": 2.994,
+        "radius": 4.7,
+        "size": 0.9
+      },
+      "stats": {
+        "rooms": null,
+        "quizQuestions": null,
+        "flashcards": null
+      },
+      "featured": false,
+      "highlights": [],
+      "flow": [],
+      "sketchPath": []
+    },
+    {
+      "id": "coding",
+      "name": "Coding",
+      "short": "Coding",
+      "description": "Practice rooms for CS50 ideas, Python, and DevOps. Not open yet.",
+      "url": "",
+      "source": "",
+      "download": "",
+      "status": "coming",
+      "category": "coding",
+      "color": "#86efac",
+      "icon": "code",
+      "tags": [
+        "coding",
+        "cs50",
+        "python",
+        "devops"
+      ],
+      "orbit": {
+        "angle": 5.089,
+        "radius": 4.7,
+        "size": 0.9
+      },
+      "stats": {
+        "rooms": null,
+        "quizQuestions": null,
+        "flashcards": null
+      },
+      "featured": false,
+      "highlights": [],
+      "flow": [],
+      "sketchPath": []
+    }
+  ]
+}

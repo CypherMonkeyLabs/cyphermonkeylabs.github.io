@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en" data-theme="paper">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="/theme-boot.js"></script>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; worker-src 'self'; form-action 'self' mailto:; frame-src 'none'; manifest-src 'self'; upgrade-insecure-requests" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Cypher Monkey Labs is a free community studio. Interactive labs cover contact centers, AI, calling, languages, and coding." />
+    <meta name="theme-color" id="theme-color" content="#fff4fb" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cypher Monkey Labs" />
+    <meta property="og:description" content="Cypher Monkey Labs is a free community studio. Interactive labs cover contact centers, AI, calling, languages, and coding." />
+    <meta property="og:url" content="https://cyphermonkeylabs.com/" />
+    <meta property="og:image" content="https://cyphermonkeylabs.com/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cypher Monkey Labs" />
+    <meta name="twitter:description" content="Cypher Monkey Labs is a free community studio. Interactive labs cover contact centers, AI, calling, languages, and coding." />
+    <meta name="twitter:image" content="https://cyphermonkeylabs.com/og.png" />
+    <link rel="canonical" href="https://cyphermonkeylabs.com/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>Cypher Monkey Labs</title>
+    <script type="module" crossorigin src="/assets/main-CWGpRfbt.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/fonts-IiRS2V_q.js">
+    <link rel="modulepreload" crossorigin href="/assets/theme-CtymmBfo.js">
+    <link rel="modulepreload" crossorigin href="/assets/monkey-art-B9Xow-mg.js">
+    <link rel="stylesheet" crossorigin href="/assets/fonts-TC25heUc.css">
+    <link rel="stylesheet" crossorigin href="/assets/main-CdWOx4tl.css">
+    <link rel="stylesheet" crossorigin href="/assets/latin-700-BZ3ADBdi.css">
+    <link rel="stylesheet" crossorigin href="/assets/latin-500-D8u7M1Cc.css">
+    <link rel="stylesheet" crossorigin href="/assets/styles-B6hQBYxM.css">
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="float-nav" id="site-header">
+      <div class="bar">
+        <a class="brand" href="#labs">
+          <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+            <circle cx="9" cy="14" r="4" fill="none" stroke="currentColor" stroke-width="2" />
+            <circle cx="23" cy="14" r="4" fill="none" stroke="currentColor" stroke-width="2" />
+            <circle cx="16" cy="17" r="7" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M11 14.5c1.4-3 8.6-3 10 0" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" />
+            <circle cx="13.4" cy="16.2" r="1" fill="currentColor" />
+            <circle cx="18.6" cy="16.2" r="1" fill="currentColor" />
+          </svg>
+          <span class="brand-full">Cypher Monkey Labs</span>
+          <span class="brand-short" aria-hidden="true">CML</span>
+        </a>
+        <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <nav class="primary" id="primary-nav" aria-label="Sections">
+          <a href="#labs">Labs</a>
+          <a href="#timeline">Timeline</a>
+          <a href="#learn">Learn</a>
+          <a href="#about">About</a>
+          <a href="#community">Community</a>
+          <a href="#find">Find us</a>
+          <a href="#contact">Contact</a>
+          <form class="search" id="search-form" role="search">
+            <label class="sr-only" for="q">Search labs</label>
+            <input id="q" type="search" placeholder="Search labs" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="search-results" aria-autocomplete="list" />
+            <ul id="search-results" role="listbox" hidden></ul>
+          </form>
+          <div class="tool-row">
+            <button type="button" data-sound-toggle aria-pressed="false">Sound off</button>
+            <div class="themes" data-theme-group role="radiogroup" aria-label="Color theme">
+              <p class="theme-name" id="theme-name">Gallery</p>
+              <button type="button" role="radio" data-theme-id="paper" data-theme-name="Gallery" data-theme-color="#fff4fb" aria-checked="true" aria-label="Gallery"></button>
+              <button type="button" role="radio" data-theme-id="canopy" data-theme-name="Night canopy" data-theme-color="#07110e" aria-checked="false" tabindex="-1" aria-label="Night canopy"></button>
+              <button type="button" role="radio" data-theme-id="market" data-theme-name="Night market" data-theme-color="#120814" aria-checked="false" tabindex="-1" aria-label="Night market"></button>
+              <button type="button" role="radio" data-theme-id="ice" data-theme-name="Signal ice" data-theme-color="#061018" aria-checked="false" tabindex="-1" aria-label="Signal ice"></button>
+              <button type="button" role="radio" data-theme-id="amber" data-theme-name="Amber lab" data-theme-color="#14100a" aria-checked="false" tabindex="-1" aria-label="Amber lab"></button>
+            </div>
+            <label class="lang">
+              <span class="sr-only">Greeting language</span>
+              <select id="lang"></select>
+            </label>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="ticker" role="region" aria-label="What's new">
+      <p class="ticker-kicker">What's new</p>
+      <div class="ticker-window" id="ticker-window"></div>
+      <button type="button" data-motion-toggle>Pause motion</button>
+    </div>
+    <main id="main">
+      <section id="labs" class="universe-section" aria-labelledby="labs-title">
+        <div class="hero-frame">
+          <div class="hero-copy">
+            <p class="eyebrow">✦ Free community studio</p>
+            <h1 id="labs-title">Cypher Monkey Labs</h1>
+            <p class="lede">A free studio universe of hands-on learning labs. CypherMonkey dances in the middle of the map, ready to teach, learn, and speak with you. Each planet is a lab.</p>
+            <div class="greeting" aria-live="polite">
+              <p class="hello" id="hello" lang="en">Hello</p>
+              <p class="gloss" id="gloss">Ready to teach, learn, and speak with you.</p>
+              <p class="sound-note" id="sound-note">Sound is off.</p>
+            </div>
+            <div class="counters" id="counters">
+              <div class="counter">
+                <p class="num"><span class="mark" aria-hidden="true">🪐</span> <span data-stat="labs">0</span></p>
+                <p class="lbl">Open labs</p>
+                <p class="hint" data-hint="labs"></p>
+              </div>
+              <div class="counter">
+                <p class="num"><span class="mark" aria-hidden="true">🚪</span> <span data-stat="rooms">0</span></p>
+                <p class="lbl">Rooms</p>
+                <p class="hint" data-hint="rooms"></p>
+              </div>
+              <div class="counter" hidden>
+                <p class="num"><span class="mark" aria-hidden="true">❓</span> <span data-stat="quizQuestions"></span></p>
+                <p class="lbl">Quiz questions</p>
+                <p class="hint" data-hint="quizQuestions"></p>
+              </div>
+              <div class="counter" hidden>
+                <p class="num"><span class="mark" aria-hidden="true">🗂️</span> <span data-stat="flashcards"></span></p>
+                <p class="lbl">Flashcards</p>
+                <p class="hint" data-hint="flashcards"></p>
+              </div>
+            </div>
+            <p class="count-note">Only published totals are shown. Quiz questions and flashcards stay hidden until a lab publishes them.</p>
+          </div>
+          <div id="labs-stage" class="stage">
+            <div class="starfield" aria-hidden="true"></div>
+            <svg class="orbit-guides" viewBox="0 0 100 100" aria-hidden="true">
+              <ellipse cx="50" cy="50" rx="28" ry="18" />
+              <ellipse cx="50" cy="50" rx="36" ry="24" />
+              <ellipse cx="50" cy="50" rx="44" ry="30" />
+            </svg>
+            <div class="css-monkey" id="css-monkey"></div>
+            <canvas id="universe-canvas" hidden aria-hidden="true"></canvas>
+            <div id="planet-layer" class="planet-layer" role="group" aria-label="Lab planets" aria-describedby="stage-desc"></div>
+            <p id="map-mode" class="map-mode">Flat map</p>
+          </div>
+        </div>
+        <div class="wrap below-hero">
+        <div class="controls">
+          <div class="view-toggle" role="group" aria-label="How to view labs">
+            <button type="button" data-view="universe" aria-pressed="true">Universe</button>
+            <button type="button" data-view="grid" aria-pressed="false">Grid</button>
+            <button type="button" data-view="list" aria-pressed="false">List</button>
+          </div>
+          <div class="filters" id="filters" role="toolbar" aria-label="Filter labs"></div>
+          <button type="button" data-motion-toggle>Pause motion</button>
+        </div>
+        <ul class="legend" id="legend" aria-label="Map legend"></ul>
+        <p id="stage-desc" class="sr-only">CypherMonkey is in the center. Each colored planet is a lab. Dim planets are not open yet.</p>
+        <p id="stage-help" class="help">On the map, Tab to a lab and press Enter. Press / to search. The grid and the list open a lab right away.</p>
+        <div id="lab-detail" class="detail" aria-live="polite" hidden></div>
+        <div id="catalog" class="catalog is-grid" hidden></div>
+        <noscript>
+          <div class="noscript">
+            <p>Cypher Monkey Labs is a free community studio for learning in public. The work comes from a background in voice, video, and contact centers, and it now reaches into AI agents and coding. Labs are practice rooms for learners. They are not official training, and they do not speak for any company.</p>
+            <p>Scripts are off, so the map stays still. These labs are still listed:</p>
+            <ul><li><a href="https://cipher0x9.github.io/uc-lab-free-university-mesmerizing/">UC Lab</a></li><li><a href="https://cipher0x9.github.io/ai-lab-free-university-mesmerizing/">AI Lab</a></li><li><a href="https://cipher0x9.github.io/amazon-connect-lab-free-university-mesmerizing/">Amazon Connect Lab</a></li><li><a href="https://cipher0x9.github.io/microsoft-voice-cc-lab-free-university-mesmerizing/">Microsoft Voice &amp; Contact Center Lab</a></li><li><a href="https://cipher0x9.github.io/five9-lab-free-university-mesmerizing/">Five9 Lab</a></li><li><a href="https://cipher0x9.github.io/genesys-cloud-lab-free-university-mesmerizing/">Genesys Cloud Lab</a></li><li><a href="https://cipher0x9.github.io/nice-cxone-lab-free-university-mesmerizing/">NICE CXone Lab</a></li><li><a href="https://cipher0x9.github.io/sip-universe-lab-free-university-mesmerizing/">SIP Universe</a></li><li><a href="https://cipher0x9.github.io/gemini-gems-free-gallery/">Gemini Gems gallery</a></li><li><a href="https://cypherwebex-canon-test.vercel.app">CypherWebex Canon</a></li><li>Google Cloud Contact Center (not open yet)</li><li>Languages (not open yet)</li><li>Coding (not open yet)</li></ul>
+            <h2>Timeline</h2>
+            <ul><li>Nine labs are open. UC, AI, Amazon Connect, Microsoft Voice, Five9, Genesys Cloud, NICE CXone, SIP Universe, and the Gemini Gems gallery are public.</li><li>CypherWebex Canon. The flagship lab is open with 63 rooms, navigation, and live flows. Its public address will move to GitHub Pages.</li><li>Google Cloud Contact Center lab. A lab for Google Cloud contact-center ideas is planned.</li><li>Languages lab. Coming practice for Sanskrit, Telugu, Arabic, and English.</li><li>Coding lab. Coming practice for CS50 ideas, Python, and DevOps.</li></ul>
+            <h2>How to learn here</h2>
+            <ol><li>Pick a lab. Choose a planet on the map, or switch to the grid or the list.</li><li>Learn in rooms. Open the lab and move through its rooms at your own pace.</li><li>Practice the quiz. Answer the lab's questions when it has a quiz.</li><li>Download offline. Save a lab's offline pack when that lab offers one.</li></ol>
+          </div>
+        </noscript>
+        </div>
+      </section>
+      <section id="mission" class="mission-band" aria-label="Mission">
+        <p class="wrap mission-text" id="mission-text">Free learning apps for schools, nonprofits and rural communities, in any language, built with content you approve</p>
+      </section>
+
+      <section id="timeline" class="section wrap" aria-labelledby="timeline-title">
+        <p class="kicker">What is built, and what is next</p>
+        <h2 id="timeline-title">Timeline</h2>
+        <p class="section-intro">Dates come from the studio timeline. Coming items do not have a date yet.</p>
+        <p class="loading" data-loading>Loading the timeline…</p>
+        <ol class="timeline" id="timeline-list"></ol>
+      </section>
+
+      <section id="learn" class="section wrap" aria-labelledby="learn-title">
+        <p class="kicker">Four moves</p>
+        <h2 id="learn-title">How to learn here</h2>
+        <p class="section-intro">Pick a lab, walk the rooms, practice when a quiz is there, and save an offline pack when a lab offers one.</p>
+        <p class="loading" data-loading>Loading the steps…</p>
+        <ol class="learn-steps" id="learn-steps"></ol>
+      </section>
+
+      <section id="featured" class="section wrap" aria-labelledby="featured-title">
+        <p class="kicker">Start here if you want the long path</p>
+        <h2 id="featured-title">Featured lab</h2>
+        <p class="loading" data-loading>Loading the featured lab…</p>
+        <div class="featured-layout" id="featured-root"></div>
+      </section>
+
+      <section id="coming" class="section wrap" aria-labelledby="coming-title">
+        <p class="kicker">Not open yet</p>
+        <h2 id="coming-title">Coming soon</h2>
+        <p class="section-intro">These labs are on the map as dim planets. They do not have a public address yet.</p>
+        <p class="loading" data-loading>Loading what is next…</p>
+        <div class="coming-grid" id="coming-list"></div>
+      </section>
+
+      <section id="about" class="section wrap" aria-labelledby="about-title">
+        <div class="about-layout">
+          <div>
+            <p class="kicker">The studio</p>
+            <h2 id="about-title">About</h2>
+            <p class="loading" data-loading>Loading the studio note…</p>
+            <div id="about-root"></div>
+          </div>
+          <aside id="author-panel" class="author-panel card" aria-label="About the author"></aside>
+        </div>
+      </section>
+
+      <section id="community" class="section wrap" aria-labelledby="community-title">
+        <p class="kicker">Build it with us</p>
+        <h2 id="community-title">Community</h2>
+        <p class="section-intro">Rate a lab with a star, comment with an issue, or send a change. The social page slot is empty until a link is added.</p>
+        <p class="loading" data-loading>Loading community links…</p>
+        <div id="community-root"></div>
+      </section>
+
+      <section id="find" class="section wrap" aria-labelledby="find-title">
+        <p class="kicker">Elsewhere</p>
+        <h2 id="find-title">Also find us</h2>
+        <p class="section-intro">Empty names are not connected yet. Add a link in site.json when you have one.</p>
+        <p class="loading" data-loading>Loading the network list…</p>
+        <div id="find-root"></div>
+      </section>
+
+      <section id="contact" class="section wrap" aria-labelledby="contact-title">
+        <p class="kicker">Schools, nonprofits, rural programs</p>
+        <h2 id="contact-title">Work with us</h2>
+        <p class="section-intro" id="work-intro">Tell us the language you need and the content you want learners to see.</p>
+        <form id="contact-form" class="contact-form card">
+          <label>Your name <input name="name" autocomplete="name" required /></label>
+          <label>Email <input name="email" type="email" autocomplete="email" required /></label>
+          <label>Topic
+            <select name="topic" id="topic">
+              <option>Work with us</option>
+              <option>Report a concern</option>
+            </select>
+          </label>
+          <label>Message <textarea name="message" rows="5" required></textarea></label>
+          <p id="form-note" class="help">Send opens your email app.</p>
+          <div class="card-actions">
+            <button type="submit" class="btn primary">Send</button>
+            <a class="btn ghost" href="mailto:research@cyphermonkeylabs.com">research@cyphermonkeylabs.com</a>
+            <a class="btn ghost" href="#contact" data-report>Report a concern / takedown</a>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="wrap footer-grid">
+        <div id="footer-labs"></div>
+        <div>
+          <h2>Studio</h2>
+          <ul class="footer-nav">
+            <li><a href="#labs">Labs</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+            <li><a href="#learn">Learn</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact" data-report>Report a concern / takedown</a></li>
+            <li><a href="/privacy.html">Privacy</a></li>
+            <li><a href="/nav-preview.html">Lab bar</a></li>
+          </ul>
+        </div>
+        <div class="legal">
+          <p>© 2026 Cypher Monkey Labs community</p>
+          <p>Site code is released under the MIT license. Learning content is shared under CC BY-NC-SA 4.0 unless a lab page says otherwise.</p>
+          <p>Cypher Monkey Labs is an independent learning project. It is not affiliated with, endorsed by, or sponsored by any company named in the labs. Product names are used only so you can tell the labs apart, and those names belong to their owners.</p>
+          <p><a href="mailto:research@cyphermonkeylabs.com">research@cyphermonkeylabs.com</a></p>
+        </div>
+      </div>
+    </footer>
+    <div id="flight-toast" class="toast" hidden>
+      <p id="flight-text"></p>
+      <button type="button" id="flight-stay" class="btn ghost">Stay here</button>
+    </div>
+    <p id="search-status" class="sr-only" aria-live="polite"></p>
+  </body>
+</html>
