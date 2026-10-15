@@ -415,7 +415,8 @@ export function mountUniverse(canvas, labsInput, opts = {}) {
     const hero = document.getElementById('launchpad');
     if (!hero) return true;
     const rect = hero.getBoundingClientRect();
-    return rect.bottom > 120 && rect.top < window.innerHeight * 0.72;
+    const visible = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+    return visible > window.innerHeight * 0.55;
   }
 
   function syncHeroChrome() {
@@ -855,10 +856,13 @@ export function mountUniverse(canvas, labsInput, opts = {}) {
       if (staticMode) paintRadial(labItems());
     }, 100);
   });
-  on(window, 'scroll', () => {
+  const onScroll = () => {
     lastInput = performance.now();
     syncHeroChrome();
     if (staticMode) paintRadial(labItems());
+  };
+  on(window, 'scroll', () => {
+    onScroll();
     if (fly && Math.abs(window.scrollY - (fly.scrollY ?? window.scrollY)) > 24) fly = null;
     if (reduce) {
       const nodes = currentWaypoints();
@@ -885,6 +889,8 @@ export function mountUniverse(canvas, labsInput, opts = {}) {
       }
     }
   }, { passive: true });
+  const pageScroller = document.querySelector('.page');
+  if (pageScroller) on(pageScroller, 'scroll', onScroll, { passive: true });
   on(document, 'visibilitychange', () => {
     if (document.hidden) stopLoop();
     else if (!reduce && !staticMode) startLoop();

@@ -354,7 +354,9 @@ export function mountMascot(root, config) {
     });
     root.classList.toggle("is-parked", hit);
   }
+  const pageScroller = document.querySelector(".page");
   window.addEventListener("scroll", parkBuddy, { passive: true });
+  pageScroller?.addEventListener("scroll", parkBuddy, { passive: true });
   window.addEventListener("resize", parkBuddy);
 
   if (stage.querySelector("svg")) {
@@ -376,6 +378,7 @@ export function mountMascot(root, config) {
       buddyWatch.disconnect();
       dockWatch.disconnect();
       window.removeEventListener("scroll", parkBuddy);
+      pageScroller?.removeEventListener("scroll", parkBuddy);
       window.removeEventListener("resize", parkBuddy);
       window.clearInterval(interval);
       window.clearTimeout(blinkTimer);

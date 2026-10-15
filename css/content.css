@@ -773,6 +773,25 @@ html[data-theme="contrast"] .ground-rules { border: 2px solid #000; }
     width: 64px;
     bottom: calc(76px + env(safe-area-inset-bottom));
   }
+  .chapter { padding-top: 32px; padding-bottom: 32px; }
+  .time-tools { flex-wrap: nowrap; overflow-x: auto; margin-bottom: 8px; }
+  .timeline { padding-top: 8px; }
+  html, body { height: 100%; overflow: hidden; }
+  .page {
+    height: calc(100dvh - 64px - env(safe-area-inset-bottom, 0px));
+    overflow-x: clip;
+    overflow-y: auto;
+    padding-bottom: 16px;
+  }
+  #launchpad {
+    height: calc(100dvh - 64px - env(safe-area-inset-bottom, 0px));
+    min-height: calc(100dvh - 64px - env(safe-area-inset-bottom, 0px));
+    max-height: none;
+  }
+}
+
+@media (max-width: 519px) {
+  #launchpad { padding-bottom: calc(164px + env(safe-area-inset-bottom, 0px)); }
 }
 
 [data-lab].is-picked {
