@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "verifiedOn": "2026-10-15",
-  "notes": "Open URLs were checked with HTTP GET on 2026-10-15 and returned 200. Repo URLs were checked with the GitHub API and returned 200. Webex publishes its study console at the site root; /campus/ on that host returned 404, so the open link is the root. Other labs open on the campus path their own page points to.",
+  "verifiedOn": "2026-10-16",
+  "notes": "Open URLs were checked with HTTP GET on 2026-10-15 and returned 200. Repo URLs were checked with the GitHub API and returned 200. Webex publishes its study console at the site root; /campus/ on that host returned 404, so the open link is the root. Other labs open on the campus path their own page points to. Zoom, Talkdesk and Avaya Lab and CPaaS Lab publish at the site root; both open URLs and both repos returned 200 on 2026-10-16.",
   "labs": [
     {
       "schemaVersion": 1,
@@ -457,6 +457,95 @@
           "title": "Shivasutra with Varttika (GRETIL)",
           "url": "https://gretil.sub.uni-goettingen.de/gretil/corpustei/transformations/html/sa_zivasUtra-with-vArttika.htm",
           "publisher": "GRETIL",
+          "accessed": "2026-10-16"
+        }
+      ],
+      "scene": {
+        "size": 1.05,
+        "moons": 1,
+        "ringHint": 2
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "zoom-talkdesk-avaya",
+      "kind": "lab",
+      "title": "Zoom, Talkdesk and Avaya Lab",
+      "shortTitle": "Zoom TD Avaya",
+      "tagline": "Twelve tracks and 36 lessons on Zoom, Talkdesk, and Avaya.",
+      "summary": "A free campus for Zoom Workplace, Zoom Contact Center, Talkdesk, and Avaya. Twelve tracks and 36 lessons cover calling, routing, and the pages that opened. It is practice, not official training.",
+      "category": "contact-center",
+      "secondaryCategories": [
+        "unified-comms"
+      ],
+      "tags": [
+        "zoom",
+        "talkdesk",
+        "avaya",
+        "contact-center"
+      ],
+      "status": "live",
+      "featured": false,
+      "order": 50,
+      "level": "explorer",
+      "url": "https://cyphermonkeylabs.com/zoom-talkdesk-avaya-lab-free-university-mesmerizing/",
+      "repo": "https://github.com/CypherMonkeyLabs/zoom-talkdesk-avaya-lab-free-university-mesmerizing",
+      "icon": "headset",
+      "accent": "peach",
+      "vendorsReferenced": [
+        "Zoom",
+        "Talkdesk",
+        "Avaya"
+      ],
+      "launchedAt": "2026-10-16",
+      "updatedAt": "2026-10-16",
+      "lastVerified": "2026-10-16",
+      "sources": [
+        {
+          "title": "Zoom, Talkdesk and Avaya Lab repository",
+          "url": "https://github.com/CypherMonkeyLabs/zoom-talkdesk-avaya-lab-free-university-mesmerizing",
+          "publisher": "CypherMonkey Labs",
+          "accessed": "2026-10-16"
+        }
+      ],
+      "scene": {
+        "size": 1,
+        "moons": 1,
+        "ringHint": 1
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "cpaas",
+      "kind": "lab",
+      "title": "CPaaS Lab",
+      "shortTitle": "CPaaS",
+      "tagline": "Twelve tracks and 36 lessons on communications APIs.",
+      "summary": "A free campus for communications APIs, SIP, and messaging. Twelve tracks and 36 lessons cover numbers, webhooks, and how calls get routed. It is practice, not official training.",
+      "category": "protocols",
+      "tags": [
+        "cpaas",
+        "sip",
+        "messaging",
+        "api"
+      ],
+      "status": "live",
+      "featured": false,
+      "order": 20,
+      "level": "explorer",
+      "url": "https://cyphermonkeylabs.com/cpaas-lab-free-university-mesmerizing/",
+      "repo": "https://github.com/CypherMonkeyLabs/cpaas-lab-free-university-mesmerizing",
+      "icon": "waveform",
+      "accent": "mint",
+      "vendorsReferenced": [],
+      "launchedAt": "2026-10-16",
+      "updatedAt": "2026-10-16",
+      "lastVerified": "2026-10-16",
+      "sources": [
+        {
+          "title": "CPaaS Lab repository",
+          "url": "https://github.com/CypherMonkeyLabs/cpaas-lab-free-university-mesmerizing",
+          "publisher": "CypherMonkey Labs",
           "accessed": "2026-10-16"
         }
       ],

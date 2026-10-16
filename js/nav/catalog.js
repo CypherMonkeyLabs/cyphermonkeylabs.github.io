@@ -99,6 +99,7 @@ export function normalizeLab(raw) {
     order: Number.isFinite(Number(raw.order)) ? Number(raw.order) : 0,
     url: httpsUrl(raw.url),
     repo: /^https:\/\/github\.com\//i.test(repo) ? repo : "",
+    accent: typeof raw.accent === "string" ? raw.accent : "",
     kind: raw.kind === "gallery" ? "gallery" : "lab",
     i18n: raw.i18n && typeof raw.i18n === "object" ? raw.i18n : {},
   };

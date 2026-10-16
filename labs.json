@@ -352,6 +352,72 @@
       "highlights": [],
       "flow": [],
       "sketchPath": []
+    },
+    {
+      "id": "zoom-talkdesk-avaya",
+      "name": "Zoom, Talkdesk and Avaya Lab",
+      "short": "Zoom TD Avaya",
+      "description": "Twelve tracks and 36 lessons on Zoom, Talkdesk, and Avaya.",
+      "url": "https://cyphermonkeylabs.com/zoom-talkdesk-avaya-lab-free-university-mesmerizing/",
+      "source": "https://github.com/CypherMonkeyLabs/zoom-talkdesk-avaya-lab-free-university-mesmerizing",
+      "download": "",
+      "status": "live",
+      "category": "contact-center",
+      "color": "#ff9f43",
+      "icon": "headset",
+      "tags": [
+        "zoom",
+        "talkdesk",
+        "avaya",
+        "contact center"
+      ],
+      "orbit": {
+        "angle": 0.9,
+        "radius": 4.4,
+        "size": 1
+      },
+      "stats": {
+        "rooms": null,
+        "quizQuestions": null,
+        "flashcards": null
+      },
+      "featured": false,
+      "highlights": [],
+      "flow": [],
+      "sketchPath": []
+    },
+    {
+      "id": "cpaas",
+      "name": "CPaaS Lab",
+      "short": "CPaaS",
+      "description": "Twelve tracks and 36 lessons on communications APIs.",
+      "url": "https://cyphermonkeylabs.com/cpaas-lab-free-university-mesmerizing/",
+      "source": "https://github.com/CypherMonkeyLabs/cpaas-lab-free-university-mesmerizing",
+      "download": "",
+      "status": "live",
+      "category": "protocols",
+      "color": "#5eead4",
+      "icon": "signal",
+      "tags": [
+        "cpaas",
+        "sip",
+        "messaging",
+        "api"
+      ],
+      "orbit": {
+        "angle": 1.2,
+        "radius": 3.7,
+        "size": 1
+      },
+      "stats": {
+        "rooms": null,
+        "quizQuestions": null,
+        "flashcards": null
+      },
+      "featured": false,
+      "highlights": [],
+      "flow": [],
+      "sketchPath": []
     }
   ]
 }

@@ -13,6 +13,8 @@ const author = JSON.parse(readFileSync(join(root, "data/author.json"), "utf8"));
 const site = JSON.parse(readFileSync(join(root, "data/site.json"), "utf8"));
 
 const labs = labsDoc.labs;
+const countWords = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen"];
+const openCount = countWords[labs.length] || String(labs.length);
 const tiles = categories
   .slice()
   .sort((a, b) => a.order - b.order)
@@ -183,7 +185,7 @@ const html = `<!DOCTYPE html>
         <div class="wrap notebook">
           <p class="kicker">Chapter 2 · The Labs Universe</p>
           <h2 id="labs-title">Pick a planet. Start exploring.</h2>
-          <p class="section-intro">Eleven labs are open. The picture is a map. The cards are the way in. A contact center is the system that routes people who call or message a company.</p>
+          <p class="section-intro">${openCount} labs are open. The picture is a map. The cards are the way in. A contact center is the system that routes people who call or message a company.</p>
           <div class="tiles" data-tiles>${tiles}</div>
           <form class="filters" data-filters role="search">
             <label>Search labs<input type="search" name="q" placeholder="Try SIP or voice" autocomplete="off"></label>

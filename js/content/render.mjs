@@ -44,7 +44,7 @@ export function labCard(lab, today = "2026-10-15") {
   const open =
     lab.status === "coming-soon" || !lab.url
       ? `<span class="btn is-disabled">Coming soon</span>`
-      : `<a class="btn primary" href="${escapeHtml(lab.url)}">Open lab</a>`;
+      : `<a class="btn primary" href="${escapeHtml(lab.url)}">Open app</a>`;
   const repo = lab.repo
     ? `<a class="btn ghost" href="${escapeHtml(lab.repo)}" target="_blank" rel="noopener">View repo<span class="sr-only"> for ${escapeHtml(lab.title)} on GitHub (opens new tab)</span></a>`
     : "";

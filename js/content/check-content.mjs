@@ -26,7 +26,7 @@ for (const lab of labs) {
   assert.ok(html.includes(lab.repo), lab.repo);
 }
 
-assert.equal(labs.length, 11);
+assert.equal(labs.length, 13);
 for (const event of timeline) {
   assert.equal(event.review, "verified");
   assert.ok(event.sources.length >= 1);
