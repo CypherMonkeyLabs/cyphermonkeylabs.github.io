@@ -13,14 +13,14 @@ body:
     id: url
     attributes:
       label: Lab URL
-      description: https://cipher0x9.github.io/<repo>/
+      description: https://cyphermonkeylabs.com/<repo>/
     validations:
       required: true
   - type: input
     id: repo
     attributes:
       label: Repository
-      description: https://github.com/cipher0x9/<repo>
+      description: https://github.com/CypherMonkeyLabs/<repo>
     validations:
       required: true
   - type: textarea

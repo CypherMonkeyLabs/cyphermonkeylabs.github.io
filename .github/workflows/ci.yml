@@ -28,3 +28,5 @@ jobs:
         run: node .github/scripts/check-no-email.mjs
       - name: Performance budgets
         run: node .github/scripts/check-budgets.mjs
+      - name: Hex colors stay in tokens.css
+        run: node .github/scripts/check-hex.mjs

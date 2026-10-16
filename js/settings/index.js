@@ -203,6 +203,7 @@ export function mountSettings() {
     el("span", { class: "cm-switch__ui", "aria-hidden": "true" }, [el("span", { class: "cm-switch__thumb" })]),
     el("span", { class: "cm-switch__state" }),
   ]);
+  const shareBtn = el("button", { type: "button", class: "cm-btn", "data-i18n": "settings.share" });
   const resetBtn = el("button", { type: "button", class: "cm-btn", "data-i18n": "settings.reset" });
   const yesBtn = el("button", { type: "button", class: "cm-btn cm-btn--primary", hidden: true, "data-i18n": "settings.reset.yes" });
   const cancelBtn = el("button", { type: "button", class: "cm-btn", hidden: true, "data-i18n": "settings.reset.cancel" });
@@ -237,7 +238,7 @@ export function mountSettings() {
       el("p", { id: "cm-tilt-help", class: "cm-help", "data-i18n": "settings.tilt.help" }),
       el("div", { class: "cm-reset" }, [
         el("p", { class: "cm-help", "data-i18n": "settings.reset.help" }),
-        el("div", { class: "cm-reset__row" }, [resetBtn, yesBtn, cancelBtn]),
+        el("div", { class: "cm-reset__row" }, [shareBtn, resetBtn, yesBtn, cancelBtn]),
       ]),
     ]),
   ]);
@@ -264,6 +265,26 @@ export function mountSettings() {
     store.reset();
     disarm();
     announce(t(store.getState().lang, "settings.reset.done"));
+  });
+  shareBtn.addEventListener("click", async () => {
+    const state = store.getState();
+    const url = new URL(window.location.href);
+    url.searchParams.set("theme", state.themePreference);
+    url.searchParams.set("motion", state.motionPreference);
+    url.searchParams.set("quality", state.quality);
+    const link = url.toString();
+    try {
+      await navigator.clipboard.writeText(link);
+    } catch (err) {
+      const field = document.createElement("input");
+      field.value = link;
+      field.readOnly = true;
+      dialog.append(field);
+      field.select();
+      document.execCommand("copy");
+      field.remove();
+    }
+    announce(t(store.getState().lang, "settings.share.done"));
   });
   shortcuts.addEventListener("click", () => {
     store.update({ shortcuts: !store.getState().shortcuts });

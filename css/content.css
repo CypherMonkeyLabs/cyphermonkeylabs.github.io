@@ -1,101 +1,8 @@
-/* CypherMonkey field notebook. Tokens stand alone; /css/tokens.css may override them. */
+/* CypherMonkey field notebook. Colors and type sizes live in /css/tokens.css. */
 
 :root {
   --hero-band: clamp(148px, 30dvh, 240px);
-  --bg: #fbf7ff;
-  --surface: #ffffff;
-  --surface-2: #f3eeff;
-  --ink: #1e1b3a;
-  --ink-muted: #4a4670;
-  --primary: #5b4bd6;
-  --on-primary: #ffffff;
-  --primary-container: #e6e0ff;
-  --focus: #5b4bd6;
-  --peach: #ffb4a2;
-  --sky: #a7d8ff;
-  --mint: #9ee6cf;
-  --lavender: #c9b8ff;
-  --butter: #ffe8a3;
-  --pink: #ffc6e0;
-  --disclaimer-bg: #fff4cc;
-  --danger: #b3261e;
-  --success: #1e6b4f;
-  --font-display: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
-  --font-body: "Atkinson Hyperlegible", "Segoe UI", sans-serif;
-  --text-scale: 1;
-  --fs-100: calc(clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem) * var(--text-scale));
-  --fs-200: calc(clamp(1.0625rem, 1rem + 0.2vw, 1.125rem) * var(--text-scale));
-  --fs-300: calc(clamp(1.25rem, 1.15rem + 0.4vw, 1.375rem) * var(--text-scale));
-  --fs-400: calc(clamp(1.5rem, 1.3rem + 0.7vw, 1.75rem) * var(--text-scale));
-  --fs-500: calc(clamp(1.875rem, 1.5rem + 1.2vw, 2.375rem) * var(--text-scale));
-  --fs-600: calc(clamp(2.25rem, 1.6rem + 2vw, 3.25rem) * var(--text-scale));
-  --fs-700: calc(clamp(2.75rem, 1.8rem + 3vw, 4.5rem) * var(--text-scale));
-  --fs-800: calc(clamp(3.25rem, 2rem + 5vw, 6.5rem) * var(--text-scale));
-  --shadow: 0 1px 2px rgb(30 27 58 / 6%), 0 8px 24px rgb(91 75 214 / 12%);
   --radius: 22px;
-  color-scheme: light;
-}
-
-html[data-theme="starlight"] {
-  --bg: #0f1030;
-  --surface: #1a1b45;
-  --surface-2: #24255a;
-  --ink: #f4f1ff;
-  --ink-muted: #c9c4f0;
-  --primary: #b9aeff;
-  --on-primary: #14123a;
-  --primary-container: #3a3380;
-  --focus: #ffe08a;
-  --disclaimer-bg: #2a2550;
-  --danger: #ffb4ab;
-  --success: #8fe3bf;
-  --shadow: 0 0 0 1px rgb(185 174 255 / 18%), 0 12px 32px rgb(0 0 0 / 35%);
-  color-scheme: dark;
-}
-
-html[data-theme="contrast"] {
-  --bg: #ffffff;
-  --surface: #ffffff;
-  --surface-2: #f2f2f2;
-  --ink: #000000;
-  --ink-muted: #1a1a1a;
-  --primary: #0000cc;
-  --on-primary: #ffffff;
-  --primary-container: #ddddff;
-  --focus: #000000;
-  --disclaimer-bg: #ffffff;
-  --danger: #b00020;
-  --success: #006400;
-  color-scheme: light;
-}
-
-@font-face {
-  font-family: "Space Grotesk";
-  src: url("/assets/fonts/space-grotesk-500.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Space Grotesk";
-  src: url("/assets/fonts/space-grotesk-700.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Atkinson Hyperlegible";
-  src: url("/assets/fonts/atkinson-400.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Atkinson Hyperlegible";
-  src: url("/assets/fonts/atkinson-700.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
 }
 
 *,
@@ -165,20 +72,20 @@ a:hover { text-decoration-thickness: 2px; }
 .sky {
   background:
     radial-gradient(900px 520px at 80% 10%, rgb(255 255 255 / 70%), transparent 60%),
-    linear-gradient(#ede7ff, #ffe9f0 46%, #e6f6ff);
+    linear-gradient(var(--primary-container), var(--pink) 46%, var(--sky));
 }
 
 html[data-theme="starlight"] .sky {
-  background: linear-gradient(#0f1030, #1b1450 52%, #12234a);
+  background: linear-gradient(var(--bg), var(--surface) 52%, var(--primary-container));
 }
 
 .stars {
   --star-x: 0px;
   --star-y: 0px;
   background-image:
-    radial-gradient(circle, #fff 1.2px, transparent 1.4px),
-    radial-gradient(circle, #ffe8a3 1.1px, transparent 1.3px),
-    radial-gradient(circle, #9ecbff 1.4px, transparent 1.8px);
+    radial-gradient(circle, var(--surface) 1.2px, transparent 1.4px),
+    radial-gradient(circle, var(--butter) 1.1px, transparent 1.3px),
+    radial-gradient(circle, var(--sky) 1.4px, transparent 1.8px);
   background-size: 140px 160px, 90px 110px, 220px 180px;
   background-position:
     calc(var(--star-x) * 0.35) calc(var(--star-y) * 0.35),
@@ -206,13 +113,15 @@ html[data-rail="panel"] #universe-canvas {
   background: var(--bg);
 }
 
+#nav-root,
 #nav-root:has(.cm-bar) {
-  position: static;
+  position: relative;
   min-height: 0;
   padding: 0;
   background: none;
   border: 0;
   backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .wrap {
@@ -253,7 +162,7 @@ html[data-rail="panel"] #universe-canvas {
   align-items: center;
   gap: 8px;
 }
-.desktop-nav a, .menu-links a, .pill {
+.desktop-nav a, .menu-links a, .menu-links button, .pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -354,7 +263,7 @@ html[data-rail="panel"] #universe-canvas {
   padding: 0 14px;
   border-radius: 999px;
   background: var(--butter);
-  color: #14123a;
+  color: var(--ink);
   text-decoration: none;
   font-weight: 700;
 }
@@ -409,7 +318,7 @@ html[data-rail="panel"] #universe-canvas {
 }
 
 .notebook {
-  border-left: 4px solid #e07a7a;
+  border-left: 4px solid var(--danger);
   padding-left: clamp(16px, 3vw, 36px);
 }
 
@@ -513,7 +422,7 @@ html[data-rail="panel"] #universe-canvas {
   background:
     radial-gradient(circle at 32% 28%, rgb(255 255 255 / 90%), transparent 28%),
     radial-gradient(circle at 72% 78%, rgb(0 0 0 / 42%), transparent 46%),
-    radial-gradient(circle at 40% 40%, var(--planet), #120c2e 78%);
+    radial-gradient(circle at 40% 40%, var(--planet), var(--bg) 78%);
   box-shadow:
     inset -10px -12px 18px rgb(0 0 0 / 38%),
     inset 7px 8px 12px rgb(255 255 255 / 42%),
@@ -613,7 +522,7 @@ html[data-rail="panel"] #universe-canvas {
 .gem-crystal {
   width: 54px;
   height: 54px;
-  background: linear-gradient(135deg, #fff, var(--lavender) 40%, var(--pink));
+  background: linear-gradient(135deg, var(--surface), var(--lavender) 40%, var(--pink));
   clip-path: polygon(50% 0, 100% 38%, 82% 100%, 18% 100%, 0 38%);
   box-shadow: 0 8px 16px rgb(91 75 214 / 20%);
 }
@@ -649,11 +558,11 @@ html[data-rail="panel"] #universe-canvas {
 .footer { padding: 24px 0 calc(32px + env(safe-area-inset-bottom)); }
 .ground-rules {
   background: var(--disclaimer-bg);
-  border-left: 6px solid #f2c94c;
+  border-left: 6px solid var(--butter);
   padding: 24px clamp(16px, 3vw, 32px);
   border-radius: 20px;
 }
-html[data-theme="contrast"] .ground-rules { border: 2px solid #000; }
+html[data-theme="contrast"] .ground-rules { border: 2px solid var(--ink); }
 .footer-links {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -852,4 +761,82 @@ html[data-motion="reduce"] #mascot-stage.is-idle #tail { animation: none; }
 
 @media (pointer: fine) {
   .btn, .desktop-nav a { min-height: 40px; }
+}
+
+body:has(#universe-canvas.is-ready) .stars,
+body:has(#universe-canvas.is-ready) .cml-starfield {
+  display: none;
+}
+
+.planet-picks { margin-top: 8px; }
+.planet-row {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: thin;
+}
+.planet-chip {
+  flex: 0 0 auto;
+  min-height: 48px;
+  min-width: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--chip, var(--lavender)) 42%, var(--surface));
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+}
+.planet-chip i {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--chip, var(--lavender));
+}
+.planet-chip[data-accent="peach"] { --chip: var(--peach); }
+.planet-chip[data-accent="sky"] { --chip: var(--sky); }
+.planet-chip[data-accent="mint"] { --chip: var(--mint); }
+.planet-chip[data-accent="lavender"] { --chip: var(--lavender); }
+.planet-chip[data-accent="butter"] { --chip: var(--butter); }
+.planet-chip[data-accent="pink"] { --chip: var(--pink); }
+
+@media (max-width: 768px) {
+  .hero-copy,
+  .panel,
+  .topbar {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: color-mix(in oklab, var(--surface) 94%, transparent);
+  }
+  .menu-links {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    max-height: min(70dvh, 560px);
+    overflow: auto;
+    border-radius: 22px 22px 0 0;
+    z-index: 30;
+  }
+}
+
+html[data-quality="low"] .hero-copy,
+html[data-quality="static"] .hero-copy,
+html[data-quality="low"] .panel,
+html[data-quality="static"] .panel,
+html[data-quality="low"] .topbar,
+html[data-quality="static"] .topbar {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: color-mix(in oklab, var(--surface) 94%, transparent);
+}
+
+@media (max-width: 420px) and (max-height: 700px) {
+  .hero .lede { display: none; }
+  .planet-picks { margin-top: 4px; }
+  .planet-picks .kicker { margin: 0 0 4px; }
 }

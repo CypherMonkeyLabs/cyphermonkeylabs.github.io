@@ -28,7 +28,7 @@ function applySettings(settings) {
   if (!settings || typeof settings !== "object") return;
   const html = document.documentElement;
   const media = (query) => window.matchMedia(query).matches;
-  let theme = settings.theme || html.dataset.theme || "starlight";
+  let theme = settings.theme || html.dataset.theme || "dawn";
   if (theme === "system") theme = media("(prefers-color-scheme: dark)") ? "starlight" : "dawn";
   let motion = settings.motion || html.dataset.motion || "system";
   if (motion === "system") motion = media("(prefers-reduced-motion: reduce)") ? "reduce" : "full";
@@ -333,6 +333,14 @@ function wireDepth() {
   });
 }
 
+function wireEffects() {
+  document.addEventListener("click", (event) => {
+    const button = event.target.closest?.("[data-cm-effects]");
+    if (!button) return;
+    document.dispatchEvent(new CustomEvent("cm:open-settings", { detail: { trigger: button } }));
+  });
+}
+
 function focusFromHash() {
   if (location.hash !== "#contact") return;
   const heading = document.querySelector("#contact-title");
@@ -396,7 +404,7 @@ async function mountOptional(packs) {
     try {
       universeApi = universe.mountUniverse(canvas, labs, {
         reducedMotion: document.documentElement.dataset.motion === "reduce",
-        theme: document.documentElement.dataset.theme || "starlight",
+        theme: document.documentElement.dataset.theme || "dawn",
       });
       document.querySelector(".orbit-fallback")?.setAttribute("hidden", "");
       canvas?.removeAttribute("hidden");
@@ -444,6 +452,7 @@ async function main() {
   wireTimeline();
   wireContact(labs, site);
   wireDepth();
+  wireEffects();
   watchHeroBand();
   wireLabClicks();
   focusFromHash();

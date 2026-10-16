@@ -72,14 +72,28 @@ export function mountSheet(ctx) {
   ]);
   author.querySelector(".cm-avatar").append(ctx.brand());
 
+  const effects = el("button", {
+    type: "button",
+    class: "cm-link-row",
+  }, [icon("gear"), el("span", { "data-i18n": "nav.effects" })]);
+  const chips = el("div", { class: "cm-lab-chips" });
+  for (const lab of ctx.getCatalog().labs) {
+    if (lab.kind === "gallery" || !lab.url) continue;
+    chips.append(el("a", {
+      class: "cm-lab-chip",
+      href: lab.url,
+      "data-accent": lab.accent || "lavender",
+      "data-lab": lab.id,
+    }, lab.shortTitle || lab.title));
+  }
   const primary = el("nav", { class: "cm-sheet__links", "data-i18n-attr": "aria-label:menu.primary" });
   const pages = [
-    ["play", "menu.play", PATHS.play],
-    ["learn", "menu.learn", PATHS.learn],
-    ["labs", "menu.labs", PATHS.labs],
-    ["timeline", "menu.timeline", PATHS.timeline],
-    ["gems", "menu.gems", PATHS.gems],
-    ["about", "menu.about", PATHS.about],
+    ["play", "nav.universe", PATHS.play],
+    ["labs", "nav.labs", PATHS.labs],
+    ["timeline", "nav.timeline", PATHS.timeline],
+    ["gems", "nav.gems", PATHS.gems],
+    ["about", "nav.about", PATHS.about],
+    ["contact", "nav.contact", PATHS.contact],
   ];
   for (const [iconName, key, path] of pages) {
     primary.append(el("a", { class: "cm-link-row", href: ctx.href(path), "data-path": path }, [
@@ -87,6 +101,11 @@ export function mountSheet(ctx) {
       el("span", { "data-i18n": key }),
     ]));
   }
+  primary.append(effects);
+  effects.addEventListener("click", () => {
+    closeDialog(dialog);
+    ctx.api.openSettings(effects);
+  });
 
   const search = el("input", {
     id: "cm-menu-q",
@@ -144,8 +163,10 @@ export function mountSheet(ctx) {
     rowLink(PATHS.a11y, "menu.a11y", ctx),
   ]);
   const body = el("div", { class: "cm-sheet__body" }, [
-    author,
     primary,
+    el("p", { class: "cm-kicker", "data-i18n": "menu.planets" }),
+    chips,
+    author,
     el("p", { class: "cm-kicker", "data-i18n": "menu.categories" }),
     searchRow,
     count,

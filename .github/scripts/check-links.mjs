@@ -10,7 +10,7 @@ const botWallHosts = new Set(['x.com', 'www.x.com', 'twitter.com', 'www.twitter.
 const browserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
 
 export function classifyProbe({ host, status, error }) {
-  if (typeof status === 'number' && status >= 200 && status < 400) return 'ok';
+  if (status === 200) return 'ok';
   if (botWallHosts.has(host)) {
     if (status === 404 || status === 410) return 'fail';
     if (status === 401 || status === 403 || status === 429 || error) return 'bot-wall';

@@ -1,0 +1,6 @@
+{
+  "rules": {
+    "color-no-hex": true
+  },
+  "ignoreFiles": ["css/tokens.css", "**/*.svg"]
+}

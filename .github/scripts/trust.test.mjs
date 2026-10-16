@@ -9,7 +9,7 @@ import { buildPublicIssueUrl } from '../../js/trust/issue-url.js';
 import { normalizeLabs } from '../../js/trust/labs.js';
 import { hashKey, timingError, validateFields } from '../../js/trust/message-rules.js';
 import { classifyProbe } from './check-links.mjs';
-import { validateManifest } from './validate-labs.mjs';
+import { linkResult, structuredLabUrls, validateManifest } from './validate-labs.mjs';
 
 function addr(local, host) {
   return [local, host].join('@');
@@ -234,4 +234,16 @@ test('mime subject cannot break the header', () => {
   assert.equal(raw.includes('\nBcc'), false);
   const encoded = raw.split('\r\n\r\n')[1].replace(/\r\n/g, '');
   assert.equal(Buffer.from(encoded, 'base64').toString('utf8'), 'A real note');
+});
+
+test('a redirect is accepted only when the next response is 200', () => {
+  assert.deepEqual(linkResult(200), { ok: true, status: 200 });
+  assert.equal(linkResult(301, 200).ok, true);
+  assert.equal(linkResult(301, 200).status, 200);
+  assert.equal(linkResult(302, 404).ok, false);
+  assert.equal(linkResult(301, 301).ok, false);
+  assert.equal(linkResult(404).ok, false);
+  assert.equal(linkResult(500).ok, false);
+  const html = '<script type="application/ld+json">{"@graph":[{"itemListElement":[{"item":{"url":"https://cyphermonkeylabs.com/sip-universe-lab-free-university-mesmerizing/campus/"}}]}]}</script>';
+  assert.deepEqual(structuredLabUrls(html), ['https://cyphermonkeylabs.com/sip-universe-lab-free-university-mesmerizing/campus/']);
 });

@@ -9,7 +9,7 @@ export const TIERS = {
     gems: 80, maxDraw: 150, maxTri: 600000, maxTexMB: 64, targetFps: 60,
   },
   high: {
-    id: 'high', dprCap: 1.75, stars: 6000, dust: 1200, nebula: 8, seg: [48, 32],
+    id: 'high', dprCap: 2, stars: 6000, dust: 1200, nebula: 8, seg: [48, 32],
     starDetail: 5, bloom: true, bloomScale: 0.75, smaa: true, shooters: 2, comets: 120,
     gems: 60, maxDraw: 120, maxTri: 400000, maxTexMB: 48, targetFps: 60,
   },
@@ -69,12 +69,12 @@ export function initialTier(pref) {
   const choice = canonicalQuality(pref);
   if (choice !== 'auto') return choice;
   const n = navigator;
-  if (n.connection && n.connection.saveData) return 'static';
+  if (n.connection && n.connection.saveData) return 'low';
   const canvas = document.createElement('canvas');
   const gl = canvas.getContext('webgl2', { failIfMajorPerformanceCaveat: true });
   if (!gl) return 'static';
-  const mem = n.deviceMemory ?? 4;
-  const cores = n.hardwareConcurrency ?? 4;
+  const mem = typeof n.deviceMemory === 'number' ? n.deviceMemory : 8;
+  const cores = typeof n.hardwareConcurrency === 'number' ? n.hardwareConcurrency : 8;
   const coarse = window.matchMedia('(pointer: coarse)').matches;
   const maxTex = gl.getParameter(gl.MAX_TEXTURE_SIZE);
   const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
@@ -83,6 +83,7 @@ export function initialTier(pref) {
   const lose = gl.getExtension('WEBGL_lose_context');
   if (lose) lose.loseContext();
   if (software) return 'static';
+  if (mem <= 4 || cores <= 4) return 'low';
   if (coarse) {
     if (mem >= 6 && cores >= 8) return 'medium';
     if (mem >= 4) return 'low';

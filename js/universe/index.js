@@ -682,7 +682,9 @@ export function mountUniverse(canvas, labsInput, opts = {}) {
     if (!renderer || !camera || staticMode) return;
     const width = canvas.clientWidth || window.innerWidth;
     const height = canvas.clientHeight || window.innerHeight;
-    const dpr = Math.min(window.devicePixelRatio || 1, tierConfig(tierName).dprCap);
+    const tierCap = tierConfig(tierName).dprCap;
+    const cap = tierName === 'high' || tierName === 'ultra' ? Math.min(tierCap, 2) : Math.min(tierCap, 1.5);
+    const dpr = Math.min(window.devicePixelRatio || 1, cap);
     renderer.setPixelRatio(1);
     renderer.setSize(Math.max(1, Math.floor(width * dpr)), Math.max(1, Math.floor(height * dpr)), false);
     camera.aspect = width / Math.max(1, height);

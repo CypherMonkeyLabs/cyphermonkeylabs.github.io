@@ -131,7 +131,7 @@ test("legacy settings migrate into cm.settings and contrast stays automatic", ()
 
   const contrast = computeState({}, {}, { ...quiet, moreContrast: true });
   assert.equal(contrast.theme, "contrast");
-  assert.equal(contrast.themePreference, "starlight");
+  assert.equal(contrast.themePreference, "system");
   const kept = computeState({ theme: "dawn" }, {}, { ...quiet, moreContrast: true });
   assert.equal(kept.theme, "dawn");
 });
@@ -153,7 +153,8 @@ test("theme, motion, and quality in the URL stay out of storage", () => {
   assert.equal(saved.theme, undefined);
   assert.equal(store.getState().theme, "starlight");
   store.reset();
-  assert.equal(store.getState().theme, "starlight");
+  assert.equal(store.getState().theme, "dawn");
+  assert.equal(store.getState().themePreference, "system");
   assert.equal(pickKnown({ textScale: 1.1, volume: "nope" }).textScale, undefined);
 });
 
