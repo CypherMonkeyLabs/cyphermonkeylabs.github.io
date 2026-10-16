@@ -1,7 +1,8 @@
 import { readFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 
-const CATEGORIES = ['contact-center', 'unified-comms', 'protocols', 'ai', 'tools'];
+const CATEGORIES = ['contact-center', 'unified-comms', 'protocols', 'ai', 'tools', 'texts'];
+const APP_COUNT = 11;
 const KINDS = ['lab', 'gallery'];
 const STATUSES = ['live', 'beta', 'coming-soon', 'archived'];
 const ICONS = ['headset', 'handset', 'cloud-phone', 'waveform', 'nodes', 'chat', 'spark', 'gem', 'video', 'route', 'book', 'shield'];
@@ -325,6 +326,16 @@ async function main() {
       const liveResult = validateManifest(live);
       printFindings('data/labs.json', liveResult);
       if (liveResult.findings.some((item) => item.level === 'error')) failed = true;
+      if ((liveResult.labs || []).length !== APP_COUNT) {
+        console.error(`  fail expected ${APP_COUNT} apps, found ${liveResult.labs?.length ?? 0}`);
+        failed = true;
+      }
+      const legacyDoc = JSON.parse(await read('labs.json', 'utf8'));
+      const legacyCount = validateManifest(legacyDoc);
+      if ((legacyCount.labs || []).length !== APP_COUNT) {
+        console.error(`  fail labs.json expected ${APP_COUNT} apps, found ${legacyCount.labs?.length ?? 0}`);
+        failed = true;
+      } else console.log(`labs.json: ${APP_COUNT} apps`);
       const links = await checkLabLinks(liveResult.labs || [], { token: process.env.GITHUB_TOKEN || '' });
       for (const link of links) {
         console.log(`  ${link.ok ? 'ok' : 'fail'} ${link.status} ${link.kind} ${link.id} ${link.url}`);

@@ -57,39 +57,25 @@ const LABS = [
     "status": "live"
   },
   {
-    "id": "gems",
-    "name": "Gemini Gems gallery",
-    "url": "https://cipher0x9.github.io/gemini-gems-free-gallery/",
-    "source": "https://github.com/cipher0x9/gemini-gems-free-gallery",
+    "id": "webex",
+    "name": "Webex Lab",
+    "url": "https://cyphermonkeylabs.com/webex-lab-free-university-mesmerizing/",
+    "source": "https://github.com/CypherMonkeyLabs/webex-lab-free-university-mesmerizing",
     "status": "live"
   },
   {
-    "id": "canon",
-    "name": "CypherWebex Canon",
-    "url": "https://cypherwebex-canon-test.vercel.app",
-    "source": "",
+    "id": "ba",
+    "name": "BA Lab",
+    "url": "https://cyphermonkeylabs.com/ba-lab-grok-free-university-mesmerizing/",
+    "source": "https://github.com/CypherMonkeyLabs/ba-lab-grok-free-university-mesmerizing",
     "status": "live"
   },
   {
-    "id": "gcp-cc",
-    "name": "Google Cloud Contact Center",
-    "url": "",
-    "source": "",
-    "status": "coming"
-  },
-  {
-    "id": "languages",
-    "name": "Languages",
-    "url": "",
-    "source": "",
-    "status": "coming"
-  },
-  {
-    "id": "coding",
-    "name": "Coding",
-    "url": "",
-    "source": "",
-    "status": "coming"
+    "id": "sutra-nexus",
+    "name": "Sutra Nexus",
+    "url": "https://cyphermonkeylabs.com/sutra-nexus/",
+    "source": "https://github.com/CypherMonkeyLabs/sutra-nexus",
+    "status": "live"
   }
 ];
 const DEFAULTS = {

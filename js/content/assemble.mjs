@@ -1,4 +1,4 @@
-import { categoryTile, gemCard, groupedLabs, labLaunch, timelineCard } from "./render.mjs";
+import { categoryTile, groupedLabs, labLaunch, timelineCard } from "./render.mjs";
 import { mountMascot } from "./mascot.mjs";
 
 const MODULES = {
@@ -77,13 +77,9 @@ function fillTimeline(events) {
   years.innerHTML = `<option value="">Jump to a year</option>${unique.map((year) => `<option value="${year}">${year}</option>`).join("")}`;
 }
 
-function fillGems(gems) {
+function fillGems() {
   const mount = document.querySelector("[data-gem-mount]");
-  if (!mount || mount.querySelector("[data-gem]")) return;
-  const featured = gems.filter((gem) => gem.featured);
-  const rest = gems.filter((gem) => !gem.featured);
-  mount.innerHTML = `${featured.map((gem) => gemCard(gem)).join("")}
-    <details class="gem-more"><summary>Show all ${gems.length} desks</summary><div class="gem-grid">${rest.map((gem) => gemCard(gem)).join("")}</div></details>`;
+  if (mount) mount.replaceChildren();
 }
 
 function wireFilters() {

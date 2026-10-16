@@ -346,6 +346,31 @@ html[data-rail="panel"] #universe-canvas {
 .tile-mint { background: color-mix(in oklab, var(--mint) 55%, var(--surface)); }
 .tile-lavender { background: color-mix(in oklab, var(--lavender) 55%, var(--surface)); }
 .tile-butter { background: color-mix(in oklab, var(--butter) 65%, var(--surface)); }
+.tile-pink { background: color-mix(in oklab, var(--pink) 55%, var(--surface)); }
+
+a.nav-more {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.more-link {
+  margin: 18px 0 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 18% 40%, color-mix(in oklab, var(--butter) 72%, transparent), transparent 46%),
+    color-mix(in oklab, var(--lavender) 30%, var(--surface));
+  box-shadow: var(--shadow);
+  color: var(--ink-muted);
+}
+.more-link a { font-weight: 700; }
 
 .filters {
   display: flex;

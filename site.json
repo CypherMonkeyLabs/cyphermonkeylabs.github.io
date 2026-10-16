@@ -6,7 +6,7 @@
   "origin": "https://cyphermonkeylabs.com",
   "contactEmail": "",
   "socialUrl": "",
-  "githubUrl": "https://github.com/cipher0x9",
+  "githubUrl": "https://github.com/CypherMonkeyLabs",
   "formEndpoint": "",
   "mission": "Free learning apps for schools, nonprofits and rural communities, in any language, built with content you approve",
   "work": {
@@ -233,7 +233,7 @@
       "id": "rate",
       "title": "Rate",
       "text": "Star a lab on GitHub if it helped you.",
-      "href": "https://github.com/cipher0x9",
+      "href": "https://github.com/CypherMonkeyLabs",
       "label": "Rate on GitHub",
       "icon": "star"
     },
@@ -241,7 +241,7 @@
       "id": "comment",
       "title": "Comment",
       "text": "Open an issue on a lab with a correction or a question.",
-      "href": "https://github.com/cipher0x9",
+      "href": "https://github.com/CypherMonkeyLabs",
       "label": "Comment on GitHub",
       "icon": "glyphs"
     },
@@ -249,7 +249,7 @@
       "id": "contribute",
       "title": "Contribute",
       "text": "Send a change to a lab's public code.",
-      "href": "https://github.com/cipher0x9",
+      "href": "https://github.com/CypherMonkeyLabs",
       "label": "Contribute on GitHub",
       "icon": "code"
     }
@@ -258,10 +258,8 @@
     "title": "About the author",
     "body": "CypherMonkey is the public name and the mascot for this studio. The labs are a learning-in-public project from a background in voice, video, and contact centers, now stretching into AI agents and coding. They are practice rooms. They are not official training, and they do not speak for any company.",
     "links": [
-      { "name": "X", "url": "" },
-      { "name": "Linktree", "url": "" },
-      { "name": "dev.to", "url": "https://dev.to/cyphermonkey" },
-      { "name": "GitHub", "url": "https://github.com/cipher0x9" }
+      { "name": "Linktree", "url": "https://linktr.ee/cyphermonkey" },
+      { "name": "GitHub", "url": "https://github.com/CypherMonkeyLabs" }
     ]
   },
   "profiles": [
@@ -276,7 +274,7 @@
     { "id": "whatsapp", "name": "WhatsApp Channel", "url": "" },
     { "id": "youtube", "name": "YouTube", "url": "" },
     { "id": "spotify", "name": "Spotify", "url": "" },
-    { "id": "github", "name": "GitHub", "url": "" },
-    { "id": "devto", "name": "dev.to", "url": "https://dev.to/cyphermonkey" }
+    { "id": "github", "name": "GitHub", "url": "https://github.com/CypherMonkeyLabs" },
+    { "id": "linktree", "name": "Linktree", "url": "https://linktr.ee/cyphermonkey" }
   ]
 }

@@ -29,9 +29,16 @@
   },
   {
     "id": "tools",
-    "label": "Tools & Gadgets",
+    "label": "Business Analysis",
     "accent": "butter",
     "glyph": "gem",
     "order": 5
+  },
+  {
+    "id": "texts",
+    "label": "Ancient Sutras",
+    "accent": "pink",
+    "glyph": "book",
+    "order": 6
   }
 ]

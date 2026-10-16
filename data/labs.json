@@ -12,7 +12,11 @@
       "tagline": "See how phones, meetings, and teams share one campus.",
       "summary": "This free campus walks through calling, meetings, and contact-center ideas. You follow the missions at your own pace. Each big idea can be checked against a source. It is practice, not official training.",
       "category": "unified-comms",
-      "tags": ["calling", "meetings", "collaboration"],
+      "tags": [
+        "calling",
+        "meetings",
+        "collaboration"
+      ],
       "status": "live",
       "featured": true,
       "order": 10,
@@ -21,7 +25,9 @@
       "repo": "https://github.com/CypherMonkeyLabs/uc-lab-free-university-mesmerizing",
       "icon": "handset",
       "accent": "sky",
-      "vendorsReferenced": ["Cisco"],
+      "vendorsReferenced": [
+        "Cisco"
+      ],
       "launchedAt": "2026-07-31",
       "updatedAt": "2026-10-15",
       "lastVerified": "2026-10-15",
@@ -33,7 +39,11 @@
           "accessed": "2026-10-15"
         }
       ],
-      "scene": { "size": 1.15, "moons": 1, "ringHint": 1 }
+      "scene": {
+        "size": 1.15,
+        "moons": 1,
+        "ringHint": 1
+      }
     },
     {
       "schemaVersion": 1,
@@ -44,7 +54,12 @@
       "tagline": "Build a cloud contact center, one friendly mission at a time.",
       "summary": "Explore contact flows, queues, routing, and the agent desk in Amazon Connect. The missions use plain language. Key facts link to the official administrator guide so you can check them yourself.",
       "category": "contact-center",
-      "tags": ["cloud", "routing", "ivr", "aws"],
+      "tags": [
+        "cloud",
+        "routing",
+        "ivr",
+        "aws"
+      ],
       "status": "live",
       "featured": true,
       "order": 10,
@@ -53,7 +68,10 @@
       "repo": "https://github.com/CypherMonkeyLabs/amazon-connect-lab-free-university-mesmerizing",
       "icon": "cloud-phone",
       "accent": "peach",
-      "vendorsReferenced": ["Amazon Web Services", "Amazon Connect"],
+      "vendorsReferenced": [
+        "Amazon Web Services",
+        "Amazon Connect"
+      ],
       "launchedAt": "2026-10-14",
       "updatedAt": "2026-10-15",
       "lastVerified": "2026-10-15",
@@ -65,7 +83,11 @@
           "accessed": "2026-10-15"
         }
       ],
-      "scene": { "size": 1.25, "moons": 1, "ringHint": 0 }
+      "scene": {
+        "size": 1.25,
+        "moons": 1,
+        "ringHint": 0
+      }
     },
     {
       "schemaVersion": 1,
@@ -76,8 +98,14 @@
       "tagline": "Follow voice and contact-center ideas across Microsoft tools.",
       "summary": "Practice how Microsoft voice and contact-center pieces fit together. The campus is free and static. When a lesson names a product behavior, you can open the Microsoft Learn page and read it there.",
       "category": "unified-comms",
-      "secondaryCategories": ["contact-center"],
-      "tags": ["microsoft", "voice", "contact-center"],
+      "secondaryCategories": [
+        "contact-center"
+      ],
+      "tags": [
+        "microsoft",
+        "voice",
+        "contact-center"
+      ],
       "status": "live",
       "featured": true,
       "order": 20,
@@ -86,7 +114,9 @@
       "repo": "https://github.com/CypherMonkeyLabs/microsoft-voice-cc-lab-free-university-mesmerizing",
       "icon": "headset",
       "accent": "sky",
-      "vendorsReferenced": ["Microsoft"],
+      "vendorsReferenced": [
+        "Microsoft"
+      ],
       "launchedAt": "2026-10-14",
       "updatedAt": "2026-10-15",
       "lastVerified": "2026-10-15",
@@ -98,7 +128,11 @@
           "accessed": "2026-10-15"
         }
       ],
-      "scene": { "size": 1.1, "moons": 0, "ringHint": 2 }
+      "scene": {
+        "size": 1.1,
+        "moons": 0,
+        "ringHint": 2
+      }
     },
     {
       "schemaVersion": 1,
@@ -109,7 +143,11 @@
       "tagline": "Walk Control Hub, calling, and contact center in Webex.",
       "summary": "A free study console for Webex by Cisco. You can explore Control Hub, calling, contact center, devices, and APIs. When you want the official wording, open Webex Help and read it beside the lesson.",
       "category": "unified-comms",
-      "tags": ["webex", "calling", "contact-center"],
+      "tags": [
+        "webex",
+        "calling",
+        "contact-center"
+      ],
       "status": "live",
       "featured": true,
       "order": 30,
@@ -118,7 +156,10 @@
       "repo": "https://github.com/CypherMonkeyLabs/webex-lab-free-university-mesmerizing",
       "icon": "video",
       "accent": "sky",
-      "vendorsReferenced": ["Cisco", "Webex by Cisco"],
+      "vendorsReferenced": [
+        "Cisco",
+        "Webex by Cisco"
+      ],
       "launchedAt": "2026-10-15",
       "updatedAt": "2026-10-15",
       "lastVerified": "2026-10-15",
@@ -130,7 +171,11 @@
           "accessed": "2026-10-15"
         }
       ],
-      "scene": { "size": 1.3, "moons": 2, "ringHint": 3 }
+      "scene": {
+        "size": 1.3,
+        "moons": 2,
+        "ringHint": 3
+      }
     },
     {
       "schemaVersion": 1,
@@ -141,7 +186,11 @@
       "tagline": "See how a Five9 contact center fits together.",
       "summary": "Explore Five9 ideas such as admin, phone menus, skills, routing, and the agent desktop. The campus is free. Official Five9 documentation is linked so you can check a fact before you trust it.",
       "category": "contact-center",
-      "tags": ["five9", "routing", "ivr"],
+      "tags": [
+        "five9",
+        "routing",
+        "ivr"
+      ],
       "status": "live",
       "featured": false,
       "order": 20,
@@ -150,7 +199,9 @@
       "repo": "https://github.com/CypherMonkeyLabs/five9-lab-free-university-mesmerizing",
       "icon": "headset",
       "accent": "peach",
-      "vendorsReferenced": ["Five9"],
+      "vendorsReferenced": [
+        "Five9"
+      ],
       "launchedAt": "2026-10-15",
       "updatedAt": "2026-10-15",
       "lastVerified": "2026-10-15",
@@ -162,7 +213,11 @@
           "accessed": "2026-10-15"
         }
       ],
-      "scene": { "size": 1.0, "moons": 0, "ringHint": 1 }
+      "scene": {
+        "size": 1,
+        "moons": 0,
+        "ringHint": 1
+      }
     },
     {
       "schemaVersion": 1,
@@ -173,7 +228,11 @@
       "tagline": "Trace flows, queues, and routing in Genesys Cloud.",
       "summary": "A free campus for Genesys Cloud CX. You study flows, queues, and routing in plain language. The official help center is one click away when you want the source behind a lesson.",
       "category": "contact-center",
-      "tags": ["genesys", "routing", "cloud"],
+      "tags": [
+        "genesys",
+        "routing",
+        "cloud"
+      ],
       "status": "live",
       "featured": false,
       "order": 30,
@@ -182,7 +241,9 @@
       "repo": "https://github.com/CypherMonkeyLabs/genesys-cloud-lab-free-university-mesmerizing",
       "icon": "route",
       "accent": "peach",
-      "vendorsReferenced": ["Genesys"],
+      "vendorsReferenced": [
+        "Genesys"
+      ],
       "launchedAt": "2026-10-15",
       "updatedAt": "2026-10-15",
       "lastVerified": "2026-10-15",
@@ -194,7 +255,11 @@
           "accessed": "2026-10-15"
         }
       ],
-      "scene": { "size": 1.05, "moons": 1, "ringHint": 2 }
+      "scene": {
+        "size": 1.05,
+        "moons": 1,
+        "ringHint": 2
+      }
     },
     {
       "schemaVersion": 1,
@@ -205,7 +270,11 @@
       "tagline": "Explore routing, phone menus, and digital paths in CXone.",
       "summary": "This free campus introduces NICE CXone ideas such as routing, Studio, phone menus, and digital channels. It is independent study. Check the NICE help center before you use a step at work.",
       "category": "contact-center",
-      "tags": ["nice", "cxone", "routing"],
+      "tags": [
+        "nice",
+        "cxone",
+        "routing"
+      ],
       "status": "live",
       "featured": false,
       "order": 40,
@@ -214,7 +283,10 @@
       "repo": "https://github.com/CypherMonkeyLabs/nice-cxone-lab-free-university-mesmerizing",
       "icon": "chat",
       "accent": "peach",
-      "vendorsReferenced": ["NICE", "NICE CXone"],
+      "vendorsReferenced": [
+        "NICE",
+        "NICE CXone"
+      ],
       "launchedAt": "2026-10-15",
       "updatedAt": "2026-10-15",
       "lastVerified": "2026-10-15",
@@ -226,7 +298,11 @@
           "accessed": "2026-10-15"
         }
       ],
-      "scene": { "size": 1.0, "moons": 0, "ringHint": 3 }
+      "scene": {
+        "size": 1,
+        "moons": 0,
+        "ringHint": 3
+      }
     },
     {
       "schemaVersion": 1,
@@ -237,7 +313,11 @@
       "tagline": "Watch a phone call start its trip across the internet.",
       "summary": "SIP Universe shows how the Session Initiation Protocol starts and steers internet calls. You read the ideas in plain language, then open RFC 3261 when you want the standard itself.",
       "category": "protocols",
-      "tags": ["sip", "calling", "protocol"],
+      "tags": [
+        "sip",
+        "calling",
+        "protocol"
+      ],
       "status": "live",
       "featured": true,
       "order": 10,
@@ -258,7 +338,11 @@
           "accessed": "2026-10-15"
         }
       ],
-      "scene": { "size": 1.2, "moons": 2, "ringHint": 0 }
+      "scene": {
+        "size": 1.2,
+        "moons": 2,
+        "ringHint": 0
+      }
     },
     {
       "schemaVersion": 1,
@@ -269,7 +353,11 @@
       "tagline": "Try prompts, agents, and tools with the sources in view.",
       "summary": "A free campus about prompts, models, agents, and how AI tools behave. Lessons stay curious and careful. When a lesson names a standard, such as the Model Context Protocol, the source is linked.",
       "category": "ai",
-      "tags": ["ai", "prompts", "agents"],
+      "tags": [
+        "ai",
+        "prompts",
+        "agents"
+      ],
       "status": "live",
       "featured": true,
       "order": 10,
@@ -290,39 +378,93 @@
           "accessed": "2026-10-15"
         }
       ],
-      "scene": { "size": 1.2, "moons": 1, "ringHint": 4 }
+      "scene": {
+        "size": 1.2,
+        "moons": 1,
+        "ringHint": 4
+      }
     },
     {
       "schemaVersion": 1,
-      "id": "gemini-gems",
-      "kind": "gallery",
-      "title": "Gemini Gems Gallery",
-      "shortTitle": "Gemini Gems",
-      "tagline": "Handy AI helpers you can copy into Gemini Gems.",
-      "summary": "A free gallery of copy-ready Gemini Gem instructions. Open a desk, copy the steps, and paste them into Gemini. You need a Google account. The gallery does not publish a private Gem share link for each desk.",
+      "id": "ba-lab",
+      "kind": "lab",
+      "title": "BA Lab",
+      "shortTitle": "BA",
+      "tagline": "Practice business analysis: requirements, stories, and process maps.",
+      "summary": "A free business analyst learning lab. Work through requirements, user stories, and process maps at your own pace. It is independent study, not official training.",
       "category": "tools",
-      "tags": ["gemini", "gems", "gallery"],
+      "tags": [
+        "business-analysis",
+        "requirements",
+        "process"
+      ],
+      "status": "live",
+      "featured": false,
+      "order": 100,
+      "level": "starter",
+      "url": "https://cyphermonkeylabs.com/ba-lab-grok-free-university-mesmerizing/",
+      "repo": "https://github.com/CypherMonkeyLabs/ba-lab-grok-free-university-mesmerizing",
+      "icon": "route",
+      "accent": "butter",
+      "vendorsReferenced": [],
+      "launchedAt": "2026-10-16",
+      "updatedAt": "2026-10-16",
+      "lastVerified": "2026-10-16",
+      "sources": [
+        {
+          "title": "BABOK Guide",
+          "url": "https://www.iiba.org/career-resources/a-business-analysis-professionals-foundation-for-success/babok/",
+          "publisher": "IIBA",
+          "accessed": "2026-10-16"
+        }
+      ],
+      "scene": {
+        "size": 0.9,
+        "moons": 0,
+        "ringHint": 5
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "sutra-nexus",
+      "kind": "lab",
+      "title": "Sutra Nexus",
+      "shortTitle": "Sutras",
+      "tagline": "Ancient sutras as files, cards, PDFs, and HTML.",
+      "summary": "Sutra Nexus opens ancient sutras as files, cards, PDFs, and HTML. Read the Ashtadhyayi lines, the Maheshvara sutras, and the Kashmir Shiva Sutras at your own pace. It is free, independent study.",
+      "category": "texts",
+      "tags": [
+        "sutras",
+        "files",
+        "cards",
+        "pdf",
+        "html"
+      ],
       "status": "live",
       "featured": false,
       "order": 10,
       "level": "starter",
-      "url": "https://cipher0x9.github.io/gemini-gems-free-gallery/",
-      "repo": "https://github.com/cipher0x9/gemini-gems-free-gallery",
-      "icon": "gem",
-      "accent": "butter",
-      "vendorsReferenced": ["Google"],
-      "launchedAt": "2026-10-14",
-      "updatedAt": "2026-10-14",
-      "lastVerified": "2026-10-15",
+      "url": "https://cyphermonkeylabs.com/sutra-nexus/",
+      "repo": "https://github.com/CypherMonkeyLabs/sutra-nexus",
+      "icon": "book",
+      "accent": "pink",
+      "vendorsReferenced": [],
+      "launchedAt": "2026-10-16",
+      "updatedAt": "2026-10-16",
+      "lastVerified": "2026-10-16",
       "sources": [
         {
-          "title": "Gemini",
-          "url": "https://gemini.google.com/",
-          "publisher": "Google",
-          "accessed": "2026-10-15"
+          "title": "Shivasutra with Varttika (GRETIL)",
+          "url": "https://gretil.sub.uni-goettingen.de/gretil/corpustei/transformations/html/sa_zivasUtra-with-vArttika.htm",
+          "publisher": "GRETIL",
+          "accessed": "2026-10-16"
         }
       ],
-      "scene": { "size": 0.9, "moons": 0, "ringHint": 5 }
+      "scene": {
+        "size": 1.05,
+        "moons": 1,
+        "ringHint": 2
+      }
     }
   ]
 }

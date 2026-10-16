@@ -5,15 +5,21 @@
   "mission": "Free learning for anyone who wants to see how calls, contact centers, and AI actually work.",
   "verify": "Primary sources come first: official docs, RFCs, and standards bodies. A date on this site is published only after the source page was opened. Counts that I have not checked myself stay out of the copy.",
   "sameAs": [
-    "https://x.com/Cypher0x9",
-    "https://linktr.ee/cyphermonkey"
+    "https://linktr.ee/cyphermonkey",
+    "https://github.com/CypherMonkeyLabs"
   ],
   "socials": [
-    { "id": "x", "label": "X", "url": "https://x.com/Cypher0x9", "name": "CypherMonkey on X (opens new tab)" },
-    { "id": "linktree", "label": "Linktree", "url": "https://linktr.ee/cyphermonkey", "name": "CypherMonkey on Linktree (opens new tab)" },
-    { "id": "huggingface", "label": "Hugging Face", "url": "https://huggingface.co/Cypher0x9", "name": "CypherMonkey on Hugging Face (opens new tab)" },
-    { "id": "devto", "label": "dev.to", "url": "https://dev.to/cyphermonkey", "name": "CypherMonkey on dev.to (opens new tab)" },
-    { "id": "github", "label": "GitHub", "url": "https://github.com/cipher0x9", "name": "cipher0x9 on GitHub (opens new tab)" },
-    { "id": "github-org", "label": "GitHub org", "url": "https://github.com/CypherMonkeyLabs", "name": "CypherMonkey Labs on GitHub (opens new tab)" }
+    {
+      "id": "linktree",
+      "label": "Linktree",
+      "url": "https://linktr.ee/cyphermonkey",
+      "name": "CypherMonkey on Linktree (opens new tab)"
+    },
+    {
+      "id": "github-org",
+      "label": "GitHub org",
+      "url": "https://github.com/CypherMonkeyLabs",
+      "name": "CypherMonkey Labs on GitHub (opens new tab)"
+    }
   ]
 }

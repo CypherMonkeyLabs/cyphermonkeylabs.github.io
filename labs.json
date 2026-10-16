@@ -257,22 +257,20 @@
       "sketchPath": []
     },
     {
-      "id": "gems",
-      "name": "Gemini Gems gallery",
-      "short": "Gemini Gems",
-      "description": "A gallery of Gemini Gem examples you can open and study.",
-      "url": "https://cipher0x9.github.io/gemini-gems-free-gallery/",
-      "source": "https://github.com/cipher0x9/gemini-gems-free-gallery",
+      "id": "ba",
+      "name": "BA Lab",
+      "short": "BA Lab",
+      "description": "Practice business analysis: requirements, stories, and process maps.",
+      "url": "https://cyphermonkeylabs.com/ba-lab-grok-free-university-mesmerizing/",
+      "source": "https://github.com/CypherMonkeyLabs/ba-lab-grok-free-university-mesmerizing",
       "download": "",
       "status": "live",
-      "category": "ai",
+      "category": "tools",
       "color": "#67e8f9",
       "icon": "gem",
       "tags": [
-        "gemini",
-        "gems",
-        "ai",
-        "gallery"
+        "ba",
+        "requirements"
       ],
       "orbit": {
         "angle": 5.377,
@@ -290,159 +288,60 @@
       "sketchPath": []
     },
     {
-      "id": "canon",
-      "name": "CypherWebex Canon",
-      "short": "Canon",
-      "description": "Flagship Webex lab with 63 rooms, navigation, and live flows.",
-      "url": "https://cypherwebex-canon-test.vercel.app",
-      "source": "",
+      "id": "webex",
+      "name": "Webex Lab",
+      "short": "Webex",
+      "description": "A free study console for Webex Control Hub, calling, and contact center.",
+      "url": "https://cyphermonkeylabs.com/webex-lab-free-university-mesmerizing/",
+      "source": "https://github.com/CypherMonkeyLabs/webex-lab-free-university-mesmerizing",
       "download": "",
       "status": "live",
-      "category": "contact-center",
-      "color": "#f4e4a6",
-      "icon": "rooms",
+      "category": "unified-comms",
+      "color": "#7dd3fc",
+      "icon": "video",
       "tags": [
         "webex",
-        "canon",
-        "flagship",
-        "rooms",
-        "flows"
+        "calling",
+        "contact-center"
       ],
       "orbit": {
-        "angle": 6.005,
+        "angle": 2.4,
         "radius": 4.15,
-        "size": 1.35
+        "size": 1.2
       },
       "stats": {
-        "rooms": 63,
+        "rooms": null,
         "quizQuestions": null,
         "flashcards": null
       },
       "featured": true,
-      "highlights": [
-        "63 rooms",
-        "Navigation",
-        "Live flows"
-      ],
-      "flow": [
-        {
-          "title": "Open the canon",
-          "text": "Start in the flagship lab."
-        },
-        {
-          "title": "Pick a room",
-          "text": "There are 63 rooms to walk through."
-        },
-        {
-          "title": "Use the navigation",
-          "text": "Move from room to room without getting lost."
-        },
-        {
-          "title": "Watch a live flow",
-          "text": "See a calling flow run in the lab."
-        }
-      ],
-      "sketchPath": [
-        0,
-        1,
-        2,
-        8,
-        14,
-        15,
-        16,
-        22,
-        28,
-        29
-      ]
-    },
-    {
-      "id": "gcp-cc",
-      "name": "Google Cloud Contact Center",
-      "short": "Google Cloud",
-      "description": "A lab for Google Cloud contact-center ideas. Not open yet.",
-      "url": "",
-      "source": "",
-      "download": "",
-      "status": "coming",
-      "category": "contact-center",
-      "color": "#9bb0c7",
-      "icon": "cloud",
-      "tags": [
-        "google",
-        "cloud",
-        "contact center"
-      ],
-      "orbit": {
-        "angle": 0.9,
-        "radius": 4.7,
-        "size": 0.9
-      },
-      "stats": {
-        "rooms": null,
-        "quizQuestions": null,
-        "flashcards": null
-      },
-      "featured": false,
       "highlights": [],
       "flow": [],
       "sketchPath": []
     },
     {
-      "id": "languages",
-      "name": "Languages",
-      "short": "Languages",
-      "description": "Practice rooms for Sanskrit, Telugu, Arabic, and English. Not open yet.",
-      "url": "",
-      "source": "",
+      "id": "sutra-nexus",
+      "name": "Sutra Nexus",
+      "short": "Sutras",
+      "description": "Ancient sutras as files, cards, PDFs, and HTML.",
+      "url": "https://cyphermonkeylabs.com/sutra-nexus/",
+      "source": "https://github.com/CypherMonkeyLabs/sutra-nexus",
       "download": "",
-      "status": "coming",
-      "category": "languages",
+      "status": "live",
+      "category": "texts",
       "color": "#f0abfc",
-      "icon": "glyphs",
+      "icon": "book",
       "tags": [
-        "languages",
-        "sanskrit",
-        "telugu",
-        "arabic",
-        "english"
+        "sutras",
+        "files",
+        "cards",
+        "pdf",
+        "html"
       ],
       "orbit": {
-        "angle": 2.994,
-        "radius": 4.7,
-        "size": 0.9
-      },
-      "stats": {
-        "rooms": null,
-        "quizQuestions": null,
-        "flashcards": null
-      },
-      "featured": false,
-      "highlights": [],
-      "flow": [],
-      "sketchPath": []
-    },
-    {
-      "id": "coding",
-      "name": "Coding",
-      "short": "Coding",
-      "description": "Practice rooms for CS50 ideas, Python, and DevOps. Not open yet.",
-      "url": "",
-      "source": "",
-      "download": "",
-      "status": "coming",
-      "category": "coding",
-      "color": "#86efac",
-      "icon": "code",
-      "tags": [
-        "coding",
-        "cs50",
-        "python",
-        "devops"
-      ],
-      "orbit": {
-        "angle": 5.089,
-        "radius": 4.7,
-        "size": 0.9
+        "angle": 5.8,
+        "radius": 4.4,
+        "size": 1
       },
       "stats": {
         "rooms": null,

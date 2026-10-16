@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { categoryTile, gemCard, groupedLabs, labLaunch, timelineCard } from "./render.mjs";
+import { categoryTile, groupedLabs, labLaunch, timelineCard } from "./render.mjs";
 import { iconStack } from "./icons.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../..");
@@ -24,11 +24,6 @@ const events = [...timeline.events, ...labs.filter((lab) => lab.launchedAt).map(
 const timelineHtml = events.map((event) => timelineCard(event)).join("");
 const years = [...new Set(events.map((event) => event.date.slice(0, 4)))];
 const yearOptions = years.map((year) => `<option value="${year}">${year}</option>`).join("");
-const featuredGems = gemsDoc.gems.filter((gem) => gem.featured);
-const otherGems = gemsDoc.gems.filter((gem) => !gem.featured);
-const gemsHtml = `${featuredGems.map((gem) => gemCard(gem)).join("")}
-<details class="gem-more"><summary>Show all ${gemsDoc.gems.length} desks</summary><div class="gem-grid">${otherGems.map((gem) => gemCard(gem)).join("")}</div></details>`;
-
 const socials = author.socials
   .map((item) => `<li><a href="${item.url}" rel="me noopener">${item.name.replace(" (opens new tab)", "")}<span class="sr-only"> (opens new tab)</span></a></li>`)
   .join("");
@@ -134,7 +129,7 @@ const html = `<!DOCTYPE html>
       <nav class="desktop-nav" aria-label="Primary">
         <a href="#labs">Labs</a>
         <a href="#timeline">Timeline</a>
-        <a href="#gems">Gems</a>
+        <a class="nav-more" href="#gems">More</a>
         <a href="#about">About</a>
         <a class="pill" href="#contact">Contact</a>
       </nav>
@@ -144,7 +139,7 @@ const html = `<!DOCTYPE html>
           <a href="#launchpad">Universe</a>
           <a href="#labs">Labs</a>
           <a href="#timeline">Timeline</a>
-          <a href="#gems">Gems</a>
+          <a class="nav-more" href="#gems">More</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -188,7 +183,7 @@ const html = `<!DOCTYPE html>
         <div class="wrap notebook">
           <p class="kicker">Chapter 2 · The Labs Universe</p>
           <h2 id="labs-title">Pick a planet. Start exploring.</h2>
-          <p class="section-intro">Ten labs are open. The picture is a map. The cards are the way in. A contact center is the system that routes people who call or message a company.</p>
+          <p class="section-intro">Eleven labs are open. The picture is a map. The cards are the way in. A contact center is the system that routes people who call or message a company.</p>
           <div class="tiles" data-tiles>${tiles}</div>
           <form class="filters" data-filters role="search">
             <label>Search labs<input type="search" name="q" placeholder="Try SIP or voice" autocomplete="off"></label>
@@ -199,7 +194,8 @@ const html = `<!DOCTYPE html>
                 <option value="unified-comms">Voice and collaboration</option>
                 <option value="protocols">Protocols</option>
                 <option value="ai">AI</option>
-                <option value="tools">Tools</option>
+                <option value="tools">Business analysis</option>
+                <option value="texts">Ancient sutras</option>
               </select>
             </label>
             <label>Level
@@ -213,6 +209,7 @@ const html = `<!DOCTYPE html>
           </form>
           <p class="empty" data-empty hidden>No labs match. Try fewer filters?</p>
           <div data-lab-mount>${groups}</div>
+          <p class="more-link" id="gems">More · <a href="${gemsDoc.gallery}">Gemini Gems shelf<span class="sr-only"> (opens the gallery)</span></a></p>
         </div>
       </section>
 
@@ -253,20 +250,10 @@ const html = `<!DOCTYPE html>
         </div>
       </section>
 
-      <section class="chapter" id="gems" aria-labelledby="gems-title">
-        <div class="wrap notebook">
-          <p class="kicker">Chapter 5 · Gadget Shelf</p>
-          <h2 id="gems-title">Handy AI helpers I built with Gemini Gems</h2>
-          <p class="section-intro">Each desk is a set of instructions you copy into Gemini. You need a Google account. The gallery does not publish a private Gem link, so the Gemini button opens gemini.google.com.</p>
-          <p><a class="btn primary" href="https://cipher0x9.github.io/gemini-gems-free-gallery/">Open the full gallery</a></p>
-          <div class="gem-grid" data-gem-mount>${gemsHtml}</div>
-        </div>
-      </section>
-
       <section class="chapter" id="about" aria-labelledby="about-title">
         <div class="wrap about-grid">
           <div class="notebook">
-            <p class="kicker">Chapter 6 · Meet the Explorer</p>
+            <p class="kicker">Chapter 5 · Meet the Explorer</p>
             <h2 id="about-title">Hi! I'm the human behind the monkey.</h2>
             <p>${author.bio}</p>
             <p>${author.mission}</p>
@@ -277,7 +264,7 @@ const html = `<!DOCTYPE html>
           <aside class="panel author-card" aria-label="About the author">
             <h3>${author.name}</h3>
             <p>${author.role}</p>
-            <ul class="socials">${socials}<li><span class="soon">LinkedIn <em>Coming soon</em></span></li></ul>
+            <ul class="socials">${socials}</ul>
             <p><a class="btn primary" href="#contact">Send me a note</a></p>
             <p class="fine"><a href="#disclaimer">Independent · Free · Cited</a></p>
           </aside>
@@ -287,7 +274,7 @@ const html = `<!DOCTYPE html>
       <div id="contact-root">
       <section class="chapter" id="contact" aria-labelledby="contact-title">
         <div class="wrap notebook">
-          <p class="kicker">Chapter 7 · Mission Control</p>
+          <p class="kicker">Chapter 6 · Mission Control</p>
           <h2 id="contact-title" tabindex="-1">Send a message to Mission Control</h2>
           <p class="section-intro">The note opens a GitHub issue so I can reply. This page does not show my email address. GitHub issues may be public, so leave out secrets.</p>
           <div id="contact-panel">
@@ -332,7 +319,7 @@ const html = `<!DOCTYPE html>
             <ul>
               <li><a href="#labs">Labs</a></li>
               <li><a href="#timeline">Timeline</a></li>
-              <li><a href="#gems">Gems</a></li>
+              <li><a class="nav-more" href="#gems">More</a></li>
             </ul>
           </div>
           <div>
@@ -354,7 +341,6 @@ const html = `<!DOCTYPE html>
             <p class="footer-label">Social</p>
             <ul>
               ${socials}
-              <li><span class="soon">LinkedIn <em>Coming soon</em></span></li>
             </ul>
           </div>
         </div>
