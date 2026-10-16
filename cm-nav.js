@@ -76,6 +76,20 @@ const LABS = [
     "url": "https://cyphermonkeylabs.com/sutra-nexus/",
     "source": "https://github.com/CypherMonkeyLabs/sutra-nexus",
     "status": "live"
+  },
+  {
+    "id": "zoom-talkdesk-avaya",
+    "name": "Zoom, Talkdesk and Avaya Lab",
+    "url": "https://cyphermonkeylabs.com/zoom-talkdesk-avaya-lab-free-university-mesmerizing/",
+    "source": "https://github.com/CypherMonkeyLabs/zoom-talkdesk-avaya-lab-free-university-mesmerizing",
+    "status": "live"
+  },
+  {
+    "id": "cpaas",
+    "name": "CPaaS Lab",
+    "url": "https://cyphermonkeylabs.com/cpaas-lab-free-university-mesmerizing/",
+    "source": "https://github.com/CypherMonkeyLabs/cpaas-lab-free-university-mesmerizing",
+    "status": "live"
   }
 ];
 const DEFAULTS = {
