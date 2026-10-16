@@ -159,9 +159,8 @@ test("theme, motion, and quality in the URL stay out of storage", () => {
 });
 
 test("author links match the contract and skip a profile and an address", () => {
-  assert.deepEqual(SOCIAL.map((item) => item.id), ["x", "linktree", "hf", "github", "githubOrg", "devto"]);
-  assert.equal(SOCIAL.find((item) => item.id === "x").href, "https://x.com/Cypher0x9");
-  assert.equal(SOCIAL.find((item) => item.id === "github").href, "https://github.com/cipher0x9");
+  assert.deepEqual(SOCIAL.map((item) => item.id), ["linktree", "githubOrg"]);
+  assert.equal(SOCIAL.find((item) => item.id === "linktree").href, "https://linktr.ee/cyphermonkey");
   assert.equal(SOCIAL.find((item) => item.id === "githubOrg").href, "https://github.com/CypherMonkeyLabs");
   const owned = walk(join(root, "js/nav"))
     .concat(walk(join(root, "js/settings")), walk(join(root, "css")), join(root, "nav-demo.html"))

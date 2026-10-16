@@ -9,7 +9,7 @@ const labs = JSON.parse(read("data/labs.json")).labs;
 const timeline = JSON.parse(read("data/timeline.json")).events;
 const gems = JSON.parse(read("data/gems.json")).gems;
 const html = read("index.html");
-const today = "2026-10-15";
+const today = "2026-10-16";
 
 const ids = new Set();
 for (const lab of labs) {
@@ -26,7 +26,7 @@ for (const lab of labs) {
   assert.ok(html.includes(lab.repo), lab.repo);
 }
 
-assert.equal(labs.length, 10);
+assert.equal(labs.length, 11);
 for (const event of timeline) {
   assert.equal(event.review, "verified");
   assert.ok(event.sources.length >= 1);

@@ -42,8 +42,8 @@ export function mountChrome(ctx) {
     icon("labs"),
     el("span", { "data-i18n": "nav.labs" }),
   ]);
-  const link = (path, key, iconName) => el("a", {
-    class: "cm-primary__link",
+  const link = (path, key, iconName, extraClass = "") => el("a", {
+    class: extraClass ? `cm-primary__link ${extraClass}` : "cm-primary__link",
     href: ctx.href(path),
     "data-path": path,
   }, [icon(iconName), el("span", { "data-i18n": key })]);
@@ -56,7 +56,7 @@ export function mountChrome(ctx) {
     link(PATHS.play, "nav.universe", "play"),
     labsBtn,
     link(PATHS.timeline, "nav.timeline", "timeline"),
-    link(PATHS.gems, "nav.gems", "gems"),
+    link(PATHS.gems, "nav.gems", "gems", "nav-more"),
     link(PATHS.about, "nav.about", "about"),
     link(PATHS.contact, "nav.contact", "contact"),
     effects,
@@ -66,6 +66,9 @@ export function mountChrome(ctx) {
   const megaBody = el("div", { class: "cm-mega__body" });
   mega.append(megaBody);
   primary.append(mega);
+  if (document.getElementById("gems")) {
+    primary.querySelector('[data-path="/gems/"]')?.setAttribute("href", "#gems");
+  }
 
   const menuBtn = el("button", {
     type: "button",

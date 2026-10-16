@@ -87,11 +87,6 @@ function socialColumn(copy) {
     li.append(link);
     list.append(li);
   }
-  const soon = h('li');
-  const span = h('span', { class: 'soon' });
-  span.append(h('span', { text: copy.linkedin }), ' ', h('em', { class: 'soon__badge', text: copy.comingSoon }));
-  soon.append(span);
-  list.append(soon);
   block.append(list);
   return block;
 }

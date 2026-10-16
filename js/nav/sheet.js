@@ -96,10 +96,17 @@ export function mountSheet(ctx) {
     ["contact", "nav.contact", PATHS.contact],
   ];
   for (const [iconName, key, path] of pages) {
-    primary.append(el("a", { class: "cm-link-row", href: ctx.href(path), "data-path": path }, [
+    primary.append(el("a", {
+      class: key === "nav.gems" ? "cm-link-row nav-more" : "cm-link-row",
+      href: ctx.href(path),
+      "data-path": path,
+    }, [
       icon(iconName),
       el("span", { "data-i18n": key }),
     ]));
+  }
+  if (document.getElementById("gems")) {
+    primary.querySelector('[data-path="/gems/"]')?.setAttribute("href", "#gems");
   }
   primary.append(effects);
   effects.addEventListener("click", () => {

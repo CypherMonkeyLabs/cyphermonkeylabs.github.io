@@ -6,7 +6,7 @@ export const ENDPOINT = 'https://contact.cyphermonkeylabs.com';
 
 export const LINKS = Object.freeze({
   repo: 'https://github.com/CypherMonkeyLabs/cyphermonkeylabs.github.io',
-  rate: 'https://github.com/cipher0x9',
+  rate: 'https://github.com/CypherMonkeyLabs',
   comment: 'https://github.com/CypherMonkeyLabs/cyphermonkeylabs.github.io/issues',
   issueNew: 'https://github.com/CypherMonkeyLabs/cyphermonkeylabs.github.io/issues/new',
   help: '/#contact',
@@ -25,12 +25,8 @@ export const LINKS = Object.freeze({
 });
 
 export const SOCIAL = Object.freeze([
-  { label: 'X', href: 'https://x.com/Cypher0x9', name: 'CypherMonkey on X' },
   { label: 'Linktree', href: 'https://linktr.ee/cyphermonkey', name: 'CypherMonkey on Linktree' },
-  { label: 'Hugging Face', href: 'https://huggingface.co/Cypher0x9', name: 'CypherMonkey on Hugging Face' },
-  { label: 'dev.to', href: 'https://dev.to/cyphermonkey', name: 'CypherMonkey on dev.to' },
-  { label: 'GitHub (cipher0x9)', href: 'https://github.com/cipher0x9', name: 'cipher0x9 on GitHub' },
-  { label: 'GitHub (CypherMonkeyLabs)', href: 'https://github.com/CypherMonkeyLabs', name: 'CypherMonkeyLabs on GitHub' },
+  { label: 'GitHub', href: 'https://github.com/CypherMonkeyLabs', name: 'CypherMonkey Labs on GitHub' },
 ]);
 
 export const VENDOR_LINE = 'Amazon Web Services, Microsoft, Cisco (Webex), Five9, Genesys, NICE, Google';
@@ -61,7 +57,7 @@ const en = {
   socialCol: 'Social',
   labs: 'Labs',
   timeline: 'Timeline',
-  gems: 'Gems',
+  gems: 'More',
   author: 'Author',
   verify: 'How we verify',
   changelog: 'Changelog',
@@ -155,7 +151,7 @@ const es = {
   socialCol: 'Social',
   labs: 'Labs',
   timeline: 'Línea de tiempo',
-  gems: 'Gems',
+  gems: 'Más',
   author: 'Autor',
   verify: 'Cómo verificamos',
   changelog: 'Registro de cambios',
