@@ -1,8 +1,8 @@
 name: lab-health
 on:
   schedule:
-    # 13:17 UTC is 06:17 in Arizona (MST, no daylight time).
-    - cron: '17 13 * * *'
+    # Minute 17 of every hour. 17 avoids the top-of-hour stampede.
+    - cron: '17 * * * *'
   workflow_dispatch:
 permissions:
   contents: read

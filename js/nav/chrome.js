@@ -48,11 +48,18 @@ export function mountChrome(ctx) {
     "data-path": path,
   }, [icon(iconName), el("span", { "data-i18n": key })]);
 
+  const effects = el("button", {
+    type: "button",
+    class: "cm-primary__link",
+  }, [icon("gear"), el("span", { "data-i18n": "nav.effects" })]);
   const primary = el("nav", { class: "cm-primary", "data-i18n-attr": "aria-label:nav.primary" }, [
+    link(PATHS.play, "nav.universe", "play"),
     labsBtn,
     link(PATHS.timeline, "nav.timeline", "timeline"),
     link(PATHS.gems, "nav.gems", "gems"),
     link(PATHS.about, "nav.about", "about"),
+    link(PATHS.contact, "nav.contact", "contact"),
+    effects,
   ]);
 
   const mega = el("div", { id: "cm-mega", class: "cm-mega cm-glass", hidden: true });
@@ -179,6 +186,11 @@ export function mountChrome(ctx) {
     tick();
     closeMega(false);
     ctx.api.openSettings(settingsBtn);
+  });
+  effects.addEventListener("click", () => {
+    tick();
+    closeMega(false);
+    ctx.api.openSettings(effects);
   });
 
   document.addEventListener("pointerdown", (event) => {

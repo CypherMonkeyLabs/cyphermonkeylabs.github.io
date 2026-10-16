@@ -1,5 +1,5 @@
 import { access, readFile } from 'node:fs/promises';
-import { checkLabLinks, validateManifest } from './validate-labs.mjs';
+import { FRONT_DOOR, checkLabLinks, probeUrl, validateManifest } from './validate-labs.mjs';
 
 async function loadManifest() {
   try {
@@ -17,6 +17,8 @@ const links = await checkLabLinks(result.labs || [], {
   sources: true,
   token: process.env.GITHUB_TOKEN || '',
 });
+const door = await probeUrl(FRONT_DOOR);
+links.push({ url: FRONT_DOOR, kind: 'front-door', id: 'front-door', level: 'error', ...door });
 const broken = links.filter((link) => !link.ok && link.level === 'error');
 const warnings = [
   ...result.findings.filter((item) => item.level === 'warning'),

@@ -175,7 +175,22 @@ export function validateManifest(data) {
   return { mode, findings, labs: rows };
 }
 
-async function probe(url, token) {
+/** A redirect counts only when the next response is exactly 200. */
+export function linkResult(status, nextStatus = null) {
+  if (status === 200) return { ok: true, status: 200 };
+  if (status >= 300 && status < 400) {
+    if (nextStatus === 200) return { ok: true, status: 200, redirected: status };
+    return { ok: false, status: nextStatus || status, redirected: status };
+  }
+  return { ok: false, status };
+}
+
+async function fetchStatus(target, headers, signal) {
+  const response = await fetch(target, { redirect: 'manual', headers, signal });
+  return { status: response.status, location: response.headers.get('location') };
+}
+
+export async function probeUrl(url, token = '') {
   const github = url.match(/^https:\/\/github\.com\/([^/]+)\/([^/]+)$/);
   const target = github && token
     ? `https://api.github.com/repos/${github[1]}/${github[2]}`
@@ -185,8 +200,16 @@ async function probe(url, token) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 20_000);
   try {
-    const response = await fetch(target, { redirect: 'follow', headers, signal: controller.signal });
-    return { url, status: response.status, ok: response.status >= 200 && response.status < 400 };
+    const first = await fetchStatus(target, headers, controller.signal);
+    if (first.status === 200) return { url, status: 200, ok: true };
+    if (first.status >= 300 && first.status < 400 && first.location) {
+      const nextUrl = new URL(first.location, target).href;
+      const next = await fetchStatus(nextUrl, headers, controller.signal);
+      const judged = linkResult(first.status, next.status);
+      return { url, ...judged, location: nextUrl };
+    }
+    const judged = linkResult(first.status);
+    return { url, ...judged };
   } catch (error) {
     return { url, status: 0, ok: false, error: error.name };
   } finally {
@@ -213,12 +236,36 @@ export async function checkLabLinks(labs, { sources = false, token = '' } = {}) 
     while (cursor < unique.length) {
       const job = unique[cursor];
       cursor += 1;
-      const result = await probe(job.url, token);
+      const result = await probeUrl(job.url, token);
       results.push({ ...job, ...result });
     }
   }
   await Promise.all(Array.from({ length: Math.min(4, unique.length) }, worker));
   return results;
+}
+
+export const FRONT_DOOR = 'https://cyphermonkeylabs.com/';
+
+export function structuredLabUrls(html) {
+  const urls = [];
+  const scripts = html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g);
+  for (const match of scripts) {
+    let data;
+    try {
+      data = JSON.parse(match[1]);
+    } catch {
+      continue;
+    }
+    const nodes = Array.isArray(data['@graph']) ? data['@graph'] : [data];
+    for (const node of nodes) {
+      const entries = Array.isArray(node.itemListElement) ? node.itemListElement : [];
+      for (const entry of entries) {
+        const url = entry && entry.item && entry.item.url;
+        if (typeof url === 'string') urls.push(url);
+      }
+    }
+  }
+  return urls;
 }
 
 function printFindings(file, result) {
@@ -283,6 +330,31 @@ async function main() {
         console.log(`  ${link.ok ? 'ok' : 'fail'} ${link.status} ${link.kind} ${link.id} ${link.url}`);
         if (!link.ok) failed = true;
       }
+      const page = await read('index.html', 'utf8');
+      const structured = structuredLabUrls(page);
+      const manifestUrls = (liveResult.labs || []).map((lab) => lab.url).filter(Boolean);
+      const manifestSet = new Set(manifestUrls);
+      for (const url of structured) {
+        if (!manifestSet.has(url)) {
+          console.error(`  fail structured data URL is not in the manifest ${url}`);
+          failed = true;
+        }
+      }
+      for (const url of manifestUrls) {
+        if (!structured.includes(url)) {
+          console.error(`  fail manifest URL missing from structured data ${url}`);
+          failed = true;
+        }
+      }
+      const extra = structured.filter((url) => !manifestSet.has(url));
+      for (const url of extra) {
+        const probed = await probeUrl(url);
+        console.log(`  ${probed.ok ? 'ok' : 'fail'} ${probed.status} structured ${url}`);
+        if (!probed.ok) failed = true;
+      }
+      const door = await probeUrl(FRONT_DOOR);
+      console.log(`  ${door.ok ? 'ok' : 'fail'} ${door.status} front-door ${FRONT_DOOR}`);
+      if (!door.ok) failed = true;
     } catch {
       console.log('::warning::data/labs.json is not on this branch yet. Checking legacy labs.json.');
       const legacy = JSON.parse(await read('labs.json', 'utf8'));

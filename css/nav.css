@@ -67,7 +67,7 @@ html:has(dialog[open]) { overflow: hidden; }
 html[data-theme="contrast"] .cm-glass {
   background: var(--surface);
   backdrop-filter: none;
-  border: 2px solid #000;
+  border: 2px solid var(--ink);
 }
 
 .cm-bar__row {
@@ -310,7 +310,7 @@ html[data-theme="contrast"] .cm-glass {
 
 html[data-theme="contrast"] .cm-dot {
   background: transparent;
-  border: 2px solid #000;
+  border: 2px solid var(--ink);
 }
 
 html[data-rail="panel"] .page {
@@ -1076,4 +1076,54 @@ html[data-motion="reduce"] .cm-mega {
   .cm-dock__item[aria-current="page"] {
     border: 2px solid CanvasText;
   }
+}
+
+.cm-lab-chips {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.cm-lab-chip {
+  min-height: 48px;
+  min-width: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--ink);
+  background: color-mix(in oklab, var(--lavender) 46%, var(--surface));
+  font-weight: 700;
+}
+.cm-lab-chip[data-accent="peach"] { background: color-mix(in oklab, var(--peach) 62%, var(--surface)); }
+.cm-lab-chip[data-accent="sky"] { background: color-mix(in oklab, var(--sky) 62%, var(--surface)); }
+.cm-lab-chip[data-accent="mint"] { background: color-mix(in oklab, var(--mint) 62%, var(--surface)); }
+.cm-lab-chip[data-accent="lavender"] { background: color-mix(in oklab, var(--lavender) 62%, var(--surface)); }
+.cm-lab-chip[data-accent="butter"] { background: color-mix(in oklab, var(--butter) 70%, var(--surface)); }
+.cm-lab-chip[data-accent="pink"] { background: color-mix(in oklab, var(--pink) 62%, var(--surface)); }
+
+@media (max-width: 768px) {
+  .cm-glass,
+  .topbar {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: color-mix(in oklab, var(--surface) 94%, transparent);
+  }
+  .cm-sheet {
+    top: auto;
+    height: auto;
+    max-height: min(85dvh, 720px);
+    border-radius: 22px 22px 0 0;
+  }
+  .cm-sheet .cm-link-row { min-height: 48px; padding-block: 0; }
+  .cm-sheet .cm-kicker { margin-top: 4px; }
+}
+html[data-quality="low"] .cm-glass,
+html[data-quality="static"] .cm-glass {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: color-mix(in oklab, var(--surface) 94%, transparent);
 }

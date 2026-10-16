@@ -132,7 +132,7 @@ function withDefaults(picked, env) {
   }
   return {
     v: 1,
-    theme: picked.theme || "starlight",
+    theme: picked.theme || "system",
     lang,
     motion: picked.motion || "system",
     sound: picked.sound || "off",
@@ -214,8 +214,18 @@ function defaultEnv() {
   };
 }
 
+function migrateLegacy(storage) {
+  const legacy = parse(storage.getItem(LEGACY_KEY));
+  if (!legacy) return;
+  if (!parse(storage.getItem(KEY))) {
+    storage.setItem(KEY, JSON.stringify({ ...pickKnown(legacy), v: 1 }));
+  }
+  storage.removeItem(LEGACY_KEY);
+}
+
 export function createStore(options = {}) {
   const storage = options.storage || (typeof localStorage === "undefined" ? memoryStorage() : browserStorage());
+  migrateLegacy(storage);
   const readEnv = typeof options.env === "function" ? options.env : () => options.env || defaultEnv();
   let session = parseQuery(readEnv().search);
   const listeners = new Set();
@@ -270,12 +280,26 @@ export function bindDocument(store) {
     const root = document.documentElement;
     root.dataset.theme = state.theme;
     root.dataset.motion = state.motion;
-    root.dataset.quality = state.quality;
+    let quality = state.quality;
+    if (quality === "auto" && typeof navigator !== "undefined") {
+      const connection = navigator.connection;
+      const saveData = connection && connection.saveData;
+      const mem = navigator.deviceMemory;
+      const cores = navigator.hardwareConcurrency;
+      if (saveData || (typeof mem === "number" && mem <= 4) || (typeof cores === "number" && cores <= 4)) quality = "low";
+    }
+    root.dataset.quality = quality;
     root.dataset.mascot = state.mascot;
     root.lang = state.lang;
     root.style.setProperty("--text-scale", String(state.textScale));
-    const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta && THEME_COLOR[state.theme]) meta.setAttribute("content", THEME_COLOR[state.theme]);
+    const color = THEME_COLOR[state.theme];
+    if (color) {
+      document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
+        meta.setAttribute("content", color);
+        if (state.themePreference === "system") return;
+        meta.removeAttribute("media");
+      });
+    }
     document.dispatchEvent(new CustomEvent("cm:settings", { detail: state }));
   };
   const unsubscribe = store.subscribe(apply);
