@@ -1151,7 +1151,7 @@ html[data-quality="static"] .cm-glass {
   box-shadow: 0 3px 10px rgba(60, 40, 160, 0.3);
 }
 .cm-bar .cm-menu-btn svg { width: 22px; height: 22px; }
-.cm-bar .cm-menu-btn:focus-visible { outline: 3px solid var(--ink, #1d1b3a); outline-offset: 2px; }
+.cm-bar .cm-menu-btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
 @media (max-width: 767px) {
   .cm-bar .cm-contact { display: none; }
 }

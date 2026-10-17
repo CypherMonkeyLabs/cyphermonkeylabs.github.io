@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "verifiedOn": "2026-10-16",
-  "notes": "Open URLs were checked with HTTP GET on 2026-10-15 and returned 200. Repo URLs were checked with the GitHub API and returned 200. Webex publishes its study console at the site root; /campus/ on that host returned 404, so the open link is the root. Other labs open on the campus path their own page points to. Zoom, Talkdesk and Avaya Lab and CPaaS Lab publish at the site root; both open URLs and both repos returned 200 on 2026-10-16.",
+  "verifiedOn": "2026-10-17",
+  "notes": "Open URLs were checked with HTTP GET on 2026-10-15 and returned 200. Repo URLs were checked with the GitHub API and returned 200. Webex publishes its study console at the site root; /campus/ on that host returned 404, so the open link is the root. Other labs open on the campus path their own page points to. Zoom, Talkdesk and Avaya Lab and CPaaS Lab publish at the site root; both open URLs and both repos returned 200 on 2026-10-16. Python Lab publishes at the site root of its repo path; its open URL returned 200 on 2026-10-17.",
   "labs": [
     {
       "schemaVersion": 1,
@@ -553,6 +553,46 @@
         "size": 1.05,
         "moons": 1,
         "ringHint": 2
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "python-lab",
+      "kind": "lab",
+      "title": "Python Lab",
+      "shortTitle": "Python",
+      "tagline": "Learn Python in the browser, from print to projects.",
+      "summary": "A free study studio for Python. Lessons run real Python in your browser, with NumPy and pandas included, plus quizzes, three small games, and cheat sheets. Sources are linked. It is practice, not official training.",
+      "category": "ai",
+      "tags": [
+        "python",
+        "numpy",
+        "pandas"
+      ],
+      "status": "live",
+      "featured": false,
+      "order": 20,
+      "level": "starter",
+      "url": "https://cyphermonkeylabs.com/python-lab-free-university-mesmerizing/",
+      "repo": "https://github.com/CypherMonkeyLabs/python-lab-free-university-mesmerizing",
+      "icon": "spark",
+      "accent": "lavender",
+      "vendorsReferenced": [],
+      "launchedAt": "2026-10-17",
+      "updatedAt": "2026-10-17",
+      "lastVerified": "2026-10-17",
+      "sources": [
+        {
+          "title": "Python Lab repository",
+          "url": "https://github.com/CypherMonkeyLabs/python-lab-free-university-mesmerizing",
+          "publisher": "CypherMonkey Labs",
+          "accessed": "2026-10-17"
+        }
+      ],
+      "scene": {
+        "size": 1.05,
+        "moons": 1,
+        "ringHint": 4
       }
     }
   ]

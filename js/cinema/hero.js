@@ -1,9 +1,9 @@
-/* Cinematic hero: a core, orbit rings of dotted light, 12 lab nodes, signal pulses, and a star shell.
+/* Cinematic hero: a core, orbit rings of dotted light, 13 lab nodes, signal pulses, and a star shell.
    three.js is vendored at /vendor/three. Renders only while the hero is on screen. */
 import * as T from '/vendor/three/three.module.js';
 
 const ACCENTS = [0x62d4f5, 0xffc65c, 0x6ee7b7, 0x9d8cff]; // voice, contact center, protocols, AI
-const NODE_GROUPS = [0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 3, 3]; // matches the 12 labs by group
+const NODE_GROUPS = [0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 3, 3, 3]; // matches the 13 labs by group
 
 export async function mountHero(canvas, hero) {
   const portrait = () => innerWidth < 900;
@@ -57,8 +57,8 @@ export async function mountHero(canvas, hero) {
   const core = new T.Mesh(new T.IcosahedronGeometry(1.2, 2), coreMat); root.add(core);
   const hotP = points(new Float32Array([0, 0, 0]), new Float32Array([1, .85, .6]), new Float32Array([9]), 1); root.add(hotP);
 
-  // nodes (12 labs), connections (dotted core->node), pulses
-  const NN = 12, nodeBase = [], npos = new Float32Array(NN * 3), ncol = new Float32Array(NN * 3), nsz = new Float32Array(NN);
+  // nodes (13 labs), connections (dotted core->node), pulses
+  const NN = 13, nodeBase = [], npos = new Float32Array(NN * 3), ncol = new Float32Array(NN * 3), nsz = new Float32Array(NN);
   for (let i = 0; i < NN; i++) {
     const ring = [0, 1, 2, 3][i % 4], k = Math.floor(i / 4);
     nodeBase.push({ ring, a0: (i / NN) * 6.283 * 2.1 + ring, r: radii[ring] });
