@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 
 const CATEGORIES = ['contact-center', 'unified-comms', 'protocols', 'ai', 'tools', 'texts'];
-const APP_COUNT = 13;
+const APP_COUNT = 14;
 const KINDS = ['lab', 'gallery'];
 const STATUSES = ['live', 'beta', 'coming-soon', 'archived'];
 const ICONS = ['headset', 'handset', 'cloud-phone', 'waveform', 'nodes', 'chat', 'spark', 'gem', 'video', 'route', 'book', 'shield'];

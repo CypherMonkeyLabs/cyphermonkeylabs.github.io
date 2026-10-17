@@ -418,6 +418,38 @@
       "highlights": [],
       "flow": [],
       "sketchPath": []
+    },
+    {
+      "id": "python-lab",
+      "name": "Python Lab",
+      "short": "Python",
+      "description": "Learn Python in the browser, from print to projects.",
+      "url": "https://cyphermonkeylabs.com/python-lab-free-university-mesmerizing/",
+      "source": "https://github.com/CypherMonkeyLabs/python-lab-free-university-mesmerizing",
+      "download": "",
+      "status": "live",
+      "category": "ai",
+      "color": "#ffd166",
+      "icon": "spark",
+      "tags": [
+        "python",
+        "numpy",
+        "pandas"
+      ],
+      "orbit": {
+        "angle": 1.9,
+        "radius": 4.4,
+        "size": 1
+      },
+      "stats": {
+        "rooms": null,
+        "quizQuestions": null,
+        "flashcards": null
+      },
+      "featured": false,
+      "highlights": [],
+      "flow": [],
+      "sketchPath": []
     }
   ]
 }

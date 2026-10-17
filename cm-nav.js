@@ -90,6 +90,13 @@ const LABS = [
     "url": "https://cyphermonkeylabs.com/cpaas-lab-free-university-mesmerizing/",
     "source": "https://github.com/CypherMonkeyLabs/cpaas-lab-free-university-mesmerizing",
     "status": "live"
+  },
+  {
+    "id": "python-lab",
+    "name": "Python Lab",
+    "url": "https://cyphermonkeylabs.com/python-lab-free-university-mesmerizing/",
+    "source": "https://github.com/CypherMonkeyLabs/python-lab-free-university-mesmerizing",
+    "status": "live"
   }
 ];
 const DEFAULTS = {
