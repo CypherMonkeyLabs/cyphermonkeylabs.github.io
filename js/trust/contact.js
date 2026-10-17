@@ -250,8 +250,25 @@ export function mountContact(rootEl, opts = {}) {
     widgetId = null;
   }
 
+  // Load Turnstile only when the form is near the screen or touched. The challenge iframe runs a
+  // fetch('data:,') probe under Cloudflare's own CSP, which logs console errors on every page view.
+  function whenNear(host, run) {
+    let done = false;
+    const go = () => { if (done) return; done = true; run(); };
+    if (!('IntersectionObserver' in window)) { go(); return; }
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) { observer.disconnect(); go(); }
+    }, { rootMargin: '300px 0px' });
+    observer.observe(host);
+    host.closest('form')?.addEventListener('focusin', () => { observer.disconnect(); go(); }, { once: true });
+  }
+
   function renderWidget(host, sitekey, note) {
     const generation = ++renderGeneration;
+    whenNear(host, () => loadAndRender(host, sitekey, note, generation));
+  }
+
+  function loadAndRender(host, sitekey, note, generation) {
     loadTurnstileApi().then((api) => {
       if (generation !== renderGeneration || !host.isConnected || !api) return;
       dropWidget();

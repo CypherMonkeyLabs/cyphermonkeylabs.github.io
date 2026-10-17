@@ -1136,3 +1136,22 @@ html[data-quality="static"] .cm-glass {
   -webkit-backdrop-filter: none !important;
   background: color-mix(in oklab, var(--surface) 94%, transparent);
 }
+
+/* Large, always-visible Menu button in the header at every width. */
+.cm-bar .cm-menu-btn {
+  display: inline-flex !important;
+  min-height: 48px;
+  min-width: 48px;
+  padding-inline: 18px;
+  gap: 10px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  background: var(--primary);
+  color: var(--on-primary);
+  box-shadow: 0 3px 10px rgba(60, 40, 160, 0.3);
+}
+.cm-bar .cm-menu-btn svg { width: 22px; height: 22px; }
+.cm-bar .cm-menu-btn:focus-visible { outline: 3px solid var(--ink, #1d1b3a); outline-offset: 2px; }
+@media (max-width: 767px) {
+  .cm-bar .cm-contact { display: none; }
+}
