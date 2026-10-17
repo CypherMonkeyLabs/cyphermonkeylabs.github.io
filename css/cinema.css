@@ -137,6 +137,7 @@ body.menu-open{overflow:hidden}
 .lab-glow{position:absolute;width:180px;height:180px;right:-60px;top:-60px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--a) 38%,transparent),transparent 70%);pointer-events:none;transition:transform .6s var(--ease)}
 .lab:hover .lab-glow{transform:scale(1.35)}
 .lab-ico{width:46px;height:46px;padding:10px;border-radius:14px;color:var(--a);background:color-mix(in srgb,var(--a) 14%,transparent);border:1px solid color-mix(in srgb,var(--a) 45%,transparent);stroke-width:1.7;transform:translateZ(30px)}
+.lab-art{display:block;width:calc(100% + 44px);max-width:none;height:auto;aspect-ratio:16/5;margin:-22px -22px 4px;border-radius:0;transform:translateZ(10px)}
 .lab h4{font-size:1.2rem}
 .lab p{margin:0;color:var(--ink2);font-size:1rem;line-height:1.5;flex:1}
 .lab-actions{display:flex;gap:10px;align-items:center;margin-top:6px;flex-wrap:wrap}

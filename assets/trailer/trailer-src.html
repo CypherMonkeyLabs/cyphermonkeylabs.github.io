@@ -5,8 +5,8 @@
 /* Deterministic canvas animation. window.drawAt(t) renders second t (0..12). Used to render trailer.mp4 and poster.jpg. */
 const c=document.getElementById('c'),x=c.getContext('2d'),W=1280,H=720,D=12;
 const ACC=['#62d4f5','#ffc65c','#6ee7b7','#9d8cff'];
-const LABS=['UC','Microsoft Voice','Webex','Zoom · Talkdesk · Avaya','Amazon Connect','Five9','Genesys Cloud','NICE CXone','SIP Universe','CPaaS','AI Lab','BA Lab'];
-const G=[0,0,0,0,1,1,1,1,2,2,3,3];
+const LABS=['UC','Microsoft Voice','Webex','Zoom · Talkdesk · Avaya','Amazon Connect','Five9','Genesys Cloud','NICE CXone','SIP Universe','CPaaS','AI Lab','BA Lab','Python Lab'];
+const G=[0,0,0,0,1,1,1,1,2,2,3,3,2];
 const ease=t=>t<0?0:t>1?1:1-Math.pow(1-t,3), cl=(a,b,t)=>Math.min(b,Math.max(a,t)), seg=(t,a,b)=>cl(0,1,(t-a)/(b-a));
 let seed=3;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
 const stars=[...Array(220)].map(()=>({x:rnd()*W,y:rnd()*H,z:.2+rnd()*.8,p:rnd()*6.28}));
@@ -22,7 +22,7 @@ function drawAt(t){
   const fadeOut=1-seg(t,11.4,12);
   // scene 1: title + orbit forming (0-3.4)
   const s1=seg(t,0,1.6)*(1-seg(t,3,3.5));
-  const nodes=[...Array(12)].map((_,i)=>({a:i*0.52+i%4,s:.35+(i%4)*.08,col:ACC[G[i]]}));
+  const nodes=[...Array(13)].map((_,i)=>({a:i*0.52+i%4,s:.35+(i%4)*.08,col:ACC[G[i]]}));
   const ringA=Math.max(s1,seg(t,3.2,3.6)*(1-seg(t,8.6,9.2)));
   const rc=[W/2,H/2], rs=1+0.15*seg(t,0,3);
   if(t<9.4){glow(...rc,150,'#9d8cff',.5*ringA);
@@ -40,13 +40,13 @@ function drawAt(t){
   const x0=180,x1=W-180;x.save();x.globalAlpha=a3*.6;x.strokeStyle='#ffffff55';x.lineWidth=2;x.setLineDash([8,10]);x.lineDashOffset=-t*30;x.beginPath();x.moveTo(x0,H/2);x.lineTo(x1,H/2);x.stroke();x.restore();
   P.forEach((p,i)=>{const px=x0+i*(x1-x0)/3,on=ease(seg(t,7+i*.5,7.6+i*.5));glow(px,H/2,70*on,p[2],a3*.8);x.save();x.globalAlpha=a3*on;x.fillStyle='#0b0d24';x.strokeStyle=p[2];x.lineWidth=4;x.beginPath();x.arc(px,H/2,34,0,7);x.fill();x.stroke();x.restore();txt(p[0],px,H/2+90,32,'#f3f1ff',a3*on);txt(p[1],px,H/2+124,22,'#c3c0e3',a3*on,500)});
   txt('where I am heading now',x1,H/2-62,20,'#9d8cff',a3*ease(seg(t,8.4,9)),500);
-  // scene 4: 12 labs (9.4-12)
+  // scene 4: 13 labs (9.4-12)
   const a4=ease(seg(t,9.3,9.9))*fadeOut;
-  txt('12 free labs',W/2,170,92,'#ffc65c',a4);
-  LABS.forEach((n,i)=>{const col=i%4,row=Math.floor(i/4),px=W/2-420+col*280,py=300+row*92,on=ease(seg(t,9.6+i*.07,10.1+i*.07));
+  txt('13 free labs',W/2,160,92,'#ffc65c',a4);
+  LABS.forEach((n,i)=>{const col=i%4,row=Math.floor(i/4),px=(i==LABS.length-1&&col==0)?W/2:W/2-420+col*280,py=285+row*88,on=ease(seg(t,9.6+i*.07,10.1+i*.07));
    x.save();x.globalAlpha=a4*on;x.translate(px,py);x.scale(1,on);x.fillStyle='#14173bcc';x.strokeStyle=ACC[G[i]];x.lineWidth=2.5;x.beginPath();x.roundRect(-130,-30,260,60,16);x.fill();x.stroke();x.restore();
    txt(n,px,py+8,n.length>18?19:24,'#f3f1ff',a4*on,600)});
-  txt('cyphermonkeylabs.com',W/2,640,34,'#62d4f5',a4*ease(seg(t,10.8,11.4)));
+  txt('cyphermonkeylabs.com',W/2,662,34,'#62d4f5',a4*ease(seg(t,10.8,11.4)));
   x.globalAlpha=1;
 }
 window.drawAt=drawAt;window.ready=Promise.all([document.fonts.load('700 20px SG'),Promise.resolve()]).then(()=>{drawAt(0);return true});
