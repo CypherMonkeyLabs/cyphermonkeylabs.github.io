@@ -12,7 +12,7 @@ export const LINKS = Object.freeze({
   help: '/#contact',
   correction: '/?topic=correction#contact',
   mit: '/privacy.html#licenses',
-  cc: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
+  cc: '/privacy.html#licenses',
   privacy: '/privacy.html',
   verify: '/privacy.html#how-we-verify',
   changelog: '/privacy.html#changelog',
@@ -21,7 +21,6 @@ export const LINKS = Object.freeze({
   timeline: '/#timeline',
   gems: '/#gems',
   about: '/#about',
-  cloudflarePrivacy: 'https://www.cloudflare.com/privacypolicy/',
 });
 
 export const SOCIAL = Object.freeze([
@@ -64,7 +63,6 @@ const en = {
   contact: 'Contact',
   accessibility: 'Accessibility',
   privacy: 'Privacy',
-  linkedin: 'LinkedIn',
   comingSoon: 'Coming soon',
   repo: 'Repo',
   repoHint: 'Studio source',
