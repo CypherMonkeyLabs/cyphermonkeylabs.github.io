@@ -1,641 +1,353 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dawn">
+<html lang="en" data-theme="starlight">
 <head>
   <meta charset="utf-8">
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FBF7FF">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F1030">
-  <script src="/js/settings/boot.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>CypherMonkey Labs | Free voice and AI labs</title>
-  <meta name="description" content="Free labs for curious minds. Explore contact centers, voice, SIP, and AI. Open a lab, follow the missions, and check every source.">
+  <meta name="theme-color" content="#070816">
+  <meta name="color-scheme" content="dark">
+  <title>CypherMonkey Labs | Twelve free labs, learning in the open</title>
+  <meta name="description" content="Twelve free labs on voice, contact center, SIP, and AI, plus Sutra Nexus. Built in the open by a lifelong student and AI enthusiast.">
   <link rel="canonical" href="https://cyphermonkeylabs.com/">
   <meta name="cml-contact-mode" content="worker">
   <meta name="cml-turnstile-sitekey" content="0x4AAAAAAFX-0D95hXYzwVx-">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="CypherMonkey Labs | Free voice and AI labs">
-  <meta property="og:description" content="Free labs for curious minds. Explore contact centers, voice, SIP, and AI. Open a lab, follow the missions, and check every source.">
+  <meta property="og:title" content="CypherMonkey Labs | Twelve free labs, learning in the open">
+  <meta property="og:description" content="Twelve free labs on voice, contact center, SIP, and AI, plus Sutra Nexus. Built in the open by a lifelong student and AI enthusiast.">
   <meta property="og:url" content="https://cyphermonkeylabs.com/">
   <meta property="og:image" content="https://cyphermonkeylabs.com/og.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="CypherMonkey Labs | Free voice and AI labs">
-  <meta name="twitter:description" content="Free labs for curious minds. Explore contact centers, voice, SIP, and AI. Open a lab, follow the missions, and check every source.">
+  <meta name="twitter:title" content="CypherMonkey Labs | Twelve free labs, learning in the open">
+  <meta name="twitter:description" content="Twelve free labs on voice, contact center, SIP, and AI, plus Sutra Nexus. Built in the open by a lifelong student and AI enthusiast.">
   <meta name="twitter:image" content="https://cyphermonkeylabs.com/og.png">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preload" href="/css/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://contact.cyphermonkeylabs.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action https://github.com https://contact.cyphermonkeylabs.com; upgrade-insecure-requests">
-  <link rel="stylesheet" href="/css/content.css">
-  <link rel="stylesheet" href="/css/tokens.css">
-  <link rel="stylesheet" href="/css/nav.css">
-  <link rel="stylesheet" href="/css/universe.css">
-  <link rel="stylesheet" href="/css/trust.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"CypherMonkey Labs","url":"https://cyphermonkeylabs.com/","description":"Free labs for curious minds. Explore contact centers, voice, SIP, and AI. Open a lab, follow the missions, and check every source."},{"@type":"Person","name":"CypherMonkey","url":"https://cyphermonkeylabs.com/#about","description":"I like hard problems that I can explain simply. I build free labs about voice, contact centers, and AI so a curious student can try them.","sameAs":["https://linktr.ee/cyphermonkey","https://github.com/CypherMonkeyLabs"]},{"@type":"ItemList","name":"CypherMonkey labs","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"LearningResource","name":"Unified Communications Lab","description":"This free campus walks through calling, meetings, and contact-center ideas. You follow the missions at your own pace. Each big idea can be checked against a source. It is practice, not official training.","url":"https://cyphermonkeylabs.com/uc-lab-free-university-mesmerizing/campus/uc-lab-free-university.html","isAccessibleForFree":true,"license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","educationalLevel":"navigator"}},{"@type":"ListItem","position":2,"item":{"@type":"LearningResource","name":"Amazon Connect Lab","description":"Explore contact flows, queues, routing, and the agent desk in Amazon Connect. The missions use plain language. Key facts link to the official administrator guide so you can check them yourself.","url":"https://cyphermonkeylabs.com/amazon-connect-lab-free-university-mesmerizing/campus/","isAccessibleForFree":true,"license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","educationalLevel":"explorer"}},{"@type":"ListItem","position":3,"item":{"@type":"LearningResource","name":"Microsoft Voice & Contact Center Lab","description":"Practice how Microsoft voice and contact-center pieces fit together. The campus is free and static. When a lesson names a product behavior, you can open the Microsoft Learn page and read it there.","url":"https://cyphermonkeylabs.com/microsoft-voice-cc-lab-free-university-mesmerizing/campus/","isAccessibleForFree":true,"license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","educationalLevel":"explorer"}},{"@type":"ListItem","position":4,"item":{"@type":"LearningResource","name":"Webex Lab","description":"A free study console for Webex by Cisco. You can explore Control Hub, calling, contact center, devices, and APIs. When you want the official wording, open Webex Help and read it beside the lesson.","url":"https://cyphermonkeylabs.com/webex-lab-free-university-mesmerizing/","isAccessibleForFree":true,"license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","educationalLevel":"navigator"}},{"@type":"ListItem","position":5,"item":{"@type":"LearningResource","name":"Five9 Lab","description":"Explore Five9 ideas such as admin, phone menus, skills, routing, and the agent desktop. The campus is free. Official Five9 documentation is linked so you can check a fact before you trust it.","url":"https://cyphermonkeylabs.com/five9-lab-free-university-mesmerizing/campus/","isAccessibleForFree":true,"license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","educationalLevel":"explorer"}},{"@type":"ListItem","position":6,"item":{"@type":"LearningResource","name":"Genesys Cloud Lab","description":"A free campus for Genesys Cloud CX. You study flows, queues, and routing in plain language. The official help center is one click away when you want the source behind a lesson.","url":"https://cyphermonkeylabs.com/genesys-cloud-lab-free-university-mesmerizing/campus/","isAccessibleForFree":true,"license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","educationalLevel":"explorer"}},{"@type":"ListItem","position":7,"item":{"@type":"LearningResource","name":"NICE CXone Lab","description":"This free campus introduces NICE CXone ideas such as routing, Studio, phone menus, and digital channels. It is independent study. Check the NICE help center before you use a step at work.","url":"https://cyphermonkeylabs.com/nice-cxone-lab-free-university-mesmerizing/campus/","isAccessibleForFree":true,"license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","educationalLevel":"explorer"}},{"@type":"ListItem","position":8,"item":{"@type":"LearningResource","name":"SIP Universe","description":"SIP Universe shows how the Session Initiation Protocol starts and steers internet calls. You read the ideas in plain language, then open RFC 3261 when you want the standard itself.","url":"https://cyphermonkeylabs.com/sip-universe-lab-free-university-mesmerizing/campus/","isAccessibleForFree":true,"license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","educationalLevel":"starter"}},{"@type":"ListItem","position":9,"item":{"@type":"LearningResource","name":"AI Lab","description":"A free campus about prompts, models, agents, and how AI tools behave. Lessons stay curious and careful. When a lesson names a standard, such as the Model Context Protocol, the source is linked.","url":"https://cyphermonkeylabs.com/ai-lab-free-university-mesmerizing/campus/ai-lab-university.html","isAccessibleForFree":true,"license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","educationalLevel":"explorer"}},{"@type":"ListItem","position":10,"item":{"@type":"LearningResource","name":"BA Lab","description":"A free business analyst learning lab. Work through requirements, user stories, and process maps at your own pace. It is independent study, not official training.","url":"https://cyphermonkeylabs.com/ba-lab-grok-free-university-mesmerizing/","isAccessibleForFree":true,"license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","educationalLevel":"starter"}},{"@type":"ListItem","position":11,"item":{"@type":"LearningResource","name":"Sutra Nexus","description":"Sutra Nexus opens ancient sutras as files, cards, PDFs, and HTML. Read the Ashtadhyayi lines, the Maheshvara sutras, and the Kashmir Shiva Sutras at your own pace. It is free, independent study.","url":"https://cyphermonkeylabs.com/sutra-nexus/","isAccessibleForFree":true,"license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","educationalLevel":"starter"}},{"@type":"ListItem","position":12,"item":{"@type":"LearningResource","name":"Zoom, Talkdesk and Avaya Lab","description":"A free campus for Zoom Workplace, Zoom Contact Center, Talkdesk, and Avaya. Twelve tracks and 36 lessons cover calling, routing, and the pages that opened. It is practice, not official training.","url":"https://cyphermonkeylabs.com/zoom-talkdesk-avaya-lab-free-university-mesmerizing/","isAccessibleForFree":true,"license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","educationalLevel":"explorer"}},{"@type":"ListItem","position":13,"item":{"@type":"LearningResource","name":"CPaaS Lab","description":"A free campus for communications APIs, SIP, and messaging. Twelve tracks and 36 lessons cover numbers, webhooks, and how calls get routed. It is practice, not official training.","url":"https://cyphermonkeylabs.com/cpaas-lab-free-university-mesmerizing/","isAccessibleForFree":true,"license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","educationalLevel":"explorer"}}]}]}</script>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self'; img-src 'self' data: blob:; media-src 'self'; font-src 'self'; connect-src 'self' https://contact.cyphermonkeylabs.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action https://github.com https://contact.cyphermonkeylabs.com; upgrade-insecure-requests">
+  <link rel="stylesheet" href="/css/cinema.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"CypherMonkey Labs","url":"https://cyphermonkeylabs.com/","description":"Twelve free labs on voice, contact center, SIP, and AI, built by a lifelong student and AI enthusiast."},{"@type":"Person","name":"CypherMonkey","url":"https://cyphermonkeylabs.com/#about","description":"A lifelong student and AI enthusiast from systems, networking, voice, and contact center, now moving into AI omni-channel agents.","sameAs":["https://linktr.ee/cyphermonkey","https://github.com/CypherMonkeyLabs","https://github.com/cipher0x9"]}]}</script>
 </head>
-<body>
-  <a class="skip" href="#main">Skip to main content</a>
-  <a class="skip" href="#labs">Skip to labs list</a>
-  <div class="sky" aria-hidden="true"></div>
-  <div class="stars" aria-hidden="true"></div>
-  <canvas id="universe-canvas" hidden aria-hidden="true" tabindex="-1"></canvas>
-  <div class="page">
-    <header id="nav-root">
-      <div class="cm-bar cm-glass">
-        <div class="cm-bar__row">
-          <a class="cm-logo" href="#launchpad">
-            <span class="cm-logo__mark" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32"><circle cx="16" cy="16" r="12" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="15" r="1.4" fill="currentColor"/><circle cx="20" cy="15" r="1.4" fill="currentColor"/><path d="M12 20c2 2 6 2 8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-            <span class="cm-logo__full">CypherMonkey Labs</span>
-            <span class="cm-logo__short">CML</span>
-          </a>
-          <nav class="cm-primary" aria-label="Primary">
-            <a class="cm-primary__link" href="#launchpad">Universe</a>
-            <a class="cm-primary__link" href="#labs">Labs</a>
-            <a class="cm-primary__link" href="#timeline">Timeline</a>
-            <a class="cm-primary__link nav-more" href="#gems">More</a>
-            <a class="cm-primary__link" href="#about">About</a>
-            <a class="cm-primary__link" href="#contact">Contact</a>
-            <button type="button" class="cm-primary__link" data-cm-effects>Effects</button>
-          </nav>
-          <details class="menu">
-            <summary class="cm-menu-btn">Menu</summary>
-            <div class="menu-links">
-              <nav aria-label="Mobile">
-                <a href="#launchpad">Universe</a>
-                <a href="#labs">Labs</a>
-                <a href="#timeline">Timeline</a>
-                <a class="nav-more" href="#gems">More</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-                <button type="button" data-cm-effects>Effects</button>
-              </nav>
-              <p class="kicker">Pick a planet</p>
-              <div class="cm-lab-chips"><a class="cm-lab-chip" data-accent="sky" href="https://cyphermonkeylabs.com/uc-lab-free-university-mesmerizing/campus/uc-lab-free-university.html">UC</a><a class="cm-lab-chip" data-accent="peach" href="https://cyphermonkeylabs.com/amazon-connect-lab-free-university-mesmerizing/campus/">Connect</a><a class="cm-lab-chip" data-accent="sky" href="https://cyphermonkeylabs.com/microsoft-voice-cc-lab-free-university-mesmerizing/campus/">Microsoft Voice</a><a class="cm-lab-chip" data-accent="sky" href="https://cyphermonkeylabs.com/webex-lab-free-university-mesmerizing/">Webex</a><a class="cm-lab-chip" data-accent="peach" href="https://cyphermonkeylabs.com/five9-lab-free-university-mesmerizing/campus/">Five9</a><a class="cm-lab-chip" data-accent="peach" href="https://cyphermonkeylabs.com/genesys-cloud-lab-free-university-mesmerizing/campus/">Genesys Cloud</a><a class="cm-lab-chip" data-accent="peach" href="https://cyphermonkeylabs.com/nice-cxone-lab-free-university-mesmerizing/campus/">NICE CXone</a><a class="cm-lab-chip" data-accent="mint" href="https://cyphermonkeylabs.com/sip-universe-lab-free-university-mesmerizing/campus/">SIP Universe</a><a class="cm-lab-chip" data-accent="lavender" href="https://cyphermonkeylabs.com/ai-lab-free-university-mesmerizing/campus/ai-lab-university.html">AI Lab</a><a class="cm-lab-chip" data-accent="butter" href="https://cyphermonkeylabs.com/ba-lab-grok-free-university-mesmerizing/">BA</a><a class="cm-lab-chip" data-accent="pink" href="https://cyphermonkeylabs.com/sutra-nexus/">Sutras</a><a class="cm-lab-chip" data-accent="peach" href="https://cyphermonkeylabs.com/zoom-talkdesk-avaya-lab-free-university-mesmerizing/">Zoom TD Avaya</a><a class="cm-lab-chip" data-accent="mint" href="https://cyphermonkeylabs.com/cpaas-lab-free-university-mesmerizing/">CPaaS</a></div>
-            </div>
-          </details>
-        </div>
-      </div>
-    </header>
-    <main id="main">
-      <section class="chapter" id="launchpad" aria-labelledby="launch-title">
-        <div class="wrap hero">
-          <div class="hero-copy notebook">
-            <p class="kicker">Chapter 1 · Launchpad</p>
-            <p><a class="badge" href="#disclaimer">Independent · Free · Cited</a></p>
-            <h1 id="launch-title">How does the world talk? Let's find out.</h1>
-            <p class="lede">Free labs for curious minds: contact centers, voice, <abbr title="SIP starts a call on the internet.">SIP</abbr>, and AI.</p>
-            <div class="hero-actions">
-              <a class="btn primary" href="#labs">Explore the labs</a>
-              <a class="btn ghost" href="#guide">How it works</a>
-            </div>
-            <div class="planet-picks">
-              <p class="kicker">Pick a planet</p>
-              <div class="planet-row" aria-label="Pick a planet"><a class="planet-chip" data-accent="sky" href="#lab-uc"><i aria-hidden="true"></i>UC</a><a class="planet-chip" data-accent="peach" href="#lab-amazon-connect"><i aria-hidden="true"></i>Connect</a><a class="planet-chip" data-accent="sky" href="#lab-microsoft-voice-cc"><i aria-hidden="true"></i>Microsoft Voice</a><a class="planet-chip" data-accent="sky" href="#lab-webex"><i aria-hidden="true"></i>Webex</a><a class="planet-chip" data-accent="peach" href="#lab-five9"><i aria-hidden="true"></i>Five9</a><a class="planet-chip" data-accent="peach" href="#lab-genesys-cloud"><i aria-hidden="true"></i>Genesys Cloud</a><a class="planet-chip" data-accent="peach" href="#lab-nice-cxone"><i aria-hidden="true"></i>NICE CXone</a><a class="planet-chip" data-accent="mint" href="#lab-sip-universe"><i aria-hidden="true"></i>SIP Universe</a><a class="planet-chip" data-accent="lavender" href="#lab-ai-lab"><i aria-hidden="true"></i>AI Lab</a><a class="planet-chip" data-accent="butter" href="#lab-ba-lab"><i aria-hidden="true"></i>BA</a><a class="planet-chip" data-accent="pink" href="#lab-sutra-nexus"><i aria-hidden="true"></i>Sutras</a><a class="planet-chip" data-accent="peach" href="#lab-zoom-talkdesk-avaya"><i aria-hidden="true"></i>Zoom TD Avaya</a><a class="planet-chip" data-accent="mint" href="#lab-cpaas"><i aria-hidden="true"></i>CPaaS</a></div>
-            </div>
-          </div>
-          <div class="hero-art">
-            <svg class="orbit-fallback" viewBox="0 0 200 160" aria-hidden="true">
-              <g class="ring-a"><ellipse cx="100" cy="80" rx="78" ry="30"/></g>
-              <g class="ring-b"><ellipse cx="100" cy="80" rx="58" ry="22"/></g>
-              <circle cx="100" cy="80" r="12" fill="var(--butter)"/>
-              <circle cx="100.0" cy="52.0" r="6" fill="var(--sky)"><title>UC</title></circle>
-              <circle cx="137.0" cy="56.4" r="6" fill="var(--peach)"><title>Connect</title></circle>
-              <circle cx="162.3" cy="68.4" r="6" fill="var(--sky)"><title>Microsoft Voice</title></circle>
-              <circle cx="167.8" cy="84.0" r="6" fill="var(--sky)"><title>Webex</title></circle>
-              <circle cx="151.8" cy="98.3" r="6" fill="var(--peach)"><title>Five9</title></circle>
-              <circle cx="119.3" cy="106.9" r="6" fill="var(--peach)"><title>Genesys Cloud</title></circle>
-              <circle cx="80.7" cy="106.9" r="6" fill="var(--peach)"><title>NICE CXone</title></circle>
-              <circle cx="48.2" cy="98.3" r="6" fill="var(--mint)"><title>SIP Universe</title></circle>
-              <circle cx="32.2" cy="84.0" r="6" fill="var(--lavender)"><title>AI Lab</title></circle>
-              <circle cx="37.7" cy="68.4" r="5" fill="var(--butter)"><title>BA</title></circle>
-              <circle cx="63.0" cy="56.4" r="5" fill="var(--pink)"><title>Sutras</title></circle>
-              <circle cx="81.5" cy="54.2" r="5" fill="var(--peach)"><title>Zoom TD Avaya</title></circle>
-              <circle cx="100.0" cy="106.9" r="5" fill="var(--mint)"><title>CPaaS</title></circle>
-            </svg>
-            <div id="mascot-root">
-              <div aria-hidden="true">
-                <div id="mascot-stage" data-mascot-stage data-variant="stargazer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
-  <g id="fx"></g>
-  <g id="tail">
-    <path d="M82 176c-30 10-48 36-34 52 10 12 28 4 30-10 2-14-10-24-6-36" fill="none" stroke="#C89B7B" stroke-width="10" stroke-linecap="round"/>
-    <path d="M82 176c-30 10-48 36-34 52 10 12 28 4 30-10 2-14-10-24-6-36" fill="none" stroke="#1E1B3A" stroke-width="3" stroke-linecap="round"/>
-  </g>
-  <g id="body">
-    <rect x="96" y="150" width="62" height="52" rx="16" fill="#A7D8FF" stroke="#1E1B3A" stroke-width="3"/>
-    <rect x="104" y="160" width="16" height="12" rx="3" fill="#FFE8A3" stroke="#1E1B3A" stroke-width="3"/>
-    <ellipse cx="126" cy="176" rx="34" ry="30" fill="#C89B7B" stroke="#1E1B3A" stroke-width="3"/>
-    <ellipse cx="126" cy="182" rx="16" ry="14" fill="#FBE3CF" stroke="#1E1B3A" stroke-width="3"/>
-  </g>
-  <g id="arm-l">
-    <path d="M100 164c-24 10-30 28-16 36" fill="none" stroke="#C89B7B" stroke-width="12" stroke-linecap="round"/>
-    <path d="M100 164c-24 10-30 28-16 36" fill="none" stroke="#1E1B3A" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="82" cy="202" r="7" fill="#FBE3CF" stroke="#1E1B3A" stroke-width="3"/>
-  </g>
-  <g id="arm-r">
-    <path d="M152 160c26-4 34 12 30 26" fill="none" stroke="#C89B7B" stroke-width="12" stroke-linecap="round"/>
-    <path d="M152 160c26-4 34 12 30 26" fill="none" stroke="#1E1B3A" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="184" cy="186" r="7" fill="#FBE3CF" stroke="#1E1B3A" stroke-width="3"/>
-  </g>
-  <g id="head">
-    <circle cx="80" cy="112" r="16" fill="#C89B7B" stroke="#1E1B3A" stroke-width="3"/>
-    <circle cx="172" cy="112" r="16" fill="#C89B7B" stroke="#1E1B3A" stroke-width="3"/>
-    <circle cx="80" cy="112" r="8" fill="#FBE3CF"/>
-    <circle cx="172" cy="112" r="8" fill="#FBE3CF"/>
-    <circle cx="126" cy="104" r="42" fill="#C89B7B" stroke="#1E1B3A" stroke-width="3"/>
-    <ellipse cx="126" cy="114" rx="28" ry="24" fill="#FBE3CF" stroke="#1E1B3A" stroke-width="3"/>
-    <path d="M126 58l7 14 14 2-11 9 3 14-13-8-13 8 3-14-11-9 14-2z" fill="#FFE8A3" stroke="#1E1B3A" stroke-width="3" stroke-linejoin="round"/>
-    <g id="eye-l">
-      <ellipse cx="112" cy="110" rx="8" ry="9" fill="#fff" stroke="#1E1B3A" stroke-width="3"/>
-      <g id="pupil-l"><circle cx="114" cy="112" r="3" fill="#1E1B3A"/></g>
-      <g id="lid-l"><rect x="103" y="101" width="18" height="18" rx="8" fill="#C89B7B"/></g>
-    </g>
-    <g id="eye-r">
-      <ellipse cx="142" cy="110" rx="8" ry="9" fill="#fff" stroke="#1E1B3A" stroke-width="3"/>
-      <g id="pupil-r"><circle cx="144" cy="112" r="3" fill="#1E1B3A"/></g>
-      <g id="lid-r"><rect x="133" y="101" width="18" height="18" rx="8" fill="#C89B7B"/></g>
-    </g>
-    <g id="mouth"><path d="M116 126c6 8 16 8 22 0" fill="none" stroke="#1E1B3A" stroke-width="3" stroke-linecap="round"/></g>
-  </g>
-  <g id="prop"><g>
-      <path d="M168 168l22-40" fill="none" stroke="#1E1B3A" stroke-width="3" stroke-linecap="round"/>
-      <rect x="178" y="112" width="40" height="14" rx="7" transform="rotate(-32 178 112)" fill="#C9B8FF" stroke="#1E1B3A" stroke-width="3"/>
-      <circle cx="166" cy="172" r="5" fill="#5B4BD6" stroke="#1E1B3A" stroke-width="3"/>
-    </g></g>
-</svg>
+<body data-trust-boot="contact">
+<svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true" focusable="false" width="0" height="0">
+<defs>
+<symbol id="i-handset" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a4 4 0 0 1-.6-7.96 5.5 5.5 0 0 1 10.6.96A3.5 3.5 0 0 1 17 18z"/><path d="M9 14.5h6"/></symbol>
+<symbol id="i-headset" viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><path d="M4 14h3v5H5a1 1 0 0 1-1-1zM20 14h-3v5h2a1 1 0 0 0 1-1z"/><path d="M18 19c0 1.6-2 2-5 2"/></symbol>
+<symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="M15 10.5l6-3v9l-6-3"/></symbol>
+<symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M8 18h6a3.5 3.5 0 0 0 0-7h-4a3.5 3.5 0 0 1 0-7h6"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
+<symbol id="i-nodes" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v5M12 12l-5.5 5.5M12 12l5.5 5.5"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l2 6 6 2-6 2-2 8-2-8-6-2 6-2z"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/></symbol>
+<symbol id="i-waveform" viewBox="0 0 24 24"><path d="M3 12h2M7 8v8M11 4v16M15 8v8M19 11v2"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="i-code" viewBox="0 0 24 24"><path d="M9 8l-4 4 4 4M15 8l4 4-4 4M13.5 6l-3 12"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></symbol>
+<symbol id="i-gem" viewBox="0 0 24 24"><path d="M6 4h12l3 5-9 11L3 9z"/><path d="M3 9h18M9 4l3 5 3-5M12 9v11"/></symbol>
+<symbol id="i-sound-on" viewBox="0 0 24 24"><path d="M4 9.5h4l5-4v13l-5-4H4z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></symbol>
+<symbol id="i-sound-off" viewBox="0 0 24 24"><path d="M4 9.5h4l5-4v13l-5-4H4z"/><path d="M17 9.5l5 5M22 9.5l-5 5"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-ext" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+</defs></svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top" id="top">
+  <a class="brand" href="/" aria-label="CypherMonkey Labs, home">
+    <img src="/assets/mascot/astronaut.svg" width="40" height="40" alt="" class="brand-mark">
+    <span class="brand-name">CypherMonkey <b>Labs</b></span>
+  </a>
+  <nav class="top-nav" aria-label="Primary">
+    <a href="#trailer">Trailer</a><a href="#labs">Labs</a><a href="#map">Map</a><a href="#about">About</a><a href="#contact">Contact</a>
+  </nav>
+  <button class="icon-btn" type="button" id="sound-btn" aria-pressed="false" aria-label="Ambient sound, currently off">
+    <svg class="ico" aria-hidden="true"><use href="#i-sound-off"/></svg><span class="btn-label">Sound off</span>
+  </button>
+  <button class="menu-btn" type="button" id="menu-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu">
+    <svg class="ico" aria-hidden="true"><use href="#i-menu"/></svg><span>Menu</span>
+  </button>
+</header>
+
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+  <div class="menu-inner">
+    <div class="menu-head">
+      <p class="eyebrow">Where to?</p>
+      <button class="menu-close" type="button" id="menu-close"><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg><span>Close</span></button>
+    </div>
+    <ul class="menu-list"><li><a class="menu-item" href="#trailer" data-menu-link><span class="menu-ico"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg></span><span class="menu-txt"><strong>Watch the trailer</strong><small>A 12-second tour of what lives here.</small></span></a></li><li><a class="menu-item" href="#labs" data-menu-link><span class="menu-ico"><svg class="ico" aria-hidden="true"><use href="#i-grid"/></svg></span><span class="menu-txt"><strong>The 12 labs</strong><small>Free hands-on campuses for voice, contact center, SIP and AI.</small></span></a></li><li><a class="menu-item" href="#map" data-menu-link><span class="menu-ico"><svg class="ico" aria-hidden="true"><use href="#i-map"/></svg></span><span class="menu-txt"><strong>How it connects</strong><small>One path from phone networks to AI agents.</small></span></a></li><li><a class="menu-item" href="#more" data-menu-link><span class="menu-ico"><svg class="ico" aria-hidden="true"><use href="#i-gem"/></svg></span><span class="menu-txt"><strong>More</strong><small>Sutra Nexus and the Gemini Gems gallery.</small></span></a></li><li><a class="menu-item" href="#about" data-menu-link><span class="menu-ico"><svg class="ico" aria-hidden="true"><use href="#i-user"/></svg></span><span class="menu-txt"><strong>About me</strong><small>A lifelong student, learning in the open.</small></span></a></li><li><a class="menu-item" href="#contact" data-menu-link><span class="menu-ico"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg></span><span class="menu-txt"><strong>Contact</strong><small>Send a note. I read every one.</small></span></a></li><li><a class="menu-item" href="https://github.com/CypherMonkeyLabs" target="_blank" rel="me noopener" data-menu-link><span class="menu-ico"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg></span><span class="menu-txt"><strong>GitHub<svg class="ico ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="sr-only"> (opens in a new tab)</span></strong><small>Every lab is open source, under one org.</small></span></a></li><li><a class="menu-item" href="https://linktr.ee/cyphermonkey" target="_blank" rel="me noopener" data-menu-link><span class="menu-ico"><svg class="ico" aria-hidden="true"><use href="#i-link"/></svg></span><span class="menu-txt"><strong>Linktree<svg class="ico ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="sr-only"> (opens in a new tab)</span></strong><small>Everything else, in one place.</small></span></a></li></ul>
+  </div>
 </div>
-                <p id="mascot-tip" data-mascot-tip hidden></p>
-              </div>
-              <button type="button" id="mascot-hide" data-mascot-hide hidden>Hide buddy</button>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section class="chapter" id="labs" aria-labelledby="labs-title">
-        <div class="wrap notebook">
-          <p class="kicker">Chapter 2 · The Labs Universe</p>
-          <h2 id="labs-title">Pick a planet. Start exploring.</h2>
-          <p class="section-intro">Thirteen labs are open. The picture is a map. The cards are the way in. A contact center is the system that routes people who call or message a company.</p>
-          <div class="tiles" data-tiles><a class="tile tile-peach" href="#cat-contact-center">
-    <span class="tile-glyph"><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 28a16 16 0 0 1 32 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><rect x="10" y="26" width="8" height="14" rx="3" fill="currentColor"/><rect x="46" y="26" width="8" height="14" rx="3" fill="currentColor"/><path d="M50 40c6 6 4 14-2 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="46" cy="58" r="3" fill="currentColor"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 28a16 16 0 0 1 32 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><rect x="10" y="26" width="8" height="14" rx="3" fill="currentColor"/><rect x="46" y="26" width="8" height="14" rx="3" fill="currentColor"/><path d="M50 40c6 6 4 14-2 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="46" cy="58" r="3" fill="currentColor"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 28a16 16 0 0 1 32 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><rect x="10" y="26" width="8" height="14" rx="3" fill="currentColor"/><rect x="46" y="26" width="8" height="14" rx="3" fill="currentColor"/><path d="M50 40c6 6 4 14-2 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="46" cy="58" r="3" fill="currentColor"/></svg></span></span>
-    <span><strong>Contact Center Planets</strong><span class="tile-count">5 labs</span></span>
-  </a><a class="tile tile-sky" href="#cat-unified-comms">
-    <span class="tile-glyph"><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 22c-6 8-4 18 4 24l8-8c2 4 6 8 10 10l8-8c6 8 16 10 24 4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M22 18c8-6 14-4 18 2M42 46c6 4 8 10 2 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 22c-6 8-4 18 4 24l8-8c2 4 6 8 10 10l8-8c6 8 16 10 24 4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M22 18c8-6 14-4 18 2M42 46c6 4 8 10 2 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 22c-6 8-4 18 4 24l8-8c2 4 6 8 10 10l8-8c6 8 16 10 24 4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M22 18c8-6 14-4 18 2M42 46c6 4 8 10 2 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span></span>
-    <span><strong>Voice &amp; Collaboration</strong><span class="tile-count">3 labs</span></span>
-  </a><a class="tile tile-mint" href="#cat-protocols">
-    <span class="tile-glyph"><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><circle cx="16" cy="40" r="6" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="40" cy="18" r="6" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="48" cy="46" r="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M21 36 35 22M21 42l22 6M44 24l2 16" fill="none" stroke="currentColor" stroke-width="3"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><circle cx="16" cy="40" r="6" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="40" cy="18" r="6" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="48" cy="46" r="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M21 36 35 22M21 42l22 6M44 24l2 16" fill="none" stroke="currentColor" stroke-width="3"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><circle cx="16" cy="40" r="6" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="40" cy="18" r="6" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="48" cy="46" r="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M21 36 35 22M21 42l22 6M44 24l2 16" fill="none" stroke="currentColor" stroke-width="3"/></svg></span></span>
-    <span><strong>Protocols &amp; Networks</strong><span class="tile-count">2 labs</span></span>
-  </a><a class="tile tile-lavender" href="#cat-ai">
-    <span class="tile-glyph"><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8l4 14 14 4-14 4-4 14-4-14-14-4 14-4z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8l4 14 14 4-14 4-4 14-4-14-14-4 14-4z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8l4 14 14 4-14 4-4 14-4-14-14-4 14-4z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg></span></span>
-    <span><strong>AI Frontier</strong><span class="tile-count">1 lab</span></span>
-  </a><a class="tile tile-butter" href="#cat-tools">
-    <span class="tile-glyph"><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8l16 12-16 36L16 20z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M16 20h32M24 20l8 36 8-36" fill="none" stroke="currentColor" stroke-width="3"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8l16 12-16 36L16 20z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M16 20h32M24 20l8 36 8-36" fill="none" stroke="currentColor" stroke-width="3"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8l16 12-16 36L16 20z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M16 20h32M24 20l8 36 8-36" fill="none" stroke="currentColor" stroke-width="3"/></svg></span></span>
-    <span><strong>Business Analysis</strong><span class="tile-count">1 lab</span></span>
-  </a><a class="tile tile-pink" href="#cat-texts">
-    <span class="tile-glyph"><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 16h18a8 8 0 0 1 8 8v28H18a8 8 0 0 0-8 8zM54 16H36a8 8 0 0 0-8 8v28h18a8 8 0 0 1 8 8z" fill="none" stroke="currentColor" stroke-width="3"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 16h18a8 8 0 0 1 8 8v28H18a8 8 0 0 0-8 8zM54 16H36a8 8 0 0 0-8 8v28h18a8 8 0 0 1 8 8z" fill="none" stroke="currentColor" stroke-width="3"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 16h18a8 8 0 0 1 8 8v28H18a8 8 0 0 0-8 8zM54 16H36a8 8 0 0 0-8 8v28h18a8 8 0 0 1 8 8z" fill="none" stroke="currentColor" stroke-width="3"/></svg></span></span>
-    <span><strong>Ancient Sutras</strong><span class="tile-count">1 lab</span></span>
-  </a></div>
-          <form class="filters" data-filters role="search">
-            <label>Search labs<input type="search" name="q" placeholder="Try SIP or voice" autocomplete="off"></label>
-            <label>Category
-              <select name="cat">
-                <option value="">All categories</option>
-                <option value="contact-center">Contact center</option>
-                <option value="unified-comms">Voice and collaboration</option>
-                <option value="protocols">Protocols</option>
-                <option value="ai">AI</option>
-                <option value="tools">Business analysis</option>
-                <option value="texts">Ancient sutras</option>
-              </select>
-            </label>
-            <label>Level
-              <select name="level">
-                <option value="">Any level</option>
-                <option value="starter">Starter</option>
-                <option value="explorer">Explorer</option>
-                <option value="navigator">Navigator</option>
-              </select>
-            </label>
-          </form>
-          <p class="empty" data-empty hidden>No labs match. Try fewer filters?</p>
-          <div data-lab-mount><section class="cat-block" id="cat-contact-center" aria-labelledby="cat-title-contact-center">
-        <h3 id="cat-title-contact-center">Contact Center Planets</h3>
-        <div class="lab-grid"><article class="lab-card" id="lab-amazon-connect" data-lab="amazon-connect" data-category="contact-center" data-level="explorer" data-status="live" data-title="amazon connect lab" data-tags="cloud routing ivr aws" data-featured="true">
-    <div class="planet planet-peach"><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 36h28a10 10 0 0 0 2-20 14 14 0 0 0-26-2A8 8 0 0 0 18 36z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M28 40v8M24 52h8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 36h28a10 10 0 0 0 2-20 14 14 0 0 0-26-2A8 8 0 0 0 18 36z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M28 40v8M24 52h8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 36h28a10 10 0 0 0 2-20 14 14 0 0 0-26-2A8 8 0 0 0 18 36z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M28 40v8M24 52h8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span></div>
-    <h4>Amazon Connect Lab</h4>
-    <p class="tagline">Build a cloud contact center, one friendly mission at a time.</p>
-    <ul class="badges"><li>Explorer</li><li>Live</li><li>New</li></ul>
-    <p class="card-actions"><a class="btn primary" href="https://cyphermonkeylabs.com/amazon-connect-lab-free-university-mesmerizing/campus/">Open app</a><a class="btn ghost" href="https://github.com/CypherMonkeyLabs/amazon-connect-lab-free-university-mesmerizing" target="_blank" rel="noopener">View repo<span class="sr-only"> for Amazon Connect Lab on GitHub (opens new tab)</span></a></p>
-    <p class="verified">Last verified: <time datetime="2026-10-15">2026-10-15</time></p>
-    <p class="fine">Not affiliated with Amazon Web Services, Amazon Connect.</p>
-    <details class="sources"><summary>Sources</summary><ul><li><a href="https://docs.aws.amazon.com/connect/" rel="noopener">Amazon Connect Administrator Guide</a> · AWS</li></ul></details>
-  </article><article class="lab-card" id="lab-five9" data-lab="five9" data-category="contact-center" data-level="explorer" data-status="live" data-title="five9 lab" data-tags="five9 routing ivr" data-featured="false">
-    <div class="planet planet-peach"><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 28a16 16 0 0 1 32 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><rect x="10" y="26" width="8" height="14" rx="3" fill="currentColor"/><rect x="46" y="26" width="8" height="14" rx="3" fill="currentColor"/><path d="M50 40c6 6 4 14-2 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="46" cy="58" r="3" fill="currentColor"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 28a16 16 0 0 1 32 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><rect x="10" y="26" width="8" height="14" rx="3" fill="currentColor"/><rect x="46" y="26" width="8" height="14" rx="3" fill="currentColor"/><path d="M50 40c6 6 4 14-2 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="46" cy="58" r="3" fill="currentColor"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 28a16 16 0 0 1 32 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><rect x="10" y="26" width="8" height="14" rx="3" fill="currentColor"/><rect x="46" y="26" width="8" height="14" rx="3" fill="currentColor"/><path d="M50 40c6 6 4 14-2 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="46" cy="58" r="3" fill="currentColor"/></svg></span></div>
-    <h4>Five9 Lab</h4>
-    <p class="tagline">See how a Five9 contact center fits together.</p>
-    <ul class="badges"><li>Explorer</li><li>Live</li><li>New</li></ul>
-    <p class="card-actions"><a class="btn primary" href="https://cyphermonkeylabs.com/five9-lab-free-university-mesmerizing/campus/">Open app</a><a class="btn ghost" href="https://github.com/CypherMonkeyLabs/five9-lab-free-university-mesmerizing" target="_blank" rel="noopener">View repo<span class="sr-only"> for Five9 Lab on GitHub (opens new tab)</span></a></p>
-    <p class="verified">Last verified: <time datetime="2026-10-15">2026-10-15</time></p>
-    <p class="fine">Not affiliated with Five9.</p>
-    <details class="sources"><summary>Sources</summary><ul><li><a href="https://documentation.five9.com/" rel="noopener">Five9 documentation</a> · Five9</li></ul></details>
-  </article><article class="lab-card" id="lab-genesys-cloud" data-lab="genesys-cloud" data-category="contact-center" data-level="explorer" data-status="live" data-title="genesys cloud lab" data-tags="genesys routing cloud" data-featured="false">
-    <div class="planet planet-peach"><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><circle cx="16" cy="48" r="5" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="48" cy="16" r="5" fill="none" stroke="currentColor" stroke-width="3"/><path d="M20 44c12-2 8-20 16-22h8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><circle cx="16" cy="48" r="5" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="48" cy="16" r="5" fill="none" stroke="currentColor" stroke-width="3"/><path d="M20 44c12-2 8-20 16-22h8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><circle cx="16" cy="48" r="5" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="48" cy="16" r="5" fill="none" stroke="currentColor" stroke-width="3"/><path d="M20 44c12-2 8-20 16-22h8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span></div>
-    <h4>Genesys Cloud Lab</h4>
-    <p class="tagline">Trace flows, queues, and routing in Genesys Cloud.</p>
-    <ul class="badges"><li>Explorer</li><li>Live</li><li>New</li></ul>
-    <p class="card-actions"><a class="btn primary" href="https://cyphermonkeylabs.com/genesys-cloud-lab-free-university-mesmerizing/campus/">Open app</a><a class="btn ghost" href="https://github.com/CypherMonkeyLabs/genesys-cloud-lab-free-university-mesmerizing" target="_blank" rel="noopener">View repo<span class="sr-only"> for Genesys Cloud Lab on GitHub (opens new tab)</span></a></p>
-    <p class="verified">Last verified: <time datetime="2026-10-15">2026-10-15</time></p>
-    <p class="fine">Not affiliated with Genesys.</p>
-    <details class="sources"><summary>Sources</summary><ul><li><a href="https://help.mypurecloud.com/" rel="noopener">Genesys Cloud Resource Center</a> · Genesys</li></ul></details>
-  </article><article class="lab-card" id="lab-nice-cxone" data-lab="nice-cxone" data-category="contact-center" data-level="explorer" data-status="live" data-title="nice cxone lab" data-tags="nice cxone routing" data-featured="false">
-    <div class="planet planet-peach"><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M12 16h32a8 8 0 0 1 8 8v14a8 8 0 0 1-8 8H28l-10 8v-8h-6a8 8 0 0 1-8-8V24a8 8 0 0 1 8-8z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M12 16h32a8 8 0 0 1 8 8v14a8 8 0 0 1-8 8H28l-10 8v-8h-6a8 8 0 0 1-8-8V24a8 8 0 0 1 8-8z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M12 16h32a8 8 0 0 1 8 8v14a8 8 0 0 1-8 8H28l-10 8v-8h-6a8 8 0 0 1-8-8V24a8 8 0 0 1 8-8z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg></span></div>
-    <h4>NICE CXone Lab</h4>
-    <p class="tagline">Explore routing, phone menus, and digital paths in CXone.</p>
-    <ul class="badges"><li>Explorer</li><li>Live</li><li>New</li></ul>
-    <p class="card-actions"><a class="btn primary" href="https://cyphermonkeylabs.com/nice-cxone-lab-free-university-mesmerizing/campus/">Open app</a><a class="btn ghost" href="https://github.com/CypherMonkeyLabs/nice-cxone-lab-free-university-mesmerizing" target="_blank" rel="noopener">View repo<span class="sr-only"> for NICE CXone Lab on GitHub (opens new tab)</span></a></p>
-    <p class="verified">Last verified: <time datetime="2026-10-15">2026-10-15</time></p>
-    <p class="fine">Not affiliated with NICE, NICE CXone.</p>
-    <details class="sources"><summary>Sources</summary><ul><li><a href="https://help.nicecxone.com/" rel="noopener">NICE CXone Help</a> · NICE</li></ul></details>
-  </article><article class="lab-card" id="lab-zoom-talkdesk-avaya" data-lab="zoom-talkdesk-avaya" data-category="contact-center" data-level="explorer" data-status="live" data-title="zoom, talkdesk and avaya lab" data-tags="zoom talkdesk avaya contact-center" data-featured="false">
-    <div class="planet planet-peach"><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 28a16 16 0 0 1 32 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><rect x="10" y="26" width="8" height="14" rx="3" fill="currentColor"/><rect x="46" y="26" width="8" height="14" rx="3" fill="currentColor"/><path d="M50 40c6 6 4 14-2 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="46" cy="58" r="3" fill="currentColor"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 28a16 16 0 0 1 32 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><rect x="10" y="26" width="8" height="14" rx="3" fill="currentColor"/><rect x="46" y="26" width="8" height="14" rx="3" fill="currentColor"/><path d="M50 40c6 6 4 14-2 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="46" cy="58" r="3" fill="currentColor"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 28a16 16 0 0 1 32 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><rect x="10" y="26" width="8" height="14" rx="3" fill="currentColor"/><rect x="46" y="26" width="8" height="14" rx="3" fill="currentColor"/><path d="M50 40c6 6 4 14-2 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="46" cy="58" r="3" fill="currentColor"/></svg></span></div>
-    <h4>Zoom, Talkdesk and Avaya Lab</h4>
-    <p class="tagline">Twelve tracks and 36 lessons on Zoom, Talkdesk, and Avaya.</p>
-    <ul class="badges"><li>Explorer</li><li>Live</li><li>New</li></ul>
-    <p class="card-actions"><a class="btn primary" href="https://cyphermonkeylabs.com/zoom-talkdesk-avaya-lab-free-university-mesmerizing/">Open app</a><a class="btn ghost" href="https://github.com/CypherMonkeyLabs/zoom-talkdesk-avaya-lab-free-university-mesmerizing" target="_blank" rel="noopener">View repo<span class="sr-only"> for Zoom, Talkdesk and Avaya Lab on GitHub (opens new tab)</span></a></p>
-    <p class="verified">Last verified: <time datetime="2026-10-16">2026-10-16</time></p>
-    <p class="fine">Not affiliated with Zoom, Talkdesk, Avaya.</p>
-    <details class="sources"><summary>Sources</summary><ul><li><a href="https://github.com/CypherMonkeyLabs/zoom-talkdesk-avaya-lab-free-university-mesmerizing" rel="noopener">Zoom, Talkdesk and Avaya Lab repository</a> · CypherMonkey Labs</li></ul></details>
-  </article></div>
-      </section><section class="cat-block" id="cat-unified-comms" aria-labelledby="cat-title-unified-comms">
-        <h3 id="cat-title-unified-comms">Voice &amp; Collaboration</h3>
-        <div class="lab-grid"><article class="lab-card" id="lab-uc" data-lab="uc" data-category="unified-comms" data-level="navigator" data-status="live" data-title="unified communications lab" data-tags="calling meetings collaboration" data-featured="true">
-    <div class="planet planet-sky"><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 22c-6 8-4 18 4 24l8-8c2 4 6 8 10 10l8-8c6 8 16 10 24 4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M22 18c8-6 14-4 18 2M42 46c6 4 8 10 2 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 22c-6 8-4 18 4 24l8-8c2 4 6 8 10 10l8-8c6 8 16 10 24 4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M22 18c8-6 14-4 18 2M42 46c6 4 8 10 2 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 22c-6 8-4 18 4 24l8-8c2 4 6 8 10 10l8-8c6 8 16 10 24 4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M22 18c8-6 14-4 18 2M42 46c6 4 8 10 2 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span></div>
-    <h4>Unified Communications Lab</h4>
-    <p class="tagline">See how phones, meetings, and teams share one campus.</p>
-    <ul class="badges"><li>Navigator</li><li>Live</li></ul>
-    <p class="card-actions"><a class="btn primary" href="https://cyphermonkeylabs.com/uc-lab-free-university-mesmerizing/campus/uc-lab-free-university.html">Open app</a><a class="btn ghost" href="https://github.com/CypherMonkeyLabs/uc-lab-free-university-mesmerizing" target="_blank" rel="noopener">View repo<span class="sr-only"> for Unified Communications Lab on GitHub (opens new tab)</span></a></p>
-    <p class="verified">Last verified: <time datetime="2026-10-15">2026-10-15</time></p>
-    <p class="fine">Not affiliated with Cisco.</p>
-    <details class="sources"><summary>Sources</summary><ul><li><a href="https://www.rfc-editor.org/rfc/rfc3261" rel="noopener">SIP: Session Initiation Protocol (RFC 3261)</a> · IETF</li></ul></details>
-  </article><article class="lab-card" id="lab-microsoft-voice-cc" data-lab="microsoft-voice-cc" data-category="unified-comms" data-level="explorer" data-status="live" data-title="microsoft voice &amp; contact center lab" data-tags="microsoft voice contact-center" data-featured="true">
-    <div class="planet planet-sky"><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 28a16 16 0 0 1 32 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><rect x="10" y="26" width="8" height="14" rx="3" fill="currentColor"/><rect x="46" y="26" width="8" height="14" rx="3" fill="currentColor"/><path d="M50 40c6 6 4 14-2 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="46" cy="58" r="3" fill="currentColor"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 28a16 16 0 0 1 32 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><rect x="10" y="26" width="8" height="14" rx="3" fill="currentColor"/><rect x="46" y="26" width="8" height="14" rx="3" fill="currentColor"/><path d="M50 40c6 6 4 14-2 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="46" cy="58" r="3" fill="currentColor"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 28a16 16 0 0 1 32 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><rect x="10" y="26" width="8" height="14" rx="3" fill="currentColor"/><rect x="46" y="26" width="8" height="14" rx="3" fill="currentColor"/><path d="M50 40c6 6 4 14-2 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="46" cy="58" r="3" fill="currentColor"/></svg></span></div>
-    <h4>Microsoft Voice &amp; Contact Center Lab</h4>
-    <p class="tagline">Follow voice and contact-center ideas across Microsoft tools.</p>
-    <ul class="badges"><li>Explorer</li><li>Live</li><li>New</li></ul>
-    <p class="card-actions"><a class="btn primary" href="https://cyphermonkeylabs.com/microsoft-voice-cc-lab-free-university-mesmerizing/campus/">Open app</a><a class="btn ghost" href="https://github.com/CypherMonkeyLabs/microsoft-voice-cc-lab-free-university-mesmerizing" target="_blank" rel="noopener">View repo<span class="sr-only"> for Microsoft Voice &amp; Contact Center Lab on GitHub (opens new tab)</span></a></p>
-    <p class="verified">Last verified: <time datetime="2026-10-15">2026-10-15</time></p>
-    <p class="fine">Not affiliated with Microsoft.</p>
-    <details class="sources"><summary>Sources</summary><ul><li><a href="https://learn.microsoft.com/en-us/microsoftteams/setting-up-your-phone-system" rel="noopener">Set up Microsoft Teams Phone</a> · Microsoft</li></ul></details>
-  </article><article class="lab-card" id="lab-webex" data-lab="webex" data-category="unified-comms" data-level="navigator" data-status="live" data-title="webex lab" data-tags="webex calling contact-center" data-featured="true">
-    <div class="planet planet-sky"><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="18" width="32" height="24" rx="4" fill="none" stroke="currentColor" stroke-width="3"/><path d="M40 26l14-6v24l-14-6z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="18" width="32" height="24" rx="4" fill="none" stroke="currentColor" stroke-width="3"/><path d="M40 26l14-6v24l-14-6z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="18" width="32" height="24" rx="4" fill="none" stroke="currentColor" stroke-width="3"/><path d="M40 26l14-6v24l-14-6z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg></span></div>
-    <h4>Webex Lab</h4>
-    <p class="tagline">Walk Control Hub, calling, and contact center in Webex.</p>
-    <ul class="badges"><li>Navigator</li><li>Live</li><li>New</li></ul>
-    <p class="card-actions"><a class="btn primary" href="https://cyphermonkeylabs.com/webex-lab-free-university-mesmerizing/">Open app</a><a class="btn ghost" href="https://github.com/CypherMonkeyLabs/webex-lab-free-university-mesmerizing" target="_blank" rel="noopener">View repo<span class="sr-only"> for Webex Lab on GitHub (opens new tab)</span></a></p>
-    <p class="verified">Last verified: <time datetime="2026-10-15">2026-10-15</time></p>
-    <p class="fine">Not affiliated with Cisco, Webex by Cisco.</p>
-    <details class="sources"><summary>Sources</summary><ul><li><a href="https://help.webex.com/" rel="noopener">Webex Help Center</a> · Cisco</li></ul></details>
-  </article></div>
-      </section><section class="cat-block" id="cat-protocols" aria-labelledby="cat-title-protocols">
-        <h3 id="cat-title-protocols">Protocols &amp; Networks</h3>
-        <div class="lab-grid"><article class="lab-card" id="lab-sip-universe" data-lab="sip-universe" data-category="protocols" data-level="starter" data-status="live" data-title="sip universe" data-tags="sip calling protocol" data-featured="true">
-    <div class="planet planet-mint"><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><circle cx="16" cy="40" r="6" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="40" cy="18" r="6" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="48" cy="46" r="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M21 36 35 22M21 42l22 6M44 24l2 16" fill="none" stroke="currentColor" stroke-width="3"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><circle cx="16" cy="40" r="6" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="40" cy="18" r="6" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="48" cy="46" r="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M21 36 35 22M21 42l22 6M44 24l2 16" fill="none" stroke="currentColor" stroke-width="3"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><circle cx="16" cy="40" r="6" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="40" cy="18" r="6" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="48" cy="46" r="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M21 36 35 22M21 42l22 6M44 24l2 16" fill="none" stroke="currentColor" stroke-width="3"/></svg></span></div>
-    <h4>SIP Universe</h4>
-    <p class="tagline">Watch a phone call start its trip across the internet.</p>
-    <ul class="badges"><li>Starter</li><li>Live</li><li>New</li></ul>
-    <p class="card-actions"><a class="btn primary" href="https://cyphermonkeylabs.com/sip-universe-lab-free-university-mesmerizing/campus/">Open app</a><a class="btn ghost" href="https://github.com/CypherMonkeyLabs/sip-universe-lab-free-university-mesmerizing" target="_blank" rel="noopener">View repo<span class="sr-only"> for SIP Universe on GitHub (opens new tab)</span></a></p>
-    <p class="verified">Last verified: <time datetime="2026-10-15">2026-10-15</time></p>
-    <p class="fine">Independent study. Not an official product manual.</p>
-    <details class="sources"><summary>Sources</summary><ul><li><a href="https://www.rfc-editor.org/rfc/rfc3261" rel="noopener">SIP: Session Initiation Protocol (RFC 3261)</a> · IETF</li></ul></details>
-  </article><article class="lab-card" id="lab-cpaas" data-lab="cpaas" data-category="protocols" data-level="explorer" data-status="live" data-title="cpaas lab" data-tags="cpaas sip messaging api" data-featured="false">
-    <div class="planet planet-mint"><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 32h6l4-12 6 24 6-18 6 14 4-8h12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 32h6l4-12 6 24 6-18 6 14 4-8h12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 32h6l4-12 6 24 6-18 6 14 4-8h12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-    <h4>CPaaS Lab</h4>
-    <p class="tagline">Twelve tracks and 36 lessons on communications APIs.</p>
-    <ul class="badges"><li>Explorer</li><li>Live</li><li>New</li></ul>
-    <p class="card-actions"><a class="btn primary" href="https://cyphermonkeylabs.com/cpaas-lab-free-university-mesmerizing/">Open app</a><a class="btn ghost" href="https://github.com/CypherMonkeyLabs/cpaas-lab-free-university-mesmerizing" target="_blank" rel="noopener">View repo<span class="sr-only"> for CPaaS Lab on GitHub (opens new tab)</span></a></p>
-    <p class="verified">Last verified: <time datetime="2026-10-16">2026-10-16</time></p>
-    <p class="fine">Independent study. Not an official product manual.</p>
-    <details class="sources"><summary>Sources</summary><ul><li><a href="https://github.com/CypherMonkeyLabs/cpaas-lab-free-university-mesmerizing" rel="noopener">CPaaS Lab repository</a> · CypherMonkey Labs</li></ul></details>
-  </article></div>
-      </section><section class="cat-block" id="cat-ai" aria-labelledby="cat-title-ai">
-        <h3 id="cat-title-ai">AI Frontier</h3>
-        <div class="lab-grid"><article class="lab-card" id="lab-ai-lab" data-lab="ai-lab" data-category="ai" data-level="explorer" data-status="live" data-title="ai lab" data-tags="ai prompts agents" data-featured="true">
-    <div class="planet planet-lavender"><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8l4 14 14 4-14 4-4 14-4-14-14-4 14-4z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8l4 14 14 4-14 4-4 14-4-14-14-4 14-4z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8l4 14 14 4-14 4-4 14-4-14-14-4 14-4z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg></span></div>
-    <h4>AI Lab</h4>
-    <p class="tagline">Try prompts, agents, and tools with the sources in view.</p>
-    <ul class="badges"><li>Explorer</li><li>Live</li></ul>
-    <p class="card-actions"><a class="btn primary" href="https://cyphermonkeylabs.com/ai-lab-free-university-mesmerizing/campus/ai-lab-university.html">Open app</a><a class="btn ghost" href="https://github.com/CypherMonkeyLabs/ai-lab-free-university-mesmerizing" target="_blank" rel="noopener">View repo<span class="sr-only"> for AI Lab on GitHub (opens new tab)</span></a></p>
-    <p class="verified">Last verified: <time datetime="2026-10-15">2026-10-15</time></p>
-    <p class="fine">Independent study. Not an official product manual.</p>
-    <details class="sources"><summary>Sources</summary><ul><li><a href="https://modelcontextprotocol.io/docs/getting-started/intro" rel="noopener">Model Context Protocol introduction</a> · Model Context Protocol</li></ul></details>
-  </article></div>
-      </section><section class="cat-block" id="cat-tools" aria-labelledby="cat-title-tools">
-        <h3 id="cat-title-tools">Business Analysis</h3>
-        <div class="lab-grid"><article class="lab-card" id="lab-ba-lab" data-lab="ba-lab" data-category="tools" data-level="starter" data-status="live" data-title="ba lab" data-tags="business-analysis requirements process" data-featured="false">
-    <div class="planet planet-butter"><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><circle cx="16" cy="48" r="5" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="48" cy="16" r="5" fill="none" stroke="currentColor" stroke-width="3"/><path d="M20 44c12-2 8-20 16-22h8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><circle cx="16" cy="48" r="5" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="48" cy="16" r="5" fill="none" stroke="currentColor" stroke-width="3"/><path d="M20 44c12-2 8-20 16-22h8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><circle cx="16" cy="48" r="5" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="48" cy="16" r="5" fill="none" stroke="currentColor" stroke-width="3"/><path d="M20 44c12-2 8-20 16-22h8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span></div>
-    <h4>BA Lab</h4>
-    <p class="tagline">Practice business analysis: requirements, stories, and process maps.</p>
-    <ul class="badges"><li>Starter</li><li>Live</li><li>New</li></ul>
-    <p class="card-actions"><a class="btn primary" href="https://cyphermonkeylabs.com/ba-lab-grok-free-university-mesmerizing/">Open app</a><a class="btn ghost" href="https://github.com/CypherMonkeyLabs/ba-lab-grok-free-university-mesmerizing" target="_blank" rel="noopener">View repo<span class="sr-only"> for BA Lab on GitHub (opens new tab)</span></a></p>
-    <p class="verified">Last verified: <time datetime="2026-10-16">2026-10-16</time></p>
-    <p class="fine">Independent study. Not an official product manual.</p>
-    <details class="sources"><summary>Sources</summary><ul><li><a href="https://www.iiba.org/career-resources/a-business-analysis-professionals-foundation-for-success/babok/" rel="noopener">BABOK Guide</a> · IIBA</li></ul></details>
-  </article></div>
-      </section><section class="cat-block" id="cat-texts" aria-labelledby="cat-title-texts">
-        <h3 id="cat-title-texts">Ancient Sutras</h3>
-        <div class="lab-grid"><article class="lab-card" id="lab-sutra-nexus" data-lab="sutra-nexus" data-category="texts" data-level="starter" data-status="live" data-title="sutra nexus" data-tags="sutras files cards pdf html" data-featured="false">
-    <div class="planet planet-pink"><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 16h18a8 8 0 0 1 8 8v28H18a8 8 0 0 0-8 8zM54 16H36a8 8 0 0 0-8 8v28h18a8 8 0 0 1 8 8z" fill="none" stroke="currentColor" stroke-width="3"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 16h18a8 8 0 0 1 8 8v28H18a8 8 0 0 0-8 8zM54 16H36a8 8 0 0 0-8 8v28h18a8 8 0 0 1 8 8z" fill="none" stroke="currentColor" stroke-width="3"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 16h18a8 8 0 0 1 8 8v28H18a8 8 0 0 0-8 8zM54 16H36a8 8 0 0 0-8 8v28h18a8 8 0 0 1 8 8z" fill="none" stroke="currentColor" stroke-width="3"/></svg></span></div>
-    <h4>Sutra Nexus</h4>
-    <p class="tagline">Ancient sutras as files, cards, PDFs, and HTML.</p>
-    <ul class="badges"><li>Starter</li><li>Live</li><li>New</li></ul>
-    <p class="card-actions"><a class="btn primary" href="https://cyphermonkeylabs.com/sutra-nexus/">Open app</a><a class="btn ghost" href="https://github.com/CypherMonkeyLabs/sutra-nexus" target="_blank" rel="noopener">View repo<span class="sr-only"> for Sutra Nexus on GitHub (opens new tab)</span></a></p>
-    <p class="verified">Last verified: <time datetime="2026-10-16">2026-10-16</time></p>
-    <p class="fine">Independent study. Not an official product manual.</p>
-    <details class="sources"><summary>Sources</summary><ul><li><a href="https://gretil.sub.uni-goettingen.de/gretil/corpustei/transformations/html/sa_zivasUtra-with-vArttika.htm" rel="noopener">Shivasutra with Varttika (GRETIL)</a> · GRETIL</li></ul></details>
-  </article></div>
-      </section></div>
-          <p class="more-link" id="gems">More · <a href="https://cyphermonkeylabs.com/gemini-gems-free-gallery/site/">Gemini Gems shelf<span class="sr-only"> (opens the gallery)</span></a></p>
-        </div>
-      </section>
-
-      <section class="chapter" id="guide" aria-labelledby="guide-title">
-        <div class="wrap notebook">
-          <p class="kicker">Chapter 3 · Field Guide</p>
-          <h2 id="guide-title">How to explore</h2>
-          <p class="section-intro">Three moves. That is the whole path.</p>
-          <ol class="guide-steps"><li><span class="step-num">1</span><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8l4 14 14 4-14 4-4 14-4-14-14-4 14-4z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8l4 14 14 4-14 4-4 14-4-14-14-4 14-4z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8l4 14 14 4-14 4-4 14-4-14-14-4 14-4z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg></span><h3>Pick a lab</h3><p>Choose a planet. The list under the picture has every open lab.</p></li><li><span class="step-num">2</span><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><circle cx="16" cy="48" r="5" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="48" cy="16" r="5" fill="none" stroke="currentColor" stroke-width="3"/><path d="M20 44c12-2 8-20 16-22h8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><circle cx="16" cy="48" r="5" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="48" cy="16" r="5" fill="none" stroke="currentColor" stroke-width="3"/><path d="M20 44c12-2 8-20 16-22h8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><circle cx="16" cy="48" r="5" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="48" cy="16" r="5" fill="none" stroke="currentColor" stroke-width="3"/><path d="M20 44c12-2 8-20 16-22h8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span><h3>Follow the missions</h3><p>Open the lab and walk the rooms at your own pace.</p></li><li><span class="step-num">3</span><span class="glyph"><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 16h18a8 8 0 0 1 8 8v28H18a8 8 0 0 0-8 8zM54 16H36a8 8 0 0 0-8 8v28h18a8 8 0 0 1 8 8z" fill="none" stroke="currentColor" stroke-width="3"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 16h18a8 8 0 0 1 8 8v28H18a8 8 0 0 0-8 8zM54 16H36a8 8 0 0 0-8 8v28h18a8 8 0 0 1 8 8z" fill="none" stroke="currentColor" stroke-width="3"/></svg><svg class="glyph-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 16h18a8 8 0 0 1 8 8v28H18a8 8 0 0 0-8 8zM54 16H36a8 8 0 0 0-8 8v28h18a8 8 0 0 1 8 8z" fill="none" stroke="currentColor" stroke-width="3"/></svg></span><h3>Check the sources</h3><p>Important facts have a link. Open the source before you trust a line.</p></li></ol>
-          <h3>Small words</h3>
-          <dl class="glossary">
-            <dt><abbr title="Session Initiation Protocol">SIP</abbr></dt>
-            <dd>The rules that start many phone calls on the internet.</dd>
-            <dt>IVR</dt>
-            <dd>The phone menu that asks you to press a number.</dd>
-            <dt>Contact center</dt>
-            <dd>The system that routes people who call or message a company.</dd>
-          </dl>
-        </div>
-      </section>
-
-      <section class="chapter" id="timeline" aria-labelledby="timeline-title">
-        <div class="wrap notebook">
-          <p class="kicker">Chapter 4 · Timeline</p>
-          <h2 id="timeline-title">From wires to AI: a short trip through time</h2>
-          <p class="section-intro">History sits with the lab openings. Every card has a source I opened on October 15, 2026.</p>
-          <div class="time-tools">
-            <button type="button" data-track-filter="all" aria-pressed="true">All</button>
-            <button type="button" data-track-filter="history" aria-pressed="false">History</button>
-            <button type="button" data-track-filter="lab-launch" aria-pressed="false">Lab launches</button>
-            <button type="button" data-time-prev aria-label="Previous milestones">‹</button>
-            <button type="button" data-time-next aria-label="Next milestones">›</button>
-            <label>Year <select data-year-jump><option value="">Jump to a year</option><option value="1876">1876</option><option value="1963">1963</option><option value="1999">1999</option><option value="2002">2002</option><option value="2021">2021</option><option value="2026">2026</option></select></label>
-          </div>
-          <div class="timeline-scroller" data-timeline-scroller tabindex="0" aria-label="Timeline track">
-            <ol class="timeline" data-timeline><li class="event event-history era-wires" data-track="history" data-year="1876">
-    <article>
-      <p class="era-label">wires</p>
-      <time datetime="1876-03-07">March 7, 1876</time>
-      <h3>Bell receives U.S. patent 174,465</h3>
-      <p>The U.S. patent office granted Alexander Graham Bell patent 174,465, Improvement in Telegraphy, on March 7, 1876. The patent text describes sending vocal sounds as electrical waves. A scan of the patent is dated March 7, 1876.</p>
-      <p class="source-line">Source: <a href="https://edison.rutgers.edu/images/archive/pdf-files/174465.pdf" rel="noopener">U.S. Patent 174,465 scan (Patented March 7, 1876)</a> · <a href="https://www.datamp.org/patents/displayPatent.php?id=37313&amp;pn=174465" rel="noopener">US Patent 174,465 record: granted March 7, 1876</a></p>
-    </article>
-  </li><li class="event event-history era-switches" data-track="history" data-year="1963">
-    <article>
-      <p class="era-label">switches</p>
-      <time datetime="1963-11-18">November 18, 1963</time>
-      <h3>Touch-Tone service opens in two towns</h3>
-      <p>On November 18, 1963, the Bell System began commercial Touch-Tone service in Carnegie and Greensburg, Pennsylvania. Early sets had ten buttons. A Bell System report dates the commercial debut to November 1963.</p>
-      <p class="source-line">Source: <a href="https://www.hagley.org/research/news/hagley-vault/date-november-18-1963-bell-telephone-began-offering-worlds-first" rel="noopener">Hagley Vault: first commercial Touch-Tone service, November 18, 1963</a></p>
-    </article>
-  </li><li class="event event-history era-internet-voice" data-track="history" data-year="1999">
-    <article>
-      <p class="era-label">internet-voice</p>
-      <time datetime="1999-03-01">March 1, 1999</time>
-      <h3>SIP is published as RFC 2543</h3>
-      <p>The first SIP standard, RFC 2543, was published on March 1, 1999. The RFC header dates the document March 1999. SIP is the Session Initiation Protocol, a way to start calls and other sessions on the internet.</p>
-      <p class="source-line">Source: <a href="https://datatracker.ietf.org/doc/rfc2543/history/" rel="noopener">RFC 2543 publication history</a> · <a href="https://www.rfc-editor.org/rfc/rfc2543" rel="noopener">RFC 2543: SIP: Session Initiation Protocol</a></p>
-    </article>
-  </li><li class="event event-history era-internet-voice" data-track="history" data-year="2002">
-    <article>
-      <p class="era-label">internet-voice</p>
-      <time datetime="2002-07-03">July 3, 2002</time>
-      <h3>SIP 2.0 is published as RFC 3261</h3>
-      <p>The IETF datatracker records RFC 3261 as published on July 3, 2002. The RFC header itself says June 2002. RFC 3261 replaced RFC 2543 and is still the core SIP standard.</p>
-      <p class="source-line">Source: <a href="https://datatracker.ietf.org/doc/rfc3261/history/" rel="noopener">RFC 3261 publication history</a> · <a href="https://www.rfc-editor.org/rfc/rfc3261" rel="noopener">RFC 3261: SIP: Session Initiation Protocol</a></p>
-    </article>
-  </li><li class="event event-history era-cloud-cx" data-track="history" data-year="2021">
-    <article>
-      <p class="era-label">cloud-cx</p>
-      <time datetime="2021-01-26">January 26, 2021</time>
-      <h3>WebRTC 1.0 becomes a W3C Recommendation</h3>
-      <p>On January 26, 2021, the W3C published WebRTC 1.0 as a Recommendation. It is the browser API for real-time audio, video, and data. Many cloud calling tools build on it.</p>
-      <p class="source-line">Source: <a href="https://www.w3.org/TR/2021/REC-webrtc-20210126/" rel="noopener">WebRTC 1.0 W3C Recommendation, 26 January 2021</a></p>
-    </article>
-  </li><li class="event event-launch era-cloud-cx" data-track="lab-launch" data-year="2026">
-    <article>
-      <p class="era-label">cloud-cx</p>
-      <time datetime="2026-07-31">July 31, 2026</time>
-      <h3>UC opens</h3>
-      <p>Unified Communications Lab was added to the public catalog on 2026-07-31. The date is the day the GitHub repository was created.</p>
-      <p class="source-line">Source: <a href="https://github.com/CypherMonkeyLabs/uc-lab-free-university-mesmerizing" rel="noopener">Unified Communications Lab repository</a></p>
-    </article>
-  </li><li class="event event-launch era-ai" data-track="lab-launch" data-year="2026">
-    <article>
-      <p class="era-label">ai</p>
-      <time datetime="2026-07-31">July 31, 2026</time>
-      <h3>AI Lab opens</h3>
-      <p>AI Lab was added to the public catalog on 2026-07-31. The date is the day the GitHub repository was created.</p>
-      <p class="source-line">Source: <a href="https://github.com/CypherMonkeyLabs/ai-lab-free-university-mesmerizing" rel="noopener">AI Lab repository</a></p>
-    </article>
-  </li><li class="event event-launch era-cloud-cx" data-track="lab-launch" data-year="2026">
-    <article>
-      <p class="era-label">cloud-cx</p>
-      <time datetime="2026-10-14">October 14, 2026</time>
-      <h3>Connect opens</h3>
-      <p>Amazon Connect Lab was added to the public catalog on 2026-10-14. The date is the day the GitHub repository was created.</p>
-      <p class="source-line">Source: <a href="https://github.com/CypherMonkeyLabs/amazon-connect-lab-free-university-mesmerizing" rel="noopener">Amazon Connect Lab repository</a></p>
-    </article>
-  </li><li class="event event-launch era-cloud-cx" data-track="lab-launch" data-year="2026">
-    <article>
-      <p class="era-label">cloud-cx</p>
-      <time datetime="2026-10-14">October 14, 2026</time>
-      <h3>Microsoft Voice opens</h3>
-      <p>Microsoft Voice &amp; Contact Center Lab was added to the public catalog on 2026-10-14. The date is the day the GitHub repository was created.</p>
-      <p class="source-line">Source: <a href="https://github.com/CypherMonkeyLabs/microsoft-voice-cc-lab-free-university-mesmerizing" rel="noopener">Microsoft Voice &amp; Contact Center Lab repository</a></p>
-    </article>
-  </li><li class="event event-launch era-ai" data-track="lab-launch" data-year="2026">
-    <article>
-      <p class="era-label">ai</p>
-      <time datetime="2026-10-16">October 16, 2026</time>
-      <h3>BA opens</h3>
-      <p>BA Lab was added to the public catalog on 2026-10-16. The date is the day the GitHub repository was created.</p>
-      <p class="source-line">Source: <a href="https://github.com/CypherMonkeyLabs/ba-lab-grok-free-university-mesmerizing" rel="noopener">BA Lab repository</a></p>
-    </article>
-  </li><li class="event event-launch era-cloud-cx" data-track="lab-launch" data-year="2026">
-    <article>
-      <p class="era-label">cloud-cx</p>
-      <time datetime="2026-10-16">October 16, 2026</time>
-      <h3>Sutras opens</h3>
-      <p>Sutra Nexus was added to the public catalog on 2026-10-16. The date is the day the GitHub repository was created.</p>
-      <p class="source-line">Source: <a href="https://github.com/CypherMonkeyLabs/sutra-nexus" rel="noopener">Sutra Nexus repository</a></p>
-    </article>
-  </li><li class="event event-launch era-cloud-cx" data-track="lab-launch" data-year="2026">
-    <article>
-      <p class="era-label">cloud-cx</p>
-      <time datetime="2026-10-16">October 16, 2026</time>
-      <h3>Zoom TD Avaya opens</h3>
-      <p>Zoom, Talkdesk and Avaya Lab was added to the public catalog on 2026-10-16. The date is the day the GitHub repository was created.</p>
-      <p class="source-line">Source: <a href="https://github.com/CypherMonkeyLabs/zoom-talkdesk-avaya-lab-free-university-mesmerizing" rel="noopener">Zoom, Talkdesk and Avaya Lab repository</a></p>
-    </article>
-  </li><li class="event event-launch era-cloud-cx" data-track="lab-launch" data-year="2026">
-    <article>
-      <p class="era-label">cloud-cx</p>
-      <time datetime="2026-10-16">October 16, 2026</time>
-      <h3>CPaaS opens</h3>
-      <p>CPaaS Lab was added to the public catalog on 2026-10-16. The date is the day the GitHub repository was created.</p>
-      <p class="source-line">Source: <a href="https://github.com/CypherMonkeyLabs/cpaas-lab-free-university-mesmerizing" rel="noopener">CPaaS Lab repository</a></p>
-    </article>
-  </li><li class="event event-launch era-cloud-cx" data-track="lab-launch" data-year="2026">
-    <article>
-      <p class="era-label">cloud-cx</p>
-      <time datetime="2026-10-15">October 15, 2026</time>
-      <h3>Webex opens</h3>
-      <p>Webex Lab was added to the public catalog on 2026-10-15. The date is the day the GitHub repository was created.</p>
-      <p class="source-line">Source: <a href="https://github.com/CypherMonkeyLabs/webex-lab-free-university-mesmerizing" rel="noopener">Webex Lab repository</a></p>
-    </article>
-  </li><li class="event event-launch era-cloud-cx" data-track="lab-launch" data-year="2026">
-    <article>
-      <p class="era-label">cloud-cx</p>
-      <time datetime="2026-10-15">October 15, 2026</time>
-      <h3>Five9 opens</h3>
-      <p>Five9 Lab was added to the public catalog on 2026-10-15. The date is the day the GitHub repository was created.</p>
-      <p class="source-line">Source: <a href="https://github.com/CypherMonkeyLabs/five9-lab-free-university-mesmerizing" rel="noopener">Five9 Lab repository</a></p>
-    </article>
-  </li><li class="event event-launch era-cloud-cx" data-track="lab-launch" data-year="2026">
-    <article>
-      <p class="era-label">cloud-cx</p>
-      <time datetime="2026-10-15">October 15, 2026</time>
-      <h3>Genesys Cloud opens</h3>
-      <p>Genesys Cloud Lab was added to the public catalog on 2026-10-15. The date is the day the GitHub repository was created.</p>
-      <p class="source-line">Source: <a href="https://github.com/CypherMonkeyLabs/genesys-cloud-lab-free-university-mesmerizing" rel="noopener">Genesys Cloud Lab repository</a></p>
-    </article>
-  </li><li class="event event-launch era-cloud-cx" data-track="lab-launch" data-year="2026">
-    <article>
-      <p class="era-label">cloud-cx</p>
-      <time datetime="2026-10-15">October 15, 2026</time>
-      <h3>NICE CXone opens</h3>
-      <p>NICE CXone Lab was added to the public catalog on 2026-10-15. The date is the day the GitHub repository was created.</p>
-      <p class="source-line">Source: <a href="https://github.com/CypherMonkeyLabs/nice-cxone-lab-free-university-mesmerizing" rel="noopener">NICE CXone Lab repository</a></p>
-    </article>
-  </li><li class="event event-launch era-cloud-cx" data-track="lab-launch" data-year="2026">
-    <article>
-      <p class="era-label">cloud-cx</p>
-      <time datetime="2026-10-15">October 15, 2026</time>
-      <h3>SIP Universe opens</h3>
-      <p>SIP Universe was added to the public catalog on 2026-10-15. The date is the day the GitHub repository was created.</p>
-      <p class="source-line">Source: <a href="https://github.com/CypherMonkeyLabs/sip-universe-lab-free-university-mesmerizing" rel="noopener">SIP Universe repository</a></p>
-    </article>
-  </li></ol>
-          </div>
-        </div>
-      </section>
-
-      <section class="chapter" id="about" aria-labelledby="about-title">
-        <div class="wrap about-grid">
-          <div class="notebook">
-            <p class="kicker">Chapter 5 · Meet the Explorer</p>
-            <h2 id="about-title">Hi! I'm the human behind the monkey.</h2>
-            <p>I like hard problems that I can explain simply. I build free labs about voice, contact centers, and AI so a curious student can try them.</p>
-            <p>Free learning for anyone who wants to see how calls, contact centers, and AI actually work.</p>
-            <h3>How the notes get checked</h3>
-            <p>Primary sources come first: official docs, RFCs, and standards bodies. A date on this site is published only after the source page was opened. Counts that I have not checked myself stay out of the copy.</p>
-            <p>See a mistake? <a href="/?topic=correction#contact">Tell Mission Control</a>. I aim to fix cited errors within 14 days and note the change here.</p>
-          </div>
-          <aside class="panel author-card" aria-label="About the author">
-            <h3>CypherMonkey</h3>
-            <p>The human behind the monkey</p>
-            <ul class="socials"><li><a href="https://linktr.ee/cyphermonkey" rel="me noopener">CypherMonkey on Linktree<span class="sr-only"> (opens new tab)</span></a></li><li><a href="https://github.com/CypherMonkeyLabs" rel="me noopener">CypherMonkey Labs on GitHub<span class="sr-only"> (opens new tab)</span></a></li></ul>
-            <p><a class="btn primary" href="#contact">Send me a note</a></p>
-            <p class="fine"><a href="#disclaimer">Independent · Free · Cited</a></p>
-          </aside>
-        </div>
-      </section>
-
-      <div id="contact-root">
-      <section class="chapter" id="contact" aria-labelledby="contact-title">
-        <div class="wrap notebook">
-          <p class="kicker">Chapter 6 · Mission Control</p>
-          <h2 id="contact-title" tabindex="-1">Send a message to Mission Control</h2>
-          <p class="section-intro">Send a note to the studio. I read every message. Send opens a GitHub issue so I can reply. The issue is public, so leave out secrets. Your email stays in this browser and is not shown on the page.</p>
-          <div id="contact-panel">
-            <form id="contact-form" class="contact-form panel" action="https://github.com/CypherMonkeyLabs/cyphermonkeylabs.github.io/issues/new" method="post" data-contact-endpoint="">
-              <label>Name<input name="name" autocomplete="name" required></label>
-              <label>Your email, so I can reply<input name="email" type="email" autocomplete="email" required></label>
-              <label>Topic
-                <select name="topic">
-                  <option value="general">General</option>
-                  <option value="correction">Correction</option>
-                  <option value="lab-idea">Lab idea</option>
-                  <option value="collaboration">Collaboration</option>
-                  <option value="accessibility">Accessibility issue</option>
-                </select>
-              </label>
-              <label>Lab, if you have one
-                <select name="lab"><option value="">No specific lab</option></select>
-              </label>
-              <label>Message<textarea name="message" maxlength="4000" required></textarea></label>
-              <label><input name="consent" type="checkbox" required> Use my message only to reply. <a href="/privacy.html">Privacy</a></label>
-              <p class="honeypot" aria-hidden="true"><label>Company<input name="company" tabindex="-1" autocomplete="off"></label></p>
-              <button class="btn primary" type="submit">Send a message</button>
-              <p><a href="https://github.com/CypherMonkeyLabs/cyphermonkeylabs.github.io/issues/new" rel="noopener">Open a GitHub issue instead<span class="sr-only"> (opens new tab)</span></a></p>
-            </form>
-            <div class="form-status" data-form-status tabindex="-1" hidden></div>
-            <noscript><p>JavaScript is off. Use the GitHub issue link in the form. Nothing on this page shows an email address.</p></noscript>
-          </div>
-        </div>
-      </section>
+<main id="main">
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <div class="hero-art" id="hero-art" aria-hidden="true">
+      <div class="orbit-css"><i></i><i></i><i></i><i></i><b></b></div>
+      <canvas id="hero-canvas"></canvas>
+    </div>
+    <div class="hero-copy wrap">
+      <p class="eyebrow">Lifelong student · AI enthusiast</p>
+      <h1 id="hero-title">Learning in the open,<br><span class="grad">one lab at a time.</span></h1>
+      <p class="lede">I came up through systems, networking, voice, and contact center, and I am moving into AI omni-channel agents. I am learning everything I can, and I share it here as free labs.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#labs">Explore the 12 labs <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn ghost" href="#trailer"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg> Watch the trailer</a>
       </div>
-    </main>
-    <div id="footer-root">
-      <div class="wrap">
-        <section class="ground-rules" id="disclaimer" aria-labelledby="disclaimer-title">
-          <h2 id="disclaimer-title">Independent, free, and cited</h2>
-          <p><strong>Independent and educational.</strong> CypherMonkey Labs is a free, independent learning project. It is <strong>not affiliated with, sponsored by, or endorsed by</strong> Amazon Web Services, Microsoft, Cisco (Webex), Five9, Genesys, NICE, Zoom, Talkdesk, Avaya, Google, or any other company named on this site. Product names and trademarks belong to their owners and are used only to describe what each lab teaches. We work to keep every lesson truthful and cite our sources, but technology changes, so always check official documentation before using anything in production. Spotted a mistake? <a href="/?topic=correction#contact">Tell Mission Control</a>.</p>
-          <p><strong>Code:</strong> MIT License · <strong>Content</strong> (text, diagrams, timeline): <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener">CC BY-NC-SA 4.0</a> · <strong>Brand</strong> (name, logo, mascot): all rights reserved.</p>
-        </section>
-        <div class="footer-links">
-          <div>
-            <p class="footer-label">Explore</p>
-            <ul>
-              <li><a href="#labs">Labs</a></li>
-              <li><a href="#timeline">Timeline</a></li>
-              <li><a class="nav-more" href="#gems">More</a></li>
-            </ul>
-          </div>
-          <div>
-            <p class="footer-label">About</p>
-            <ul>
-              <li><a href="#about">Author</a></li>
-              <li><a href="#about">How we verify</a></li>
-              <li><a href="#disclaimer">Ground rules</a></li>
-            </ul>
-          </div>
-          <div>
-            <p class="footer-label">Help</p>
-            <ul>
-              <li><a href="#contact">Contact</a></li>
-              <li><a href="/privacy.html">Privacy</a></li>
-            </ul>
-          </div>
-          <div>
-            <p class="footer-label">Social</p>
-            <ul>
-              <li><a href="https://linktr.ee/cyphermonkey" rel="me noopener">CypherMonkey on Linktree<span class="sr-only"> (opens new tab)</span></a></li><li><a href="https://github.com/CypherMonkeyLabs" rel="me noopener">CypherMonkey Labs on GitHub<span class="sr-only"> (opens new tab)</span></a></li>
-            </ul>
-          </div>
+      <ul class="facts" aria-label="At a glance">
+        <li><b>12</b><span>free labs</span></li>
+        <li><b>+1</b><span>Sutra Nexus</span></li>
+        <li><b>Free</b><span>no sign-up</span></li>
+      </ul>
+    </div>
+    <a class="scroll-cue" href="#trailer" aria-label="Scroll to the trailer"><svg class="ico" aria-hidden="true"><use href="#i-down"/></svg></a>
+  </section>
+
+  <section class="band" id="trailer" aria-labelledby="trailer-title">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow">Trailer</p>
+        <h2 id="trailer-title">Twelve seconds, no sound.</h2>
+        <p>An animation rendered from this site's own code. Press play, or skip straight to the labs.</p>
+      </header>
+      <figure class="screen">
+        <video id="trailer-video" controls playsinline preload="none" poster="/assets/trailer/poster.jpg" width="1280" height="720">
+          <source src="/assets/trailer/trailer.mp4" type="video/mp4">
+          <p>Your browser cannot play this video. The labs below are the real thing.</p>
+        </video>
+        <figcaption>Silent trailer, about 12 seconds. No tracking, no outside hosting.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band alt" id="labs" aria-labelledby="labs-title">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow">The labs</p>
+        <h2 id="labs-title">Twelve free labs. Open any of them.</h2>
+        <p>Each lab is a small campus you can walk through at your own pace. Every one is open source, so you can read how it was made.</p>
+      </header>
+      <div class="lab-group" data-acc="sky">
+  <div class="lab-group-head"><span class="chip-ico"><svg class="ico" aria-hidden="true"><use href="#i-handset"/></svg></span><div><h3>Voice and unified communications</h3><p>Calls, meetings, and the platforms people use to talk.</p></div></div>
+  <div class="lab-grid"><article class="lab" data-acc="sky">
+  <div class="lab-glow" aria-hidden="true"></div>
+  <svg class="ico lab-ico" aria-hidden="true"><use href="#i-handset"/></svg>
+  <h4>Unified Communications Lab</h4>
+  <p>See how phones, meetings, and teams share one campus.</p>
+  <div class="lab-actions">
+    <a class="lab-open" href="/uc-lab-free-university-mesmerizing/campus/uc-lab-free-university.html">Open lab <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a class="lab-src" href="https://github.com/CypherMonkeyLabs/uc-lab-free-university-mesmerizing" target="_blank" rel="noopener" aria-label="Unified Communications Lab source on GitHub"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg>Source</a>
+  </div>
+</article><article class="lab" data-acc="sky">
+  <div class="lab-glow" aria-hidden="true"></div>
+  <svg class="ico lab-ico" aria-hidden="true"><use href="#i-headset"/></svg>
+  <h4>Microsoft Voice &amp; Contact Center Lab</h4>
+  <p>Follow voice and contact-center ideas across Microsoft tools.</p>
+  <div class="lab-actions">
+    <a class="lab-open" href="/microsoft-voice-cc-lab-free-university-mesmerizing/campus/">Open lab <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a class="lab-src" href="https://github.com/CypherMonkeyLabs/microsoft-voice-cc-lab-free-university-mesmerizing" target="_blank" rel="noopener" aria-label="Microsoft Voice &amp; Contact Center Lab source on GitHub"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg>Source</a>
+  </div>
+</article><article class="lab" data-acc="sky">
+  <div class="lab-glow" aria-hidden="true"></div>
+  <svg class="ico lab-ico" aria-hidden="true"><use href="#i-video"/></svg>
+  <h4>Webex Lab</h4>
+  <p>Walk Control Hub, calling, and contact center in Webex.</p>
+  <div class="lab-actions">
+    <a class="lab-open" href="/webex-lab-free-university-mesmerizing/">Open lab <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a class="lab-src" href="https://github.com/CypherMonkeyLabs/webex-lab-free-university-mesmerizing" target="_blank" rel="noopener" aria-label="Webex Lab source on GitHub"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg>Source</a>
+  </div>
+</article><article class="lab" data-acc="sky">
+  <div class="lab-glow" aria-hidden="true"></div>
+  <svg class="ico lab-ico" aria-hidden="true"><use href="#i-headset"/></svg>
+  <h4>Zoom, Talkdesk and Avaya Lab</h4>
+  <p>Twelve tracks and 36 lessons on Zoom, Talkdesk, and Avaya.</p>
+  <div class="lab-actions">
+    <a class="lab-open" href="/zoom-talkdesk-avaya-lab-free-university-mesmerizing/">Open lab <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a class="lab-src" href="https://github.com/CypherMonkeyLabs/zoom-talkdesk-avaya-lab-free-university-mesmerizing" target="_blank" rel="noopener" aria-label="Zoom, Talkdesk and Avaya Lab source on GitHub"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg>Source</a>
+  </div>
+</article></div>
+</div><div class="lab-group" data-acc="amber">
+  <div class="lab-group-head"><span class="chip-ico"><svg class="ico" aria-hidden="true"><use href="#i-headset"/></svg></span><div><h3>Contact center</h3><p>Queues, routing, phone menus, and the agent desk.</p></div></div>
+  <div class="lab-grid"><article class="lab" data-acc="amber">
+  <div class="lab-glow" aria-hidden="true"></div>
+  <svg class="ico lab-ico" aria-hidden="true"><use href="#i-cloud"/></svg>
+  <h4>Amazon Connect Lab</h4>
+  <p>Build a cloud contact center, one friendly mission at a time.</p>
+  <div class="lab-actions">
+    <a class="lab-open" href="/amazon-connect-lab-free-university-mesmerizing/campus/">Open lab <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a class="lab-src" href="https://github.com/CypherMonkeyLabs/amazon-connect-lab-free-university-mesmerizing" target="_blank" rel="noopener" aria-label="Amazon Connect Lab source on GitHub"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg>Source</a>
+  </div>
+</article><article class="lab" data-acc="amber">
+  <div class="lab-glow" aria-hidden="true"></div>
+  <svg class="ico lab-ico" aria-hidden="true"><use href="#i-headset"/></svg>
+  <h4>Five9 Lab</h4>
+  <p>See how a Five9 contact center fits together.</p>
+  <div class="lab-actions">
+    <a class="lab-open" href="/five9-lab-free-university-mesmerizing/campus/">Open lab <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a class="lab-src" href="https://github.com/CypherMonkeyLabs/five9-lab-free-university-mesmerizing" target="_blank" rel="noopener" aria-label="Five9 Lab source on GitHub"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg>Source</a>
+  </div>
+</article><article class="lab" data-acc="amber">
+  <div class="lab-glow" aria-hidden="true"></div>
+  <svg class="ico lab-ico" aria-hidden="true"><use href="#i-route"/></svg>
+  <h4>Genesys Cloud Lab</h4>
+  <p>Trace flows, queues, and routing in Genesys Cloud.</p>
+  <div class="lab-actions">
+    <a class="lab-open" href="/genesys-cloud-lab-free-university-mesmerizing/campus/">Open lab <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a class="lab-src" href="https://github.com/CypherMonkeyLabs/genesys-cloud-lab-free-university-mesmerizing" target="_blank" rel="noopener" aria-label="Genesys Cloud Lab source on GitHub"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg>Source</a>
+  </div>
+</article><article class="lab" data-acc="amber">
+  <div class="lab-glow" aria-hidden="true"></div>
+  <svg class="ico lab-ico" aria-hidden="true"><use href="#i-chat"/></svg>
+  <h4>NICE CXone Lab</h4>
+  <p>Explore routing, phone menus, and digital paths in CXone.</p>
+  <div class="lab-actions">
+    <a class="lab-open" href="/nice-cxone-lab-free-university-mesmerizing/campus/">Open lab <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a class="lab-src" href="https://github.com/CypherMonkeyLabs/nice-cxone-lab-free-university-mesmerizing" target="_blank" rel="noopener" aria-label="NICE CXone Lab source on GitHub"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg>Source</a>
+  </div>
+</article></div>
+</div><div class="lab-group" data-acc="mint">
+  <div class="lab-group-head"><span class="chip-ico"><svg class="ico" aria-hidden="true"><use href="#i-nodes"/></svg></span><div><h3>Protocols and APIs</h3><p>How a call starts, and how software drives it.</p></div></div>
+  <div class="lab-grid"><article class="lab" data-acc="mint">
+  <div class="lab-glow" aria-hidden="true"></div>
+  <svg class="ico lab-ico" aria-hidden="true"><use href="#i-nodes"/></svg>
+  <h4>SIP Universe</h4>
+  <p>Watch a phone call start its trip across the internet.</p>
+  <div class="lab-actions">
+    <a class="lab-open" href="/sip-universe-lab-free-university-mesmerizing/campus/">Open lab <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a class="lab-src" href="https://github.com/CypherMonkeyLabs/sip-universe-lab-free-university-mesmerizing" target="_blank" rel="noopener" aria-label="SIP Universe source on GitHub"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg>Source</a>
+  </div>
+</article><article class="lab" data-acc="mint">
+  <div class="lab-glow" aria-hidden="true"></div>
+  <svg class="ico lab-ico" aria-hidden="true"><use href="#i-waveform"/></svg>
+  <h4>CPaaS Lab</h4>
+  <p>Twelve tracks and 36 lessons on communications APIs.</p>
+  <div class="lab-actions">
+    <a class="lab-open" href="/cpaas-lab-free-university-mesmerizing/">Open lab <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a class="lab-src" href="https://github.com/CypherMonkeyLabs/cpaas-lab-free-university-mesmerizing" target="_blank" rel="noopener" aria-label="CPaaS Lab source on GitHub"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg>Source</a>
+  </div>
+</article></div>
+</div><div class="lab-group" data-acc="violet">
+  <div class="lab-group-head"><span class="chip-ico"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg></span><div><h3>AI and analysis</h3><p>Prompts, agents, and the thinking behind good requirements.</p></div></div>
+  <div class="lab-grid"><article class="lab" data-acc="violet">
+  <div class="lab-glow" aria-hidden="true"></div>
+  <svg class="ico lab-ico" aria-hidden="true"><use href="#i-spark"/></svg>
+  <h4>AI Lab</h4>
+  <p>Try prompts, agents, and tools with the sources in view.</p>
+  <div class="lab-actions">
+    <a class="lab-open" href="/ai-lab-free-university-mesmerizing/campus/ai-lab-university.html">Open lab <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a class="lab-src" href="https://github.com/CypherMonkeyLabs/ai-lab-free-university-mesmerizing" target="_blank" rel="noopener" aria-label="AI Lab source on GitHub"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg>Source</a>
+  </div>
+</article><article class="lab" data-acc="violet">
+  <div class="lab-glow" aria-hidden="true"></div>
+  <svg class="ico lab-ico" aria-hidden="true"><use href="#i-route"/></svg>
+  <h4>BA Lab</h4>
+  <p>Practice business analysis: requirements, stories, and process maps.</p>
+  <div class="lab-actions">
+    <a class="lab-open" href="/ba-lab-grok-free-university-mesmerizing/">Open lab <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a class="lab-src" href="https://github.com/CypherMonkeyLabs/ba-lab-grok-free-university-mesmerizing" target="_blank" rel="noopener" aria-label="BA Lab source on GitHub"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg>Source</a>
+  </div>
+</article></div>
+</div>
+    </div>
+  </section>
+
+  <section class="band" id="map" aria-labelledby="map-title">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow">How it connects</p>
+        <h2 id="map-title">From phone networks to AI agents.</h2>
+        <p>This is the path I have walked and the direction I am heading. The labs follow it, so you can start anywhere.</p>
+      </header>
+      <ol class="path" aria-label="Learning path">
+        <li data-acc="mint"><span class="node"><svg class="ico" aria-hidden="true"><use href="#i-nodes"/></svg></span><h3>Systems and networking</h3><p>Where it started. How machines and networks talk.</p><a href="#labs">SIP Universe</a></li>
+        <li data-acc="sky"><span class="node"><svg class="ico" aria-hidden="true"><use href="#i-handset"/></svg></span><h3>Voice and communications</h3><p>Calls, meetings, and the platforms behind them.</p><a href="#labs">UC · Webex · Microsoft Voice</a></li>
+        <li data-acc="amber"><span class="node"><svg class="ico" aria-hidden="true"><use href="#i-headset"/></svg></span><h3>Contact center</h3><p>Queues, routing, phone menus, and the agent desk.</p><a href="#labs">Connect · Five9 · Genesys · NICE</a></li>
+        <li data-acc="violet" class="now"><span class="node"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg></span><h3>AI omni-channel agents</h3><p>Where I am heading now. Learning in public as I go.</p><a href="#labs">AI Lab · BA Lab</a></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band alt" id="more" aria-labelledby="more-title">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow">More</p>
+        <h2 id="more-title">Beyond the twelve.</h2>
+      </header>
+      <article class="lab wide" data-acc="rose">
+        <div class="lab-glow" aria-hidden="true"></div>
+        <svg class="ico lab-ico" aria-hidden="true"><use href="#i-book"/></svg>
+        <div class="wide-txt"><h4>Sutra Nexus</h4><p>Ancient sutras as files, cards, PDFs, and HTML. A separate project, not one of the twelve labs.</p></div>
+        <div class="lab-actions">
+          <a class="lab-open" href="/sutra-nexus/">Open <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="lab-src" href="https://github.com/CypherMonkeyLabs/sutra-nexus" target="_blank" rel="noopener" aria-label="Sutra Nexus source on GitHub"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg>Source</a>
         </div>
-        <p>© 2026 CypherMonkeyLabs 🐒</p>
+      </article>
+      <p class="more-link"><svg class="ico" aria-hidden="true"><use href="#i-gem"/></svg> Also: <a href="/gemini-gems-free-gallery/site/">Gemini Gems gallery</a> <span>(small side project)</span></p>
+    </div>
+  </section>
+
+  <section class="band" id="about" aria-labelledby="about-title">
+    <div class="wrap about">
+      <div class="about-art" aria-hidden="true"><img src="/assets/mascot/robo-buddy.svg" alt="" width="220" height="220" loading="lazy"></div>
+      <div class="about-copy">
+        <p class="eyebrow">About me</p>
+        <h2 id="about-title">I am a lifelong student.</h2>
+        <p>I am Lucky, also known as CypherMonkey: a lifelong student and an AI enthusiast. I come from systems, networking, voice, and contact center, and I am moving into AI omni-channel agents.</p>
+        <p>I am learning everything I can: languages, servers, cloud, and the agents that tie it together. Then I share what I learn here, in the open, so the next curious person has a head start.</p>
+        <p class="note">These are independent educational projects. They are not official training from any vendor, and I keep claims to what I have checked.</p>
+        <ul class="brand-links" aria-label="Find me">
+          <li><a href="https://github.com/CypherMonkeyLabs" target="_blank" rel="me noopener"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg>GitHub: CypherMonkeyLabs<span class="sr-only"> (opens in a new tab)</span></a></li>
+          <li><a href="https://github.com/cipher0x9" target="_blank" rel="me noopener"><svg class="ico" aria-hidden="true"><use href="#i-user"/></svg>GitHub: cipher0x9<span class="sr-only"> (opens in a new tab)</span></a></li>
+          <li><a href="https://linktr.ee/cyphermonkey" target="_blank" rel="me noopener"><svg class="ico" aria-hidden="true"><use href="#i-link"/></svg>Linktree<span class="sr-only"> (opens in a new tab)</span></a></li>
+        </ul>
       </div>
     </div>
+  </section>
+
+  <section class="band alt" aria-label="Contact">
+    <div class="wrap narrow">
+      <div id="contact-root">
+        <section id="contact" class="contact-section" aria-labelledby="contact-title">
+          <div class="contact-intro"><p class="eyebrow">Contact</p><h2 id="contact-title" tabindex="-1">Send me a note</h2><p>The contact form needs JavaScript. Without it, you can open a public <a href="https://github.com/CypherMonkeyLabs/cyphermonkeylabs.github.io/issues/new" target="_blank" rel="noopener">GitHub issue</a> instead.</p></div>
+        </section>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot-rules"><strong>Independent and educational.</strong> CypherMonkey Labs is a free, independent learning project. It is not affiliated with, sponsored by, or endorsed by Amazon Web Services, Microsoft, Cisco (Webex), Five9, Genesys, NICE, Zoom, Talkdesk, Avaya, Google, or any other company named here. Product names belong to their owners and are used only to describe what each lab teaches. Technology changes, so check official documentation before using anything in production. Spotted a mistake? <a href="/?topic=correction#contact">Tell me</a>.</p>
+    <ul class="foot-links">
+      <li><a href="https://cyphermonkeylabs.com/">cyphermonkeylabs.com</a></li>
+      <li><a href="https://github.com/CypherMonkeyLabs" target="_blank" rel="me noopener">GitHub<span class="sr-only"> (opens in a new tab)</span></a></li>
+      <li><a href="https://linktr.ee/cyphermonkey" target="_blank" rel="me noopener">Linktree<span class="sr-only"> (opens in a new tab)</span></a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+      <li><a href="/privacy.html#licenses">Licenses</a></li>
+    </ul>
+    <p class="foot-fine">© 2026 CypherMonkeyLabs 🐒 · Code under the MIT license, content under CC BY-NC-SA 4.0, brand all rights reserved.</p>
   </div>
-  <script type="module" src="/js/content/assemble.mjs"></script>
+</footer>
+
+<aside class="guide" id="guide" aria-label="Guide monkey">
+  <div class="guide-panel" id="guide-panel" hidden>
+    <p><strong>Hi, I am the guide monkey.</strong> Where to?</p>
+    <div class="guide-actions">
+      <a href="#trailer">Trailer</a><a href="#labs">Labs</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </div>
+    <button type="button" class="guide-home" id="guide-home">Put me back</button>
+  </div>
+  <button class="guide-bot" id="guide-bot" type="button" aria-expanded="false" aria-controls="guide-panel" aria-label="Guide monkey. Drag me anywhere, or press to open.">
+    <img src="/assets/mascot/signal-surfer.svg" alt="" width="72" height="72" draggable="false">
+  </button>
+</aside>
+
+<script type="module" src="/js/cinema/main.js"></script>
+<script type="module" src="/js/trust/boot.js"></script>
 </body>
 </html>
