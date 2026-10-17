@@ -1,0 +1,54 @@
+<!doctype html><meta charset="utf-8"><title>CypherMonkey Labs trailer source</title>
+<style>@font-face{font-family:SG;src:url(/css/fonts/space-grotesk-latin.woff2);font-weight:500 700}body{margin:0;background:#070816}canvas{display:block;width:100vw;height:auto;max-width:1280px}</style>
+<canvas id="c" width="1280" height="720"></canvas>
+<script>
+/* Deterministic canvas animation. window.drawAt(t) renders second t (0..12). Used to render trailer.mp4 and poster.jpg. */
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1280,H=720,D=12;
+const ACC=['#62d4f5','#ffc65c','#6ee7b7','#9d8cff'];
+const LABS=['UC','Microsoft Voice','Webex','Zoom · Talkdesk · Avaya','Amazon Connect','Five9','Genesys Cloud','NICE CXone','SIP Universe','CPaaS','AI Lab','BA Lab'];
+const G=[0,0,0,0,1,1,1,1,2,2,3,3];
+const ease=t=>t<0?0:t>1?1:1-Math.pow(1-t,3), cl=(a,b,t)=>Math.min(b,Math.max(a,t)), seg=(t,a,b)=>cl(0,1,(t-a)/(b-a));
+let seed=3;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const stars=[...Array(220)].map(()=>({x:rnd()*W,y:rnd()*H,z:.2+rnd()*.8,p:rnd()*6.28}));
+function txt(s,px,py,size,col,a,w=700,align='center'){x.save();x.globalAlpha=a;x.font=`${w} ${size}px SG, sans-serif`;x.textAlign=align;x.fillStyle=col;x.fillText(s,px,py);x.restore()}
+function glow(px,py,r,col,a){const g=x.createRadialGradient(px,py,0,px,py,r);g.addColorStop(0,col);g.addColorStop(1,'transparent');x.save();x.globalAlpha=a;x.fillStyle=g;x.beginPath();x.arc(px,py,r,0,7);x.fill();x.restore()}
+function orbit(cx,cy,r,tilt,rot,col,a,t,nodes){ // 3D-ish ring
+  x.save();x.translate(cx,cy);x.rotate(rot);x.scale(1,tilt);x.strokeStyle=col;x.globalAlpha=a*.7;x.lineWidth=2;x.setLineDash([2,9]);x.lineCap='round';x.beginPath();x.arc(0,0,r,0,6.2832);x.stroke();x.restore();
+  (nodes||[]).forEach(n=>{const ang=n.a+t*n.s;let px=Math.cos(ang)*r,py=Math.sin(ang)*r*tilt;const cr=Math.cos(rot),sr=Math.sin(rot);const X=cx+px*cr-py*sr,Y=cy+px*sr+py*cr;const depth=.7+.3*Math.sin(ang);glow(X,Y,26*depth,n.col,a*.9);x.save();x.globalAlpha=a;x.fillStyle='#fff';x.beginPath();x.arc(X,Y,3.5*depth,0,7);x.fill();x.restore()})}
+function drawAt(t){
+  x.clearRect(0,0,W,H);x.fillStyle='#070816';x.fillRect(0,0,W,H);
+  [[.2,.2,620,'rgba(110,80,230,.38)'],[.85,.4,560,'rgba(40,120,200,.28)'],[.45,.95,640,'rgba(190,70,150,.22)']].forEach(([a,b,r,c0],i)=>{const px=W*a+Math.sin(t*.25+i*2)*40,py=H*b+Math.cos(t*.2+i)*30;const g=x.createRadialGradient(px,py,0,px,py,r);g.addColorStop(0,c0);g.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=g;x.fillRect(0,0,W,H)});
+  stars.forEach(s=>{const tw=.5+.5*Math.sin(t*2+s.p);x.globalAlpha=.25+.6*tw*s.z;x.fillStyle='#dfe6ff';const px=(s.x-t*14*s.z+W)%W;x.fillRect(px,s.y,1+s.z,1+s.z)});x.globalAlpha=1;
+  const fadeOut=1-seg(t,11.4,12);
+  // scene 1: title + orbit forming (0-3.4)
+  const s1=seg(t,0,1.6)*(1-seg(t,3,3.5));
+  const nodes=[...Array(12)].map((_,i)=>({a:i*0.52+i%4,s:.35+(i%4)*.08,col:ACC[G[i]]}));
+  const ringA=Math.max(s1,seg(t,3.2,3.6)*(1-seg(t,8.6,9.2)));
+  const rc=[W/2,H/2], rs=1+0.15*seg(t,0,3);
+  if(t<9.4){glow(...rc,150,'#9d8cff',.5*ringA);
+   [[120,.34,0.3,ACC[0],0],[190,.32,-.35,ACC[1],1],[260,.3,.6,ACC[2],2],[330,.28,.05,ACC[3],3]].forEach(([r,tl,rot,col,k])=>orbit(rc[0],rc[1],r*rs*ease(seg(t,0,2)),tl,rot+t*.05*(k%2?-1:1),col,ringA,t,nodes.filter((_,i)=>i%4===k)));}
+  txt('CypherMonkey Labs',W/2,H/2+18,78,'#f3f1ff',ease(seg(t,.6,1.6))*(1-seg(t,3,3.5)));
+  txt('learning in the open',W/2,H/2+70,30,'#ffc65c',ease(seg(t,1.4,2.2))*(1-seg(t,3,3.5)),500);
+  // scene 2: identity (3.4-6.4)
+  const a2=ease(seg(t,3.5,4.1))*(1-seg(t,6.1,6.6));
+  txt('A lifelong student.',W/2,H/2-10,76,'#f3f1ff',a2*ease(seg(t,3.5,4.2)));
+  txt('An AI enthusiast.',W/2,H/2+84,76,'#9d8cff',a2*ease(seg(t,4.4,5.1)));
+  // scene 3: path (6.6-9.4)
+  const a3=ease(seg(t,6.6,7.2))*(1-seg(t,9.0,9.5));
+  const P=[['Systems','and networking',ACC[2]],['Voice','and UC',ACC[0]],['Contact','center',ACC[1]],['AI','omni-channel agents',ACC[3]]];
+  txt('From phone networks to AI agents',W/2,150,44,'#f3f1ff',a3);
+  const x0=180,x1=W-180;x.save();x.globalAlpha=a3*.6;x.strokeStyle='#ffffff55';x.lineWidth=2;x.setLineDash([8,10]);x.lineDashOffset=-t*30;x.beginPath();x.moveTo(x0,H/2);x.lineTo(x1,H/2);x.stroke();x.restore();
+  P.forEach((p,i)=>{const px=x0+i*(x1-x0)/3,on=ease(seg(t,7+i*.5,7.6+i*.5));glow(px,H/2,70*on,p[2],a3*.8);x.save();x.globalAlpha=a3*on;x.fillStyle='#0b0d24';x.strokeStyle=p[2];x.lineWidth=4;x.beginPath();x.arc(px,H/2,34,0,7);x.fill();x.stroke();x.restore();txt(p[0],px,H/2+90,32,'#f3f1ff',a3*on);txt(p[1],px,H/2+124,22,'#c3c0e3',a3*on,500)});
+  txt('where I am heading now',x1,H/2-62,20,'#9d8cff',a3*ease(seg(t,8.4,9)),500);
+  // scene 4: 12 labs (9.4-12)
+  const a4=ease(seg(t,9.3,9.9))*fadeOut;
+  txt('12 free labs',W/2,170,92,'#ffc65c',a4);
+  LABS.forEach((n,i)=>{const col=i%4,row=Math.floor(i/4),px=W/2-420+col*280,py=300+row*92,on=ease(seg(t,9.6+i*.07,10.1+i*.07));
+   x.save();x.globalAlpha=a4*on;x.translate(px,py);x.scale(1,on);x.fillStyle='#14173bcc';x.strokeStyle=ACC[G[i]];x.lineWidth=2.5;x.beginPath();x.roundRect(-130,-30,260,60,16);x.fill();x.stroke();x.restore();
+   txt(n,px,py+8,n.length>18?19:24,'#f3f1ff',a4*on,600)});
+  txt('cyphermonkeylabs.com',W/2,640,34,'#62d4f5',a4*ease(seg(t,10.8,11.4)));
+  x.globalAlpha=1;
+}
+window.drawAt=drawAt;window.ready=Promise.all([document.fonts.load('700 20px SG'),Promise.resolve()]).then(()=>{drawAt(0);return true});
+const q=new URLSearchParams(location.search);if(q.has('live')){const t0=performance.now();(function f(){drawAt(((performance.now()-t0)/1000)%D);requestAnimationFrame(f)})()}
+</script>
