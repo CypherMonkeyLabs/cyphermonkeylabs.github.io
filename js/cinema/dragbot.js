@@ -16,7 +16,7 @@ export function mountGuide() {
 
   /* questions */
   const QA = [
-    ['What is this place?', async () => 'Twelve free labs about voice, contact center, SIP, and AI, plus Sutra Nexus. I built them while learning, and they are all open source.'],
+    ['What is this place?', async () => 'Thirteen free labs about voice, contact center, SIP, AI, and Python, plus Sutra Nexus. I built them while learning, and they are all open source.'],
     ['Where should I start?', async () => 'New to calls? Try SIP Universe. Curious about AI? Open the AI Lab. Work with phones or queues? Pick the platform you use from the labs list.'],
     ['Which labs cover contact center?', async () => { labs = labs || await catalog(); return 'Contact center: ' + (names(labs, ['amazon-connect', 'five9', 'genesys-cloud', 'nice-cxone', 'zoom-talkdesk-avaya']) || 'see the labs list') + '.'; }],
     ['Is it really free?', async () => 'Yes. No sign-up, no ads, and no tracking on this page.'],
