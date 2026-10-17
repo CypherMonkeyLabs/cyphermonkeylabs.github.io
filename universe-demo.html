@@ -169,7 +169,7 @@
       { id: 'nice', title: 'NICE CXone', shortTitle: 'NICE', category: 'contact-center', accent: 'peach', icon: 'chat', tags: ['contact-center', 'chat'], url: 'https://cyphermonkeylabs.com/nice-cxone-lab-free-university-mesmerizing/', repo: 'https://github.com/CypherMonkeyLabs/nice-cxone-lab-free-university-mesmerizing', launchedAt: '2026-10-15', scene: { size: 0.9, moons: 0 } },
       { id: 'sip', title: 'SIP Universe', shortTitle: 'SIP', category: 'protocols', accent: 'mint', icon: 'nodes', tags: ['sip', 'routing', 'voice'], url: 'https://cyphermonkeylabs.com/sip-universe-lab-free-university-mesmerizing/', repo: 'https://github.com/CypherMonkeyLabs/sip-universe-lab-free-university-mesmerizing', launchedAt: '2026-10-15', scene: { size: 1.05, moons: 1 } },
       { id: 'ai', title: 'AI Lab', shortTitle: 'AI Lab', category: 'ai', accent: 'lavender', icon: 'spark', tags: ['ai', 'prompts', 'models'], url: 'https://cyphermonkeylabs.com/ai-lab-free-university-mesmerizing/', repo: 'https://github.com/CypherMonkeyLabs/ai-lab-free-university-mesmerizing', launchedAt: '2026-07-31', scene: { size: 1.15, moons: 2 } },
-      { id: 'gems', title: 'Gemini Gems', shortTitle: 'Gems', category: 'tools', accent: 'butter', icon: 'gem', kind: 'gallery', tags: ['gems', 'tools'], url: 'https://cipher0x9.github.io/gemini-gems-free-gallery/', repo: 'https://github.com/cipher0x9/gemini-gems-free-gallery', launchedAt: '2026-10-14', scene: { size: 1.2, moons: 0 } },
+      { id: 'gems', title: 'Gemini Gems', shortTitle: 'Gems', category: 'tools', accent: 'butter', icon: 'gem', kind: 'gallery', tags: ['gems', 'tools'], url: '/gemini-gems-free-gallery/', repo: 'https://github.com/cipher0x9/gemini-gems-free-gallery', launchedAt: '2026-10-14', scene: { size: 1.2, moons: 0 } },
     ];
 
     const CATS = ['contact-center', 'unified-comms', 'protocols', 'ai', 'tools'];
@@ -188,7 +188,7 @@
           accent: ACCENTS[i % ACCENTS.length],
           icon: ICONS[i % ICONS.length],
           tags: [category, i % 6 === 0 ? 'shared' : `ring-${i % 4}`],
-          url: `https://cipher0x9.github.io/lab-${i + 1}/`,
+          url: `/lab-${i + 1}/`,
           launchedAt: i % 11 === 0 ? '2026-10-14' : '2026-01-15',
           scene: { size: 0.7 + (i % 5) * 0.18, moons: i % 5 === 0 ? 1 : 0 },
         });

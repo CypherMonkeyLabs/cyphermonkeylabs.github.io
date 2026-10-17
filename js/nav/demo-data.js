@@ -117,7 +117,7 @@ const starter = [
     tags: ["gemini", "gems", "ai", "gallery"],
     status: "live",
     order: 1,
-    url: "https://cipher0x9.github.io/gemini-gems-free-gallery/",
+    url: "/gemini-gems-free-gallery/",
     repo: "https://github.com/cipher0x9/gemini-gems-free-gallery",
   },
   {
