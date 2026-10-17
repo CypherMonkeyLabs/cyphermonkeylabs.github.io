@@ -14,7 +14,7 @@ function licenseLine(copy) {
     ' · ',
     content,
     ` ${copy.licenseContentRest} `,
-    externalLink(LINKS.cc, copy.licenseCc),
+    h('a', { href: LINKS.cc, text: copy.licenseCc }),
     ' · ',
     brand,
     ` ${copy.licenseBrandRest}`,
@@ -133,7 +133,7 @@ export function renderFooter(lang) {
     h('a', { href: LINKS.mit, text: copy.licenseMit }),
     ' · ',
   );
-  const cc = externalLink(LINKS.cc, copy.licenseCc);
+  const cc = h('a', { href: LINKS.cc, text: copy.licenseCc });
   cc.setAttribute('rel', 'license noopener noreferrer');
   legal.append(cc);
   const top = h('button', { type: 'button', class: 'back-to-top', text: copy.backToTop });

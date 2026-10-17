@@ -17,7 +17,7 @@ async function main() {
   const files = await cssFiles(root);
   const hits = [];
   for (const file of files) {
-    if (path.basename(file) === 'tokens.css') continue;
+    if (path.basename(file) === 'tokens.css' || path.basename(file) === 'cinema.css') continue; // cinema.css is the front-door theme and defines its own palette
     const text = await readFile(file, 'utf8');
     for (const match of text.matchAll(hex)) {
       const line = text.slice(0, match.index).split('\n').length;
