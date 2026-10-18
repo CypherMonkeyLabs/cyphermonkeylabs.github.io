@@ -142,7 +142,7 @@ function shell({ title, description, depth, page, main }) {
 <meta name="robots" content="noindex">
 <link rel="canonical" href="${canonical}">
 <meta name="theme-color" content="#100c24">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
 <link rel="icon" href="${asset(depth, 'favicon.svg')}" type="image/svg+xml">
 <link rel="preload" href="${asset(depth, 'assets/fonts/space-grotesk-700.woff2')}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${css}">

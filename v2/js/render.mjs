@@ -43,6 +43,28 @@ function categoryLabel(categories, id) {
   return found ? found.label : id;
 }
 
+const ACCENT_TOKEN = {
+  '#7dd3fc': 'sky',
+  '#ffb26b': 'peach',
+  '#5eead4': 'mint',
+  '#c4b5fd': 'lavender',
+  '#ffd166': 'butter',
+  '#f0abfc': 'pink',
+};
+
+export const ACCENT_COLOR = {
+  sky: '#7dd3fc',
+  peach: '#ffb26b',
+  mint: '#5eead4',
+  lavender: '#c4b5fd',
+  butter: '#ffd166',
+  pink: '#f0abfc',
+};
+
+export function accentToken(hex) {
+  return ACCENT_TOKEN[String(hex || '').toLowerCase()] || 'lavender';
+}
+
 export function doorArticle(lab, categories) {
   const cat = categoryLabel(categories, lab.category);
   const openable = lab.status === 'live' || lab.status === 'beta';
@@ -50,7 +72,7 @@ export function doorArticle(lab, categories) {
   const secondary = (lab.secondaryCategories || []).join(' ');
   const attrs = [
     `class="door${openable ? '' : ' is-soon'}${lab.fixture ? ' is-fixture' : ''}"`,
-    `style="--accent:${escapeHtml(lab.accent || '#c4b5fd')}"`,
+    `data-accent="${accentToken(lab.accent)}"`,
     `data-id="${escapeHtml(lab.id)}"`,
     `data-cat="${escapeHtml(lab.category)}"`,
     `data-secondary="${escapeHtml(secondary)}"`,
@@ -134,6 +156,6 @@ export function posterSvg() {
 export function zodiacRing(marks) {
   return marks.map((mark, index) => {
     const on = mark.name === 'Monkey' ? ' on' : '';
-    return `<span class="mark${on}" style="--i:${index}" title="${escapeHtml(mark.name)}"><span lang="zh-Hans">${escapeHtml(mark.char)}</span></span>`;
+    return `<span class="mark${on}" title="${escapeHtml(mark.name)}"><span lang="zh-Hans">${escapeHtml(mark.char)}</span></span>`;
   }).join('');
 }

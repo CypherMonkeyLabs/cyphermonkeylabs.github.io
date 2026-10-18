@@ -3,7 +3,9 @@ import { mkdir, writeFile } from 'node:fs/promises';
 
 const SHOTS = '/opt/cursor/artifacts/screenshots';
 const DOCUMENTED = new Map([
-  ['instagram.com', 'Bot GET often lands on an Instagram login interstitial. The profile URL is the one published on linktr.ee/CypherMonkey and the response is still HTTP 200.'],
+  ['instagram.com', 'Bot GET returned HTTP 200 and followed to an Instagram login interstitial. The profile URL is the one published on linktr.ee/CypherMonkey.'],
+  ['facebook.com', 'Bot GET was redirected to a Facebook login URL and answered HTTP 400. The profile URL is the one published on linktr.ee/CypherMonkey (https://www.facebook.com/Cyphermonkey0x9).'],
+  ['x.com', 'Some automated clients get HTTP 403 from X. This run is recorded with the status actually returned. The profile URL is https://x.com/Cypher0x9 from linktr.ee/CypherMonkey.'],
 ]);
 
 function watch(page) {
@@ -30,7 +32,7 @@ test('home renders the stage, rail, bar, and twelve doors', async ({ page }, inf
   await expect(page.locator('#explore')).toHaveText('Explore 14 labs');
   await expect(page.locator('.rail a.coin')).toHaveCount(12);
   await expect(page.locator('.globe')).toHaveCount(3);
-  await expect(page.locator('.bar')).toContainText('not affiliated');
+  await expect(page.locator('.bar')).toContainText('Not affiliated');
   await expect(page.locator('.door')).toHaveCount(12);
   await expect(page.locator('a[href*="linkedin.com"]')).toHaveCount(0);
   const name = info.project.name === 'mobile' ? 'v2-home-390' : 'v2-home-1440';
@@ -161,15 +163,21 @@ test('every published link returns 200 or is documented', async ({ page, request
     let finalUrl = href;
     let error = '';
     try {
-      const response = await request.get(href, { timeout: 25000, maxRedirects: 5 });
+      const response = await request.get(href, {
+        timeout: 25000,
+        maxRedirects: 5,
+        headers: {
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36',
+        },
+      });
       status = response.status();
       finalUrl = response.url();
     } catch (err) {
       error = err instanceof Error ? err.message : String(err);
     }
     const host = new URL(href).hostname.replace(/^www\./, '');
-    const documented = [...DOCUMENTED.entries()].find(([key]) => host.endsWith(key));
     const ok = status === 200 || status === 206;
+    const documented = !ok ? [...DOCUMENTED.entries()].find(([key]) => host.endsWith(key)) : null;
     results.push({ href, status, finalUrl, error, ok, note: documented ? documented[1] : '' });
   }
   await mkdir('/opt/cursor/artifacts', { recursive: true });

@@ -215,8 +215,21 @@ p { margin: 0 0 0.7rem; }
   width: 42px;
   height: 42px;
   margin: -21px;
+  --i: 0;
   transform: rotate(calc(var(--i) * 30deg)) translateY(calc(min(560px, 72vw) / -2 + 24px));
 }
+.mark:nth-child(1) { --i: 0; }
+.mark:nth-child(2) { --i: 1; }
+.mark:nth-child(3) { --i: 2; }
+.mark:nth-child(4) { --i: 3; }
+.mark:nth-child(5) { --i: 4; }
+.mark:nth-child(6) { --i: 5; }
+.mark:nth-child(7) { --i: 6; }
+.mark:nth-child(8) { --i: 7; }
+.mark:nth-child(9) { --i: 8; }
+.mark:nth-child(10) { --i: 9; }
+.mark:nth-child(11) { --i: 10; }
+.mark:nth-child(12) { --i: 11; }
 .mark span {
   display: grid;
   place-items: center;
@@ -277,10 +290,12 @@ p { margin: 0 0 0.7rem; }
 }
 .domain {
   margin: 0;
+  max-width: 100%;
   font-family: var(--display);
   font-weight: 700;
   font-size: clamp(28px, 5vw, 64px);
   letter-spacing: -0.03em;
+  overflow-wrap: anywhere;
   color: #e9fff8;
 }
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
@@ -407,6 +422,18 @@ html:not([data-timeline]) [data-placement="b"] {
   color: inherit;
   text-decoration: none;
 }
+.door[data-accent="sky"] { --accent: var(--sky); }
+.door[data-accent="peach"] { --accent: var(--peach); }
+.door[data-accent="mint"] { --accent: var(--mint); }
+.door[data-accent="lavender"] { --accent: var(--lav); }
+.door[data-accent="butter"] { --accent: var(--butter); }
+.door[data-accent="pink"] { --accent: var(--pink); }
+.stage[data-ring="sky"] { --ring: #7dd3fc66; }
+.stage[data-ring="peach"] { --ring: #ffb26b66; }
+.stage[data-ring="mint"] { --ring: #5eead466; }
+.stage[data-ring="lavender"] { --ring: #c4b5fd66; }
+.stage[data-ring="butter"] { --ring: #ffd16666; }
+.stage[data-ring="pink"] { --ring: #f0abfc66; }
 .door h3 { margin: 0; font-size: 1.2rem; color: var(--ink); }
 .door-cat {
   margin: 0;
@@ -681,7 +708,11 @@ html:not([data-timeline]) [data-placement="b"] {
   .primary { order: 3; width: 100%; }
   .wrap { margin-left: 0; padding-bottom: 0; }
   .stage { min-height: 0; }
-  .orbit { width: min(340px, 86vw); }
+  .front { padding-inline: 12px; }
+  .domain { font-size: clamp(22px, 6.4vw, 40px); }
+  .rules, .catalog { margin-inline: 12px; }
+  .orbit { width: min(300px, calc(100vw - 88px)); }
+  .mark { transform: rotate(calc(var(--i) * 30deg)) translateY(calc((min(300px, 100vw - 88px) / -2) + 18px)); }
   .rail {
     position: static;
     width: auto;

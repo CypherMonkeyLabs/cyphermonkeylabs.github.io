@@ -1,5 +1,5 @@
-import { doorArticle, escapeHtml } from './render.mjs';
-import { makeFixtureLabs } from './catalog.mjs';
+import { ACCENT_COLOR, doorArticle, escapeHtml } from './render.mjs';
+import { makeFixtureLabs, searchScore } from './catalog.mjs';
 import { mountStage } from './stage.mjs';
 
 const page = document.body.dataset.page || '';
@@ -176,7 +176,22 @@ function initPalette() {
 
   function render(query) {
     const needle = query.trim().toLowerCase();
-    const hits = searchItems().filter((item) => !needle || item.blob.includes(needle) || item.title.toLowerCase().includes(needle)).slice(0, 8);
+    const hits = searchItems()
+      .map((item) => ({
+        item,
+        score: searchScore({
+          title: item.title,
+          shortTitle: item.title,
+          tagline: item.blob,
+          id: '',
+          aliases: [],
+          tags: [],
+        }, needle),
+      }))
+      .filter((hit) => hit.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 8)
+      .map((hit) => hit.item);
     if (!hits.length) {
       list.innerHTML = '<li>No matches</li>';
       return;
@@ -311,9 +326,9 @@ function initStagePointer() {
     if (coin) look(-0.9, -0.1);
     const door = event.target.closest?.('.door');
     if (door) {
-      const accent = door.style.getPropertyValue('--accent').trim() || '#c4b5fd';
-      stage.style.setProperty('--ring', accent);
-      if (stageApi) stageApi.setColor(accent);
+      const accent = door.dataset.accent || 'lavender';
+      stage.dataset.ring = accent;
+      if (stageApi) stageApi.setColor(ACCENT_COLOR[accent] || ACCENT_COLOR.lavender);
       look(0.4, 0.2);
     }
   });
