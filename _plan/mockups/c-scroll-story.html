@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><link rel="icon" href="data:,"><title>Mockup C · timeline as scroll story · CypherMonkey Labs (not live)</title>
+<style>
+:root{--bg:#07070f;--bg2:#100c24;--ink:#f4f1ff;--mute:#a9a3c7;--line:#2a2550;--mint:#5eead4;--lav:#a78bfa;--peach:#ffb26b;--butter:#ffd166;--pink:#f0abfc;--sky:#7dd3fc;--rail:80px;--side:0px;--bar:56px}
+*{box-sizing:border-box}html,body{margin:0}body{font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:radial-gradient(1200px 700px at 50% 30%,#1b1440 0,var(--bg2) 40%,var(--bg) 100%) fixed;min-height:100dvh;overflow-x:hidden}
+a{color:inherit}.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ribbon{position:fixed;right:12px;bottom:calc(var(--bar) + 10px);z-index:99;background:var(--butter);color:#1a1300;font:700 11px/1 system-ui;letter-spacing:.08em;padding:7px 10px;border-radius:8px;text-transform:uppercase;box-shadow:0 6px 16px #0008}
+.tbd{outline:1px dashed var(--butter);outline-offset:2px}
+.top{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:18px;padding:12px 24px 12px calc(var(--rail) + 20px);background:linear-gradient(#07070fee,#07070f99);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;text-decoration:none}.brand .mk{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(from 0deg,var(--mint),var(--lav),var(--pink),var(--butter),var(--mint));font-size:18px}
+.top nav{display:flex;gap:16px;color:var(--mute);font-size:14px}.top nav a{text-decoration:none}.top .sp{flex:1}
+.pill{border:1px solid var(--line);border-radius:999px;padding:8px 14px;color:var(--mute);font-size:13px;background:#ffffff08}.menu{background:var(--lav);color:#120a2a;border:0;border-radius:999px;padding:10px 18px;font-weight:700}
+/* left rail */
+.rail{--coin:min(48px,calc((100dvh - var(--bar) - 84px) / 14 - 6px));position:fixed;left:0;top:0;bottom:var(--bar);width:var(--rail);z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:68px 0 10px;border-right:1px solid var(--line);background:linear-gradient(90deg,#07070fdd,#07070f55);perspective:600px}
+.rail ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}.rail .coin{width:var(--coin);height:var(--coin);font-size:11px}
+.coin{--c:var(--lav);position:relative;display:grid;place-items:center;width:48px;height:48px;border-radius:14px;font:800 12px/1 system-ui;letter-spacing:.02em;text-decoration:none;color:#fff;background:linear-gradient(145deg,#ffffff30,#ffffff05 55%),radial-gradient(circle at 30% 25%,color-mix(in srgb,var(--c) 85%,#fff),color-mix(in srgb,var(--c) 55%,#000));transform:rotateY(-18deg) translateZ(0);transform-style:preserve-3d;box-shadow:-4px 0 0 color-mix(in srgb,var(--c) 40%,#000),-5px 1px 0 color-mix(in srgb,var(--c) 30%,#000),0 10px 18px #0008,inset 0 1px 0 #fff6;transition:transform .25s,box-shadow .25s}
+.coin:hover,.coin:focus-visible{transform:rotateY(0) translateY(-4px) scale(1.06);box-shadow:0 14px 24px #000a,inset 0 1px 0 #fff8}
+.coin .lbl{position:absolute;left:58px;white-space:nowrap;background:#000c;border:1px solid var(--line);border-radius:8px;padding:5px 9px;font:600 12px system-ui;opacity:0;pointer-events:none;transform:translateX(-6px);transition:.2s}
+.coin:hover .lbl,.coin:focus-visible .lbl{opacity:1;transform:none}
+.coin.tbd{outline:1px dashed var(--butter);outline-offset:3px;opacity:.82}
+.rail::after{content:"";position:absolute;left:14px;right:14px;top:0;height:60px;background:linear-gradient(transparent,#fff2,transparent);animation:shimmer 8s linear infinite;pointer-events:none}
+@keyframes shimmer{from{top:-60px}to{top:100%}}
+/* layout */
+.page{margin-left:var(--rail);padding-bottom:calc(var(--bar) + 24px)}
+.front{display:grid;grid-template-columns:minmax(0,1fr) var(--side);gap:24px;padding:24px}.front>*{min-width:0}
+/* stage */
+.stage{position:relative;display:grid;place-items:center;text-align:center;min-height:min(78dvh,760px);perspective:900px;isolation:isolate}
+.stage .dust{position:absolute;inset:0;z-index:-1;background-image:radial-gradient(2px 2px at 20% 30%,#fff8 50%,transparent 51%),radial-gradient(1.5px 1.5px at 70% 60%,#b9a7ff 50%,transparent 51%),radial-gradient(2px 2px at 40% 80%,#5eead4aa 50%,transparent 51%),radial-gradient(1.5px 1.5px at 85% 20%,#ffd166aa 50%,transparent 51%),radial-gradient(1px 1px at 10% 70%,#fff 50%,transparent 51%);background-size:260px 260px;animation:rise 24s linear infinite;opacity:.8}
+@keyframes rise{to{background-position:0 -520px,0 -520px,0 -520px,0 -520px,0 -520px}}
+.orbit{position:relative;width:min(560px,86vw);aspect-ratio:1;display:grid;place-items:center}
+.ring{position:absolute;inset:0;border-radius:50%;border:1px solid #ffffff22;box-shadow:0 0 80px #a78bfa33 inset,0 0 40px #5eead422;animation:spin 120s linear infinite}
+.ring::before{content:"";position:absolute;inset:9%;border-radius:50%;border:1px dashed #ffffff1c}
+.mark{position:absolute;left:50%;top:50%;width:46px;height:46px;margin:-23px;transform:rotate(calc(var(--i)*30deg)) translateY(calc(min(560px,86vw)/-2 + 26px))}
+.mark span{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;background:#ffffff10;border:1px solid #ffffff22;font-size:22px;filter:grayscale(.6) opacity(.7);animation:spin 120s linear infinite reverse;transform:rotate(calc(var(--i)*-30deg))}
+.mark.on span{filter:none;background:radial-gradient(circle,#ffd16655,#ffd16611);border-color:var(--butter);box-shadow:0 0 24px #ffd166aa,0 0 60px #ffd16655;font-size:26px}
+@keyframes spin{to{rotate:360deg}}
+.monkey{width:58%;transform-style:preserve-3d;transition:transform .15s ease-out;filter:drop-shadow(0 30px 40px #000a) drop-shadow(0 0 40px #a78bfa55);animation:breathe 4s ease-in-out infinite}
+@keyframes breathe{50%{scale:1.02}}
+.floor{position:absolute;bottom:6%;width:46%;height:22px;border-radius:50%;background:radial-gradient(#a78bfa66,transparent 70%);filter:blur(6px)}
+.domain{margin:8px 0 2px;font:800 clamp(28px,5vw,58px)/1.05 system-ui;letter-spacing:-.02em;background:linear-gradient(90deg,var(--mint),var(--sky),var(--lav),var(--pink),var(--butter),var(--mint));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 10s linear infinite}
+@keyframes flow{to{background-position:300% 0}}
+.who{margin:4px 0 18px;color:var(--mute);font-size:clamp(14px,1.8vw,18px)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;border:1px solid var(--line)}
+.btn.pri{background:linear-gradient(135deg,var(--butter),var(--peach));color:#201300;border:0;box-shadow:0 10px 30px #ffb26b55}
+.btn.sec{background:#ffffff0c}
+.note{display:inline-block;margin-top:14px;font-size:12px;color:var(--butter);border:1px dashed var(--butter);border-radius:8px;padding:4px 8px}
+/* doors */
+.sec{padding:8px 24px 32px}.sec h2{font:800 26px/1.2 system-ui;margin:24px 0 6px}.sec p.lede{color:var(--mute);margin:0 0 16px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.chip{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;color:var(--mute);background:#ffffff08}.chip.on{background:var(--lav);color:#140b30;border-color:transparent;font-weight:700}
+.doors{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;perspective:900px}
+.door{--c:var(--lav);position:relative;display:flex;flex-direction:column;gap:6px;min-height:170px;padding:18px;border-radius:18px;text-decoration:none;background:linear-gradient(160deg,color-mix(in srgb,var(--c) 22%,transparent),#ffffff06 60%);border:1px solid color-mix(in srgb,var(--c) 40%,var(--line));transition:transform .25s,box-shadow .25s}
+.door:hover,.door:focus-visible{transform:rotateX(6deg) rotateY(-6deg) translateY(-4px);box-shadow:0 20px 40px #0009,0 0 0 1px var(--c)}
+.door .cat{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--c);font-weight:800}.door b{font-size:18px}.door span{color:var(--mute);font-size:14px}
+.door .stamp{position:absolute;right:14px;top:12px;font-size:18px;opacity:.8}
+.mint{--c:var(--mint)}.lav{--c:var(--lav)}.peach{--c:var(--peach)}.butter{--c:var(--butter)}.pink{--c:var(--pink)}.sky{--c:var(--sky)}
+/* timeline shared */
+.tl{list-style:none;margin:0;padding:0}.tl li{position:relative}.k{display:inline-block;font:800 10px/1 system-ui;letter-spacing:.1em;text-transform:uppercase;border-radius:6px;padding:4px 6px;margin-right:6px}
+.k.learning{background:#7dd3fc22;color:var(--sky)}.k.building{background:#5eead422;color:var(--mint)}.k.sharing{background:#f0abfc22;color:var(--pink)}
+time{color:var(--mute);font-size:12px}
+/* bottom bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;height:var(--bar);display:flex;align-items:center;gap:16px;padding:0 20px 0 calc(var(--rail) + 20px);background:#07070fee;border-top:1px solid var(--line);backdrop-filter:blur(8px);font-size:12px;color:var(--mute)}
+.bar p{margin:0;flex:1;line-height:1.35}.bar p a{color:var(--ink)}
+.globes{display:flex;gap:12px}
+.globe{position:relative;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;text-decoration:none;color:#fff;font:800 10px system-ui;background:radial-gradient(circle at 32% 28%,#ffffffcc 0 6%,transparent 7%),radial-gradient(circle at 40% 35%,var(--g1),var(--g2) 70%,#000 100%);box-shadow:0 6px 14px #000a,inset -6px -8px 14px #0007;overflow:hidden}
+.globe::before,.globe::after{content:"";position:absolute;inset:3px;border-radius:50%;border:1px solid #ffffff55}
+.globe::before{transform:scaleX(.45)}.globe::after{inset:50% 2px auto;height:0;border-width:1px 0 0}
+.globe:hover::before{animation:meridian 1.6s linear infinite}@keyframes meridian{50%{transform:scaleX(.05)}}
+.globe i{position:relative;z-index:1;font-style:normal;text-shadow:0 1px 2px #000}
+.globe small{position:absolute;bottom:-15px;font-size:9px;color:var(--mute)}
+.g-web{--g1:#5eead4;--g2:#0e7c6d}.g-gh{--g1:#a78bfa;--g2:#3b1f7a}.g-lt{--g1:#a3e635;--g2:#3f6212}
+/* follow pill for mobile */
+.follow{display:none}
+@media (max-width:767px){
+  :root{--rail:0px;--bar:auto}.rail{display:none}.top nav,.top .pill{display:none}.top{padding:10px 14px}
+  .front{grid-template-columns:minmax(0,1fr);padding:12px}.stage{min-height:auto;padding:12px 0 8px}
+  .bar{position:static;flex-direction:column-reverse;align-items:stretch;gap:12px;padding:16px 16px 22px}.globes{justify-content:center;gap:26px;padding-bottom:10px}
+  .follow{display:block;margin:0 16px 12px}.follow summary{list-style:none;cursor:pointer;text-align:center;border:1px solid var(--line);border-radius:999px;padding:12px;font-weight:700;background:#ffffff0a}
+  .follow ul{list-style:none;padding:14px 0 0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;justify-items:center;perspective:600px}
+  .follow .coin{transform:none}.follow .coin .lbl{display:none}
+  .page{padding-bottom:0}.ribbon{bottom:10px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.story{position:relative;display:grid;grid-template-columns:minmax(220px,34%) 1fr;gap:24px;padding:0 24px}
+.story .pin{position:sticky;top:90px;align-self:start;height:calc(100dvh - 170px);display:grid;place-items:center;text-align:center;border:1px solid var(--line);border-radius:24px;background:radial-gradient(circle at 50% 40%,#a78bfa22,transparent 70%)}
+.story .pin .mini{font-size:72px;filter:drop-shadow(0 0 30px #ffd16688);transition:transform .4s}
+.story .pin .prog{width:70%;height:6px;border-radius:9px;background:#ffffff14;overflow:hidden}.story .pin .prog i{display:block;height:100%;width:var(--p,0%);background:linear-gradient(90deg,var(--mint),var(--lav));transition:width .3s}
+.story .pin p{color:var(--mute);font-size:13px;margin:6px 16px}
+.story ol{list-style:none;margin:0;padding:0}
+.story .tl li{min-height:62dvh;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:24px;border-left:2px solid var(--line);opacity:.35;transition:opacity .4s,transform .4s;transform:translateX(12px)}
+.story .tl li.act{opacity:1;transform:none;border-left-color:var(--lav)}
+.story .tl li .k{align-self:flex-start}.story .tl li b{font:800 clamp(22px,3vw,36px)/1.15 system-ui}.story .tl li span:not(.k){color:var(--mute);font-size:16px}
+.story-h{padding:0 24px}.story-h h2{font:800 26px/1.2 system-ui;margin:24px 0 4px}.story-h p{color:var(--mute);margin:0 0 12px}
+@media (max-width:767px){.story{grid-template-columns:1fr;padding:0 12px}.story .pin{position:sticky;top:58px;height:auto;padding:10px;z-index:5;background:#0b0920f0;grid-template-columns:auto 1fr;gap:10px}.story .pin .mini{font-size:32px}.story .pin p{display:none}.story .tl li{min-height:48dvh;opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.story .tl li{opacity:1;transform:none}}
+</style></head>
+<body><div class="ribbon" aria-hidden="true">Low-fi mockup · not live</div>
+<a class="vh" href="#doors">Skip to labs</a>
+<nav class="rail" aria-label="Cypher Monkey on social media"><ul><li><span class="coin tbd lav" title="X: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">X</span><span class="lbl">X · URL [HUMAN INPUT REQUIRED]</span><span class="vh">X: link not set yet</span></span></li>
+<li><span class="coin tbd sky" title="Telegram: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">TG</span><span class="lbl">Telegram · URL [HUMAN INPUT REQUIRED]</span><span class="vh">Telegram: link not set yet</span></span></li>
+<li><span class="coin tbd pink" title="Instagram: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">IG</span><span class="lbl">Instagram · URL [HUMAN INPUT REQUIRED]</span><span class="vh">Instagram: link not set yet</span></span></li>
+<li><span class="coin tbd sky" title="Facebook: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">FB</span><span class="lbl">Facebook · URL [HUMAN INPUT REQUIRED]</span><span class="vh">Facebook: link not set yet</span></span></li>
+<li><span class="coin tbd sky" title="Bluesky: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">BS</span><span class="lbl">Bluesky · URL [HUMAN INPUT REQUIRED]</span><span class="vh">Bluesky: link not set yet</span></span></li>
+<li><span class="coin tbd pink" title="TikTok: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">TT</span><span class="lbl">TikTok · URL [HUMAN INPUT REQUIRED]</span><span class="vh">TikTok: link not set yet</span></span></li>
+<li><span class="coin tbd lav" title="Threads: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">TH</span><span class="lbl">Threads · URL [HUMAN INPUT REQUIRED]</span><span class="vh">Threads: link not set yet</span></span></li>
+<li><span class="coin tbd peach" title="Substack: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">SS</span><span class="lbl">Substack · URL [HUMAN INPUT REQUIRED]</span><span class="vh">Substack: link not set yet</span></span></li>
+<li><span class="coin tbd mint" title="WhatsApp Channel: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">WA</span><span class="lbl">WhatsApp Channel · URL [HUMAN INPUT REQUIRED]</span><span class="vh">WhatsApp Channel: link not set yet</span></span></li>
+<li><span class="coin tbd peach" title="YouTube: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">YT</span><span class="lbl">YouTube · URL [HUMAN INPUT REQUIRED]</span><span class="vh">YouTube: link not set yet</span></span></li>
+<li><span class="coin tbd mint" title="Spotify: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">SP</span><span class="lbl">Spotify · URL [HUMAN INPUT REQUIRED]</span><span class="vh">Spotify: link not set yet</span></span></li>
+<li><span class="coin tbd lav" title="GitHub: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">GH</span><span class="lbl">GitHub · URL [HUMAN INPUT REQUIRED]</span><span class="vh">GitHub: link not set yet</span></span></li>
+<li><a class="coin butter" href="https://dev.to/cyphermonkey" target="_blank" rel="noopener"><span aria-hidden="true">DEV</span><span class="lbl">DEV</span><span class="vh">Cypher Monkey on DEV (opens new tab)</span></a></li>
+<li><a class="coin butter" href="https://huggingface.co/Cypher0x9" target="_blank" rel="noopener"><span aria-hidden="true">HF</span><span class="lbl">Hugging Face</span><span class="vh">Cypher Monkey on Hugging Face (opens new tab)</span></a></li></ul></nav>
+<header class="top"><a class="brand" href="index.html"><span class="mk" aria-hidden="true">🐒</span>CypherMonkey Labs</a>
+<nav aria-label="Primary"><a href="#doors">Labs</a><a href="#timeline">Timeline</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+<span class="sp"></span><span class="pill">Search labs ⌘K</span><button class="menu" type="button">Menu</button></header>
+<div class="page">
+
+<main class="front"><div><section class="stage" aria-labelledby="dom"><div class="dust" aria-hidden="true"></div>
+<div class="orbit"><div class="ring" aria-hidden="true"><div class="mark" style="--i:0"><span aria-hidden="true">🐀</span></div><div class="mark" style="--i:1"><span aria-hidden="true">🐂</span></div><div class="mark" style="--i:2"><span aria-hidden="true">🐅</span></div><div class="mark" style="--i:3"><span aria-hidden="true">🐇</span></div><div class="mark" style="--i:4"><span aria-hidden="true">🐉</span></div><div class="mark" style="--i:5"><span aria-hidden="true">🐍</span></div><div class="mark" style="--i:6"><span aria-hidden="true">🐎</span></div><div class="mark" style="--i:7"><span aria-hidden="true">🐐</span></div><div class="mark on" style="--i:8"><span aria-hidden="true">🐒</span></div><div class="mark" style="--i:9"><span aria-hidden="true">🐓</span></div><div class="mark" style="--i:10"><span aria-hidden="true">🐕</span></div><div class="mark" style="--i:11"><span aria-hidden="true">🐖</span></div></div><svg class="monkey" id="monkey" viewBox="0 0 240 240" role="img" aria-label="CypherMonkey mascot placeholder">
+  <defs><radialGradient id="fur" cx="40%" cy="35%"><stop offset="0" stop-color="#c98b5a"/><stop offset="1" stop-color="#6b3b1f"/></radialGradient>
+  <radialGradient id="face" cx="45%" cy="40%"><stop offset="0" stop-color="#ffe2c4"/><stop offset="1" stop-color="#e9a97a"/></radialGradient></defs>
+  <circle cx="48" cy="112" r="30" fill="url(#fur)"/><circle cx="48" cy="112" r="17" fill="url(#face)"/>
+  <circle cx="192" cy="112" r="30" fill="url(#fur)"/><circle cx="192" cy="112" r="17" fill="url(#face)"/>
+  <circle cx="120" cy="116" r="78" fill="url(#fur)"/>
+  <path d="M120 70c-26-12-58 2-60 32-2 22 12 30 12 46 0 22 22 40 48 40s48-18 48-40c0-16 14-24 12-46-2-30-34-44-60-32z" fill="url(#face)"/>
+  <g id="eyes"><ellipse cx="96" cy="112" rx="15" ry="17" fill="#fff"/><ellipse cx="144" cy="112" rx="15" ry="17" fill="#fff"/>
+  <circle class="pupil" cx="96" cy="114" r="7" fill="#1b1033"/><circle class="pupil" cx="144" cy="114" r="7" fill="#1b1033"/>
+  <circle cx="99" cy="110" r="2.5" fill="#fff"/><circle cx="147" cy="110" r="2.5" fill="#fff"/></g>
+  <ellipse cx="120" cy="146" rx="10" ry="6" fill="#7a4326"/>
+  <path d="M98 160c12 12 32 12 44 0" stroke="#5b2c14" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M84 52c10-14 30-20 36-10 6-10 26-4 36 10" stroke="#6b3b1f" stroke-width="8" fill="none" stroke-linecap="round"/>
+</svg><div class="floor" aria-hidden="true"></div></div>
+<div><h1 class="domain" id="dom">cyphermonkeylabs.com</h1>
+<p class="who">Cypher Monkey (@Cypher0x9) · lifelong student · AI builder · moving into AI omni-channel agents</p>
+<div class="ctas"><a class="btn pri" href="#doors">Explore 14 labs →</a><a class="btn sec" href="#">Ask the monkey</a></div>
+<span class="note">Placement C: timeline is a scroll story below</span></div></section></div></main>
+<details class="follow"><summary>Follow Cypher Monkey (14)</summary><ul><li><span class="coin tbd lav" title="X: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">X</span><span class="lbl">X · URL [HUMAN INPUT REQUIRED]</span><span class="vh">X: link not set yet</span></span></li>
+<li><span class="coin tbd sky" title="Telegram: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">TG</span><span class="lbl">Telegram · URL [HUMAN INPUT REQUIRED]</span><span class="vh">Telegram: link not set yet</span></span></li>
+<li><span class="coin tbd pink" title="Instagram: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">IG</span><span class="lbl">Instagram · URL [HUMAN INPUT REQUIRED]</span><span class="vh">Instagram: link not set yet</span></span></li>
+<li><span class="coin tbd sky" title="Facebook: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">FB</span><span class="lbl">Facebook · URL [HUMAN INPUT REQUIRED]</span><span class="vh">Facebook: link not set yet</span></span></li>
+<li><span class="coin tbd sky" title="Bluesky: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">BS</span><span class="lbl">Bluesky · URL [HUMAN INPUT REQUIRED]</span><span class="vh">Bluesky: link not set yet</span></span></li>
+<li><span class="coin tbd pink" title="TikTok: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">TT</span><span class="lbl">TikTok · URL [HUMAN INPUT REQUIRED]</span><span class="vh">TikTok: link not set yet</span></span></li>
+<li><span class="coin tbd lav" title="Threads: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">TH</span><span class="lbl">Threads · URL [HUMAN INPUT REQUIRED]</span><span class="vh">Threads: link not set yet</span></span></li>
+<li><span class="coin tbd peach" title="Substack: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">SS</span><span class="lbl">Substack · URL [HUMAN INPUT REQUIRED]</span><span class="vh">Substack: link not set yet</span></span></li>
+<li><span class="coin tbd mint" title="WhatsApp Channel: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">WA</span><span class="lbl">WhatsApp Channel · URL [HUMAN INPUT REQUIRED]</span><span class="vh">WhatsApp Channel: link not set yet</span></span></li>
+<li><span class="coin tbd peach" title="YouTube: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">YT</span><span class="lbl">YouTube · URL [HUMAN INPUT REQUIRED]</span><span class="vh">YouTube: link not set yet</span></span></li>
+<li><span class="coin tbd mint" title="Spotify: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">SP</span><span class="lbl">Spotify · URL [HUMAN INPUT REQUIRED]</span><span class="vh">Spotify: link not set yet</span></span></li>
+<li><span class="coin tbd lav" title="GitHub: @CypherMonkey, URL [HUMAN INPUT REQUIRED]"><span aria-hidden="true">GH</span><span class="lbl">GitHub · URL [HUMAN INPUT REQUIRED]</span><span class="vh">GitHub: link not set yet</span></span></li>
+<li><a class="coin butter" href="https://dev.to/cyphermonkey" target="_blank" rel="noopener"><span aria-hidden="true">DEV</span><span class="lbl">DEV</span><span class="vh">Cypher Monkey on DEV (opens new tab)</span></a></li>
+<li><a class="coin butter" href="https://huggingface.co/Cypher0x9" target="_blank" rel="noopener"><span aria-hidden="true">HF</span><span class="lbl">Hugging Face</span><span class="vh">Cypher Monkey on Hugging Face (opens new tab)</span></a></li></ul></details>
+<div class="story-h" id="timeline"><h2>The story so far: learning, building, sharing</h2><p>Scroll. Each stop is one timeline entry; the monkey and progress bar follow along.</p></div>
+<section class="story" aria-label="Timeline scroll story"><div class="pin" aria-hidden="true"><div><div class="mini">🐒</div><div class="prog"><i></i></div><p>Placement C: cinematic, but recency sits below the fold.</p></div></div>
+<ol class="tl"><li class=""><span class="k building">building</span><time datetime="2026-10-17">2026-10-17</time><b>Python Lab is live</b><span>From print to projects, in the browser.</span></li><li class=" tbd"><span class="k learning">learning</span><time>[TBD]</time><b>[HUMAN INPUT REQUIRED] What I&#x27;m studying this week</b><span>Course, paper, or book; one line on why.</span></li><li class=""><span class="k building">building</span><time datetime="2026-10-16">2026-10-16</time><b>Four labs open</b><span>BA Lab, Sutra Nexus, Zoom/Talkdesk/Avaya, and CPaaS.</span></li><li class=" tbd"><span class="k sharing">sharing</span><time>[TBD]</time><b>[HUMAN INPUT REQUIRED] Latest post</b><span>Link to the post once the profile URL is confirmed.</span></li><li class=""><span class="k building">building</span><time datetime="2026-10-15">2026-10-15</time><b>Five labs open</b><span>Webex, Five9, Genesys Cloud, NICE CXone, SIP Universe.</span></li><li class=" tbd"><span class="k learning">learning</span><time>[TBD]</time><b>Heading into AI omni-channel agents</b><span>[TBD] date and first milestone.</span></li><li class=""><span class="k building">building</span><time datetime="2026-10-14">2026-10-14</time><b>Amazon Connect and Microsoft Voice labs open</b><span>Two contact-centre campuses.</span></li><li class=""><span class="k building">building</span><time datetime="2026-07-31">2026-07-31</time><b>UC Lab and AI Lab launched</b><span>The first two campuses.</span></li></ol></section>
+<script>(()=>{const items=[...document.querySelectorAll('.story .tl li')],bar=document.querySelector('.story .prog i'),mini=document.querySelector('.story .mini');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){items.forEach(x=>x.classList.remove('act'));e.target.classList.add('act');const i=items.indexOf(e.target);bar.style.setProperty('--p',((i+1)/items.length*100)+'%');mini.style.transform='rotate('+(i%2?8:-8)+'deg) scale('+(1+i*.03)+')';}}),{rootMargin:'-45% 0px -45% 0px'});items.forEach(x=>io.observe(x));})();</script>
+<section class="sec" id="doors" aria-labelledby="doors-h"><h2 id="doors-h">Doors</h2><p class="lede">Every card is generated from <code>/data/labs.json</code>. 8 of 14 shown; the count is never typed by hand.</p>
+<div class="chips"><span class="chip on">All</span><span class="chip">AI agents</span><span class="chip">AI</span><span class="chip">Coding</span><span class="chip">Contact centre</span><span class="chip">Voice and video</span><span class="chip">Protocols</span><span class="chip">Texts</span></div>
+<div class="doors"><a class="door lav" href="https://cyphermonkeylabs.com/python-lab-free-university-mesmerizing/"><span class="stamp" aria-hidden="true">🐒</span><span class="cat">Coding</span><b>Python Lab</b><span>Learn Python in the browser, from print to projects.</span></a><a class="door lav" href="https://cyphermonkeylabs.com/ai-lab-free-university-mesmerizing/campus/ai-lab-university.html"><span class="stamp" aria-hidden="true">🐒</span><span class="cat">AI</span><b>AI Lab</b><span>Try prompts, agents, and tools with the sources in view.</span></a><a class="door mint" href="https://cyphermonkeylabs.com/sip-universe-lab-free-university-mesmerizing/campus/"><span class="stamp" aria-hidden="true">🐒</span><span class="cat">Protocols</span><b>SIP Universe</b><span>Watch a phone call start its trip across the internet.</span></a><a class="door mint" href="https://cyphermonkeylabs.com/cpaas-lab-free-university-mesmerizing/"><span class="stamp" aria-hidden="true">🐒</span><span class="cat">Protocols</span><b>CPaaS Lab</b><span>Twelve tracks and 36 lessons on communications APIs.</span></a><a class="door sky" href="https://cyphermonkeylabs.com/webex-lab-free-university-mesmerizing/"><span class="stamp" aria-hidden="true">🐒</span><span class="cat">Voice and video</span><b>Webex Lab</b><span>Walk Control Hub, calling, and contact center in Webex.</span></a><a class="door peach" href="https://cyphermonkeylabs.com/amazon-connect-lab-free-university-mesmerizing/campus/"><span class="stamp" aria-hidden="true">🐒</span><span class="cat">Contact centre</span><b>Amazon Connect Lab</b><span>Build a cloud contact center, one friendly mission at a time.</span></a><a class="door pink" href="https://cyphermonkeylabs.com/sutra-nexus/"><span class="stamp" aria-hidden="true">🐒</span><span class="cat">Texts</span><b>Sutra Nexus</b><span>Ancient sutras as files, cards, PDFs, and HTML.</span></a><a class="door butter" href="https://cyphermonkeylabs.com/ba-lab-grok-free-university-mesmerizing/"><span class="stamp" aria-hidden="true">🐒</span><span class="cat">Business</span><b>BA Lab</b><span>Practice business analysis: requirements, stories, and process maps.</span></a></div></section>
+<section class="sec" id="about" aria-labelledby="about-h"><h2 id="about-h">About Cypher Monkey</h2>
+<p class="lede">Lifelong student and AI builder, learning in public. I came up through systems, networking, voice, and contact centre work, and I am moving into AI omni-channel agents. [HUMAN INPUT REQUIRED: final bio in Lucky's words]</p></section>
+</div>
+<footer class="bar"><p>⚠ Cypher Monkey Labs is an independent learning project: practice rooms, not official training, and not affiliated with or endorsed by any company named in the labs. Code MIT · content CC BY-NC-SA 4.0 · <a href="https://cyphermonkeylabs.com/privacy.html">Privacy</a></p>
+<div class="globes"><a class="globe g-web" href="https://cyphermonkeylabs.com/" aria-label="Website: cyphermonkeylabs.com"><i>WWW</i><small>website</small></a>
+<a class="globe g-gh" href="https://github.com/CypherMonkeyLabs" aria-label="GitHub: CypherMonkeyLabs (opens new tab)" target="_blank" rel="noopener"><i>GH</i><small>GitHub</small></a>
+<a class="globe g-lt" href="https://linktr.ee/cyphermonkey" aria-label="Linktree: cyphermonkey (opens new tab)" target="_blank" rel="noopener"><i>LT</i><small>Linktree</small></a></div></footer>
+<script>
+(()=>{const m=document.getElementById('monkey');if(!m)return;const calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const pupils=[...m.querySelectorAll('.pupil')],base=pupils.map(p=>[+p.getAttribute('cx'),+p.getAttribute('cy')]);
+function look(x,y){const r=m.getBoundingClientRect(),dx=(x-(r.left+r.width/2))/r.width,dy=(y-(r.top+r.height/2))/r.height;
+ const cx=Math.max(-1,Math.min(1,dx)),cy=Math.max(-1,Math.min(1,dy));pupils.forEach((p,i)=>{p.setAttribute('cx',base[i][0]+cx*6);p.setAttribute('cy',base[i][1]+cy*5)});
+ if(!calm)m.style.transform=`rotateY(${cx*18}deg) rotateX(${-cy*12}deg)`;}
+addEventListener('pointermove',e=>look(e.clientX,e.clientY));
+document.querySelectorAll('.coin,.door,.globe').forEach(el=>{el.addEventListener('pointerenter',()=>{const r=el.getBoundingClientRect();look(r.left+r.width/2,r.top+r.height/2)});
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();look(r.left+r.width/2,r.top+r.height/2)})});
+})();
+</script>
+</body></html>
