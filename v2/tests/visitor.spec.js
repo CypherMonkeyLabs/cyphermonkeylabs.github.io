@@ -31,6 +31,8 @@ test('home renders the stage, rail, bar, and twelve doors', async ({ page }, inf
   await expect(page.locator('.who')).toContainText('Lifelong student');
   await expect(page.locator('#explore')).toHaveText('Explore 14 labs');
   await expect(page.locator('.rail a.coin')).toHaveCount(12);
+  await expect(page.locator('a[href*="spotify.com"]')).toHaveCount(0);
+  await expect(page.locator('.layout-switch')).toBeHidden();
   await expect(page.locator('.globe')).toHaveCount(3);
   await expect(page.locator('.bar')).toContainText('Not affiliated');
   await expect(page.locator('.door')).toHaveCount(12);
@@ -41,9 +43,65 @@ test('home renders the stage, rail, bar, and twelve doors', async ({ page }, inf
   expect(errors, errors.join('\n')).toEqual([]);
 });
 
+async function whiteShare(page, locator) {
+  const png = await locator.screenshot();
+  return page.evaluate(async (encoded) => {
+    const image = new Image();
+    image.src = `data:image/png;base64,${encoded}`;
+    await image.decode();
+    const canvas = document.createElement('canvas');
+    canvas.width = image.width;
+    canvas.height = image.height;
+    const context = canvas.getContext('2d');
+    context.drawImage(image, 0, 0);
+    const data = context.getImageData(0, 0, canvas.width, canvas.height).data;
+    let white = 0;
+    const total = canvas.width * canvas.height;
+    for (let index = 0; index < data.length; index += 4) {
+      if (data[index] > 235 && data[index + 1] > 235 && data[index + 2] > 235) white += 1;
+    }
+    return white / total;
+  }, png.toString('base64'));
+}
+
+test('hero stays coloured after the particle layer settles', async ({ page }, info) => {
+  const gl = [];
+  page.on('console', (message) => {
+    if (message.text().includes('GL_CLOSE_PATH_NV')) gl.push(message.text());
+  });
+  await page.goto('/v2/');
+  await page.waitForTimeout(2600);
+  await expect(page.locator('.monkey-slot canvas')).toHaveCount(1);
+  const share = await whiteShare(page, page.locator('.monkey-slot'));
+  const name = info.project.name === 'mobile' ? 'v2-hero-390-after' : 'v2-hero-1440-after';
+  await page.locator('.orbit').screenshot({ path: `${SHOTS}/${name}.png` });
+  expect(share).toBeLessThan(0.35);
+  expect(gl.length).toBeLessThan(12);
+});
+
+test('globe labels sit clear of the equator and stay at least 12px', async ({ page }) => {
+  await page.goto('/v2/');
+  const faults = await page.locator('.globe').evaluateAll((nodes) => nodes.flatMap((node) => {
+    const sphere = node.querySelector('.sphere').getBoundingClientRect();
+    const label = node.querySelector('.globe-label');
+    const box = label.getBoundingClientRect();
+    const size = parseFloat(getComputedStyle(label).fontSize);
+    const overlaps = box.top < sphere.bottom && box.bottom > sphere.top && box.left < sphere.right && box.right > sphere.left;
+    const problems = [];
+    if (size < 12) problems.push(`${label.textContent} is ${size}px`);
+    if (overlaps) problems.push(`${label.textContent} crosses the globe`);
+    return problems;
+  }));
+  expect(faults).toEqual([]);
+});
+
 test('timeline placements switch from the URL flag', async ({ page }, info) => {
   test.skip(info.project.name !== 'desktop', 'Placement review is a desktop pass');
+  await page.goto('/v2/?review=1');
+  await expect(page.locator('.layout-switch')).toBeVisible();
+  await expect(page.locator('#timeline-b')).toBeVisible();
   await page.goto('/v2/?timeline=b');
+  await expect(page.locator('.layout-switch')).toBeVisible();
   await expect(page.locator('#timeline-b')).toBeVisible();
   await expect(page.locator('#timeline-a')).toBeHidden();
   await page.goto('/v2/?timeline=a');

@@ -8,8 +8,10 @@
     params = new URLSearchParams();
   }
   var timeline = params.get('timeline');
+  var timelineAsked = params.has('timeline');
   if (timeline !== 'a' && timeline !== 'b' && timeline !== 'c') timeline = 'b';
   root.dataset.timeline = timeline;
+  if (params.get('review') === '1' || timelineAsked) root.dataset.review = '1';
 
   var reduce = false;
   try {

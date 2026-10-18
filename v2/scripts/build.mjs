@@ -85,7 +85,7 @@ function rail() {
 function bar() {
   const globes = site.globes.map((globe) => {
     const extra = globe.external ? ' target="_blank" rel="noopener noreferrer"' : '';
-    return `<a class="globe g-${escapeHtml(globe.id)}" href="${escapeHtml(globe.url)}"${extra}><span aria-hidden="true">${escapeHtml(globe.label)}</span><span class="vh">${escapeHtml(globe.name)}</span></a>`;
+    return `<a class="globe g-${escapeHtml(globe.id)}" href="${escapeHtml(globe.url)}"${extra}><span class="sphere" aria-hidden="true"></span><span class="globe-label">${escapeHtml(globe.label)}</span><span class="vh">${escapeHtml(globe.name)}</span></a>`;
   }).join('');
   return `<footer class="bar">
     <p>${escapeHtml(site.disclaimerShort)} Code MIT · content CC BY-NC-SA 4.0 · <a href="${escapeHtml(site.privacyUrl)}">Privacy</a> · <a href="#disclaimer">More</a></p>

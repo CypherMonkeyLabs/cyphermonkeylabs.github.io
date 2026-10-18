@@ -123,7 +123,7 @@ function buildParticles(THREE, count, color) {
   for (let index = 0; index < count; index += 1) {
     positions[index * 3] = (Math.random() - 0.5) * 3.2;
     positions[index * 3 + 1] = (Math.random() - 0.5) * 3.4;
-    positions[index * 3 + 2] = (Math.random() - 0.5) * 1.6;
+    positions[index * 3 + 2] = (Math.random() - 0.5) * 1.2;
     seeds[index] = Math.random();
   }
   const geometry = new THREE.BufferGeometry();
@@ -139,9 +139,10 @@ function buildParticles(THREE, count, color) {
       uniform float uTime;
       void main() {
         vec3 moved = position;
-        moved.y = mod(moved.y + uTime * (0.18 + aSeed * 0.25) + 1.7, 3.4) - 1.7;
+        moved.y = mod(moved.y + uTime * (0.12 + aSeed * 0.16) + 1.7, 3.4) - 1.7;
         vec4 mv = modelViewMatrix * vec4(moved, 1.0);
-        gl_PointSize = (2.0 + aSeed * 3.0) * (160.0 / max(1.0, -mv.z));
+        float size = (1.6 + aSeed * 1.4) * (48.0 / max(2.0, -mv.z));
+        gl_PointSize = clamp(size, 1.0, 6.0);
         gl_Position = projectionMatrix * mv;
       }`,
     fragmentShader: `
@@ -149,14 +150,49 @@ function buildParticles(THREE, count, color) {
       void main() {
         vec2 point = gl_PointCoord - vec2(0.5);
         float dist = length(point);
-        if (dist > 0.5) discard;
-        gl_FragColor = vec4(uColor, (1.0 - dist * 2.0) * 0.8);
+        float alpha = smoothstep(0.5, 0.18, dist) * 0.45;
+        gl_FragColor = vec4(uColor * alpha, alpha);
       }`,
     transparent: true,
     depthWrite: false,
-    blending: THREE.AdditiveBlending,
+    blending: THREE.NormalBlending,
+    premultipliedAlpha: true,
   });
   return new THREE.Points(geometry, material);
+}
+
+function stripIsWashedOut(renderer) {
+  const gl = renderer.getContext();
+  const width = gl.drawingBufferWidth;
+  const height = gl.drawingBufferHeight;
+  if (width < 4 || height < 4) return false;
+  const row = Math.floor(height * 0.28);
+  const band = Math.max(1, Math.floor(height * 0.44));
+  const pixels = new Uint8Array(width * band * 4);
+  gl.readPixels(0, row, width, band, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
+  let white = 0;
+  let opaque = 0;
+  let sum = 0;
+  const count = width * band;
+  for (let index = 0; index < pixels.length; index += 4) {
+    const red = pixels[index];
+    const green = pixels[index + 1];
+    const blue = pixels[index + 2];
+    const alpha = pixels[index + 3];
+    sum += (red + green + blue) / 3;
+    if (alpha > 40) opaque += 1;
+    if (red > 230 && green > 230 && blue > 230 && alpha > 160) white += 1;
+  }
+  const mean = sum / count;
+  let variance = 0;
+  for (let index = 0; index < pixels.length; index += 4) {
+    const lum = (pixels[index] + pixels[index + 1] + pixels[index + 2]) / 3;
+    variance += (lum - mean) ** 2;
+  }
+  variance /= count;
+  const whiteShare = white / count;
+  const opaqueShare = opaque / count;
+  return whiteShare >= 0.45 || (mean > 215 && variance < 80) || opaqueShare < 0.06;
 }
 
 export function mountStage(stage) {
@@ -170,6 +206,7 @@ export function mountStage(stage) {
   slot.appendChild(canvas);
 
   let stopped = false;
+  let disposed = false;
   let frame = 0;
   let lookX = 0;
   let lookY = 0;
@@ -184,8 +221,9 @@ export function mountStage(stage) {
     const renderer = new THREE.WebGLRenderer({
       canvas,
       alpha: true,
-      antialias: tier === 'high',
-      powerPreference: 'high-performance',
+      antialias: false,
+      powerPreference: tier === 'high' ? 'high-performance' : 'low-power',
+      premultipliedAlpha: true,
     });
     renderer.setClearColor(0x000000, 0);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -201,9 +239,11 @@ export function mountStage(stage) {
     scene.add(key, fill);
     const monkey = buildMonkey(THREE, tier);
     scene.add(monkey.root);
-    const count = tier === 'high' ? 700 : 220;
-    const particles = buildParticles(THREE, count, '#c4b5fd');
-    scene.add(particles);
+    /* Medium (coarse pointer, low memory, or a slow frame probe) skips the
+       point layer. Additive point sprites on an alpha canvas were painting
+       an opaque white square over the monkey on touch devices. */
+    let particles = tier === 'high' ? buildParticles(THREE, 280, '#c4b5fd') : null;
+    if (particles) scene.add(particles);
     const floor = new THREE.Mesh(
       new THREE.PlaneGeometry(2.4, 0.7),
       new THREE.MeshStandardMaterial({ color: 0xa78bfa, transparent: true, opacity: 0.18, roughness: 1 }),
@@ -215,7 +255,7 @@ export function mountStage(stage) {
     function resize() {
       const width = Math.max(1, slot.clientWidth);
       const height = Math.max(1, slot.clientHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, tier === 'high' ? 1.6 : 1.15));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, tier === 'high' ? 1.25 : 1));
       renderer.setSize(width, height, false);
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
@@ -226,7 +266,28 @@ export function mountStage(stage) {
 
     let slowFrames = 0;
     let frames = 0;
+    let checks = 0;
     let last = performance.now();
+    function dropParticles() {
+      if (!particles) return;
+      particles.visible = false;
+      scene.remove(particles);
+      particles.geometry.dispose();
+      particles.material.dispose();
+      particles = null;
+    }
+    function releaseRenderer() {
+      if (disposed) return;
+      disposed = true;
+      renderer.dispose();
+    }
+    function fallbackToPoster() {
+      stopped = true;
+      cancelAnimationFrame(frame);
+      stage.classList.remove('is-awake');
+      releaseRenderer();
+      if (canvas.isConnected) canvas.remove();
+    }
     function tick(now) {
       if (stopped) return;
       frame = requestAnimationFrame(tick);
@@ -236,7 +297,7 @@ export function mountStage(stage) {
       if (delta > 34) slowFrames += 1;
       if (tier === 'high' && now - started > 2000 && frames > 20 && slowFrames / frames > 0.4) {
         tier = 'medium';
-        particles.visible = false;
+        dropParticles();
       }
       const t = (now - started) / 1000;
       monkey.body.scale.y = 1 + Math.sin(t * Math.PI * 0.5) * 0.02;
@@ -253,11 +314,27 @@ export function mountStage(stage) {
       } else {
         monkey.armR.rotation.z += (0 - monkey.armR.rotation.z) * 0.08;
       }
-      particles.material.uniforms.uTime.value = t;
+      if (particles) particles.material.uniforms.uTime.value = t;
       renderer.render(scene, camera);
+      /* Two readbacks, not one per frame. Chrome logs GL_CLOSE_PATH_NV
+         "GPU stall due to ReadPixels" when the drawing buffer is read. */
+      const due = (checks === 0 && frames >= 3) || (checks === 1 && now - started > 2100);
+      if (due && checks < 2) {
+        checks += 1;
+        let washed = false;
+        try {
+          washed = stripIsWashedOut(renderer);
+        } catch {
+          washed = true;
+        }
+        if (washed) {
+          fallbackToPoster();
+          return;
+        }
+        stage.classList.add('is-awake');
+      }
     }
     frame = requestAnimationFrame(tick);
-    stage.classList.add('is-awake');
 
     let visible = true;
     const onScreen = new IntersectionObserver((entries) => {
@@ -286,7 +363,7 @@ export function mountStage(stage) {
       },
       wave() { wave = 700; },
       setColor(hex) {
-        particles.material.uniforms.uColor.value.set(hex);
+        if (particles) particles.material.uniforms.uColor.value.set(hex);
       },
       stop() {
         stopped = true;
@@ -294,7 +371,7 @@ export function mountStage(stage) {
         observer.disconnect();
         onScreen.disconnect();
         document.removeEventListener('visibilitychange', onHide);
-        renderer.dispose();
+        releaseRenderer();
         stage.classList.remove('is-awake');
         canvas.remove();
       },
