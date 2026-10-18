@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "verifiedOn": "2026-10-18",
+  "notes": "Draft category names from the hub plan. Agents is the direction of the work; no lab is in it yet.",
+  "categories": [
+    {
+      "id": "agents",
+      "label": "AI agents",
+      "blurb": "Where this is heading: AI omni-channel agents."
+    },
+    {
+      "id": "ai",
+      "label": "AI foundations",
+      "blurb": "Prompts, models, and how AI tools behave."
+    },
+    {
+      "id": "coding",
+      "label": "Coding",
+      "blurb": "Programming, from a first print to a small project."
+    },
+    {
+      "id": "contact-center",
+      "label": "Contact centre",
+      "blurb": "Routing, queues, and agent desks."
+    },
+    {
+      "id": "voice-video",
+      "label": "Voice and video",
+      "blurb": "Calling, meetings, and collaboration."
+    },
+    {
+      "id": "protocols",
+      "label": "Protocols and APIs",
+      "blurb": "SIP, messaging, and communications APIs."
+    },
+    {
+      "id": "business",
+      "label": "Business analysis",
+      "blurb": "Requirements, stories, and process maps."
+    },
+    {
+      "id": "texts-languages",
+      "label": "Texts and languages",
+      "blurb": "Sutras and language study."
+    },
+    {
+      "id": "galleries",
+      "label": "Galleries",
+      "blurb": "Collections of tools and desks."
+    }
+  ]
+}

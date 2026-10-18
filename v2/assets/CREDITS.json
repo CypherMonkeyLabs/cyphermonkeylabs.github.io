@@ -1,0 +1,74 @@
+{
+  "verifiedOn": "2026-10-18",
+  "assets": [
+    {
+      "file": "v2/vendor/three/three.module.js",
+      "source": "https://github.com/mrdoob/three.js",
+      "licence": "MIT",
+      "author": "three.js authors",
+      "url": "https://github.com/mrdoob/three.js/blob/r186/LICENSE",
+      "addedOn": "2026-10-18",
+      "note": "Copied from this site's existing vendor/three bundle, three.js 0.186.1. Not loaded from a CDN."
+    },
+    {
+      "file": "v2/assets/fonts/atkinson-400.woff2",
+      "source": "https://github.com/bramstein/atkinson-hyperlegible-next / Braille Institute",
+      "licence": "OFL-1.1",
+      "author": "Braille Institute of America, Inc.",
+      "url": "v2/assets/fonts/OFL.txt",
+      "addedOn": "2026-10-18",
+      "note": "Same subset already shipped on the live site. Copyright 2020 Braille Institute of America, Inc."
+    },
+    {
+      "file": "v2/assets/fonts/atkinson-700.woff2",
+      "source": "Braille Institute of America, Inc.",
+      "licence": "OFL-1.1",
+      "author": "Braille Institute of America, Inc.",
+      "url": "v2/assets/fonts/OFL.txt",
+      "addedOn": "2026-10-18"
+    },
+    {
+      "file": "v2/assets/fonts/space-grotesk-500.woff2",
+      "source": "The Space Grotesk Project Authors",
+      "licence": "OFL-1.1",
+      "author": "Florian Karsten",
+      "url": "v2/assets/fonts/OFL.txt",
+      "addedOn": "2026-10-18",
+      "note": "Copyright 2020 The Space Grotesk Project Authors. Same subset already shipped on the live site."
+    },
+    {
+      "file": "v2/assets/fonts/space-grotesk-700.woff2",
+      "source": "The Space Grotesk Project Authors",
+      "licence": "OFL-1.1",
+      "author": "Florian Karsten",
+      "url": "v2/assets/fonts/OFL.txt",
+      "addedOn": "2026-10-18"
+    },
+    {
+      "file": "v2/assets/icons/*.svg",
+      "source": "https://github.com/simple-icons/simple-icons",
+      "licence": "CC0-1.0",
+      "author": "Simple Icons contributors",
+      "url": "https://github.com/simple-icons/simple-icons/commit/4d29a35c954699b389a834aacc97dd6e7e74143c",
+      "addedOn": "2026-10-18",
+      "note": "Path data only. Glyphs are drawn unmodified in the official Simple Icons hex. Trademarks stay with each brand. Brand-guideline review is still open."
+    },
+    {
+      "file": "v2/favicon.svg",
+      "source": "original",
+      "licence": "All rights reserved, Cypher Monkey",
+      "author": "Cypher Monkey Labs",
+      "url": "",
+      "addedOn": "2026-10-18"
+    },
+    {
+      "file": "v2 poster SVG and procedural monkey",
+      "source": "original",
+      "licence": "All rights reserved, Cypher Monkey",
+      "author": "Cypher Monkey Labs",
+      "url": "",
+      "addedOn": "2026-10-18",
+      "note": "Drawn for this preview. Not a copy of the ten mascot poses."
+    }
+  ]
+}

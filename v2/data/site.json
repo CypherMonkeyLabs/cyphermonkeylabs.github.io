@@ -1,0 +1,68 @@
+{
+  "name": "Cypher Monkey Labs",
+  "domain": "cyphermonkeylabs.com",
+  "handle": "@Cypher0x9",
+  "preview": true,
+  "tagline": "Lifelong student. AI builder. Sharing what he learns.",
+  "about": "I am Cypher Monkey (@Cypher0x9). I am a lifelong student and an AI builder, and I share what I learn. I came up through voice, video, and contact centres, and I am moving into AI omni-channel agents. These labs are practice rooms. They are not official training, and they do not speak for any company.",
+  "heading": "Where I am heading: AI omni-channel agents. The labs already here are the practice rooms along that path.",
+  "disclaimerShort": "Free practice labs, not official training. Not affiliated with any company named in the labs.",
+  "trademark": "Cypher Monkey Labs is an independent learning project. It is not affiliated with, endorsed by, or sponsored by any company named in the labs. Product names are used only so you can tell the labs apart, and those names belong to their owners.",
+  "licenseLine": "Site code is released under the MIT license. Learning content is shared under CC BY-NC-SA 4.0 unless a lab page says otherwise.",
+  "privacyUrl": "https://cyphermonkeylabs.com/privacy.html",
+  "contactUrl": "https://cyphermonkeylabs.com/#contact",
+  "homeUrl": "https://cyphermonkeylabs.com/",
+  "globes": [
+    {
+      "id": "website",
+      "label": "Website",
+      "name": "Cypher Monkey Labs website",
+      "url": "https://cyphermonkeylabs.com/",
+      "external": false
+    },
+    {
+      "id": "github",
+      "label": "GitHub",
+      "name": "CypherMonkey Labs on GitHub (opens new tab)",
+      "url": "https://github.com/CypherMonkeyLabs",
+      "external": true
+    },
+    {
+      "id": "linktree",
+      "label": "Linktree",
+      "name": "Cypher Monkey on Linktree (opens new tab)",
+      "url": "https://linktr.ee/CypherMonkey",
+      "external": true
+    }
+  ],
+  "greetings": [
+    { "id": "en", "lang": "en", "dir": "ltr", "hello": "Hello" },
+    { "id": "es", "lang": "es", "dir": "ltr", "hello": "Hola" },
+    { "id": "fr", "lang": "fr", "dir": "ltr", "hello": "Bonjour" },
+    { "id": "de", "lang": "de", "dir": "ltr", "hello": "Hallo" },
+    { "id": "pt", "lang": "pt", "dir": "ltr", "hello": "Olá" },
+    { "id": "zh", "lang": "zh-Hans", "dir": "ltr", "hello": "你好" },
+    { "id": "ja", "lang": "ja", "dir": "ltr", "hello": "こんにちは" },
+    { "id": "ko", "lang": "ko", "dir": "ltr", "hello": "안녕하세요" },
+    { "id": "hi", "lang": "hi", "dir": "ltr", "hello": "नमस्ते" },
+    { "id": "ar", "lang": "ar", "dir": "rtl", "hello": "مرحبًا" },
+    { "id": "te", "lang": "te", "dir": "ltr", "hello": "నమస్కారం" },
+    { "id": "sa", "lang": "sa", "dir": "ltr", "hello": "नमस्कारः" },
+    { "id": "sw", "lang": "sw", "dir": "ltr", "hello": "Habari" },
+    { "id": "tr", "lang": "tr", "dir": "ltr", "hello": "Merhaba" }
+  ],
+  "zodiac": [
+    { "char": "鼠", "name": "Rat" },
+    { "char": "牛", "name": "Ox" },
+    { "char": "虎", "name": "Tiger" },
+    { "char": "兔", "name": "Rabbit" },
+    { "char": "龙", "name": "Dragon" },
+    { "char": "蛇", "name": "Snake" },
+    { "char": "马", "name": "Horse" },
+    { "char": "羊", "name": "Goat" },
+    { "char": "猴", "name": "Monkey" },
+    { "char": "鸡", "name": "Rooster" },
+    { "char": "狗", "name": "Dog" },
+    { "char": "猪", "name": "Pig" }
+  ]
+}

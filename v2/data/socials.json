@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "verifiedOn": "2026-10-18",
+  "source": "https://linktr.ee/CypherMonkey",
+  "notes": "Destinations were read from the public Linktree profile (socialLinks and link titles) on 2026-10-18. Telegram was not on that page. Spotify was on that page and is not listed here. LinkedIn is denied. Display names on DEV and Hugging Face are not copied onto this site.",
+  "deny": ["linkedin.com"],
+  "profiles": [
+    {
+      "id": "x",
+      "label": "X",
+      "handle": "@Cypher0x9",
+      "url": "https://x.com/Cypher0x9",
+      "order": 1,
+      "icon": "x",
+      "hex": "000000",
+      "face": "light"
+    },
+    {
+      "id": "youtube",
+      "label": "YouTube",
+      "handle": "YouTube",
+      "url": "https://www.youtube.com/channel/UCoPniWWTXEK0A_GOOsnb18A",
+      "order": 2,
+      "icon": "youtube",
+      "hex": "FF0000",
+      "face": "light"
+    },
+    {
+      "id": "substack",
+      "label": "Substack",
+      "handle": "@cyphermonkey",
+      "url": "https://substack.com/@cyphermonkey",
+      "order": 3,
+      "icon": "substack",
+      "hex": "FF6719",
+      "face": "light"
+    },
+    {
+      "id": "bluesky",
+      "label": "Bluesky",
+      "handle": "@cyphermonkey.bsky.social",
+      "url": "https://bsky.app/profile/cyphermonkey.bsky.social",
+      "order": 4,
+      "icon": "bluesky",
+      "hex": "1185FE",
+      "face": "light"
+    },
+    {
+      "id": "whatsapp",
+      "label": "WhatsApp Channel",
+      "handle": "WhatsApp Channel",
+      "url": "https://www.whatsapp.com/channel/0029Vb8FAVC5EjxzBN9CF32s",
+      "order": 5,
+      "icon": "whatsapp",
+      "hex": "25D366",
+      "face": "light"
+    },
+    {
+      "id": "tiktok",
+      "label": "TikTok",
+      "handle": "@cyphermonkey",
+      "url": "https://www.tiktok.com/@cyphermonkey",
+      "order": 6,
+      "icon": "tiktok",
+      "hex": "000000",
+      "face": "light"
+    },
+    {
+      "id": "threads",
+      "label": "Threads",
+      "handle": "@cyphermonkey0x9",
+      "url": "https://www.threads.com/@cyphermonkey0x9",
+      "order": 7,
+      "icon": "threads",
+      "hex": "000000",
+      "face": "light"
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "handle": "@cyphermonkey0x9",
+      "url": "https://www.instagram.com/cyphermonkey0x9",
+      "order": 8,
+      "icon": "instagram",
+      "hex": "FF0069",
+      "face": "light"
+    },
+    {
+      "id": "facebook",
+      "label": "Facebook",
+      "handle": "Cyphermonkey0x9",
+      "url": "https://www.facebook.com/Cyphermonkey0x9",
+      "order": 9,
+      "icon": "facebook",
+      "hex": "0866FF",
+      "face": "light"
+    },
+    {
+      "id": "github",
+      "label": "GitHub",
+      "handle": "CypherMonkeyLabs",
+      "url": "https://github.com/CypherMonkeyLabs",
+      "order": 10,
+      "icon": "github",
+      "hex": "181717",
+      "face": "light"
+    },
+    {
+      "id": "hf",
+      "label": "Hugging Face",
+      "handle": "Cypher0x9",
+      "url": "https://huggingface.co/Cypher0x9",
+      "order": 11,
+      "icon": "huggingface",
+      "hex": "FFD21E",
+      "face": "dark"
+    },
+    {
+      "id": "devto",
+      "label": "DEV",
+      "handle": "cyphermonkey",
+      "url": "https://dev.to/cyphermonkey",
+      "order": 12,
+      "icon": "devdotto",
+      "hex": "0A0A0A",
+      "face": "light"
+    }
+  ]
+}

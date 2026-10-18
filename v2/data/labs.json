@@ -1,0 +1,528 @@
+{
+  "schemaVersion": 2,
+  "verifiedOn": "2026-10-18",
+  "notes": "Open URLs were requested on 2026-10-18 and returned HTTP 200 (a ranged probe returned 206, which means the resource exists). Repo URLs returned HTTP 200 the same day. Categories follow the v2 hub plan. Lesson counts are omitted until a script counts them.",
+  "labs": [
+    {
+      "schemaVersion": 2,
+      "id": "uc",
+      "aliases": [
+        "uc-lab"
+      ],
+      "kind": "lab",
+      "title": "Unified Communications Lab",
+      "shortTitle": "UC",
+      "tagline": "See how phones, meetings, and teams share one campus.",
+      "summary": "This free campus walks through calling, meetings, and contact-center ideas. You follow the missions at your own pace. Each big idea can be checked against a source. It is practice, not official training.",
+      "category": "voice-video",
+      "secondaryCategories": [],
+      "tags": [
+        "calling",
+        "meetings",
+        "collaboration"
+      ],
+      "level": "navigator",
+      "status": "live",
+      "url": "https://cyphermonkeylabs.com/uc-lab-free-university-mesmerizing/campus/uc-lab-free-university.html",
+      "repo": "https://github.com/CypherMonkeyLabs/uc-lab-free-university-mesmerizing",
+      "accent": "#7dd3fc",
+      "launchedAt": "2026-07-31",
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-18",
+      "featured": true,
+      "order": 10,
+      "sources": [
+        {
+          "title": "SIP: Session Initiation Protocol (RFC 3261)",
+          "url": "https://www.rfc-editor.org/rfc/rfc3261"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "amazon-connect",
+      "aliases": [],
+      "kind": "lab",
+      "title": "Amazon Connect Lab",
+      "shortTitle": "Connect",
+      "tagline": "Build a cloud contact center, one friendly mission at a time.",
+      "summary": "Explore contact flows, queues, routing, and the agent desk in Amazon Connect. The missions use plain language. Key facts link to the official administrator guide so you can check them yourself.",
+      "category": "contact-center",
+      "secondaryCategories": [],
+      "tags": [
+        "cloud",
+        "routing",
+        "ivr",
+        "aws"
+      ],
+      "level": "explorer",
+      "status": "live",
+      "url": "https://cyphermonkeylabs.com/amazon-connect-lab-free-university-mesmerizing/campus/",
+      "repo": "https://github.com/CypherMonkeyLabs/amazon-connect-lab-free-university-mesmerizing",
+      "accent": "#ffb26b",
+      "launchedAt": "2026-10-14",
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-18",
+      "featured": true,
+      "order": 10,
+      "sources": [
+        {
+          "title": "Amazon Connect Administrator Guide",
+          "url": "https://docs.aws.amazon.com/connect/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "microsoft-voice-cc",
+      "aliases": [
+        "microsoft-voice"
+      ],
+      "kind": "lab",
+      "title": "Microsoft Voice & Contact Center Lab",
+      "shortTitle": "Microsoft Voice",
+      "tagline": "Follow voice and contact-center ideas across Microsoft tools.",
+      "summary": "Practice how Microsoft voice and contact-center pieces fit together. The campus is free and static. When a lesson names a product behavior, you can open the Microsoft Learn page and read it there.",
+      "category": "voice-video",
+      "secondaryCategories": [
+        "contact-center"
+      ],
+      "tags": [
+        "microsoft",
+        "voice",
+        "contact-center"
+      ],
+      "level": "explorer",
+      "status": "live",
+      "url": "https://cyphermonkeylabs.com/microsoft-voice-cc-lab-free-university-mesmerizing/campus/",
+      "repo": "https://github.com/CypherMonkeyLabs/microsoft-voice-cc-lab-free-university-mesmerizing",
+      "accent": "#7dd3fc",
+      "launchedAt": "2026-10-14",
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-18",
+      "featured": true,
+      "order": 20,
+      "sources": [
+        {
+          "title": "Set up Microsoft Teams Phone",
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/setting-up-your-phone-system"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "webex",
+      "aliases": [],
+      "kind": "lab",
+      "title": "Webex Lab",
+      "shortTitle": "Webex",
+      "tagline": "Walk Control Hub, calling, and contact center in Webex.",
+      "summary": "A free study console for Webex by Cisco. You can explore Control Hub, calling, contact center, devices, and APIs. When you want the official wording, open Webex Help and read it beside the lesson.",
+      "category": "voice-video",
+      "secondaryCategories": [],
+      "tags": [
+        "webex",
+        "calling",
+        "contact-center"
+      ],
+      "level": "navigator",
+      "status": "live",
+      "url": "https://cyphermonkeylabs.com/webex-lab-free-university-mesmerizing/",
+      "repo": "https://github.com/CypherMonkeyLabs/webex-lab-free-university-mesmerizing",
+      "accent": "#7dd3fc",
+      "launchedAt": "2026-10-15",
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-18",
+      "featured": true,
+      "order": 30,
+      "sources": [
+        {
+          "title": "Webex Help Center",
+          "url": "https://help.webex.com/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "five9",
+      "aliases": [],
+      "kind": "lab",
+      "title": "Five9 Lab",
+      "shortTitle": "Five9",
+      "tagline": "See how a Five9 contact center fits together.",
+      "summary": "Explore Five9 ideas such as admin, phone menus, skills, routing, and the agent desktop. The campus is free. Official Five9 documentation is linked so you can check a fact before you trust it.",
+      "category": "contact-center",
+      "secondaryCategories": [],
+      "tags": [
+        "five9",
+        "routing",
+        "ivr"
+      ],
+      "level": "explorer",
+      "status": "live",
+      "url": "https://cyphermonkeylabs.com/five9-lab-free-university-mesmerizing/campus/",
+      "repo": "https://github.com/CypherMonkeyLabs/five9-lab-free-university-mesmerizing",
+      "accent": "#ffb26b",
+      "launchedAt": "2026-10-15",
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-18",
+      "featured": false,
+      "order": 20,
+      "sources": [
+        {
+          "title": "Five9 documentation",
+          "url": "https://documentation.five9.com/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "genesys-cloud",
+      "aliases": [
+        "genesys"
+      ],
+      "kind": "lab",
+      "title": "Genesys Cloud Lab",
+      "shortTitle": "Genesys Cloud",
+      "tagline": "Trace flows, queues, and routing in Genesys Cloud.",
+      "summary": "A free campus for Genesys Cloud CX. You study flows, queues, and routing in plain language. The official help center is one click away when you want the source behind a lesson.",
+      "category": "contact-center",
+      "secondaryCategories": [],
+      "tags": [
+        "genesys",
+        "routing",
+        "cloud"
+      ],
+      "level": "explorer",
+      "status": "live",
+      "url": "https://cyphermonkeylabs.com/genesys-cloud-lab-free-university-mesmerizing/campus/",
+      "repo": "https://github.com/CypherMonkeyLabs/genesys-cloud-lab-free-university-mesmerizing",
+      "accent": "#ffb26b",
+      "launchedAt": "2026-10-15",
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-18",
+      "featured": false,
+      "order": 30,
+      "sources": [
+        {
+          "title": "Genesys Cloud Resource Center",
+          "url": "https://help.mypurecloud.com/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "nice-cxone",
+      "aliases": [
+        "nice"
+      ],
+      "kind": "lab",
+      "title": "NICE CXone Lab",
+      "shortTitle": "NICE CXone",
+      "tagline": "Explore routing, phone menus, and digital paths in CXone.",
+      "summary": "This free campus introduces NICE CXone ideas such as routing, Studio, phone menus, and digital channels. It is independent study. Check the NICE help center before you use a step at work.",
+      "category": "contact-center",
+      "secondaryCategories": [],
+      "tags": [
+        "nice",
+        "cxone",
+        "routing"
+      ],
+      "level": "explorer",
+      "status": "live",
+      "url": "https://cyphermonkeylabs.com/nice-cxone-lab-free-university-mesmerizing/campus/",
+      "repo": "https://github.com/CypherMonkeyLabs/nice-cxone-lab-free-university-mesmerizing",
+      "accent": "#ffb26b",
+      "launchedAt": "2026-10-15",
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-18",
+      "featured": false,
+      "order": 40,
+      "sources": [
+        {
+          "title": "NICE CXone Help",
+          "url": "https://help.nicecxone.com/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "sip-universe",
+      "aliases": [
+        "sip"
+      ],
+      "kind": "lab",
+      "title": "SIP Universe",
+      "shortTitle": "SIP Universe",
+      "tagline": "Watch a phone call start its trip across the internet.",
+      "summary": "SIP Universe shows how the Session Initiation Protocol starts and steers internet calls. You read the ideas in plain language, then open RFC 3261 when you want the standard itself.",
+      "category": "protocols",
+      "secondaryCategories": [],
+      "tags": [
+        "sip",
+        "calling",
+        "protocol"
+      ],
+      "level": "starter",
+      "status": "live",
+      "url": "https://cyphermonkeylabs.com/sip-universe-lab-free-university-mesmerizing/campus/",
+      "repo": "https://github.com/CypherMonkeyLabs/sip-universe-lab-free-university-mesmerizing",
+      "accent": "#5eead4",
+      "launchedAt": "2026-10-15",
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-18",
+      "featured": true,
+      "order": 10,
+      "sources": [
+        {
+          "title": "SIP: Session Initiation Protocol (RFC 3261)",
+          "url": "https://www.rfc-editor.org/rfc/rfc3261"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "ai-lab",
+      "aliases": [
+        "ai"
+      ],
+      "kind": "lab",
+      "title": "AI Lab",
+      "shortTitle": "AI Lab",
+      "tagline": "Try prompts, agents, and tools with the sources in view.",
+      "summary": "A free campus about prompts, models, agents, and how AI tools behave. Lessons stay curious and careful. When a lesson names a standard, such as the Model Context Protocol, the source is linked.",
+      "category": "ai",
+      "secondaryCategories": [],
+      "tags": [
+        "ai",
+        "prompts",
+        "agents"
+      ],
+      "level": "explorer",
+      "status": "live",
+      "url": "https://cyphermonkeylabs.com/ai-lab-free-university-mesmerizing/campus/ai-lab-university.html",
+      "repo": "https://github.com/CypherMonkeyLabs/ai-lab-free-university-mesmerizing",
+      "accent": "#c4b5fd",
+      "launchedAt": "2026-07-31",
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-18",
+      "featured": true,
+      "order": 10,
+      "sources": [
+        {
+          "title": "Model Context Protocol introduction",
+          "url": "https://modelcontextprotocol.io/docs/getting-started/intro"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "ba-lab",
+      "aliases": [
+        "ba"
+      ],
+      "kind": "lab",
+      "title": "BA Lab",
+      "shortTitle": "BA",
+      "tagline": "Practice business analysis: requirements, stories, and process maps.",
+      "summary": "A free business analyst learning lab. Work through requirements, user stories, and process maps at your own pace. It is independent study, not official training.",
+      "category": "business",
+      "secondaryCategories": [],
+      "tags": [
+        "business-analysis",
+        "requirements",
+        "process"
+      ],
+      "level": "starter",
+      "status": "live",
+      "url": "https://cyphermonkeylabs.com/ba-lab-grok-free-university-mesmerizing/",
+      "repo": "https://github.com/CypherMonkeyLabs/ba-lab-grok-free-university-mesmerizing",
+      "accent": "#ffd166",
+      "launchedAt": "2026-10-16",
+      "updatedAt": "2026-10-16",
+      "lastVerified": "2026-10-18",
+      "featured": false,
+      "order": 100,
+      "sources": [
+        {
+          "title": "BABOK Guide",
+          "url": "https://www.iiba.org/career-resources/a-business-analysis-professionals-foundation-for-success/babok/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "sutra-nexus",
+      "aliases": [],
+      "kind": "lab",
+      "title": "Sutra Nexus",
+      "shortTitle": "Sutras",
+      "tagline": "Ancient sutras as files, cards, PDFs, and HTML.",
+      "summary": "Sutra Nexus opens ancient sutras as files, cards, PDFs, and HTML. Read the Ashtadhyayi lines, the Maheshvara sutras, and the Kashmir Shiva Sutras at your own pace. It is free, independent study.",
+      "category": "texts-languages",
+      "secondaryCategories": [],
+      "tags": [
+        "sutras",
+        "files",
+        "cards",
+        "pdf",
+        "html"
+      ],
+      "level": "starter",
+      "status": "live",
+      "url": "https://cyphermonkeylabs.com/sutra-nexus/",
+      "repo": "https://github.com/CypherMonkeyLabs/sutra-nexus",
+      "accent": "#f0abfc",
+      "launchedAt": "2026-10-16",
+      "updatedAt": "2026-10-16",
+      "lastVerified": "2026-10-18",
+      "featured": false,
+      "order": 10,
+      "sources": [
+        {
+          "title": "Shivasutra with Varttika (GRETIL)",
+          "url": "https://gretil.sub.uni-goettingen.de/gretil/corpustei/transformations/html/sa_zivasUtra-with-vArttika.htm"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "zoom-talkdesk-avaya",
+      "aliases": [],
+      "kind": "lab",
+      "title": "Zoom, Talkdesk and Avaya Lab",
+      "shortTitle": "Zoom TD Avaya",
+      "tagline": "Twelve tracks and 36 lessons on Zoom, Talkdesk, and Avaya.",
+      "summary": "A free campus for Zoom Workplace, Zoom Contact Center, Talkdesk, and Avaya. Twelve tracks and 36 lessons cover calling, routing, and the pages that opened. It is practice, not official training.",
+      "category": "contact-center",
+      "secondaryCategories": [
+        "voice-video"
+      ],
+      "tags": [
+        "zoom",
+        "talkdesk",
+        "avaya",
+        "contact-center"
+      ],
+      "level": "explorer",
+      "status": "live",
+      "url": "https://cyphermonkeylabs.com/zoom-talkdesk-avaya-lab-free-university-mesmerizing/",
+      "repo": "https://github.com/CypherMonkeyLabs/zoom-talkdesk-avaya-lab-free-university-mesmerizing",
+      "accent": "#ffb26b",
+      "launchedAt": "2026-10-16",
+      "updatedAt": "2026-10-16",
+      "lastVerified": "2026-10-18",
+      "featured": false,
+      "order": 50,
+      "sources": [
+        {
+          "title": "Zoom, Talkdesk and Avaya Lab repository",
+          "url": "https://github.com/CypherMonkeyLabs/zoom-talkdesk-avaya-lab-free-university-mesmerizing"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "cpaas",
+      "aliases": [],
+      "kind": "lab",
+      "title": "CPaaS Lab",
+      "shortTitle": "CPaaS",
+      "tagline": "Twelve tracks and 36 lessons on communications APIs.",
+      "summary": "A free campus for communications APIs, SIP, and messaging. Twelve tracks and 36 lessons cover numbers, webhooks, and how calls get routed. It is practice, not official training.",
+      "category": "protocols",
+      "secondaryCategories": [],
+      "tags": [
+        "cpaas",
+        "sip",
+        "messaging",
+        "api"
+      ],
+      "level": "explorer",
+      "status": "live",
+      "url": "https://cyphermonkeylabs.com/cpaas-lab-free-university-mesmerizing/",
+      "repo": "https://github.com/CypherMonkeyLabs/cpaas-lab-free-university-mesmerizing",
+      "accent": "#5eead4",
+      "launchedAt": "2026-10-16",
+      "updatedAt": "2026-10-16",
+      "lastVerified": "2026-10-18",
+      "featured": false,
+      "order": 20,
+      "sources": [
+        {
+          "title": "CPaaS Lab repository",
+          "url": "https://github.com/CypherMonkeyLabs/cpaas-lab-free-university-mesmerizing"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "python-lab",
+      "aliases": [],
+      "kind": "lab",
+      "title": "Python Lab",
+      "shortTitle": "Python",
+      "tagline": "Learn Python in the browser, from print to projects.",
+      "summary": "A free study studio for Python. Lessons run real Python in your browser, with NumPy and pandas included, plus quizzes, three small games, and cheat sheets. Sources are linked. It is practice, not official training.",
+      "category": "coding",
+      "secondaryCategories": [],
+      "tags": [
+        "python",
+        "numpy",
+        "pandas"
+      ],
+      "level": "starter",
+      "status": "live",
+      "url": "https://cyphermonkeylabs.com/python-lab-free-university-mesmerizing/",
+      "repo": "https://github.com/CypherMonkeyLabs/python-lab-free-university-mesmerizing",
+      "accent": "#c4b5fd",
+      "launchedAt": "2026-10-17",
+      "updatedAt": "2026-10-17",
+      "lastVerified": "2026-10-18",
+      "featured": false,
+      "order": 20,
+      "sources": [
+        {
+          "title": "Python Lab repository",
+          "url": "https://github.com/CypherMonkeyLabs/python-lab-free-university-mesmerizing"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "gemini-gems",
+      "aliases": [
+        "gems",
+        "gemini"
+      ],
+      "kind": "gallery",
+      "title": "Gemini Gems gallery",
+      "shortTitle": "Gems",
+      "tagline": "Copy-ready Gemini Gem desks, with the sources left in view.",
+      "summary": "A free gallery of Gemini Gem desks. Each desk is a set of instructions you can read and copy. It is practice material, not an official Google product.",
+      "category": "galleries",
+      "secondaryCategories": [],
+      "tags": [
+        "gemini",
+        "gems",
+        "prompts"
+      ],
+      "level": "starter",
+      "status": "live",
+      "url": "https://cyphermonkeylabs.com/gemini-gems-free-gallery/",
+      "repo": "https://github.com/CypherMonkeyLabs/gemini-gems-free-gallery",
+      "accent": "#f0abfc",
+      "launchedAt": null,
+      "updatedAt": "2026-10-15",
+      "lastVerified": "2026-10-18",
+      "featured": false,
+      "order": 10,
+      "sources": [
+        {
+          "title": "Gemini Gems gallery",
+          "url": "https://cyphermonkeylabs.com/gemini-gems-free-gallery/"
+        }
+      ]
+    }
+  ]
+}
