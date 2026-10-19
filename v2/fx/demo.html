@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CMFX demo · CypherMonkey Labs</title>
+<meta name="description" content="Demo of the CypherMonkey Labs v2 effect library: aurora, particles, a 3D lab globe, tilt cards, a cursor trail, and optional sound.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0c0916">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fx.css">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to effects</a>
+<div class="wrap">
+<header>
+  <p>CypherMonkey Labs · v2 effect library</p>
+  <h1>CMFX demo</h1>
+  <p class="lede">Aurora, a mouse-reactive particle field, a 3D lab globe, tilt cards, a cursor trail, and a Web Audio bed. Sound stays off until you turn it on. Move the pointer to wake the field, the cards, and the trail.</p>
+  <p id="status" role="status">Effects are starting.</p>
+</header>
+<main id="main">
+  <section id="aurora" aria-labelledby="aurora-title">
+    <h2 id="aurora-title">Aurora</h2>
+    <p>A fullscreen shader. The bands follow the Python Lab studio aurora. The wisps are Ashima simplex noise. Reduced motion holds a single frame.</p>
+    <div class="cmfx-stage"><canvas id="aurora-canvas"></canvas></div>
+  </section>
+  <section id="particles" aria-labelledby="particles-title">
+    <h2 id="particles-title">Particles</h2>
+    <p>Canvas particles drift upward and lean toward the pointer. This path does not need WebGL, so it is also the fallback.</p>
+    <div class="cmfx-stage"><canvas id="particle-canvas"></canvas></div>
+  </section>
+  <section id="globe" aria-labelledby="globe-title">
+    <h2 id="globe-title">Lab globe</h2>
+    <p>Drag the globe or use the arrow keys after it is focused. Every lab name below is a real link. three.js loads for this section only.</p>
+    <div id="globe-host"></div>
+  </section>
+  <section id="tilt" aria-labelledby="tilt-title">
+    <h2 id="tilt-title">Tilt cards</h2>
+    <p>Fine pointers tilt the card. Touch and reduced motion leave it flat. The cards are links.</p>
+    <div class="cards">
+      <a class="tilt-card" href="https://cyphermonkeylabs.com/python-lab-free-university-mesmerizing/">
+        <strong>Python Lab</strong>
+        <span>The 3D studio that the aurora shader came from.</span>
+      </a>
+      <a class="tilt-card" href="https://github.com/CypherMonkeyLabs/cyphermonkeylabs.github.io">
+        <strong>Site repo</strong>
+        <span>Source for this preview.</span>
+      </a>
+      <a class="tilt-card" href="https://linktr.ee/CypherMonkey">
+        <strong>Linktree</strong>
+        <span>Cypher Monkey's public links.</span>
+      </a>
+    </div>
+  </section>
+  <section id="trail" aria-labelledby="trail-title">
+    <h2 id="trail-title">Cursor trail</h2>
+    <p>On a fine pointer, dots fade behind the cursor. The layer ignores clicks. It is not drawn for reduced motion or a touch-only screen.</p>
+  </section>
+  <section id="sound" aria-labelledby="sound-title">
+    <h2 id="sound-title">Sound</h2>
+    <p>The fixed toggle is the only way the bed starts. These buttons call <code>CMFX.sound.ping</code>. They stay silent until sound is on. Kinds: tap, hover, ok, nav, warn.</p>
+    <div class="row">
+      <button type="button" class="ping" data-ping="tap">Ping tap</button>
+      <button type="button" class="ping" data-ping="hover">Ping hover</button>
+      <button type="button" class="ping" data-ping="ok">Ping ok</button>
+      <button type="button" class="ping" data-ping="nav">Ping nav</button>
+      <button type="button" class="ping" data-ping="warn">Ping warn</button>
+    </div>
+  </section>
+</main>
+<footer>
+  <nav aria-label="Demo links">
+    <a href="README.md">Usage</a>
+    <a href="LICENSES.md">Licenses</a>
+    <a href="NOTE-FOR-LUCKY.md">Note for Lucky</a>
+    <a href="../">v2 preview</a>
+    <a href="../../">Current site</a>
+    <a href="https://cyphermonkeylabs.com/">cyphermonkeylabs.com</a>
+    <a href="https://github.com/CypherMonkeyLabs">GitHub</a>
+    <a href="https://linktr.ee/CypherMonkey">Linktree</a>
+  </nav>
+</footer>
+</div>
+<script src="cm-fx.js" defer></script>
+<script src="demo.js" defer></script>
+</body>
+</html>
