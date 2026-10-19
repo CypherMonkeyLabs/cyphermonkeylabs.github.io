@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import { buildPlainMessage } from '../../worker/contact/src/mime.js';
-import { handleContact } from '../../worker/contact/src/handler.js';
+import { defaultVerify, handleContact, turnstileVerdict } from '../../worker/contact/src/handler.js';
 import { contactFailureCode } from '../../js/trust/contact.js';
 import { MOTTO, NON_AFFILIATION, ENDPOINT, strings } from '../../js/trust/copy.js';
 import { buildPublicIssueUrl } from '../../js/trust/issue-url.js';
@@ -219,6 +219,65 @@ test('worker mode pages allow Turnstile and keep the endpoint private', async ()
   assert.equal(contactFailureCode(400, { code: 'too_fast' }), 'too_fast');
   assert.equal(contactFailureCode(400, { code: 'captcha' }), 'captcha');
   assert.equal(contactFailureCode(422, { code: 'invalid' }), 'invalid');
+});
+
+test('turnstile siteverify requires our hostname and the widget action', async () => {
+  assert.deepEqual(turnstileVerdict({ success: true, hostname: 'cyphermonkeylabs.com' }), { success: true });
+  assert.deepEqual(turnstileVerdict({ success: true, hostname: 'www.cyphermonkeylabs.com' }), { success: true });
+  assert.deepEqual(turnstileVerdict({ success: true, hostname: 'cyphermonkeylabs.com', action: '' }), { success: true });
+  assert.deepEqual(turnstileVerdict({ success: true, hostname: 'cyphermonkeylabs.com', action: null }), { success: true });
+  assert.deepEqual(turnstileVerdict({ success: true, hostname: 'evil.example' }), { success: false });
+  assert.deepEqual(turnstileVerdict({ success: true, hostname: 'cyphermonkeylabs.com.evil.example' }), { success: false });
+  assert.deepEqual(turnstileVerdict({ success: true, hostname: 'https://cyphermonkeylabs.com' }), { success: false });
+  assert.deepEqual(turnstileVerdict({ success: true }), { success: false });
+  assert.deepEqual(turnstileVerdict({ success: false, hostname: 'cyphermonkeylabs.com' }), { success: false });
+  assert.deepEqual(turnstileVerdict({ success: 1, hostname: 'cyphermonkeylabs.com' }), { success: false });
+  assert.deepEqual(turnstileVerdict({ success: true, hostname: 'cyphermonkeylabs.com', action: 'contact' }), { success: false });
+  assert.deepEqual(turnstileVerdict({ success: true, hostname: 'cyphermonkeylabs.com', action: 'login' }), { success: false });
+  assert.deepEqual(turnstileVerdict(null), { success: false });
+
+  const contact = await readFile('js/trust/contact.js', 'utf8');
+  const widgetStart = contact.indexOf('function widgetOptions');
+  const widgetEnd = contact.indexOf('function dropWidget');
+  assert.ok(widgetStart > -1 && widgetEnd > widgetStart);
+  assert.doesNotMatch(contact.slice(widgetStart, widgetEnd), /\baction\s*:/);
+
+  const seen = [];
+  const payloads = [];
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async (url, init) => {
+    seen.push({ url: String(url), body: String(init.body) });
+    return { json: async () => payloads.shift() };
+  };
+  try {
+    const env = { TURNSTILE_SECRET: 'secret' };
+    payloads.push({ success: true, hostname: 'cyphermonkeylabs.com' });
+    assert.deepEqual(await defaultVerify(env, 'token', '203.0.113.10'), { success: true });
+    payloads.push({ success: true, hostname: 'www.cyphermonkeylabs.com', action: 'contact' });
+    assert.deepEqual(await defaultVerify(env, 'token', '203.0.113.10'), { success: false });
+    payloads.push({ success: true, hostname: 'not-ours.example' });
+    assert.deepEqual(await defaultVerify(env, 'token', '203.0.113.10'), { success: false });
+
+    const bare = { SALT: 'salt', TURNSTILE_SECRET: 'secret' };
+    payloads.push({ success: true, hostname: 'cyphermonkeylabs.com' });
+    const passed = await handleContact(mockReq({ fields: goodFields() }), bare);
+    assert.equal(passed.status, 503);
+    assert.equal((await passed.json()).code, 'unconfigured');
+
+    payloads.push({ success: true, hostname: 'evil.example', action: '' });
+    const rejected = await handleContact(mockReq({ fields: goodFields() }), bare);
+    assert.equal(rejected.status, 400);
+    assert.equal((await rejected.json()).code, 'captcha');
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+
+  assert.equal(seen.length, 5);
+  assert.equal(seen[0].url, 'https://challenges.cloudflare.com/turnstile/v0/siteverify');
+  const params = new URLSearchParams(seen[0].body);
+  assert.equal(params.get('secret'), 'secret');
+  assert.equal(params.get('response'), 'token');
+  assert.equal(params.get('remoteip'), '203.0.113.10');
 });
 
 test('mime subject cannot break the header', () => {

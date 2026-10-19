@@ -5,6 +5,24 @@ const ORIGINS = new Set([
   'https://www.cyphermonkeylabs.com',
 ]);
 
+const TURNSTILE_HOSTS = new Set([
+  'cyphermonkeylabs.com',
+  'www.cyphermonkeylabs.com',
+]);
+
+// widgetOptions() in js/trust/contact.js does not set Turnstile `action`.
+// siteverify echoes `action` only when the widget set one, and that value
+// has to match. An omitted or empty action is what this widget issues.
+const TURNSTILE_ACTION = '';
+
+export function turnstileVerdict(data) {
+  if (!data || data.success !== true) return { success: false };
+  if (!TURNSTILE_HOSTS.has(data.hostname)) return { success: false };
+  const action = data.action == null ? '' : data.action;
+  if (action !== TURNSTILE_ACTION) return { success: false };
+  return { success: true };
+}
+
 function json(status, body, origin) {
   const headers = {
     'content-type': 'application/json; charset=utf-8',
@@ -20,7 +38,7 @@ function knownLabs(env) {
   return raw.split(',').map((id) => id.trim()).filter(Boolean);
 }
 
-async function defaultVerify(env, token, ip) {
+export async function defaultVerify(env, token, ip) {
   const body = new URLSearchParams({
     secret: String(env.TURNSTILE_SECRET || ''),
     response: String(token || ''),
@@ -31,7 +49,7 @@ async function defaultVerify(env, token, ip) {
     body,
   });
   const data = await response.json();
-  return { success: Boolean(data && data.success) };
+  return turnstileVerdict(data);
 }
 
 async function defaultRateLimit(env, key) {
