@@ -1,0 +1,715 @@
+{
+ "generated": "2026-10-19T06:54:42.231Z",
+ "source": "CypherMonkeyLabs/cyphermonkeylabs.github.io v2/index.html",
+ "owner": {
+  "name": "Cypher Monkey",
+  "handle": "@Cypher0x9",
+  "bio": "Cypher Monkey (@Cypher0x9) is a lifelong student and an AI builder. He comes from systems, networking, voice, and contact center work, and is moving into AI omni-channel agents. He learns in the open and shares what he learns so the next curious person has a head start."
+ },
+ "links": {
+  "site": "https://cyphermonkeylabs.com/",
+  "linktree": "https://linktr.ee/CypherMonkey",
+  "github": "https://github.com/CypherMonkeyLabs",
+  "issue": "https://github.com/CypherMonkeyLabs/cyphermonkeylabs.github.io/issues/new"
+ },
+ "labs": [
+  {
+   "id": "uc",
+   "slug": "uc",
+   "title": "Unified Communications Lab",
+   "url": "/v2/labs/uc/",
+   "live": "https://cyphermonkeylabs.com/uc-lab-free-university-mesmerizing/campus/uc-lab-free-university.html",
+   "source": "https://github.com/CypherMonkeyLabs/uc-lab-free-university-mesmerizing",
+   "category": "voice-video",
+   "secondary": "",
+   "level": "Navigator",
+   "desc": "See how phones, meetings, and teams share one campus.",
+   "topics": [
+    "unified",
+    "communications",
+    "lab",
+    "uc",
+    "phones",
+    "meetings",
+    "teams",
+    "campus",
+    "navigator",
+    "voice"
+   ],
+   "anchor": "#lab-uc",
+   "portal": "/v2/labs/uc/",
+   "meta": "Voice and video · Navigator",
+   "keywords": "unified communications lab uc phones meetings teams campus navigator voice"
+  },
+  {
+   "id": "microsoft-voice-cc",
+   "slug": "microsoft-voice-cc",
+   "title": "Microsoft Voice and Contact Center Lab",
+   "url": "/v2/labs/microsoft-voice-cc/",
+   "live": "https://cyphermonkeylabs.com/microsoft-voice-cc-lab-free-university-mesmerizing/campus/",
+   "source": "https://github.com/CypherMonkeyLabs/microsoft-voice-cc-lab-free-university-mesmerizing",
+   "category": "voice-video",
+   "secondary": "contact-center",
+   "level": "Explorer",
+   "desc": "Follow voice and contact-center ideas across Microsoft tools.",
+   "topics": [
+    "microsoft",
+    "voice",
+    "contact",
+    "center",
+    "teams",
+    "explorer"
+   ],
+   "anchor": "#lab-microsoft-voice-cc",
+   "portal": "/v2/labs/microsoft-voice-cc/",
+   "meta": "Voice and video · Explorer",
+   "keywords": "microsoft voice contact center teams explorer"
+  },
+  {
+   "id": "webex",
+   "slug": "webex",
+   "title": "Webex Lab",
+   "url": "/v2/labs/webex/",
+   "live": "https://cyphermonkeylabs.com/webex-lab-free-university-mesmerizing/",
+   "source": "https://github.com/CypherMonkeyLabs/webex-lab-free-university-mesmerizing",
+   "category": "voice-video",
+   "secondary": "",
+   "level": "Navigator",
+   "desc": "Walk Control Hub, calling, and contact center in Webex.",
+   "topics": [
+    "webex",
+    "control",
+    "hub",
+    "calling",
+    "contact",
+    "center",
+    "navigator",
+    "cisco"
+   ],
+   "anchor": "#lab-webex",
+   "portal": "/v2/labs/webex/",
+   "meta": "Voice and video · Navigator",
+   "keywords": "webex control hub calling contact center navigator cisco"
+  },
+  {
+   "id": "amazon-connect",
+   "slug": "amazon-connect",
+   "title": "Amazon Connect Lab",
+   "url": "/v2/labs/amazon-connect/",
+   "live": "https://cyphermonkeylabs.com/amazon-connect-lab-free-university-mesmerizing/campus/",
+   "source": "https://github.com/CypherMonkeyLabs/amazon-connect-lab-free-university-mesmerizing",
+   "category": "contact-center",
+   "secondary": "",
+   "level": "Explorer",
+   "desc": "Build a cloud contact center, one friendly mission at a time.",
+   "topics": [
+    "amazon",
+    "connect",
+    "cloud",
+    "contact",
+    "center",
+    "flows",
+    "queues",
+    "routing",
+    "explorer"
+   ],
+   "anchor": "#lab-amazon-connect",
+   "portal": "/v2/labs/amazon-connect/",
+   "meta": "Contact center · Explorer",
+   "keywords": "amazon connect cloud contact center flows queues routing explorer"
+  },
+  {
+   "id": "five9",
+   "slug": "five9",
+   "title": "Five9 Lab",
+   "url": "/v2/labs/five9/",
+   "live": "https://cyphermonkeylabs.com/five9-lab-free-university-mesmerizing/campus/",
+   "source": "https://github.com/CypherMonkeyLabs/five9-lab-free-university-mesmerizing",
+   "category": "contact-center",
+   "secondary": "",
+   "level": "Explorer",
+   "desc": "See how a Five9 contact center fits together.",
+   "topics": [
+    "five9",
+    "admin",
+    "phone",
+    "menus",
+    "skills",
+    "routing",
+    "explorer"
+   ],
+   "anchor": "#lab-five9",
+   "portal": "/v2/labs/five9/",
+   "meta": "Contact center · Explorer",
+   "keywords": "five9 admin phone menus skills routing explorer"
+  },
+  {
+   "id": "genesys-cloud",
+   "slug": "genesys-cloud",
+   "title": "Genesys Cloud Lab",
+   "url": "/v2/labs/genesys-cloud/",
+   "live": "https://cyphermonkeylabs.com/genesys-cloud-lab-free-university-mesmerizing/campus/",
+   "source": "https://github.com/CypherMonkeyLabs/genesys-cloud-lab-free-university-mesmerizing",
+   "category": "contact-center",
+   "secondary": "",
+   "level": "Explorer",
+   "desc": "Trace flows, queues, and routing in Genesys Cloud.",
+   "topics": [
+    "genesys",
+    "cloud",
+    "flows",
+    "queues",
+    "routing",
+    "explorer"
+   ],
+   "anchor": "#lab-genesys-cloud",
+   "portal": "/v2/labs/genesys-cloud/",
+   "meta": "Contact center · Explorer",
+   "keywords": "genesys cloud flows queues routing explorer"
+  },
+  {
+   "id": "nice-cxone",
+   "slug": "nice-cxone",
+   "title": "NICE CXone Lab",
+   "url": "/v2/labs/nice-cxone/",
+   "live": "https://cyphermonkeylabs.com/nice-cxone-lab-free-university-mesmerizing/campus/",
+   "source": "https://github.com/CypherMonkeyLabs/nice-cxone-lab-free-university-mesmerizing",
+   "category": "contact-center",
+   "secondary": "",
+   "level": "Explorer",
+   "desc": "Explore routing, phone menus, and digital paths in CXone.",
+   "topics": [
+    "nice",
+    "cxone",
+    "routing",
+    "studio",
+    "phone",
+    "menus",
+    "digital",
+    "explorer"
+   ],
+   "anchor": "#lab-nice-cxone",
+   "portal": "/v2/labs/nice-cxone/",
+   "meta": "Contact center · Explorer",
+   "keywords": "nice cxone routing studio phone menus digital explorer"
+  },
+  {
+   "id": "zoom-talkdesk-avaya",
+   "slug": "zoom-talkdesk-avaya",
+   "title": "Zoom, Talkdesk and Avaya Lab",
+   "url": "/v2/labs/zoom-talkdesk-avaya/",
+   "live": "https://cyphermonkeylabs.com/zoom-talkdesk-avaya-lab-free-university-mesmerizing/",
+   "source": "https://github.com/CypherMonkeyLabs/zoom-talkdesk-avaya-lab-free-university-mesmerizing",
+   "category": "contact-center",
+   "secondary": "voice-video",
+   "level": "Explorer",
+   "desc": "Twelve tracks and 36 lessons on Zoom, Talkdesk, and Avaya.",
+   "topics": [
+    "zoom",
+    "talkdesk",
+    "avaya",
+    "twelve",
+    "tracks",
+    "36",
+    "lessons",
+    "explorer",
+    "contact",
+    "center"
+   ],
+   "anchor": "#lab-zoom-talkdesk-avaya",
+   "portal": "/v2/labs/zoom-talkdesk-avaya/",
+   "meta": "Contact center · Explorer",
+   "keywords": "zoom talkdesk avaya twelve tracks 36 lessons explorer contact center"
+  },
+  {
+   "id": "sip-universe",
+   "slug": "sip-universe",
+   "title": "SIP Universe",
+   "url": "/v2/labs/sip-universe/",
+   "live": "https://cyphermonkeylabs.com/sip-universe-lab-free-university-mesmerizing/campus/",
+   "source": "https://github.com/CypherMonkeyLabs/sip-universe-lab-free-university-mesmerizing",
+   "category": "protocols",
+   "secondary": "",
+   "level": "Starter",
+   "desc": "Watch a phone call start its trip across the internet.",
+   "topics": [
+    "sip",
+    "universe",
+    "session",
+    "initiation",
+    "protocol",
+    "rfc",
+    "3261",
+    "starter",
+    "phone",
+    "call"
+   ],
+   "anchor": "#lab-sip-universe",
+   "portal": "/v2/labs/sip-universe/",
+   "meta": "Protocols and APIs · Starter",
+   "keywords": "sip universe session initiation protocol rfc 3261 starter phone call"
+  },
+  {
+   "id": "cpaas",
+   "slug": "cpaas",
+   "title": "CPaaS Lab",
+   "url": "/v2/labs/cpaas/",
+   "live": "https://cyphermonkeylabs.com/cpaas-lab-free-university-mesmerizing/",
+   "source": "https://github.com/CypherMonkeyLabs/cpaas-lab-free-university-mesmerizing",
+   "category": "protocols",
+   "secondary": "",
+   "level": "Explorer",
+   "desc": "Twelve tracks and 36 lessons on communications APIs.",
+   "topics": [
+    "cpaas",
+    "communications",
+    "apis",
+    "sip",
+    "messaging",
+    "twelve",
+    "tracks",
+    "36",
+    "lessons",
+    "explorer"
+   ],
+   "anchor": "#lab-cpaas",
+   "portal": "/v2/labs/cpaas/",
+   "meta": "Protocols and APIs · Explorer",
+   "keywords": "cpaas communications apis sip messaging twelve tracks 36 lessons explorer"
+  },
+  {
+   "id": "ai",
+   "slug": "ai",
+   "title": "AI Lab",
+   "url": "/v2/labs/ai/",
+   "live": "https://cyphermonkeylabs.com/ai-lab-free-university-mesmerizing/campus/ai-lab-university.html",
+   "source": "https://github.com/CypherMonkeyLabs/ai-lab-free-university-mesmerizing",
+   "category": "ai",
+   "secondary": "",
+   "level": "Explorer",
+   "desc": "Try prompts, agents, and tools with the sources in view.",
+   "topics": [
+    "ai",
+    "lab",
+    "prompts",
+    "agents",
+    "tools",
+    "model",
+    "context",
+    "protocol",
+    "explorer"
+   ],
+   "anchor": "#lab-ai",
+   "portal": "/v2/labs/ai/",
+   "meta": "AI foundations · Explorer",
+   "keywords": "ai lab prompts agents tools model context protocol explorer"
+  },
+  {
+   "id": "python",
+   "slug": "python",
+   "title": "Python Lab",
+   "url": "/v2/labs/python/",
+   "live": "https://cyphermonkeylabs.com/python-lab-free-university-mesmerizing/",
+   "source": "https://github.com/CypherMonkeyLabs/python-lab-free-university-mesmerizing",
+   "category": "coding",
+   "secondary": "",
+   "level": "Starter",
+   "desc": "Learn Python in the browser, from print to projects.",
+   "topics": [
+    "python",
+    "lab",
+    "print",
+    "projects",
+    "numpy",
+    "pandas",
+    "starter",
+    "coding"
+   ],
+   "anchor": "#lab-python",
+   "portal": "/v2/labs/python/",
+   "meta": "Coding · Starter",
+   "keywords": "python lab print projects numpy pandas starter coding"
+  },
+  {
+   "id": "ba",
+   "slug": "ba-lab-grok",
+   "title": "BA Lab",
+   "url": "/v2/labs/ba-lab-grok/",
+   "live": "https://cyphermonkeylabs.com/ba-lab-grok-free-university-mesmerizing/",
+   "source": "https://github.com/CypherMonkeyLabs/ba-lab-grok-free-university-mesmerizing",
+   "category": "business",
+   "secondary": "",
+   "level": "Starter",
+   "desc": "Practice business analysis: requirements, stories, and process maps.",
+   "topics": [
+    "ba",
+    "lab",
+    "business",
+    "analysis",
+    "requirements",
+    "stories",
+    "process",
+    "maps",
+    "starter"
+   ],
+   "anchor": "#lab-ba",
+   "portal": "/v2/labs/ba-lab-grok/",
+   "meta": "Business analysis · Starter",
+   "keywords": "ba lab business analysis requirements stories process maps starter"
+  }
+ ],
+ "side": [
+  {
+   "title": "Sutra Nexus",
+   "live": "https://cyphermonkeylabs.com/sutra-nexus/",
+   "topics": [
+    "sutra",
+    "nexus",
+    "ancient",
+    "sutras",
+    "files",
+    "cards",
+    "pdfs",
+    "html",
+    "ashtadhyayi",
+    "starter"
+   ],
+   "desc": "Ancient sutras as files, cards, PDFs, and HTML. A separate project, not one of the thirteen labs."
+  },
+  {
+   "title": "Gemini Gems gallery",
+   "live": "https://cyphermonkeylabs.com/gemini-gems-free-gallery/site/",
+   "topics": [
+    "gemini",
+    "gems",
+    "gallery",
+    "desks",
+    "prompts",
+    "starter",
+    "side",
+    "project"
+   ],
+   "desc": "Copy-ready Gemini Gem desks, with the sources left in view. A small side project."
+  }
+ ],
+ "sections": {
+  "hero": {
+   "anchor": "#hero",
+   "tip": "This is the hub: 13 free labs in a ring. Scroll down or ask me to find one.",
+   "title": "Home",
+   "text": "Learning in the open, one lab at a time. Thirteen free labs."
+  },
+  "trailer": {
+   "anchor": "#trailer",
+   "tip": "A 12-second silent trailer. Good for a quick feel of the campuses.",
+   "title": "Trailer",
+   "text": "A twelve-second silent trailer of the labs."
+  },
+  "doors": {
+   "anchor": "#doors",
+   "tip": "The lab doors. Use the search box (try \"SIP\" or \"Python\"), or ask me \"take me to Webex\".",
+   "title": "Labs",
+   "text": "Thirteen free labs, filterable by topic, plus two side projects (Sutra Nexus and the Gemini Gems gallery)."
+  },
+  "map": {
+   "anchor": "#map",
+   "tip": "The map groups labs into protocols, voice, contact center, and building & study, plus sister technologies with no lab of their own.",
+   "title": "Map",
+   "text": "A 3D map of the labs grouped into clusters (protocols, voice and video, contact center, AI and coding), plus the sister technologies beside them such as workforce management."
+  },
+  "path": {
+   "anchor": "#path",
+   "tip": "Levels are starter, explorer, navigator. Not a required order. Ask me to \"build a path\".",
+   "title": "Learning path",
+   "text": "From fundamentals to advanced. 1) Fundamentals (starter): SIP Universe, Python Lab, BA Lab. 2) Platform practice (explorer): Amazon Connect, Five9, Genesys Cloud, NICE CXone, Zoom/Talkdesk/Avaya, Microsoft Voice, CPaaS, AI Lab. 3) Advanced (navigator): Unified Communications Lab and Webex Lab. Levels describe the campus; they are not a certificate or a required order."
+  },
+  "about": {
+   "anchor": "#about",
+   "tip": "About Cypher Monkey, the lifelong student behind the labs.",
+   "title": "About",
+   "text": "Built by Cypher Monkey (@Cypher0x9), a lifelong student and an AI builder. These are independent educational projects, not official vendor training."
+  },
+  "contact": {
+   "anchor": "#contact",
+   "tip": "From this preview, notes go through a public GitHub issue. Don't put your email in it.",
+   "title": "Contact",
+   "text": "The private contact form lives on the live site at cyphermonkeylabs.com. From this preview you can open a public GitHub issue (do not put an email address in it, issues are public), or reach Cypher Monkey via linktr.ee/CypherMonkey."
+  }
+ },
+ "synonyms": {
+  "agent": [
+   "agents",
+   "agentic",
+   "bot",
+   "bots",
+   "llm",
+   "mcp",
+   "assistant"
+  ],
+  "ai": [
+   "ml",
+   "genai",
+   "llm",
+   "prompt",
+   "prompts",
+   "model",
+   "models",
+   "artificial",
+   "intelligence",
+   "gpt",
+   "chatbot"
+  ],
+  "cc": [
+   "contact",
+   "center",
+   "ccaas",
+   "callcenter",
+   "queue",
+   "queues",
+   "routing",
+   "ivr"
+  ],
+  "ivr": [
+   "menus",
+   "phone",
+   "menu"
+  ],
+  "sip": [
+   "voip",
+   "rfc",
+   "3261",
+   "protocol",
+   "signaling",
+   "call"
+  ],
+  "code": [
+   "coding",
+   "programming",
+   "python",
+   "script",
+   "developer"
+  ],
+  "ba": [
+   "business",
+   "analysis",
+   "analyst",
+   "requirements",
+   "stories",
+   "process"
+  ],
+  "uc": [
+   "unified",
+   "communications",
+   "teams",
+   "meetings",
+   "collaboration"
+  ],
+  "cisco": [
+   "webex"
+  ],
+  "aws": [
+   "amazon",
+   "connect"
+  ],
+  "api": [
+   "apis",
+   "cpaas",
+   "twilio",
+   "sms",
+   "messaging"
+  ],
+  "beginner": [
+   "starter",
+   "new",
+   "basics",
+   "fundamentals",
+   "easy"
+  ],
+  "advanced": [
+   "navigator",
+   "deep",
+   "expert"
+  ],
+  "owner": [
+   "made",
+   "built",
+   "creator",
+   "author",
+   "who",
+   "behind"
+  ],
+  "contact": [
+   "email",
+   "reach",
+   "message",
+   "note",
+   "touch",
+   "issue"
+  ],
+  "webex": [
+   "cisco",
+   "control",
+   "hub"
+  ],
+  "python": [
+   "coding",
+   "code",
+   "programming"
+  ]
+ },
+ "quiz": [
+  {
+   "q": "What level is the Unified Communications Lab?",
+   "a": "Navigator",
+   "choices": [
+    "Starter",
+    "Explorer",
+    "Navigator"
+   ]
+  },
+  {
+   "q": "What level is the Microsoft Voice and Contact Center Lab?",
+   "a": "Explorer",
+   "choices": [
+    "Starter",
+    "Explorer",
+    "Navigator"
+   ]
+  },
+  {
+   "q": "What level is the Webex Lab?",
+   "a": "Navigator",
+   "choices": [
+    "Starter",
+    "Explorer",
+    "Navigator"
+   ]
+  },
+  {
+   "q": "What level is the Amazon Connect Lab?",
+   "a": "Explorer",
+   "choices": [
+    "Starter",
+    "Explorer",
+    "Navigator"
+   ]
+  },
+  {
+   "q": "What level is the Five9 Lab?",
+   "a": "Explorer",
+   "choices": [
+    "Starter",
+    "Explorer",
+    "Navigator"
+   ]
+  },
+  {
+   "q": "What level is the Genesys Cloud Lab?",
+   "a": "Explorer",
+   "choices": [
+    "Starter",
+    "Explorer",
+    "Navigator"
+   ]
+  },
+  {
+   "q": "What level is the NICE CXone Lab?",
+   "a": "Explorer",
+   "choices": [
+    "Starter",
+    "Explorer",
+    "Navigator"
+   ]
+  },
+  {
+   "q": "What level is the Zoom, Talkdesk and Avaya Lab?",
+   "a": "Explorer",
+   "choices": [
+    "Starter",
+    "Explorer",
+    "Navigator"
+   ]
+  },
+  {
+   "q": "What level is the SIP Universe?",
+   "a": "Starter",
+   "choices": [
+    "Starter",
+    "Explorer",
+    "Navigator"
+   ]
+  },
+  {
+   "q": "What level is the CPaaS Lab?",
+   "a": "Explorer",
+   "choices": [
+    "Starter",
+    "Explorer",
+    "Navigator"
+   ]
+  },
+  {
+   "q": "What level is the AI Lab?",
+   "a": "Explorer",
+   "choices": [
+    "Starter",
+    "Explorer",
+    "Navigator"
+   ]
+  },
+  {
+   "q": "What level is the Python Lab?",
+   "a": "Starter",
+   "choices": [
+    "Starter",
+    "Explorer",
+    "Navigator"
+   ]
+  },
+  {
+   "q": "What level is the BA Lab?",
+   "a": "Starter",
+   "choices": [
+    "Starter",
+    "Explorer",
+    "Navigator"
+   ]
+  },
+  {
+   "q": "Which lab covers RFC 3261 and how a call starts?",
+   "a": "SIP Universe",
+   "choices": [
+    "SIP Universe",
+    "Five9 Lab",
+    "BA Lab"
+   ]
+  },
+  {
+   "q": "Which lab is the campus for prompts, agents, and tools?",
+   "a": "AI Lab",
+   "choices": [
+    "CPaaS Lab",
+    "AI Lab",
+    "Webex Lab"
+   ]
+  },
+  {
+   "q": "How many free labs are on the hub?",
+   "a": "13",
+   "choices": [
+    "7",
+    "13",
+    "21"
+   ]
+  },
+  {
+   "q": "Is there a WFM lab here?",
+   "a": "No",
+   "choices": [
+    "Yes",
+    "No"
+   ]
+  }
+ ],
+ "disclaimer": "Independent and educational. Not official training from, or affiliated with, any vendor named. Levels describe the campus; they are not certificates."
+}

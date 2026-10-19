@@ -1,0 +1,69 @@
+.cmb{--cmb-bg:#100e28;--cmb-fg:#f4f2ff;--cmb-ac:#8fd3ff;font:14px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}
+.cmb-monkey{position:fixed;left:0;top:0;z-index:960;width:64px;height:64px;padding:0;border:0;background:none;cursor:grab;touch-action:none;will-change:transform;-webkit-tap-highlight-color:transparent}
+.cmb-monkey:focus-visible{outline:3px solid var(--cmb-ac);outline-offset:3px;border-radius:50%}
+.cmb-monkey.cmb-drag{cursor:grabbing}
+.cmb-body{position:relative;display:block;width:100%;height:100%;transform-origin:50% 60%;filter:drop-shadow(0 6px 10px rgba(0,0,0,.35))}
+.cmb-body svg,.cmb-body img{width:100%;height:100%;display:block;pointer-events:none}
+.cmb-body [id$="lid-l"],.cmb-body [id$="lid-r"]{transform:scaleY(0);transform-box:fill-box;transform-origin:50% 0;transition:transform .08s}
+.cmb-blink .cmb-body [id$="lid-l"],.cmb-blink .cmb-body [id$="lid-r"]{transform:scaleY(1)}
+.cmb-flame{position:absolute;left:30%;bottom:-14px;width:14px;height:22px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(circle at 50% 30%,#fff 0,#ffe8a3 30%,#ff8a3d 65%,transparent 70%);opacity:0;transform-origin:50% 0}
+.cmb-flying .cmb-flame{opacity:1;animation:cmbfl .12s infinite alternate}
+@keyframes cmbfl{to{transform:scaleY(1.5) scaleX(.8)}}
+.cmb-bubble{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%) scale(.6);background:#fff;color:#1e1b3a;font:600 12px/1.3 system-ui,sans-serif;padding:6px 9px;border-radius:10px;width:max-content;max-width:min(230px,70vw);white-space:normal;text-align:left;opacity:0;transition:.2s;pointer-events:none;box-shadow:0 6px 16px rgba(0,0,0,.3)}
+.cmb-bubble.on{opacity:1;transform:translateX(-50%) scale(1)}
+.cmb-rope{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:955;display:none;overflow:visible}
+.cmb-hanging .cmb-rope{display:block}.cmb-rope path{fill:none;stroke:#c89b7b;stroke-width:5;stroke-linecap:round}
+.cmb-panel{position:fixed;right:16px;bottom:92px;z-index:961;width:min(380px,calc(100vw - 32px));max-height:min(560px,calc(100vh - 120px));display:flex;flex-direction:column;background:var(--cmb-bg);color:var(--cmb-fg);border:1px solid rgba(143,211,255,.35);border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.45);overflow:hidden}
+.cmb-panel[hidden]{display:none}
+.cmb-head{display:flex;align-items:center;gap:6px;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12)}
+.cmb-head strong{flex:1;font-size:14px}
+.cmb-ic{background:rgba(255,255,255,.08);color:inherit;border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:4px 8px;min-height:32px;min-width:32px;font:inherit;font-size:12px;cursor:pointer}
+.cmb-ic[aria-pressed=true]{background:var(--cmb-ac);color:#10102a}
+.cmb-log{flex:1;overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:8px;overscroll-behavior:contain}
+.cmb-msg{max-width:92%}
+.cmb-acts,.cmb-quick{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.cmb-quick{padding:0 10px 6px;margin:0}
+.cmb-act{background:none;color:var(--cmb-ac);border:1px solid currentColor;border-radius:999px;padding:4px 10px;font:inherit;font-size:12px;cursor:pointer;text-decoration:none;min-height:28px;display:inline-flex;align-items:center}
+.cmb-act:hover,.cmb-act:focus-visible{background:var(--cmb-ac);color:#10102a;outline:none}
+.cmb-form{display:flex;gap:6px;padding:8px 10px;border-top:1px solid rgba(255,255,255,.12)}
+.cmb-form input{flex:1;min-width:0;background:rgba(255,255,255,.08);color:inherit;border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:8px 10px;font:inherit;font-size:16px}
+.cmb-form button{background:var(--cmb-ac);color:#10102a;border:0;border-radius:10px;padding:0 14px;font:600 14px system-ui,sans-serif;cursor:pointer}
+.cmb-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.cmb-glow{outline:3px solid #8fd3ff!important;outline-offset:4px;transition:outline-color .3s}
+@media (max-width:719px){.cmb-monkey{width:52px;height:52px}.cmb-panel{left:8px;right:8px;width:auto;bottom:72px;max-height:55vh}}
+.cmb-still .cmb-body{transform:none!important}
+@media (prefers-reduced-motion:reduce){.cmb-body,.cmb-bubble,.cmb-flame{animation:none!important;transition:none!important}}
+/* hide the legacy r3 guide monkey (CSP blocks inline style, so it lives here) */
+.r3-guide{display:none!important}
+.cmb-right .cmb-bubble{left:auto;right:0;transform:scale(.6);transform-origin:100% 100%}
+.cmb-right .cmb-bubble.on{transform:scale(1)}
+.cmb-ttl{flex:1;min-width:0}.cmb-ttl h2{margin:0;font-size:14px;line-height:1.2;color:inherit}.cmb-ttl p{margin:0;font-size:11px;opacity:.7}
+.cmb-mood{font-weight:400;font-size:11px;opacity:.75;margin-left:4px}
+.cmb-msg{padding:8px 10px;border-radius:12px;overflow-wrap:anywhere}
+.cmb-bot{background:rgba(255,255,255,.08)}.cmb-you{background:var(--cmb-ac);color:#10102a}
+.cmb-msg a{color:var(--cmb-ac);text-decoration:underline}.cmb-msg a:focus-visible{outline:2px solid var(--cmb-ac);outline-offset:2px}
+.cmb-list{margin:6px 0;padding-left:18px}.cmb-list li{margin:2px 0}
+.cmb-meta{font-size:12px;opacity:.75}
+.cmb-quick button{background:none;color:var(--cmb-ac);border:1px solid currentColor;border-radius:999px;padding:4px 10px;font:inherit;font-size:12px;cursor:pointer;min-height:28px}
+.cmb-quick button:hover,.cmb-quick button:focus-visible{background:var(--cmb-ac);color:#10102a;outline:none}
+.cmb-typing{padding:0 12px 6px;font-size:12px;opacity:.8}.cmb-typing i{display:inline-block;width:6px;height:6px;margin-right:3px;border-radius:50%;background:var(--cmb-ac);animation:cmbdot 1s infinite}
+.cmb-typing i:nth-child(2){animation-delay:.15s}.cmb-typing i:nth-child(3){animation-delay:.3s}
+@keyframes cmbdot{50%{opacity:.25;transform:translateY(-3px)}}
+.cmb-zzz{position:absolute;right:-6px;top:-10px;font:700 13px system-ui,sans-serif;color:#8fd3ff;opacity:0;pointer-events:none}
+[data-mood=sleepy] .cmb-zzz{opacity:1;animation:cmbz 2s ease-in-out infinite}
+[data-mood=sleepy] .cmb-body [id$="lid-l"],[data-mood=sleepy] .cmb-body [id$="lid-r"]{transform:scaleY(1)}
+@keyframes cmbz{50%{transform:translate(4px,-6px);opacity:.5}}
+[data-mood=think] .cmb-body svg{animation:cmbthink .8s ease-in-out infinite alternate}
+@keyframes cmbthink{to{transform:rotate(-6deg)}}
+.cmb-party .cmb-body svg{animation:cmbparty .5s linear infinite}
+@keyframes cmbparty{to{transform:rotate(360deg)}}
+.cmb-banana{position:fixed;top:-40px;z-index:970;font-size:28px;pointer-events:none;animation:cmbfall 2.6s ease-in forwards}
+@keyframes cmbfall{to{transform:translateY(110vh) rotate(540deg)}}
+/* phone: small wave or peek while docked in the corner */
+.cmb-wave .cmb-body [id$="arm-r"]{transform-box:view-box;transform-origin:152px 160px;animation:cmbwave .4s ease-in-out 4 alternate}
+@keyframes cmbwave{from{transform:rotate(-10deg)}to{transform:rotate(-70deg)}}
+.cmb-peek .cmb-body svg{animation:cmbpeek 1.6s ease-in-out}
+@keyframes cmbpeek{30%,70%{transform:translateX(16px) rotate(-14deg)}}
+.cmb-still .cmb-body svg,.cmb-still .cmb-zzz{animation:none!important}
+@media (prefers-reduced-motion:reduce){.cmb *,.cmb-banana{animation:none!important;transition:none!important}}
+.cmb-you{align-self:flex-end}
