@@ -180,5 +180,5 @@ function warpBtn() {
     for (let i = 0; i < 6; i++) { const s = document.createElement('i'); s.className = 'r3-star'; s.style.top = (8 + Math.random() * 50) + 'vh'; s.style.left = (30 + Math.random() * 70) + 'vw'; s.style.animationDelay = (i * 0.08) + 's'; document.body.appendChild(s); setTimeout(() => s.remove(), 1600); }
   });
 }
-intro(); astronaut(); holo(); warpBtn(); guide(); reveals(); counters(); magnetic();
+intro(); astronaut(); holo(); warpBtn(); if (!matchMedia('(max-width: 800px)').matches) guide(); reveals(); counters(); magnetic();
 scene().catch(() => {});

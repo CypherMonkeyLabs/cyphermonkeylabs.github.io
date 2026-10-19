@@ -50,7 +50,12 @@ test.describe("homepage", () => {
       await page.evaluate(async () => {
         if (document.fonts && document.fonts.ready) await document.fonts.ready;
       });
-      await page.waitForTimeout(800);
+      await page.waitForTimeout(400);
+      const skip = page.locator(".r3-skip");
+      if (await skip.isVisible().catch(() => false)) {
+        await skip.click();
+        await page.locator(".r3-intro").waitFor({ state: "detached", timeout: 3000 }).catch(() => {});
+      }
       const csp = await seen.readCsp();
       expect(seen.errors, seen.errors.join("\n")).toEqual([]);
       expect(csp, csp.join("\n")).toEqual([]);
@@ -88,9 +93,17 @@ test.describe("homepage", () => {
         }
         node = node.parentElement;
       }
-      const overlap = eyeBox
-        ? !(rect.right < eyeBox.left || rect.left > eyeBox.right || rect.bottom < eyeBox.top || rect.top > eyeBox.bottom)
-        : false;
+      const card = document.querySelector(".hero-copy");
+      const cardBox = card ? card.getBoundingClientRect() : null;
+      const hits = (box) => box && !(rect.right < box.left || rect.left > box.right || rect.bottom < box.top || rect.top > box.bottom);
+      const shown = (sel) => {
+        const node = document.querySelector(sel);
+        if (!node) return false;
+        const style = getComputedStyle(node);
+        if (style.display === "none" || style.visibility === "hidden" || Number(style.opacity) === 0) return false;
+        const bounds = node.getBoundingClientRect();
+        return bounds.width > 8 && bounds.height > 8;
+      };
       return {
         top: rect.top,
         left: rect.left,
@@ -100,8 +113,9 @@ test.describe("homepage", () => {
         height: rect.height,
         text: el.textContent,
         clip,
-        overlap,
-        eyebrow: eye ? eye.textContent : ""
+        overlap: !!hits(eyeBox) || !!hits(cardBox),
+        eyebrow: eye ? eye.textContent : "",
+        guides: { cyph: shown(".cmb-monkey"), astro: shown(".r3-astro"), legacy: shown(".r3-guide") }
       };
     });
     expect(box.text.length).toBeGreaterThan(0);
@@ -114,12 +128,58 @@ test.describe("homepage", () => {
     expect(box.clip, JSON.stringify(box)).toBe("");
     expect(box.overlap, JSON.stringify(box)).toBe(false);
     expect(box.eyebrow.toLowerCase()).not.toContain("preview");
+    if (info.project.name === "phone") {
+      expect(box.guides.cyph).toBe(true);
+      expect(box.guides.astro).toBe(false);
+      expect(box.guides.legacy).toBe(false);
+    }
     await expect(page.locator("body")).not.toContainText(/preview/i);
     const width = info.project.name === "phone" ? "390" : "1280";
     await shot(page, `bubble-${width}.png`);
     const csp = await seen.readCsp();
     expect(seen.errors, seen.errors.join("\n")).toEqual([]);
     expect(csp, csp.join("\n")).toEqual([]);
+  });
+
+  test("narrow phones keep one guide and a bubble off the hero text", async ({ page }, info) => {
+    test.skip(info.project.name !== "phone", "this sweep sets its own widths");
+    for (const width of [360, 390, 430]) {
+      await page.setViewportSize({ width, height: 844 });
+      await page.goto("/", { waitUntil: "domcontentloaded" });
+      const skip = page.locator(".r3-skip");
+      if (await skip.isVisible().catch(() => false)) await skip.click();
+      const bubble = page.locator(".cmb-bubble.on");
+      await expect(bubble).toBeVisible({ timeout: 8000 });
+      await page.waitForTimeout(500);
+      const state = await bubble.evaluate((el) => {
+        const rect = el.getBoundingClientRect();
+        const card = document.querySelector(".hero-copy").getBoundingClientRect();
+        const overlap = !(rect.right < card.left || rect.left > card.right || rect.bottom < card.top || rect.top > card.bottom);
+        const shown = (sel) => {
+          const node = document.querySelector(sel);
+          if (!node) return false;
+          const style = getComputedStyle(node);
+          if (style.display === "none" || style.visibility === "hidden") return false;
+          const bounds = node.getBoundingClientRect();
+          return bounds.width > 8 && bounds.height > 8;
+        };
+        return {
+          overlap,
+          inside: rect.top >= -1 && rect.left >= -1 && rect.right <= innerWidth + 1 && rect.bottom <= innerHeight + 1,
+          cyph: shown(".cmb-monkey"),
+          astro: shown(".r3-astro"),
+          legacy: shown(".r3-guide")
+        };
+      });
+      expect(state, `${width} ${JSON.stringify(state)}`).toMatchObject({
+        overlap: false,
+        inside: true,
+        cyph: true,
+        astro: false,
+        legacy: false
+      });
+      await shot(page, `home-${width}.png`);
+    }
   });
 
   test("contact form renders the Turnstile widget", async ({ page }, info) => {

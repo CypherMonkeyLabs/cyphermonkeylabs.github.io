@@ -78,11 +78,25 @@
   var P = { x: innerWidth - 90, y: innerHeight - 100, vx: 0, vy: 0, tx: 0, ty: 0, mode: 'spring', ang: 0, av: 0, rot: 0, face: 1 };
   var SIZE = 64, mouse = { x: innerWidth / 2, y: innerHeight / 2 }, drag = null, idleUntil = 0, flyT = 0, pointAt = null, last = 0, raf = 0, hopT = 0;
   function dock() { var s = mobile() ? 52 : 64; SIZE = s; return { x: innerWidth - s - 12, y: innerHeight - s - 12 }; }
+  function phonePerch() {
+    var d = dock();
+    var copy = document.querySelector('.hero-copy');
+    if (!copy) return d;
+    var r = copy.getBoundingClientRect();
+    if (r.bottom < headerBottom() + 24) return d;
+    var y = Math.round(r.top - SIZE - 16);
+    if (y < headerBottom() + 8) return d;
+    return { x: d.x, y: Math.min(y, innerHeight - SIZE - 8) };
+  }
+  function hitsRect(l, t, bw, bh, r) {
+    if (!r || r.width < 2 || r.height < 2) return false;
+    return !(l + bw < r.left + 1 || l > r.right - 1 || t + bh < r.top + 1 || t > r.bottom - 1);
+  }
   function headerBottom() { var hd = document.querySelector('header.top'); if (!hd) return 0; var r = hd.getBoundingClientRect(); return Math.max(0, r.bottom); }
   function chooseTarget() {
     if (drag || P.mode === 'free' || P.mode === 'fly') return;
     var d = dock();
-    if (!panel.hidden || st.min || mobile()) { setT(d.x, d.y, 'spring'); return; }
+    if (!panel.hidden || st.min || mobile()) { var spot = mobile() ? phonePerch() : d; setT(spot.x, spot.y, 'spring'); return; }
     if (performance.now() < idleUntil && P.perch) { setT(P.perch.x, P.perch.y, 'spring'); return; }
     if (scrollY < 120) { // hang from the right side of the header, clear of the hero eyebrow
       var hb = headerBottom(); P.anchor = { x: Math.max(SIZE + 28, innerWidth - 110), y: hb }; if (P.mode !== 'hang') { P.mode = 'hang'; P.ang = -0.35; P.av = 0; } return;
@@ -166,25 +180,33 @@
     if (top < margin) { below = true; top = P.y + SIZE + 8; }
     if (top + bh > innerHeight - margin) top = Math.max(margin, innerHeight - bh - margin);
     bubble.classList.toggle('cmb-below', below);
-    bubble.style.left = left + 'px';
-    bubble.style.top = top + 'px';
+    var copy = document.querySelector('.hero-copy');
+    var card = copy ? copy.getBoundingClientRect() : null;
     var eye = document.querySelector('.hero .eyebrow');
-    if (!eye || !bubble.classList.contains('on')) return;
-    var e = eye.getBoundingClientRect();
-    if (e.width < 2 || e.height < 2) return;
-    function hits(l, t) { return !(l + bw < e.left || l > e.right || t + bh < e.top || t > e.bottom); }
-    if (!hits(left, top)) return;
-    var spots = [
-      [e.right + 12, top],
-      [e.left - bw - 12, top],
-      [left, e.bottom + 12],
-      [left, e.top - bh - 12]
-    ];
+    var brow = eye ? eye.getBoundingClientRect() : null;
+    function clearOfText(l, t) {
+      return !hitsRect(l, t, bw, bh, card) && !hitsRect(l, t, bw, bh, brow);
+    }
+    var spots = [];
+    if (mobile() && card) {
+      var perch = phonePerch();
+      spots.push([perch.x - bw - 8, perch.y]);
+      spots.push([margin, card.top - bh - 12]);
+    }
+    spots.push([left, top]);
+    if (brow) spots.push([Math.max(margin, brow.right + 12), top]);
+    var placed = false;
     for (var i = 0; i < spots.length; i++) {
       var l = Math.max(margin, Math.min(spots[i][0], innerWidth - bw - margin));
-      var t = Math.max(margin, Math.min(spots[i][1], innerHeight - bh - margin));
-      if (!hits(l, t)) { bubble.style.left = l + 'px'; bubble.style.top = t + 'px'; return; }
+      var t = Math.max(headerBottom() + 4, Math.min(spots[i][1], innerHeight - bh - margin));
+      if (clearOfText(l, t)) {
+        bubble.style.left = l + 'px';
+        bubble.style.top = t + 'px';
+        placed = true;
+        break;
+      }
     }
+    if (!placed) bubble.classList.remove('on');
   }
   function say(t, ms) {
     bubble.textContent = t;
