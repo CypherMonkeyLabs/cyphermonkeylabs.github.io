@@ -1,0 +1,71 @@
+.map-tools { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 14px; }
+.map-tools button, .map-tools input {
+  min-height: 48px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #120d24;
+  color: var(--ink);
+  font: inherit;
+  padding: 8px 14px;
+}
+.map-tools input { min-width: 0; flex: 1 1 180px; }
+.map-tools button[aria-pressed="true"] {
+  background: var(--butter);
+  color: #1a1300;
+  border-color: var(--butter);
+}
+.map-stage { margin: 8px 0 18px; }
+.map-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #100c22;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+}
+.map-svg text {
+  font-family: "Atkinson Hyperlegible", "Segoe UI", sans-serif;
+  fill: #f6f3ff;
+}
+.map-svg .node-label { font-size: 15px; }
+.map-narrow .node-label { font-size: 16px; }
+.map-svg .hub-label { font-size: 16px; font-weight: 700; }
+.line-sister { stroke: #5eead4; stroke-width: 1.5; opacity: 0.45; }
+.line-bridge { stroke: #ffd166; stroke-width: 2; stroke-dasharray: 6 5; opacity: 0.85; }
+.node-dot { fill: #140c28; stroke-width: 3; }
+.node-sister .node-dot { stroke: #f0abfc; }
+.node-lab .node-dot { stroke: #7dd3fc; }
+.node-hub .node-dot { fill: #ffd166; stroke: #ffd166; }
+.map-narrow { display: none; }
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+.card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 14px;
+  background: #120d24;
+  scroll-margin-top: 84px;
+}
+.card:target {
+  border-color: var(--butter);
+  box-shadow: 0 0 0 3px #ffd166;
+}
+.glossary { display: grid; gap: 12px; }
+.glossary div {
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+.glossary dt { font-family: var(--display); font-weight: 700; }
+.globe-mount { height: 280px; border: 1px solid var(--line); border-radius: 18px; margin: 8px 0 16px; }
+.group-title { margin: 18px 0 8px; }
+
+@media (max-width: 720px) {
+  .map-wide { display: none; }
+  .map-narrow { display: block; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .map-svg { scroll-behavior: auto; }
+}
