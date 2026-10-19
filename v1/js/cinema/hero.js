@@ -1,6 +1,6 @@
 /* Cinematic hero: a core, orbit rings of dotted light, 13 lab nodes, signal pulses, and a star shell.
    three.js is vendored at /vendor/three. Renders only while the hero is on screen. */
-import * as T from '../../vendor/three/three.module.js';
+import * as T from '../../../vendor/three/three.module.js';
 
 const ACCENTS = [0x62d4f5, 0xffc65c, 0x6ee7b7, 0x9d8cff]; // voice, contact center, protocols, AI
 const NODE_GROUPS = [0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 3, 3, 3]; // matches the 13 labs by group

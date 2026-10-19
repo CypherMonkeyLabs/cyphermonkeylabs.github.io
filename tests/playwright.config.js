@@ -3,7 +3,7 @@ import { defineConfig } from "@playwright/test";
 const chrome = {
   channel: "chrome",
   launchOptions: {
-    args: ["--no-sandbox", "--disable-dev-shm-usage"]
+    args: ["--no-sandbox", "--disable-dev-shm-usage", "--host-resolver-rules=MAP cyphermonkeylabs.com 127.0.0.1"]
   }
 };
 

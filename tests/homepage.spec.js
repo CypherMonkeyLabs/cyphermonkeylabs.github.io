@@ -11,7 +11,11 @@ function watch(page) {
   const csp = [];
   page.on("pageerror", (error) => errors.push(error.message));
   page.on("console", (message) => {
-    if (message.type() === "error") errors.push(message.text());
+    if (message.type() !== "error") return;
+    const url = message.location().url || "";
+    // The Turnstile challenge frame logs its own data: probe. That CSP belongs to Cloudflare, not this page.
+    if (url.startsWith("https://challenges.cloudflare.com/")) return;
+    errors.push(message.text());
   });
   page.addInitScript(() => {
     window.__csp = [];
@@ -59,6 +63,11 @@ test.describe("homepage", () => {
   test("guide bubble stays inside the viewport and clear of the eyebrow", async ({ page }, info) => {
     const seen = watch(page);
     await page.goto("/", { waitUntil: "domcontentloaded" });
+    const skip = page.locator(".r3-skip");
+    if (await skip.isVisible().catch(() => false)) {
+      await skip.click();
+      await expect(page.locator(".r3-intro")).toHaveCount(0);
+    }
     const bubble = page.locator(".cmb-bubble.on");
     await expect(bubble).toBeVisible({ timeout: 8000 });
     await page.waitForTimeout(600);
@@ -115,10 +124,12 @@ test.describe("homepage", () => {
 
   test("contact form renders the Turnstile widget", async ({ page }, info) => {
     const seen = watch(page);
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("http://cyphermonkeylabs.com:8766/", { waitUntil: "domcontentloaded" });
     await page.locator("#contact").scrollIntoViewIfNeeded();
-    const frame = page.locator(".turnstile-host iframe, iframe[src*='challenges.cloudflare.com']");
-    await expect(frame.first()).toBeVisible({ timeout: 20000 });
+    await expect.poll(() => page.frames().some((frame) => frame.url().includes("challenges.cloudflare.com/cdn-cgi/challenge-platform")), { timeout: 20000 }).toBe(true);
+    await expect(page.locator(".turnstile-host")).toBeVisible();
+    await page.locator(".turnstile-host").scrollIntoViewIfNeeded();
+    await expect(page.locator('input[name="cf-turnstile-response"]')).toHaveCount(1);
     const width = info.project.name === "phone" ? "390" : "1280";
     await shot(page, `contact-${width}.png`);
     const csp = await seen.readCsp();
