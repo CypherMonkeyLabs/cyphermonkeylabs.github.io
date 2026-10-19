@@ -225,29 +225,52 @@
     function draw(time) {
       const w = canvas.width;
       const h = canvas.height;
-      const sky = ctx.createLinearGradient(0, 0, 0, h);
-      sky.addColorStop(0, "rgba(18, 8, 42, 0.2)");
-      sky.addColorStop(1, "rgba(5, 4, 12, 0)");
+      const dawn = document.documentElement.dataset.theme === "dawn";
       ctx.clearRect(0, 0, w, h);
-      ctx.fillStyle = sky;
-      ctx.fillRect(0, 0, w, h);
-      const ribbons = [
-        { color: "rgba(125, 211, 252, 0.28)", y: 0.32, amp: 0.07, freq: 2.2, speed: 0.00022 },
-        { color: "rgba(196, 181, 253, 0.26)", y: 0.46, amp: 0.09, freq: 1.5, speed: 0.00016 },
-        { color: "rgba(240, 171, 252, 0.18)", y: 0.58, amp: 0.05, freq: 2.8, speed: 0.00028 },
-      ];
+      const blooms = dawn
+        ? [
+            { x: 0.74, y: 0.42, r: 0.42, color: "rgba(124, 92, 255, 0.28)" },
+            { x: 0.62, y: 0.58, r: 0.3, color: "rgba(14, 116, 144, 0.22)" },
+            { x: 0.84, y: 0.28, r: 0.24, color: "rgba(190, 24, 93, 0.16)" },
+          ]
+        : [
+            { x: 0.72, y: 0.4, r: 0.46, color: "rgba(124, 92, 255, 0.55)" },
+            { x: 0.58, y: 0.62, r: 0.34, color: "rgba(56, 189, 214, 0.4)" },
+            { x: 0.86, y: 0.26, r: 0.28, color: "rgba(244, 114, 182, 0.32)" },
+            { x: 0.4, y: 0.2, r: 0.22, color: "rgba(255, 198, 92, 0.16)" },
+          ];
+      blooms.forEach(function (bloom) {
+        const radius = Math.max(w, h) * bloom.r;
+        const gradient = ctx.createRadialGradient(w * bloom.x, h * bloom.y, 0, w * bloom.x, h * bloom.y, radius);
+        gradient.addColorStop(0, bloom.color);
+        gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, w, h);
+      });
+      const ribbons = dawn
+        ? [
+            { color: "rgba(83, 54, 196, 0.35)", y: 0.34, amp: 0.08, freq: 2.1, speed: 0.00022 },
+            { color: "rgba(11, 86, 120, 0.28)", y: 0.48, amp: 0.07, freq: 1.4, speed: 0.00016 },
+            { color: "rgba(141, 34, 96, 0.22)", y: 0.6, amp: 0.05, freq: 2.6, speed: 0.00028 },
+          ]
+        : [
+            { color: "rgba(125, 211, 252, 0.55)", y: 0.32, amp: 0.08, freq: 2.2, speed: 0.00022 },
+            { color: "rgba(196, 181, 253, 0.5)", y: 0.46, amp: 0.1, freq: 1.5, speed: 0.00016 },
+            { color: "rgba(240, 171, 252, 0.36)", y: 0.58, amp: 0.06, freq: 2.8, speed: 0.00028 },
+          ];
       ribbons.forEach(function (ribbon) {
         ctx.beginPath();
-        const step = mobileQuery.matches ? 16 : 10;
+        const step = mobileQuery.matches ? 16 : 8;
         for (let x = 0; x <= w; x += step) {
           const nx = x / w;
           const y = h * ribbon.y
-            + Math.sin(nx * Math.PI * ribbon.freq + time * ribbon.speed) * h * ribbon.amp;
+            + Math.sin(nx * Math.PI * ribbon.freq + time * ribbon.speed) * h * ribbon.amp
+            + Math.sin(nx * 9 + time * ribbon.speed * 1.7) * h * 0.02;
           if (x === 0) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
         }
         ctx.strokeStyle = ribbon.color;
-        ctx.lineWidth = Math.max(12, h * 0.045);
+        ctx.lineWidth = Math.max(18, h * 0.07);
         ctx.stroke();
       });
       particles.forEach(function (particle) {
@@ -338,23 +361,7 @@
   }
 
   function bindTilt() {
-    if (document.documentElement.dataset.tilt === "own") return;
-    document.documentElement.dataset.tilt = "own";
-    Array.from(document.querySelectorAll(".card")).forEach(function (card) {
-      card.addEventListener("pointermove", function (event) {
-        if (document.documentElement.dataset.tilt === "cmfx") return;
-        if (event.pointerType === "touch" || motionReduced()) return;
-        const rect = card.getBoundingClientRect();
-        const px = (event.clientX - rect.left) / rect.width - 0.5;
-        const py = (event.clientY - rect.top) / rect.height - 0.5;
-        card.style.transform = "rotateX(" + (-py * 7).toFixed(2) + "deg) rotateY(" + (px * 8).toFixed(2) + "deg)";
-        card.style.setProperty("--mx", (event.clientX - rect.left) + "px");
-        card.style.setProperty("--my", (event.clientY - rect.top) + "px");
-      });
-      card.addEventListener("pointerleave", function () {
-        card.style.transform = "";
-      });
-    });
+    document.documentElement.dataset.tilt = "css";
   }
 
   function bootGlobe(fx) {
@@ -473,32 +480,6 @@
     });
   }
 
-  function initProgress() {
-    const bar = document.getElementById("progress");
-    if (!bar) return;
-    function paint() {
-      const height = document.documentElement.scrollHeight - window.innerHeight;
-      const ratio = height > 0 ? window.scrollY / height : 0;
-      bar.style.width = Math.max(0, Math.min(1, ratio)) * 100 + "%";
-    }
-    paint();
-    window.addEventListener("scroll", paint, { passive: true });
-    window.addEventListener("resize", paint);
-  }
-
-  function initParallax() {
-    const gyro = document.querySelector(".gyro");
-    const hero = document.getElementById("hero");
-    if (!gyro || !hero) return;
-    hero.addEventListener("pointermove", function (event) {
-      if (event.pointerType === "touch" || motionReduced()) return;
-      const rect = hero.getBoundingClientRect();
-      const px = (event.clientX - rect.left) / rect.width - 0.5;
-      const py = (event.clientY - rect.top) / rect.height - 0.5;
-      gyro.style.translate = (px * -16).toFixed(1) + "px " + (py * -12).toFixed(1) + "px";
-    });
-  }
-
   function boot() {
     function apply(fx) {
       bootVisuals(fx);
@@ -522,7 +503,5 @@
   initSound();
   initFilters();
   initContact();
-  initProgress();
-  initParallax();
   boot();
 })();
