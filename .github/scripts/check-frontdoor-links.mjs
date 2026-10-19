@@ -1,12 +1,11 @@
-// Front-door link rule: anchors on index.html may point only to this site, GitHub (CypherMonkeyLabs org and the cipher0x9 profile), or the Linktree.
+// Front-door link rule: anchors on index.html may point only to this site, github.com/CypherMonkeyLabs, or linktr.ee/CypherMonkey.
 import { readFile } from 'node:fs/promises';
 
 const ALLOWED = [
   /^#/, /^\//, /^\?/,
   /^https:\/\/cyphermonkeylabs\.com(\/|$)/,
   /^https:\/\/github\.com\/CypherMonkeyLabs(\/|$)/,
-  /^https:\/\/github\.com\/cipher0x9\/?$/,
-  /^https:\/\/linktr\.ee\/cyphermonkey\/?$/,
+  /^https:\/\/linktr\.ee\/CypherMonkey\/?$/,
 ];
 const files = ['index.html'];
 let bad = 0;

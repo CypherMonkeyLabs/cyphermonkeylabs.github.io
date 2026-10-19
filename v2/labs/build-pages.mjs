@@ -126,7 +126,7 @@ ${scriptTag}
 
 function navLinks(home, current) {
   const items = [
-    ["Preview", home, "preview"],
+    ["Home", home, "home"],
     ["All labs", home + "labs/", "labs"],
     ["Portals", home + "labs/portals/", "portals"],
     ["Ecosystem map", home + "map/", "map"],
@@ -175,7 +175,7 @@ function portalPage(lab) {
   const main = `<section class="hero" id="hero" aria-labelledby="lab-title">
   <div class="hero-grid">
     <div>
-      <p class="eyebrow">Lab portal · version 2 preview</p>
+      <p class="eyebrow">Lab portal</p>
       <h1 id="lab-title">${esc(lab.title)}</h1>
       <p class="lede">${esc(lab.tagline)}</p>
       <div class="cta">
@@ -235,14 +235,14 @@ function portalsIndex() {
   <p>${a(`../${lab.slug}/`, "Portal")} · ${a(lab.openUrl, "Open lab")} · ${a(lab.repo, "View repo")}</p>
 </article>`).join("\n");
   const main = `<section class="hero" id="hero">
-  <p class="eyebrow">Version 2 preview</p>
+  <p class="eyebrow">Thirteen labs</p>
   <h1>Lab portals</h1>
   <p class="lede">Thirteen study doors. Each one quotes that lab's README and published page, then offers Open lab and View repo. The <a href="${home}map/">ecosystem map</a> links the labs to the sister technologies those pages name.</p>
 </section>
 <div class="door-grid" id="portals">${cards}</div>`;
   return shell({
     title: "Lab portals · Cypher Monkey Labs",
-    description: "Thirteen version 2 portals for the Cypher Monkey labs, each sourced from that lab's README and published page.",
+    description: "Thirteen portals for the Cypher Monkey labs, each sourced from that lab's README and published page.",
     canonical: "https://cyphermonkeylabs.com/v2/labs/portals/",
     accent: "mint",
     css: ["../portal.css"],
@@ -379,7 +379,7 @@ function mapPage() {
 .board:has(#card-${id}:target) .rel-${id} { opacity: 1; }`).join("\n");
 
   const main = `<section class="hero" id="hero">
-  <p class="eyebrow">Version 2 preview</p>
+  <p class="eyebrow">Thirteen labs</p>
   <h1>Ecosystem map</h1>
   <p class="lede">Thirteen labs, the sister technologies their own pages name, and the platform bridges those pages state. The drawing is SVG. It does not need WebGL. Choosing a node scrolls to its card. On a narrow screen the same nodes stack.</p>
 </section>

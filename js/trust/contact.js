@@ -55,7 +55,9 @@ function loadTurnstileApi() {
 }
 
 function turnstileTheme() {
-  return document.documentElement.dataset.theme === 'starlight' ? 'dark' : 'light';
+  const theme = document.documentElement.dataset.theme;
+  if (theme === 'void' || theme === 'starlight') return 'dark';
+  return 'light';
 }
 
 function turnstileSize() {

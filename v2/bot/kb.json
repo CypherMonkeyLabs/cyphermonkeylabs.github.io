@@ -431,9 +431,9 @@
   },
   "contact": {
    "anchor": "#contact",
-   "tip": "From this preview, notes go through a public GitHub issue. Don't put your email in it.",
+   "tip": "The contact form on this page sends a private note. Don't put an email address in a public GitHub issue.",
    "title": "Contact",
-   "text": "The private contact form lives on the live site at cyphermonkeylabs.com. From this preview you can open a public GitHub issue (do not put an email address in it, issues are public), or reach Cypher Monkey via linktr.ee/CypherMonkey."
+   "text": "The contact form on this page sends a private note to Cypher Monkey. If that form is unavailable, open a public GitHub issue and leave out any email address, because issues are public. Linktree is linktr.ee/CypherMonkey."
   }
  },
  "synonyms": {

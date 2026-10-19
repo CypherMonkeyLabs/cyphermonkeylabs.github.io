@@ -1,0 +1,11 @@
+{
+  "name": "cyphermonkeylabs-homepage-qa",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.56.1"
+  }
+}

@@ -197,7 +197,24 @@ test('x.com bot wall warns and a missing profile still fails', () => {
 test('worker mode pages allow Turnstile and keep the endpoint private', async () => {
   assert.equal(ENDPOINT, 'https://contact.cyphermonkeylabs.com');
   const sitekey = '0x4AAAAAAFX-0D95hXYzwVx-';
-  for (const file of ['index.html', 'trust-demo.html']) {
+  const root = await readFile('index.html', 'utf8');
+  assert.match(root, /name="cml-contact-mode" content="worker"/);
+  assert.match(root, new RegExp(`name="cml-turnstile-sitekey" content="${sitekey}"`));
+  const csp = root.match(/http-equiv="Content-Security-Policy" content="([^"]+)"/)[1];
+  const directive = (name) => csp.split(';').map((part) => part.trim()).find((part) => part.startsWith(name));
+  assert.equal(directive('script-src'), "script-src 'self' https://challenges.cloudflare.com");
+  assert.equal(directive('connect-src'), "connect-src 'self' https://contact.cyphermonkeylabs.com");
+  assert.equal(directive('frame-src'), 'frame-src https://challenges.cloudflare.com');
+  assert.equal(directive('form-action'), "form-action 'self'");
+  assert.equal(directive('style-src'), "style-src 'self' 'unsafe-inline'");
+  assert.equal(directive('default-src'), "default-src 'self'");
+  assert.equal(directive('img-src'), "img-src 'self' data: blob:");
+  assert.equal(directive('media-src'), "media-src 'self' blob: data:");
+  assert.equal(directive('font-src'), "font-src 'self' data:");
+  assert.equal(directive('worker-src'), "worker-src 'self' blob:");
+  assert.equal(directive('object-src'), "object-src 'none'");
+  assert.equal(directive('base-uri'), "base-uri 'self'");
+  for (const file of ['v1/index.html', 'trust-demo.html']) {
     const html = await readFile(file, 'utf8');
     assert.match(html, /name="cml-contact-mode" content="worker"/);
     assert.match(html, new RegExp(`name="cml-turnstile-sitekey" content="${sitekey}"`));
