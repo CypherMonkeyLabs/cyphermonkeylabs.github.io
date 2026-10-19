@@ -37,7 +37,7 @@
   var body = h('span', 'cmb-body'); var flame = h('span', 'cmb-flame'); flame.setAttribute('aria-hidden', 'true');
   var zzz = h('span', 'cmb-zzz', 'z z z'); zzz.setAttribute('aria-hidden', 'true');
   var bubble = h('span', 'cmb-bubble'); bubble.setAttribute('aria-hidden', 'true');
-  body.appendChild(flame); mk.appendChild(body); mk.appendChild(zzz); mk.appendChild(bubble);
+  body.appendChild(flame); mk.appendChild(body); mk.appendChild(zzz);
   var rope = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); rope.setAttribute('class', 'cmb-rope'); rope.setAttribute('aria-hidden', 'true');
   var ropePath = document.createElementNS('http://www.w3.org/2000/svg', 'path'); rope.appendChild(ropePath);
   var panel = h('section', 'cmb-panel'); panel.id = 'cmb-panel'; panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-modal', 'false'); panel.setAttribute('aria-labelledby', 'cmb-h'); panel.hidden = true;
@@ -49,7 +49,7 @@
     '<div class="cmb-typing" hidden aria-hidden="true"><i></i><i></i><i></i> Cyph is thinking…</div>' +
     '<div class="cmb-quick" role="group" aria-label="Suggested questions"></div>' +
     '<form class="cmb-form"><label class="cmb-sr" for="cmb-in">Ask Cyph the guide monkey</label><input id="cmb-in" autocomplete="off" maxlength="300" placeholder="Try “1 hour, AI agents” or “webex”"><button type="submit">Ask</button></form>';
-  root.appendChild(rope); root.appendChild(panel); root.appendChild(mk);
+  root.appendChild(rope); root.appendChild(panel); root.appendChild(mk); root.appendChild(bubble);
   var log = panel.querySelector('.cmb-log'), quick = panel.querySelector('.cmb-quick'), input = panel.querySelector('#cmb-in'), typing = panel.querySelector('.cmb-typing'),
       face = panel.querySelector('.cmb-face'), moodEl = panel.querySelector('.cmb-mood');
   var svgEl = null, pupils = [], armR = null, tailG = null;
@@ -84,8 +84,8 @@
     var d = dock();
     if (!panel.hidden || st.min || mobile()) { setT(d.x, d.y, 'spring'); return; }
     if (performance.now() < idleUntil && P.perch) { setT(P.perch.x, P.perch.y, 'spring'); return; }
-    if (scrollY < 120) { // hang from header by tail
-      var hb = headerBottom(); P.anchor = { x: Math.min(78, innerWidth * 0.06 + 20), y: hb }; if (P.mode !== 'hang') { P.mode = 'hang'; P.ang = 0.35; P.av = 0; } return;
+    if (scrollY < 120) { // hang from the right side of the header, clear of the hero eyebrow
+      var hb = headerBottom(); P.anchor = { x: Math.max(SIZE + 28, innerWidth - 110), y: hb }; if (P.mode !== 'hang') { P.mode = 'hang'; P.ang = -0.35; P.av = 0; } return;
     }
     var sec = current(); if (!sec) { setT(d.x, d.y, 'spring'); return; }
     var hd = sec.querySelector('h2') || sec; var r = hd.getBoundingClientRect();
@@ -130,6 +130,7 @@
     var tilt = Math.max(-25, Math.min(25, P.vx * 2.2)); if (P.mode === 'hang') tilt = P.ang * 40 + 180;
     var walking = P.mode === 'spring' && Math.abs(P.vx) > 0.6 && Math.abs(P.vy) < 1.5;
     mk.style.transform = 'translate3d(' + P.x.toFixed(1) + 'px,' + P.y.toFixed(1) + 'px,0)';
+    placeBubble();
     body.style.transform = 'rotate(' + tilt.toFixed(1) + 'deg) scaleX(' + P.face + ')' + (walking ? ' translateY(' + (Math.abs(Math.sin(t / 90)) * -4).toFixed(1) + 'px)' : '');
     root.classList.toggle('cmb-hanging', P.mode === 'hang');
     eyes(); arm(t);
@@ -153,7 +154,46 @@
     P.fly = { x0: P.x, y0: P.y, x1: x, y1: y, cx: (P.x + x) / 2, cy: Math.min(P.y, y) - 220, done: done }; flyT = 0; P.mode = 'fly'; root.classList.add('cmb-flying'); kick();
   }
   function jetFlyOver() { flyTo(P.x < innerWidth / 2 ? innerWidth - SIZE - 30 : 30, Math.max(headerBottom() + 20, 120), function () { idleUntil = 0; P.perch = null; chooseTarget(); }); say('Wheee!'); }
-  function say(t, ms) { bubble.textContent = t; root.classList.toggle('cmb-right', P.x > innerWidth / 2); bubble.classList.add('on'); clearTimeout(say.t); say.t = setTimeout(function () { bubble.classList.remove('on'); }, ms || 2400); }
+  function placeBubble() {
+    var margin = 10;
+    var bw = bubble.offsetWidth || 160;
+    var bh = bubble.offsetHeight || 32;
+    if (!bw || !bh) return;
+    var below = P.y < bh + headerBottom() + margin;
+    var left = P.x > innerWidth / 2 ? P.x + SIZE - bw : P.x;
+    left = Math.max(margin, Math.min(left, innerWidth - bw - margin));
+    var top = below ? P.y + SIZE + 8 : P.y - bh - 8;
+    if (top < margin) { below = true; top = P.y + SIZE + 8; }
+    if (top + bh > innerHeight - margin) top = Math.max(margin, innerHeight - bh - margin);
+    bubble.classList.toggle('cmb-below', below);
+    bubble.style.left = left + 'px';
+    bubble.style.top = top + 'px';
+    var eye = document.querySelector('.hero .eyebrow');
+    if (!eye || !bubble.classList.contains('on')) return;
+    var e = eye.getBoundingClientRect();
+    if (e.width < 2 || e.height < 2) return;
+    function hits(l, t) { return !(l + bw < e.left || l > e.right || t + bh < e.top || t > e.bottom); }
+    if (!hits(left, top)) return;
+    var spots = [
+      [e.right + 12, top],
+      [e.left - bw - 12, top],
+      [left, e.bottom + 12],
+      [left, e.top - bh - 12]
+    ];
+    for (var i = 0; i < spots.length; i++) {
+      var l = Math.max(margin, Math.min(spots[i][0], innerWidth - bw - margin));
+      var t = Math.max(margin, Math.min(spots[i][1], innerHeight - bh - margin));
+      if (!hits(l, t)) { bubble.style.left = l + 'px'; bubble.style.top = t + 'px'; return; }
+    }
+  }
+  function say(t, ms) {
+    bubble.textContent = t;
+    bubble.classList.add('on');
+    placeBubble();
+    requestAnimationFrame(placeBubble);
+    clearTimeout(say.t);
+    say.t = setTimeout(function () { bubble.classList.remove('on'); }, ms || 2400);
+  }
 
   /* drag + fling */
   mk.addEventListener('pointerdown', function (e) {
@@ -182,7 +222,7 @@
     var a = e.target.closest && e.target.closest('.btn.primary, a.open, a.portal, .hero-ctas .btn');
     if (a && !root.contains(a)) { jetFlyOver(); setMood('excited'); }
   });
-  function place() { if (!still()) return; var d = st.pos && !mobile() ? st.pos : dock(); P.x = Math.min(d.x, innerWidth - SIZE - 8); P.y = Math.min(d.y, innerHeight - SIZE - 8); mk.style.transform = 'translate3d(' + P.x + 'px,' + P.y + 'px,0)'; body.style.transform = ''; }
+  function place() { if (!still()) return; var d = st.pos && !mobile() ? st.pos : dock(); P.x = Math.min(d.x, innerWidth - SIZE - 8); P.y = Math.min(d.y, innerHeight - SIZE - 8); mk.style.transform = 'translate3d(' + P.x + 'px,' + P.y + 'px,0)'; body.style.transform = ''; placeBubble(); }
 
 
   /* ---------------- panel ---------------- */
@@ -338,7 +378,7 @@
   }
   function contact() {
     st.last = { type: 'section', key: 'contact' }; save();
-    return { html: 'Say hi to Cypher Monkey: the private form lives in the live site’s contact section (' + link('cyphermonkeylabs.com', KB.links.site + '#contact') + '). From this preview you can ' + link('open a public GitHub issue', KB.links.issue) + ' (please don’t put an email address in it; issues are public). Also: ' + link('Linktree', KB.links.linktree) + ' · ' + link('Jump to the contact section', '#contact', '#contact'), chips: ['Take me there', 'Who made this?', 'What labs do you have?'] };
+    return { html: 'Say hi to Cypher Monkey through the ' + link('contact form', '#contact', '#contact') + ' on this page. It sends a private note. If the form is unavailable, ' + link('open a public GitHub issue', KB.links.issue) + ' and leave out any email address, because issues are public. Also: ' + link('Linktree', KB.links.linktree), chips: ['Take me there', 'Who made this?', 'What labs do you have?'] };
   }
   function section(k) {
     var s = KB.sections[k]; st.last = { type: 'section', key: k }; save();

@@ -56,7 +56,7 @@ Any other non-200 is a failure, including a 404 on those hosts.
 
 ## What this suite does not do
 
-It does not run axe, a screen reader, or Lighthouse. It does not score the hub. It does not merge the preview into the live root. A missing `v2/fx/cm-fx.js` is expected until the effects library is present. The portals and the map never request that file. They call `window.CMFX.globe3d` only when that function is already on the page, and otherwise keep the flat SVG.
+It does not run axe, a screen reader, or Lighthouse. It does not score the hub. `/v2/` redirects to the live root, which is the v2 hub. A missing `v2/fx/cm-fx.js` is expected until the effects library is present. The portals and the map never request that file. They call `window.CMFX.globe3d` only when that function is already on the page, and otherwise keep the flat SVG.
 
 ## Source rule for the portals
 

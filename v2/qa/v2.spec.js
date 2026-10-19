@@ -140,6 +140,7 @@ for (const url of pages) {
     expect(errors, errors.join("\n")).toEqual([]);
 
     if (url.endsWith("/v2/index.html")) {
+      await page.waitForURL((u) => u.pathname === "/" || u.pathname === "/index.html");
       await page.evaluate(() => window.CMFX && window.CMFX.ready);
       const hero = await page.evaluate(() => {
         const stage = document.querySelector(".hero .stage");

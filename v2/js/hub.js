@@ -464,7 +464,7 @@
         "Topic: " + topicValue,
         "Lab: " + (lab || "n/a"),
         "",
-        "Started from the v2 preview. No email address is included, because GitHub issues are public.",
+        "Started from the homepage. No email address is included, because GitHub issues are public.",
       ].join("\n");
       let url = "https://github.com/CypherMonkeyLabs/cyphermonkeylabs.github.io/issues/new?title="
         + encodeURIComponent(title) + "&body=" + encodeURIComponent(body);
