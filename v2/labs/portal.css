@@ -125,6 +125,18 @@ p { margin: 0 0 0.8rem; }
 .primary { display: flex; flex-wrap: wrap; gap: 8px 14px; }
 .primary a { color: var(--ink); text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
 .primary a[aria-current="page"] { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+.theme-btn {
+  margin-left: auto;
+  min-height: 44px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font: 700 0.95rem var(--display);
+  cursor: pointer;
+}
+.theme-btn[aria-pressed="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 18%, transparent); }
 
 .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; padding-bottom: 48px; }
 .hero { padding: 28px 0 8px; }
@@ -274,6 +286,23 @@ p { margin: 0 0 0.8rem; }
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes pulse { 50% { opacity: 0.55; } }
+html[data-theme="dawn"] {
+  color-scheme: light;
+  --bg: #f6f3ff;
+  --bg2: #ffffff;
+  --ink: #1b1530;
+  --mute: #3d3458;
+  --line: #d5cce8;
+}
+html[data-theme="dawn"] .top { background: #f6f3ffe6; }
+html[data-theme="dawn"] .door,
+html[data-theme="dawn"] .chips a,
+html[data-theme="dawn"] .chip,
+html[data-theme="dawn"] .step,
+html[data-theme="dawn"] .callout,
+html[data-theme="dawn"] .hero-art { background: #fff; color: var(--ink); }
+html[data-theme="dawn"] .callout { background: #fff6d8; }
+
 @media (forced-colors: active) {
   .btn, .door, .panel, .chip, .chips a { border: 1px solid ButtonText; }
 }

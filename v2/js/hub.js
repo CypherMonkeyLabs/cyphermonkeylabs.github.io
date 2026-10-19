@@ -157,15 +157,11 @@
         paintSound(false);
         return;
       }
-      Promise.resolve()
+      Promise.resolve(sound.toggle())
         .then(function () {
-          return typeof sound.init === "function" ? sound.init() : null;
-        })
-        .then(function () {
-          sound.toggle();
-          const on = typeof sound.isOn === "function" ? !!sound.isOn() : button.getAttribute("aria-pressed") !== "true";
+          const on = typeof sound.isOn === "function" ? !!sound.isOn() : false;
           paintSound(on);
-          if (on && typeof sound.ping === "function") sound.ping("toggle");
+          if (on && typeof sound.ping === "function") sound.ping("ok");
           if (note) note.textContent = on ? "Sound is on." : "Sound is off.";
         })
         .catch(function () {
@@ -176,11 +172,11 @@
   }
 
   function labNodes() {
-    return Array.from(document.querySelectorAll("[data-node]")).map(function (el) {
+    return Array.from(document.querySelectorAll("[data-globe]")).map(function (el) {
       return {
         id: el.getAttribute("data-lab") || "",
         label: el.getAttribute("data-label") || "",
-        url: el.getAttribute("data-url") || "",
+        url: el.getAttribute("data-portal") || "",
       };
     });
   }
@@ -347,7 +343,7 @@
     if (!used) startFallback(canvas);
     else fallbackStop();
 
-    if (fx && typeof fx.tiltCards === "function" && !reduced) {
+    if (fx && typeof fx.tiltCards === "function" && !reduced && document.documentElement.dataset.tilt !== "cmfx") {
       try {
         fx.tiltCards(".card");
         document.documentElement.dataset.tilt = "cmfx";
@@ -480,6 +476,44 @@
     });
   }
 
+  function initPings() {
+    document.addEventListener("pointerover", function (event) {
+      const card = event.target.closest && event.target.closest(".card");
+      if (!card) return;
+      if (event.relatedTarget && card.contains(event.relatedTarget)) return;
+      const sound = window.CMFX && window.CMFX.sound;
+      if (sound && typeof sound.ping === "function") sound.ping("hover");
+    });
+    document.addEventListener("click", function (event) {
+      const link = event.target.closest && event.target.closest("a");
+      if (!link) return;
+      const sound = window.CMFX && window.CMFX.sound;
+      if (!sound || typeof sound.ping !== "function") return;
+      if (link.closest(".card")) sound.ping("tap");
+      else if (link.closest("nav, .menu, .eco-jumps, .cta-row, .foot")) sound.ping("nav");
+    });
+  }
+
+  function initReveal() {
+    const sections = Array.from(document.querySelectorAll("main .band"));
+    if (!sections.length || motionReduced()) return;
+    sections.forEach(function (section) {
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) section.classList.add("is-in");
+    });
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-in");
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+    sections.forEach(function (section) {
+      if (!section.classList.contains("is-in")) observer.observe(section);
+    });
+    document.documentElement.classList.add("reveal-ready");
+  }
+
   function boot() {
     function apply(fx) {
       bootVisuals(fx);
@@ -501,6 +535,8 @@
   initMotion();
   initMenu();
   initSound();
+  initPings();
+  initReveal();
   initFilters();
   initContact();
   boot();

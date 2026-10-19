@@ -75,7 +75,7 @@ function relClass(ids) {
 
 function shell({ title, description, canonical, accent, css, script, favicon, home, nav, main, suite }) {
   const cssLinks = css.map((href) => `<link rel="stylesheet" href="${esc(href)}">`).join("\n");
-  const scriptTag = script ? `<script src="${esc(script)}" defer></script>` : "";
+  const scriptTag = [`<script src="${esc(home)}js/chrome.js" defer></script>`, script ? `<script src="${esc(script)}" defer></script>` : ""].filter(Boolean).join("\n");
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,11 +95,12 @@ ${cssLinks}
 <header class="top">
   <a class="brand" href="${esc(home)}">
     <img src="${esc(favicon)}" width="34" height="34" alt="">
-    <span>Cypher Monkey</span>
+    <span>CypherMonkey Labs</span>
   </a>
   <nav class="primary" aria-label="Primary">
     ${nav}
   </nav>
+  <button class="theme-btn" id="theme-btn" type="button" aria-pressed="false" aria-label="Switch to dawn theme">Dawn theme</button>
 </header>
 <div class="wrap">
 <main id="main">

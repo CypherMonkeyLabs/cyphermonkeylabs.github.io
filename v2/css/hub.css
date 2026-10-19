@@ -181,6 +181,7 @@ h1, h2, h3, h4 {
   top: 0;
   z-index: 40;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
   min-height: var(--header-h);
@@ -215,6 +216,7 @@ h1, h2, h3, h4 {
 
 .primary {
   display: none;
+  flex-wrap: wrap;
   gap: 2px;
 }
 .primary a {
@@ -319,7 +321,7 @@ html[data-theme="dawn"] .icon-btn[aria-pressed="true"] { color: var(--ink); }
     clip: rect(0 0 0 0);
   }
 }
-@media (min-width: 760px) {
+@media (min-width: 1280px) {
   .tool-label { display: inline; }
   .icon-btn { min-width: 0; }
 }
@@ -683,6 +685,10 @@ html[data-theme="dawn"] .icon-btn[aria-pressed="true"] { color: var(--ink); }
   border-color: color-mix(in srgb, var(--accent) 70%, var(--line));
   transform: perspective(900px) rotateX(5deg) rotateY(-7deg) translateY(-4px);
 }
+html[data-tilt="cmfx"] .card.cmfx-tilt:hover,
+html[data-tilt="cmfx"] .card.cmfx-tilt:focus-within {
+  transform: perspective(900px) rotateX(var(--cmfx-rx, 0deg)) rotateY(var(--cmfx-ry, 0deg)) translateY(-4px);
+}
 
 .card-art {
   display: block;
@@ -744,6 +750,12 @@ html[data-theme="dawn"] .status { background: #d9fff4; color: #064e3b; }
   color: var(--on-accent);
 }
 .open:hover { color: var(--on-accent); filter: brightness(1.08); }
+.portal {
+  border: 1px solid color-mix(in srgb, var(--accent) 70%, var(--line));
+  color: var(--ink);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+}
+.portal:hover { color: var(--ink); }
 .src {
   border: 1px solid var(--line-strong);
   color: var(--ink);
@@ -802,7 +814,10 @@ html[data-theme="dawn"] .status { background: #d9fff4; color: #064e3b; }
   border: 1px solid var(--line);
   background: radial-gradient(circle at 50% 45%, #24164a, #07060f 70%);
 }
-#eco-globe:not(.is-live) { height: 0; overflow: hidden; }
+#eco-globe:not(.is-live) { height: 0; overflow: hidden; margin: 0; border: 0; padding: 0; }
+#eco-globe.is-live.cmfx-stage { height: min(480px, 72vw); }
+.eco-jumps { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 16px; }
+#cmfx-sound-toggle { display: none; }
 
 .path {
   list-style: none;
@@ -925,6 +940,20 @@ html[data-motion="reduce"] *::after {
 }
 html[data-motion="reduce"] .card:hover,
 html[data-motion="reduce"] .card:focus-within { transform: none; }
+
+html.reveal-ready .band {
+  opacity: 0;
+  transform: translateY(18px);
+}
+html.reveal-ready .band.is-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 480ms ease, transform 480ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.reveal-ready .band { opacity: 1; transform: none; }
+}
+html[data-motion="reduce"] .band { opacity: 1; transform: none; }
 
 @media (forced-colors: active) {
   .card, .step, .cluster, .sisters, .screen, .icon-btn, .btn {
