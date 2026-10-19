@@ -126,7 +126,7 @@ ${scriptTag}
 
 function navLinks(home, current) {
   const items = [
-    ["Preview", home, "preview"],
+    ["Home", home, "home"],
     ["All labs", home + "labs/", "labs"],
     ["Portals", home + "labs/portals/", "portals"],
     ["Ecosystem map", home + "map/", "map"],
@@ -379,7 +379,7 @@ function mapPage() {
 .board:has(#card-${id}:target) .rel-${id} { opacity: 1; }`).join("\n");
 
   const main = `<section class="hero" id="hero">
-  <p class="eyebrow">Version 2 preview</p>
+  <p class="eyebrow">Thirteen labs</p>
   <h1>Ecosystem map</h1>
   <p class="lede">Thirteen labs, the sister technologies their own pages name, and the platform bridges those pages state. The drawing is SVG. It does not need WebGL. Choosing a node scrolls to its card. On a narrow screen the same nodes stack.</p>
 </section>

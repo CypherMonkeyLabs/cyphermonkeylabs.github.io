@@ -258,7 +258,7 @@ const homeMain = `<main>
 
 const labsMain = `<main class="catalog" id="doors">
   <h1>All labs</h1>
-  <p class="lede">${labTotal} free labs, plus the gallery. Search and filters stay in the address bar so a view can be shared. <span class="quiet">A larger preview is at <a href="?fixture=100">?fixture=100</a>.</span></p>
+  <p class="lede">${labTotal} free labs, plus the gallery. Search and filters stay in the address bar so a view can be shared. <span class="quiet">A larger catalog is at <a href="?fixture=100">?fixture=100</a>.</span></p>
   <form class="finder" role="search" action="" method="get">
     <label for="q">Search labs</label>
     <input id="q" name="q" type="search" placeholder="Title, tag, or topic">
