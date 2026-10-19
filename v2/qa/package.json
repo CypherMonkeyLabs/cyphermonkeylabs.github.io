@@ -1,0 +1,12 @@
+{
+  "name": "cyphermonkeylabs-v2-qa",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "build-pages": "node ../labs/build-pages.mjs"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.56.1"
+  }
+}

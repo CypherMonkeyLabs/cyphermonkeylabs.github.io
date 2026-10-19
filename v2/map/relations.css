@@ -1,0 +1,80 @@
+.board:has(#card-hub:target) .card:not(.rel-hub),
+.board:has(#card-hub:target) .map-svg a:not(.rel-hub) { opacity: 0.34; }
+.board:has(#card-hub:target) .map-svg line:not(.rel-hub) { opacity: 0.06; }
+.board:has(#card-hub:target) .rel-hub { opacity: 1; }
+.board:has(#card-wfm:target) .card:not(.rel-wfm),
+.board:has(#card-wfm:target) .map-svg a:not(.rel-wfm) { opacity: 0.34; }
+.board:has(#card-wfm:target) .map-svg line:not(.rel-wfm) { opacity: 0.06; }
+.board:has(#card-wfm:target) .rel-wfm { opacity: 1; }
+.board:has(#card-recording:target) .card:not(.rel-recording),
+.board:has(#card-recording:target) .map-svg a:not(.rel-recording) { opacity: 0.34; }
+.board:has(#card-recording:target) .map-svg line:not(.rel-recording) { opacity: 0.06; }
+.board:has(#card-recording:target) .rel-recording { opacity: 1; }
+.board:has(#card-e911:target) .card:not(.rel-e911),
+.board:has(#card-e911:target) .map-svg a:not(.rel-e911) { opacity: 0.34; }
+.board:has(#card-e911:target) .map-svg line:not(.rel-e911) { opacity: 0.06; }
+.board:has(#card-e911:target) .rel-e911 { opacity: 1; }
+.board:has(#card-analytics:target) .card:not(.rel-analytics),
+.board:has(#card-analytics:target) .map-svg a:not(.rel-analytics) { opacity: 0.34; }
+.board:has(#card-analytics:target) .map-svg line:not(.rel-analytics) { opacity: 0.06; }
+.board:has(#card-analytics:target) .rel-analytics { opacity: 1; }
+.board:has(#card-crm:target) .card:not(.rel-crm),
+.board:has(#card-crm:target) .map-svg a:not(.rel-crm) { opacity: 0.34; }
+.board:has(#card-crm:target) .map-svg line:not(.rel-crm) { opacity: 0.06; }
+.board:has(#card-crm:target) .rel-crm { opacity: 1; }
+.board:has(#card-agents:target) .card:not(.rel-agents),
+.board:has(#card-agents:target) .map-svg a:not(.rel-agents) { opacity: 0.34; }
+.board:has(#card-agents:target) .map-svg line:not(.rel-agents) { opacity: 0.06; }
+.board:has(#card-agents:target) .rel-agents { opacity: 1; }
+.board:has(#card-amazon-connect:target) .card:not(.rel-amazon-connect),
+.board:has(#card-amazon-connect:target) .map-svg a:not(.rel-amazon-connect) { opacity: 0.34; }
+.board:has(#card-amazon-connect:target) .map-svg line:not(.rel-amazon-connect) { opacity: 0.06; }
+.board:has(#card-amazon-connect:target) .rel-amazon-connect { opacity: 1; }
+.board:has(#card-sip-universe:target) .card:not(.rel-sip-universe),
+.board:has(#card-sip-universe:target) .map-svg a:not(.rel-sip-universe) { opacity: 0.34; }
+.board:has(#card-sip-universe:target) .map-svg line:not(.rel-sip-universe) { opacity: 0.06; }
+.board:has(#card-sip-universe:target) .rel-sip-universe { opacity: 1; }
+.board:has(#card-uc:target) .card:not(.rel-uc),
+.board:has(#card-uc:target) .map-svg a:not(.rel-uc) { opacity: 0.34; }
+.board:has(#card-uc:target) .map-svg line:not(.rel-uc) { opacity: 0.06; }
+.board:has(#card-uc:target) .rel-uc { opacity: 1; }
+.board:has(#card-ai:target) .card:not(.rel-ai),
+.board:has(#card-ai:target) .map-svg a:not(.rel-ai) { opacity: 0.34; }
+.board:has(#card-ai:target) .map-svg line:not(.rel-ai) { opacity: 0.06; }
+.board:has(#card-ai:target) .rel-ai { opacity: 1; }
+.board:has(#card-nice-cxone:target) .card:not(.rel-nice-cxone),
+.board:has(#card-nice-cxone:target) .map-svg a:not(.rel-nice-cxone) { opacity: 0.34; }
+.board:has(#card-nice-cxone:target) .map-svg line:not(.rel-nice-cxone) { opacity: 0.06; }
+.board:has(#card-nice-cxone:target) .rel-nice-cxone { opacity: 1; }
+.board:has(#card-microsoft-voice-cc:target) .card:not(.rel-microsoft-voice-cc),
+.board:has(#card-microsoft-voice-cc:target) .map-svg a:not(.rel-microsoft-voice-cc) { opacity: 0.34; }
+.board:has(#card-microsoft-voice-cc:target) .map-svg line:not(.rel-microsoft-voice-cc) { opacity: 0.06; }
+.board:has(#card-microsoft-voice-cc:target) .rel-microsoft-voice-cc { opacity: 1; }
+.board:has(#card-genesys-cloud:target) .card:not(.rel-genesys-cloud),
+.board:has(#card-genesys-cloud:target) .map-svg a:not(.rel-genesys-cloud) { opacity: 0.34; }
+.board:has(#card-genesys-cloud:target) .map-svg line:not(.rel-genesys-cloud) { opacity: 0.06; }
+.board:has(#card-genesys-cloud:target) .rel-genesys-cloud { opacity: 1; }
+.board:has(#card-five9:target) .card:not(.rel-five9),
+.board:has(#card-five9:target) .map-svg a:not(.rel-five9) { opacity: 0.34; }
+.board:has(#card-five9:target) .map-svg line:not(.rel-five9) { opacity: 0.06; }
+.board:has(#card-five9:target) .rel-five9 { opacity: 1; }
+.board:has(#card-zoom-talkdesk-avaya:target) .card:not(.rel-zoom-talkdesk-avaya),
+.board:has(#card-zoom-talkdesk-avaya:target) .map-svg a:not(.rel-zoom-talkdesk-avaya) { opacity: 0.34; }
+.board:has(#card-zoom-talkdesk-avaya:target) .map-svg line:not(.rel-zoom-talkdesk-avaya) { opacity: 0.06; }
+.board:has(#card-zoom-talkdesk-avaya:target) .rel-zoom-talkdesk-avaya { opacity: 1; }
+.board:has(#card-cpaas:target) .card:not(.rel-cpaas),
+.board:has(#card-cpaas:target) .map-svg a:not(.rel-cpaas) { opacity: 0.34; }
+.board:has(#card-cpaas:target) .map-svg line:not(.rel-cpaas) { opacity: 0.06; }
+.board:has(#card-cpaas:target) .rel-cpaas { opacity: 1; }
+.board:has(#card-webex:target) .card:not(.rel-webex),
+.board:has(#card-webex:target) .map-svg a:not(.rel-webex) { opacity: 0.34; }
+.board:has(#card-webex:target) .map-svg line:not(.rel-webex) { opacity: 0.06; }
+.board:has(#card-webex:target) .rel-webex { opacity: 1; }
+.board:has(#card-python:target) .card:not(.rel-python),
+.board:has(#card-python:target) .map-svg a:not(.rel-python) { opacity: 0.34; }
+.board:has(#card-python:target) .map-svg line:not(.rel-python) { opacity: 0.06; }
+.board:has(#card-python:target) .rel-python { opacity: 1; }
+.board:has(#card-ba-lab-grok:target) .card:not(.rel-ba-lab-grok),
+.board:has(#card-ba-lab-grok:target) .map-svg a:not(.rel-ba-lab-grok) { opacity: 0.34; }
+.board:has(#card-ba-lab-grok:target) .map-svg line:not(.rel-ba-lab-grok) { opacity: 0.06; }
+.board:has(#card-ba-lab-grok:target) .rel-ba-lab-grok { opacity: 1; }
