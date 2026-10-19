@@ -349,6 +349,11 @@ html[data-theme="dawn"] .icon-btn[aria-pressed="true"] { color: var(--ink); }
   pointer-events: none;
   overflow: hidden;
 }
+/* fx.css sets .cmfx-host { position: relative } and loads after this file. */
+.hero .stage.cmfx-host {
+  position: absolute;
+  inset: 0;
+}
 
 .hero-canvas, .hero-dust {
   position: absolute;

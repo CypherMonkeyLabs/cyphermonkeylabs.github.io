@@ -188,6 +188,7 @@ export function toggle() {
   } else {
     bed?.stop();
     bed = null;
+    if (ctx && ctx.state !== 'closed') ctx.suspend().catch(() => {});
   }
   paintButton();
   return on;

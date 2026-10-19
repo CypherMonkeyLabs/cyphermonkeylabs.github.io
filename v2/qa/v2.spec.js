@@ -139,6 +139,27 @@ for (const url of pages) {
     expect(overflow, `${url} horizontal overflow`).toBeLessThanOrEqual(1);
     expect(errors, errors.join("\n")).toEqual([]);
 
+    if (url.endsWith("/v2/index.html")) {
+      await page.evaluate(() => window.CMFX && window.CMFX.ready);
+      const hero = await page.evaluate(() => {
+        const stage = document.querySelector(".hero .stage");
+        const canvas = document.getElementById("hero-canvas");
+        return {
+          stage: stage ? stage.getBoundingClientRect().height : 0,
+          canvas: canvas ? canvas.getBoundingClientRect().height : 0
+        };
+      });
+      expect(hero.stage, `${url} hero stage height`).toBeGreaterThan(0);
+      expect(hero.canvas, `${url} hero canvas height`).toBeGreaterThan(0);
+      if (info.project.name === "short") {
+        const doors = page.locator("#doors");
+        await doors.scrollIntoViewIfNeeded();
+        await expect(doors, "#doors visible at 390x430").toHaveCSS("opacity", "1");
+        const box = await doors.boundingBox();
+        expect(box && box.height, "#doors height at 390x430").toBeGreaterThan(0);
+      }
+    }
+
     const project = info.project.name;
     const file = await saveShot(page, project, url);
     const ours = await page.locator("body").getAttribute("data-suite");

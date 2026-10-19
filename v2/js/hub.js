@@ -363,7 +363,7 @@
   function bootGlobe(fx) {
     const mount = document.getElementById("eco-globe");
     const section = document.getElementById("map");
-    if (!mount || !section || !fx || typeof fx.globe3d !== "function" || motionReduced()) return;
+    if (!mount || !section || !fx || typeof fx.globe3d !== "function") return;
     const observer = new IntersectionObserver(function (entries) {
       if (!entries.some(function (entry) { return entry.isIntersecting; })) return;
       observer.disconnect();
@@ -496,22 +496,59 @@
 
   function initReveal() {
     const sections = Array.from(document.querySelectorAll("main .band"));
-    if (!sections.length || motionReduced()) return;
-    sections.forEach(function (section) {
+    if (!sections.length) return;
+
+    function show(section) {
+      section.classList.add("is-in");
+    }
+
+    function onScreen(section) {
       const rect = section.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) section.classList.add("is-in");
+      return rect.bottom > 0 && rect.top < window.innerHeight;
+    }
+
+    function revealAll() {
+      sections.forEach(show);
+    }
+
+    if (motionReduced() || typeof IntersectionObserver !== "function") {
+      revealAll();
+      return;
+    }
+
+    sections.forEach(function (section) {
+      if (onScreen(section)) show(section);
     });
+
     const observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-in");
+        if (!entry.isIntersecting && entry.intersectionRatio <= 0) return;
+        show(entry.target);
         observer.unobserve(entry.target);
       });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+    }, { rootMargin: "0px", threshold: 0 });
+
     sections.forEach(function (section) {
       if (!section.classList.contains("is-in")) observer.observe(section);
     });
     document.documentElement.classList.add("reveal-ready");
+
+    function scan() {
+      sections.forEach(function (section) {
+        if (!section.classList.contains("is-in") && onScreen(section)) show(section);
+      });
+    }
+    document.addEventListener("scroll", scan, { passive: true, capture: true });
+    window.addEventListener("resize", scan);
+
+    function failsafe() {
+      revealAll();
+      observer.disconnect();
+      document.removeEventListener("scroll", scan, true);
+      window.removeEventListener("resize", scan);
+    }
+    if (document.readyState === "complete") window.setTimeout(failsafe, 800);
+    else window.addEventListener("load", function () { window.setTimeout(failsafe, 800); }, { once: true });
   }
 
   function boot() {

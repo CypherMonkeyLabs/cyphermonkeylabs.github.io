@@ -23,7 +23,23 @@ const timelineFile = readJson('timeline.json');
 const site = readJson('site.json');
 const labs = labsFile.labs;
 const categories = categoriesFile.categories;
-const profiles = [...socialsFile.profiles].filter((profile) => profile.url).sort((a, b) => a.order - b.order);
+function outboundAllowed(url) {
+  let parsed;
+  try { parsed = new URL(url); } catch (error) { return false; }
+  const host = parsed.hostname.replace(/^www\./, '').toLowerCase();
+  if (host === 'cyphermonkeylabs.com' || host.endsWith('.cyphermonkeylabs.com')) return true;
+  if (host === 'linktr.ee') {
+    return (parsed.pathname.split('/').filter(Boolean)[0] || '') === 'CypherMonkey';
+  }
+  if (host === 'github.com') {
+    return (parsed.pathname.split('/').filter(Boolean)[0] || '') === 'CypherMonkeyLabs';
+  }
+  return false;
+}
+
+const profiles = [...socialsFile.profiles]
+  .filter((profile) => profile.url && outboundAllowed(profile.url))
+  .sort((a, b) => a.order - b.order);
 const timeline = mergeTimeline(timelineFile.entries, labs);
 const labTotal = countLabs(labs);
 const featured = featuredDoors(labs);
