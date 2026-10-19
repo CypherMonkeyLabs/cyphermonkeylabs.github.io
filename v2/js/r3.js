@@ -125,9 +125,10 @@ async function scene() {
   const core = new T.Mesh(new T.IcosahedronGeometry(1.15, 1), new T.MeshStandardMaterial({ color: 0xffe9c9, emissive: 0xffb48f, emissiveIntensity: 0.9, flatShading: true, metalness: 0.2, roughness: 0.35 }));
   sys.add(core);
   const cg = new T.Sprite(new T.SpriteMaterial({ map: glowTex, color: 0xffc9a0, blending: T.AdditiveBlending, depthWrite: false, transparent: true })); cg.scale.setScalar(6); sys.add(cg);
+  const cg2 = new T.Sprite(new T.SpriteMaterial({ map: glowTex, color: 0x9a7bff, blending: T.AdditiveBlending, depthWrite: false, transparent: true, opacity: 0.55 })); cg2.scale.setScalar(13); sys.add(cg2);
   const labs = TONES.map((tone, i) => {
     const g = new T.Group(), m = new T.Mesh(new T.OctahedronGeometry(0.32, 0), new T.MeshStandardMaterial({ color: tone, emissive: tone, emissiveIntensity: 0.7, flatShading: true, roughness: 0.3 }));
-    const s = new T.Sprite(new T.SpriteMaterial({ map: glowTex, color: tone, blending: T.AdditiveBlending, depthWrite: false, transparent: true })); s.scale.setScalar(1.9);
+    const s = new T.Sprite(new T.SpriteMaterial({ map: glowTex, color: tone, blending: T.AdditiveBlending, depthWrite: false, transparent: true })); s.scale.setScalar(2.6);
     g.add(m, s); sys.add(g);
     return { g, m, r: 3 + (i % 3) * 1.15, a: (i / 13) * Math.PI * 2, sp: 0.18 - (i % 3) * 0.04, y: Math.sin(i * 2.1) * 0.35 };
   });
@@ -136,8 +137,16 @@ async function scene() {
     const lg = new T.BufferGeometry(); lg.setAttribute('position', new T.Float32BufferAttribute(pts, 3));
     const ring = new T.Points(lg, new T.ShaderMaterial({ transparent: true, depthWrite: false, blending: T.AdditiveBlending, vertexShader: 'void main(){gl_PointSize=2.;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}', fragmentShader: 'void main(){gl_FragColor=vec4(.7,.8,1.,.35);}' }));
     sys.add(ring); }
+  const LK = 13, PER = 10, lp = new Float32Array(LK * PER * 3);
+  const lgeo = new T.BufferGeometry(); lgeo.setAttribute('position', new T.BufferAttribute(lp, 3));
+  const links = new T.Points(lgeo, new T.ShaderMaterial({ transparent: true, depthWrite: false, blending: T.AdditiveBlending, uniforms: { px: { value: R.getPixelRatio() } }, vertexShader: 'uniform float px;void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_PointSize=3.*px*(11./-mv.z);gl_Position=projectionMatrix*mv;}', fragmentShader: 'void main(){float d=length(gl_PointCoord-.5);gl_FragColor=vec4(.75,.85,1.,smoothstep(.5,0.,d)*.8);}' }));
+  sys.add(links);
+  const tmpA = new T.Vector3(), tmpB = new T.Vector3();
+  const updLinks = t => { for (let i = 0; i < LK; i++) { tmpA.copy(labs[i].g.position); tmpB.copy(labs[(i + 1) % LK].g.position); for (let k = 0; k < PER; k++) { const f = ((k / PER) + t * 0.25 + i * 0.07) % 1, j = (i * PER + k) * 3; lp[j] = tmpA.x + (tmpB.x - tmpA.x) * f; lp[j + 1] = tmpA.y + (tmpB.y - tmpA.y) * f; lp[j + 2] = tmpA.z + (tmpB.z - tmpA.z) * f; } } lgeo.attributes.position.needsUpdate = true; };
+  let warp = 0;
+  addEventListener('cm-warp', () => { warp = 1; });
   stage.classList.add('r3-3d');
-  const size = () => { const w = stage.clientWidth || innerWidth, h = stage.clientHeight || innerHeight; R.setSize(w, h, false); C.aspect = w / h; C.position.z = w < 600 ? 15 : 11; sys.position.x = w < 900 ? 0 : 3.2; C.updateProjectionMatrix(); };
+  const size = () => { const w = stage.clientWidth || innerWidth, h = stage.clientHeight || innerHeight; R.setSize(w, h, false); C.aspect = w / h; const nar = w < 800; C.position.z = nar ? 15 : 11; sys.position.x = nar ? 0 : 3.2; sys.position.y = nar ? 4.6 : 0; sys.scale.setScalar(nar ? 0.44 : 1); R.setPixelRatio(Math.min(devicePixelRatio, nar ? 1.25 : 1.75)); R.setSize(w, h, false); C.updateProjectionMatrix(); };
   size(); addEventListener('resize', size);
   let mx = 0, my = 0, tx = 0, ty = 0, vis = true;
   addEventListener('pointermove', e => { tx = e.clientX / innerWidth - 0.5; ty = e.clientY / innerHeight - 0.5; }, { passive: true });
@@ -147,14 +156,29 @@ async function scene() {
     const t = (now - t0) / 1000, sc = Math.min(1, scrollY / innerHeight);
     mx += (tx - mx) * 0.05; my += (ty - my) * 0.05;
     sm.uniforms.t.value = t; neb.material.uniforms.t.value = t;
-    C.position.x = mx * 2.4; C.position.y = 1.2 - my * 1.6 + sc * 3; C.lookAt(0, sc * -1.5, 0);
+    C.position.x = mx * 2.4; C.position.y = 1.2 - my * 1.6 + sc * 3; C.lookAt(0, sc * -1.5, 0); const pulse = 1 + Math.sin(t * 2) * 0.08; cg.scale.setScalar(6 * pulse); cg2.scale.setScalar(13 * pulse);
     sys.rotation.y = t * 0.05 + sc * 1.2; core.rotation.y = t * 0.4; core.rotation.x = t * 0.25;
-    labs.forEach(o => { const a = o.a + t * o.sp; o.g.position.set(Math.cos(a) * o.r, o.y + Math.sin(t + o.a) * 0.15, Math.sin(a) * o.r); o.m.rotation.y = t * 1.2; });
+    labs.forEach(o => { const a = o.a + t * o.sp; o.g.position.set(Math.cos(a) * o.r, o.y + Math.sin(t + o.a) * 0.15, Math.sin(a) * o.r); o.m.rotation.y = t * 1.2; }); updLinks(t);
+    warp *= 0.96; sm.uniforms.px.value = R.getPixelRatio() * (1 + warp * 4); C.position.z = (innerWidth < 800 ? 15 : 11) - warp * 4;
     R.render(S, C);
   };
   if (RM) { frame(t0 + 4000); addEventListener('resize', () => frame(t0 + 4000)); return; }
   R.setAnimationLoop(now => { if (vis && !document.hidden) frame(now); });
 }
 
-intro(); astronaut(); guide(); reveals(); counters(); magnetic();
+function holo() {
+  $$('.portal').forEach((c, i) => {
+    c.classList.add('r3-holo'); c.style.setProperty('--holo', '#' + TONES[i % 13].toString(16).padStart(6, '0'));
+    c.addEventListener('pointermove', e => { const r = c.getBoundingClientRect(); c.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%'); c.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%'); });
+  });
+}
+function warpBtn() {
+  const b = $('.cta-row .btn.primary'); if (!b) return;
+  b.addEventListener('click', () => {
+    dispatchEvent(new Event('cm-warp')); chime(1319, 0.5, 0.05);
+    if (RM) return;
+    for (let i = 0; i < 6; i++) { const s = document.createElement('i'); s.className = 'r3-star'; s.style.top = (8 + Math.random() * 50) + 'vh'; s.style.left = (30 + Math.random() * 70) + 'vw'; s.style.animationDelay = (i * 0.08) + 's'; document.body.appendChild(s); setTimeout(() => s.remove(), 1600); }
+  });
+}
+intro(); astronaut(); holo(); warpBtn(); guide(); reveals(); counters(); magnetic();
 scene().catch(() => {});
